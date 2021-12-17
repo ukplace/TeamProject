@@ -7,10 +7,16 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.itwillbs.domain.MemberDTO;
+import com.itwillbs.service.AdminService;
+
 
 
 @Controller
 public class AdminController {
+	
+	@Inject
+	private AdminService adminService;
 	
 	
 	@RequestMapping(value = "/admin/login", method = RequestMethod.GET)
@@ -20,13 +26,27 @@ public class AdminController {
 		}
 	
 	@RequestMapping(value = "/admin/loginPro", method = RequestMethod.POST)
-		public String loginPro( HttpSession session) {
+		public String loginPro(MemberDTO memberDTO, HttpSession session) {
 			System.out.println("/admin/loginPro");
 			
+			MemberDTO userCheck = adminService.userCheck(memberDTO);
+			
+			if(userCheck != null) {
+				System.out.println(memberDTO.getEmail());
 				
-			
+				if(userCheck.getEmail().equals("admin@shushu")) {
+					session.setAttribute("adminEmail", memberDTO);
+					return "redirect:/admin/index";
+				}else {
+					session.setAttribute("userEmail", memberDTO);
+					session.setAttribute("userPassword", memberDTO);
+					return "redirect:/foot/index";
+				}
+						
+			}else {
+				
 				return "admin/login";
-			
+			}
 			
 		}
 	
