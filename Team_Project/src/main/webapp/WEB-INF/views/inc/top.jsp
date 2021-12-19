@@ -38,10 +38,12 @@
 									</ul>
 								</li>
 								<li><a href="${pageContext.request.contextPath}/foot/women">Women</a></li>
+								<li><a href="${pageContext.request.contextPath}/foot/kids">Kids</a></li>
 								<li><a href="${pageContext.request.contextPath}/foot/about">About</a></li>
 								<li><a href="${pageContext.request.contextPath}/foot/contact">Contact</a></li>
 								<li class="cart"><a href="${pageContext.request.contextPath}/foot/cart"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
-								<li class="cart"><a href="{pageContext.request.contextPath}/foot/contact" >login</a></li>
+								<li class="cart"><a href="${pageContext.request.contextPath}/foot/join" >JOIN</a></li>
+								<li class="cart"><a href="${pageContext.request.contextPath}/foot/login" >LOGIN</a></li>
 								
 							</ul>
 						</div>
