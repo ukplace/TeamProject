@@ -75,6 +75,24 @@ public class AdminController {
         // /WEB-INF/views/admin/orderList.jsp
         return "admin/orderList";
      }
+	 
+	 @RequestMapping(value = "/admin/orderDetail", method = RequestMethod.GET)
+     public String orderDetail() {
+        // /WEB-INF/views/admin/orderDetail.jsp
+        return "admin/orderDetail";
+     }
+	 
+	 @RequestMapping(value = "/admin/memberList", method = RequestMethod.GET)
+     public String memberList() {
+        // /WEB-INF/views/admin/memberList.jsp
+        return "admin/memberList";
+     }
+	 
+	 @RequestMapping(value = "/admin/memberDetail", method = RequestMethod.GET)
+     public String memberDetail() {
+        // /WEB-INF/views/admin/memberDetail.jsp
+        return "admin/memberDetail";
+     }
 
 	 
 	 @RequestMapping(value = "/admin/salesList", method = RequestMethod.GET)
@@ -83,12 +101,6 @@ public class AdminController {
         return "admin/salesList";
      }
 	 
-
-	 @RequestMapping(value = "/admin/memberList", method = RequestMethod.GET)
-     public String memberList() {
-        // /WEB-INF/views/admin/memberList.jsp
-        return "admin/memberList";
-     }
 
 	 @RequestMapping(value = "/admin/notice", method = RequestMethod.POST)
      public String adminNotice() {

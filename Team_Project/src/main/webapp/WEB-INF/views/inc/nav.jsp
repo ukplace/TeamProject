@@ -159,8 +159,8 @@
                          	<li>
                                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 회원관리<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
-                                   <li>   회원 리스트
-                                       <!--  <a href="<${pageContext.request.contextPath}/admin/memberList ">회원 리스트</a>  -->
+                                   <li>  
+                                        <a href="${pageContext.request.contextPath}/admin/memberList ">회원 리스트</a> 
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
