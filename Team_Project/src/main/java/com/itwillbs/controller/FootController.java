@@ -81,7 +81,21 @@ public class FootController {
 		// /WEB-INF/views/board/writeForm.jsp
 		return "foot/qna_write";
 	}
-
+	@RequestMapping(value = "/foot/qna_update", method = RequestMethod.GET)
+	public String qna_update() {
+		// /WEB-INF/views/board/qna_update.jsp
+		return "foot/qna_update";
+	}
+	@RequestMapping(value = "/foot/qna_delete", method = RequestMethod.GET)
+	public String qna_delete() {
+		// /WEB-INF/views/foot/qna_delete.jsp
+		return "foot/qna_delete";
+	}
+	@RequestMapping(value = "/foot/qnaDeletePro", method = RequestMethod.POST)
+	public String qnaDeletePro() {
+		// /WEB-INF/views/foot/qnaDeletePro.jsp
+		return "redirect:/foot/product-detail";
+	}
 	@RequestMapping(value = "/foot/review", method = RequestMethod.GET)
 	public String review() {
 		// /WEB-INF/views/foot/review.jsp
@@ -107,15 +121,7 @@ public class FootController {
 		// /WEB-INF/views/foot/product-detail.jsp
 		return "redirect:/foot/product-detail";
 	}
-	@RequestMapping(value = "/foot/reviewDelete", method = RequestMethod.GET)
-	public String reviewDelete() {
-		// /WEB-INF/views/foot/reviewDelete.jsp
-		return "foot/reviewDelete";
-	}
-	@RequestMapping(value = "/foot/reviewDeletePro", method = RequestMethod.POST)
-	public String reviewDeletePro() {
-		// /WEB-INF/views/foot/reviewDelete.jsp
-		return "redirect:/foot/product-detail";
-	}
+
+	
 
 }

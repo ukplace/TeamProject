@@ -83,7 +83,7 @@
 		<div class="row" >
 			<div class="col-lg-8" style="width: 1200px; display: inline-block; margin: 0 auto;">
 				<form action="${pageContext.request.contextPath}/foot/qnaWritePro" method="post" class="colorlib-form">
-					<h2>문의를 남겨주세요!</h2>
+					<h2>문의를 수정하세요!</h2>
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">
@@ -154,7 +154,7 @@
 					<div class="col-sm-12">
 										<div class="form-group" style="text-align: center;">
 											<input type="submit" value="등록" class="btn btn-primary">
-											<input type="submit" value="목록" class="btn btn-primary">
+											<input type="submit" value="취소" class="btn btn-primary">
 										</div>
 									</div>
 			</div>
