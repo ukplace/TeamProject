@@ -137,6 +137,20 @@
 														href="#">2020-12-19</a></td>
 													<!-- ${memberDTO.date } -->
 												</tr>
+												<tr class="odd gradeX">
+													<td style="text-align: center; line-height: auto;"><a
+														href="#">2</a></td>
+													<!-- ${memberDTO.id } -->
+													<td id="Qna1"	style="text-align: center; line-height: auto; margin: auto;"><a
+														href="#">bye@naver.com</a></td>
+													<!-- ${memberDTO.pass } -->
+													<td style="text-align: center; line-height: auto;"><a
+														href="#">배송은 언제되나요?</a></td>
+													<!-- ${memberDTO.name } -->
+													<td class="center" style="line-height: auto;"><a
+														href="#">2020-12-19</a></td>
+													<!-- ${memberDTO.date } -->
+												</tr>
 												
 												<!-- 글번호 1번의 답변 -->
 												<tr id="Qna1" style="display: none;">
@@ -159,9 +173,26 @@
 											</c:forEach>
 											<!-- 문의리스트 반복문 끝 -->
 											<!-- </c:forEach> -->
+											
 										</tbody>
 									</table>
 								</div>
+								<!-- 페이징 버튼 -->
+								<div class="row">
+							<div class="col-md-12 text-center">
+								<div class="block-27">
+				               <ul>
+					               <li><a href="#"><i class="ion-ios-arrow-back"></i></a></li>
+				                  <li class="active"><span>1</span></li>
+				                  <li><a href="#">2</a></li>
+				                  <li><a href="#">3</a></li>
+				                  <li><a href="#">4</a></li>
+				                  <li><a href="#">5</a></li>
+				                  <li><a href="#"><i class="ion-ios-arrow-forward"></i></a></li>
+				               </ul>
+				            </div>
+							</div>
+						</div>
 								<!-- /.table-responsive -->
 							</div>
 							<!-- /.panel-body -->
