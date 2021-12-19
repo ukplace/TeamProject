@@ -36,6 +36,40 @@
 
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+	
+	<link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+<style type="text/css">
+.form-control-1 {
+	display: block;
+	width: 100%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow
+		ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out
+		.15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+}
+
+.checks {position: relative;}
+.checks input[type="radio"] { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip:rect(0,0,0,0); border: 0; }
+.checks input[type="radio"] + label { display: inline-block; position: relative; padding-left: 30px; cursor: pointer; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; }
+.checks input[type="radio"] + label:before { content: ''; position: absolute; left: 0; top: -4px; width: 21px; height: 21px; text-align: center; background: #fafafa; border: 1px solid #cacece; border-radius: 100%; box-shadow: 0px 1px 2px rgba(0,0,0,0.05), inset 0px -15px 10px -12px rgba(0,0,0,0.05); }
+.checks input[type="radio"] + label:active:before, .checks input[type="radio"]:checked + label:active:before { box-shadow: 0 1px 2px rgba(0,0,0,0.05), inset 0px 1px 3px rgba(0,0,0,0.1); }
+.checks input[type="radio"]:checked + label:before { background: #E9ECEE; border-color: #adb8c0; }
+.checks input[type="radio"]:checked + label:after { content: ''; position: absolute; top: 1px; left: 5px; width: 13px; height: 13px; background: #99a1a7; border-radius: 100%; box-shadow: inset 0px 0px 10px rgba(0,0,0,0.3); }
+
+
+</style>
 
 
 	</head>
@@ -68,7 +102,7 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-8" >
-						<form method="post" class="colorlib-form">
+						<form method="post" class="colorlib-form" name="join">
 							<h2>회원가입</h2>
 		              		<div class="row">
 								<div class="col-md-12">
@@ -79,36 +113,42 @@
 									
 										
 										<div class="form-group">
-										<label for="email">* 이메일 </label>
-			                    		<input type="email" id="email" name="email" placeholder="example@email.com" class="form-control" required="required"/><input type="button" value="중복확인">
+										<label for="email"><h4>* 이메일</h4> </label><br>
+										<table >
+			                    		<tr><td width="80%"><input type="email" id="email" name="email" placeholder="example@email.com" class="form-control" required="required" ></td>
+			                    		<td>&nbsp&nbsp</td>
+			                    		<td><input type="button" value="중복확인" class ="btn btn-default btn-lg"></td></tr>
+			                    		</table>
 			               	 			</div>
 			               	 			
 									     <div class="form-group">
-										 <label for="password">* 비밀번호</label>
+										 <label for="password"><h4>* 비밀번호</h4></label>
   										 <input type="password" id="password" name="password" placeholder="영문,숫자 포함 입력해주세요" class="form-control" required="required" />      
  								 		 </div>
  								         
  								         <div class="form-group">
-										 <label for="password2">* 비밀번호 확인</label>
+										 <label for="password2"><h4>* 비밀번호 확인</h4></label>
   										 <input type="password2" id="password2" name="password2" placeholder="비밀번호를 확인해주세요" class="form-control"  required="required" />      
  								 		 </div>
  								 
  								 
-			                 	 	    <div class="form-group">
-			                    		<label for="gender">성별</label>
-			                     		<div class="form-field">
-			                      		<i class="icon icon-arrow-down3"></i>
-			                       		<select name="people" id="people" class="form-control">
-				                      	<option >성별을 선택하세요</option>
-				                     	   <option >여성</option>
-				                        	<option >남성</option> 
-			                        	</select>
-			                     		</div>
-  										</div>
+			                      		 <div class="form-group">
+			                      		 	<div class="checks">
+                                             <label><h4>성별</h4></label>
+                                             <label class="radio-inline">
+                                                 <input type="radio" name="genderCheck1" id="genderCheck1" value="1">
+                                                 <label for="genderCheck1">남</label>
+                                             </label>
+                                             <label class="radio-inline">
+                                                 <input type="radio" name="genderCheck1" id="genderCheck2" value="2">
+                                                 <label for="genderCheck2">여</label> 
+                                             </label>
+                                             </div>
+                                        </div>
   										            
 			    
 										<div class="form-group">
-										<label for="birth">생년월일</label>
+										<label for="birth"><h4>생년월일</h4></label>
    										<input type="text" id="birth" name="birth" placeholder="이름을 입력해주세요" class="form-control" required="required" />      
   										</div>
   										
@@ -116,29 +156,29 @@
 			              
 						
 										<div class="form-group">
-										<label for="zip">우편번호</label>
+										<label for="zip"><h4>우편번호</h4></label>
    										<input type="text" id="zip" name="zip" placeholder="우편번호를 입력해주세요" class="form-control" required="required" />      
   										</div>
 							
 									     <div class="form-group">
-										<label for="adress1">주소</label>
+										<label for="adress1"><h4>주소</h4></label>
    										<input type="text" id="adress1" name="adress1" placeholder="주소를 입력해주세요" class="form-control" required="required" />      
   										</div>
   										
   										<div class="form-group">
-										<label for="adress2">상세주소</label>
+										<label for="adress2"><h4>상세주소</h4></label>
    										<input type="text" id="adress2" name="adress2" placeholder="상세주소를 입력하세요" class="form-control" required="required" />      
   										</div>
   										
   										
   										<div class="form-group">
-										<label for="tel">전화번호</label>
+										<label for="tel"><h4>전화번호</h4></label>
    										<input type="text" id="tel" name="tel"placeholder="전화번호를 입력해주세요" class="form-control" required="required" />      
   										</div>
   										
   										
-  										<input type="submit" value="회원가입">
-										<input type="button" value="취소" onclick="history.back()">
+  										<input type="submit" class="btn btn-default" value="회원가입">
+										<input type="button" class="btn btn-default" value="취소" onclick="history.back()">
 										
 			
 			
