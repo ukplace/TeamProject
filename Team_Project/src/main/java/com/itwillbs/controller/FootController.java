@@ -121,6 +121,33 @@ public class FootController {
 		// /WEB-INF/views/foot/product-detail.jsp
 		return "redirect:/foot/product-detail";
 	}
+	
+	@RequestMapping(value = "/foot/orderList", method = RequestMethod.GET)
+	public String orderList() {
+		// /WEB-INF/views/foot/orderList.jsp
+		return "foot/orderList";
+	}
+	
+	@RequestMapping(value = "/foot/orderDetail", method = RequestMethod.GET)
+	public String orderDetail() {
+		// /WEB-INF/views/foot/orderDetail.jsp
+		return "foot/orderDetail";
+	}
+	
+	@RequestMapping(value = "/foot/memberInfo", method = RequestMethod.GET)
+	public String memberInfo() {
+		// /WEB-INF/views/foot/memberInfo.jsp
+		return "foot/memberInfo";
+	}
+	
+	@RequestMapping(value = "/foot/withdrawal", method = RequestMethod.GET)
+	public String withdrawal() {
+		// /WEB-INF/views/foot/withdrawal.jsp
+		return "foot/withdrawal";
+	}
+	
+	
+	
 
 	
 

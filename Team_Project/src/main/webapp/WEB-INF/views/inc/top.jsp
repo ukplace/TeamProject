@@ -42,6 +42,14 @@
 								<li><a href="${pageContext.request.contextPath}/foot/about">About</a></li>
 								<li><a href="${pageContext.request.contextPath}/foot/contact">Contact</a></li>
 								<li class="cart"><a href="${pageContext.request.contextPath}/foot/cart"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
+								<li class="has-dropdown cart">
+									MyPage
+									<ul class="dropdown">
+										<li><a href="${pageContext.request.contextPath}/foot/orderList">주문내역</a></li>
+										<li><a href="${pageContext.request.contextPath}/foot/memberInfo">회원정보</a></li>
+										<li><a href="${pageContext.request.contextPath}/foot/withdrawal">회원탈퇴</a></li>
+									</ul>
+								</li>
 								<li class="cart"><a href="${pageContext.request.contextPath}/foot/join" >JOIN</a></li>
 								<li class="cart"><a href="${pageContext.request.contextPath}/foot/login" >LOGIN</a></li>
 								
