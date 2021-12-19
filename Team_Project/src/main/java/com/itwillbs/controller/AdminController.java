@@ -180,6 +180,11 @@ public class AdminController {
 	      // /WEB-INF/views/admin/writeForm.jsp
 	      return "admin/typography";
 	   }
+	 @RequestMapping(value = "/admin/qna_list", method = RequestMethod.GET)
+	   public String qna_list() {
+	      // /WEB-INF/views/admin/qna_list.jsp
+	      return "admin/qna_list";
+	   }
 	 
 	 
 }
