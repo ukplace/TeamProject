@@ -1,80 +1,149 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
+<!DOCTYPE HTML>
+<html>
+	<head>
+	<title>Footwear - Free Bootstrap 4 Template by Colorlib</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>Foot-loginPage</title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Rokkitt:100,300,400,700" rel="stylesheet">
+	
+	<!-- Animate.css -->
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/animate.css">
+	<!-- Icomoon Icon Fonts-->
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/icomoon.css">
+	<!-- Ion Icon Fonts-->
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/ionicons.min.css">
+	<!-- Bootstrap  -->
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 
-        <!-- Bootstrap Core CSS -->
-        <link href="../css/bootstrap.min.css" rel="stylesheet">
+	<!-- Magnific Popup -->
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/magnific-popup.css">
 
-        <!-- MetisMenu CSS -->
-        <link href="../css/metisMenu.min.css" rel="stylesheet">
+	<!-- Flexslider  -->
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/flexslider.css">
 
-        <!-- Custom CSS -->
-        <link href="../css/startmin.css" rel="stylesheet">
+	<!-- Owl Carousel -->
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/owl.carousel.min.css">
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/owl.theme.default.min.css">
+	
+	<!-- Date Picker -->
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-datepicker.css">
+	<!-- Flaticons  -->
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/fonts/flaticon/font/flaticon.css">
 
-        <!-- Custom Fonts -->
-        <link href="../css/font-awesome.min.css" rel="stylesheet" type="text/css">
+	<!-- Theme style  -->
+	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 
-        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-        <!--[if lt IE 9]>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-        <![endif]-->
-    </head>
-    <body>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4 col-md-offset-4">
-                    <div class="login-panel panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Please Sign In</h3>
-                        </div>
-                        <div class="panel-body">
-                            <form role="form" action="${pageContext.request.contextPath}/admin/loginPro" method ="POST">
-                                <fieldset>
-                                    <div class="form-group">
-                                        <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
-                                    </div>
-                                    <div class="form-group">
-                                        <input class="form-control" placeholder="Password" name="password" type="password" value="">
-                                    </div>
-                                    <div class="checkbox">
-                                        <label>
-                                            <input name="remember" type="checkbox" value="Remember Me">Remember Me <br>
-                                            <input type = "submit" value = " 로그인">
-                                        </label>
-                                    </div>
-                                    <!-- Change this to a button or input when using this as a form -->
-<!--                                     <a href="index" class="btn btn-lg btn-success btn-block">Login</a> -->
-                                </fieldset>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+	</head>
+	<body>
+		
+	<div class="colorlib-loader"></div>
 
-        <!-- jQuery -->
-        <script src="../js/jquery.min.js"></script>
+	<div id="page">
+	<nav class="colorlib-nav" role="navigation">
+		<!-- 헤더들어가는곳 -->
+		<jsp:include page="../inc/top.jsp"></jsp:include>
+		<!-- 헤더들어가는곳 -->
+	</nav>
 
-        <!-- Bootstrap Core JavaScript -->
-        <script src="../js/bootstrap.min.js"></script>
+		<div class="breadcrumbs">
+			<div class="container">	
+				<div class="row">
+					<div class="col">
+					<p class="bread"><span><a href="${pageContext.request.contextPath}/foot/join/">회원가입</a></span> / <span>로그인</span></p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="container">
+				<div class="row row-pb-lg">
+					<div class="col-sm-10 offset-md-1">
+						<div class="process-wrap">
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-8" >
+						<form method="post" class="colorlib-form">
+							<h2>로그인</h2>
+		              		<div class="row">
+								<div class="col-md-12">
+									<div class="form-group">
+									</div>
+									</div>
+									<div class="col-md-7">
+									
+										
+										
+										
+  										 <div class="form-group">
+                                         <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                    	 </div>
+                                   		 <div class="form-group">
+                                         <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                   		 </div>
+                                   		 <div class="checkbox">
+                                         &nbsp; &nbsp; &nbsp;&nbsp;<input name="remember" type="checkbox"  value="Remember Me" >로그인 정보 저장<br>
+                                         <br>
+                                         
+                                         <input type = "submit" class="btn btn-default" value = " 로그인" >&nbsp; &nbsp;
+                                         <input type="submit" class="btn btn-default" value="회원가입">
+                                        
+                                   		 </div>
+  										
+			              
+  										
+  										
+										
+			
+			
+			</div>
+		    </div>
+		    </form>
+		   </div>
+		   </div>
+		   </div>
+					
+			<footer id="colorlib-footer" role="contentinfo">
+			<!-- 푸터들어가는곳 -->
+			<jsp:include page="../inc/bottom.jsp"></jsp:include>
+			<!-- 푸터들어가는곳 -->
+		</footer>
+	</div>
 
-        <!-- Metis Menu Plugin JavaScript -->
-        <script src="../js/metisMenu.min.js"></script>
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="ion-ios-arrow-up"></i></a>
+	</div>
+	
+	<!-- jQuery -->
+	<script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
+   <!-- popper -->
+   <script src="${pageContext.request.contextPath}/js/popper.min.js"></script>
+   <!-- bootstrap 4.1 -->
+   <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+   <!-- jQuery easing -->
+   <script src="${pageContext.request.contextPath}/js/jquery.easing.1.3.js"></script>
+	<!-- Waypoints -->
+	<script src="${pageContext.request.contextPath}/js/jquery.waypoints.min.js"></script>
+	<!-- Flexslider -->
+	<script src="${pageContext.request.contextPath}/js/jquery.flexslider-min.js"></script>
+	<!-- Owl carousel -->
+	<script src="${pageContext.request.contextPath}/js/owl.carousel.min.js"></script>
+	<!-- Magnific Popup -->
+	<script src="${pageContext.request.contextPath}/js/jquery.magnific-popup.min.js"></script>
+	<script src="${pageContext.request.contextPath}/js/magnific-popup-options.js"></script>
+	<!-- Date Picker -->
+	<script src="${pageContext.request.contextPath}/js/bootstrap-datepicker.js"></script>
+	<!-- Stellar Parallax -->
+	<script src="${pageContext.request.contextPath}/js/jquery.stellar.min.js"></script>
+	<!-- Main -->
+	<script src="${pageContext.request.contextPath}/js/main.js"></script>
 
-        <!-- Custom Theme JavaScript -->
-        <script src="../js/startmin.js"></script>
 
-    </body>
+	</body>
 </html>
+
