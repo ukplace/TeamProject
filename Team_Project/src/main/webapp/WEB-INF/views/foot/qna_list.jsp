@@ -84,7 +84,7 @@
 						<p class="bread">
 							<span><a
 								href="${pageContext.request.contextPath}/foot/index/">Home</a></span> /
-							<span>Contact</span>
+							<span>QNA list</span>
 						</p>
 					</div>
 				</div>

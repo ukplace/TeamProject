@@ -61,6 +61,21 @@ function changeSize(size){
 
         
  <style type="text/css">
+ .regist-button{
+ 	align: center;
+ 	
+ }
+ 
+ .table-regist{
+ 	margin : auto;
+ 	padding : 40px;
+ 	background: #f0f8ff;
+ 	width: 60%;
+ 	
+ 
+ }
+ 
+ 
  .btn.btn-primary.btn-lg{
  	text-align: center;
  }
@@ -110,7 +125,6 @@ function changeSize(size){
                         <div class="col-lg-12">
                             
 <form action="registPro" method="post" name="registForm" onsubmit="return checkForm()" >                     
-       <h1 class="page-header" align="center">제품등록</h1>
    <%--  <table class="table-ca" width=60% tyletable-layout:fixed cellspacing=() cellpadding=1;>                 
        <tr >
           <td width=30% id=td1 align="center"> 구분 1 </td>
@@ -131,10 +145,16 @@ function changeSize(size){
       	</table>
  --%>
 		<div class="main">
-		<table border=1>
+		<div class=table-regist>
+       <h1 class="page-header" align="center">제품등록</h1>
+		<table >
       <!-- 제품명 -->
 	      <tr>
-			<th>카테고리</th>
+			<th>카테고리-대분류</th>
+			<td><input type="text" name="" required="required" size="20"></td>
+		 </tr>
+		 <tr>
+			<th>카테고리-소분</th>
 			<td><input type="text" name="" required="required" size="20"></td>
 		 </tr>
 		  <tr>
@@ -208,11 +228,16 @@ function changeSize(size){
 				</tr>
 				<tr>
 				<th>제품 설명</th>
-				<td></td>
+					<td>
+						<textarea rows="20" cols="40"></textarea>
+					</td></tr>
+					<tr><td colspan="2" align="center">
+						<input type="button" class="btn btn-default" value="등록" >
+	   					<input type="reset" class="btn btn-default" value="취소">
+   					</td></tr>
    				</table>
-			
-			<br><br><button type="button" class="btn btn-primary btn-lg" value="제품 등록"></button>
-			<button type="reset" class="btn btn-primary btn-lg" value="초기화"></button>
+   				
+   				</div>
 		</div>	
 			
 	</form>
