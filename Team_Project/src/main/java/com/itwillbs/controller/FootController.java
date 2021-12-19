@@ -51,10 +51,25 @@ public class FootController {
 		// /WEB-INF/views/board/writeForm.jsp
 		return "foot/women";
 	}
+	@RequestMapping(value = "/foot/kids", method = RequestMethod.GET)
+	public String kids() {
+		// /WEB-INF/views/board/writeForm.jsp
+		return "foot/kids";
+	}
 	@RequestMapping(value = "/foot/test", method = RequestMethod.GET)
 	public String test() {
 		// /WEB-INF/views/board/writeForm.jsp
 		return "foot/test";
+	}
+	@RequestMapping(value = "/foot/login", method = RequestMethod.GET)
+	public String login() {
+		// /WEB-INF/views/board/writeForm.jsp
+		return "foot/login";
+	}
+	@RequestMapping(value = "/foot/join", method = RequestMethod.GET)
+	public String join() {
+		// /WEB-INF/views/board/writeForm.jsp
+		return "foot/join";
 	}
 
 }
