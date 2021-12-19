@@ -187,8 +187,8 @@
                          	<li>
                                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 리뷰관리<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
-                                   <li>   리뷰 리스트<
-                                        <!--  <a href="${pageContext.request.contextPath}/admin/reviewList">리뷰 리스트</a> -->
+                                   <li>
+										<a href="${pageContext.request.contextPath}/admin/reviewList">리뷰 리스트</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
