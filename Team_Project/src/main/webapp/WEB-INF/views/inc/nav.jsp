@@ -145,8 +145,8 @@
                          	<li>
                                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 매출관리<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
-                                   <li>   
-                                        <a href="${pageContext.request.contextPath}/admin/salesList">매출 리스트</a>
+                                   <li>   매출 리스트
+                                        <!-- <a href="${pageContext.request.contextPath}/admin/salesList">매출 리스트</a> -->
                                     </li>
                                     <li>
                                         <a href="${pageContext.request.contextPath}/admin/morris">Morris.js Charts</a>
@@ -159,8 +159,8 @@
                          	<li>
                                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 회원관리<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
-                                   <li>   
-                                        <a href="${pageContext.request.contextPath}/admin/memberList">회원 리스트</a>
+                                   <li>   회원 리스트
+                                       <!--  <a href="<${pageContext.request.contextPath}/admin/memberList ">회원 리스트</a>  -->
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
@@ -170,14 +170,14 @@
                          	<li>
                                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 문의관리<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
-                                   <li>   
-                                        <a href="${pageContext.request.contextPath}/admin/notice">공지사항</a>
+                                   <li>   공지사항
+                                        <!--<a href="${pageContext.request.contextPath}/admin/notice">공지사항</a>-->
                                     </li>
-                                    <li>   
-                                        <a href="${pageContext.request.contextPath}/admin/fnq"> F & Q</a>
+                                    <li>   F & Q
+                                        <!-- <a href="${pageContext.request.contextPath}/admin/fnq"> F & Q</a>-->
                                     </li>
-                                    <li>   
-                                        <a href="${pageContext.request.contextPath}/admin/qna"> Q & A</a>
+                                    <li>   Q & A
+                                        <!-- <a href="${pageContext.request.contextPath}/admin/qna"> Q & A</a>-->
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
@@ -187,8 +187,8 @@
                          	<li>
                                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 리뷰관리<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
-                                   <li>   
-                                        <a href="${pageContext.request.contextPath}/admin/reviewList">리뷰 리스트</a>
+                                   <li>   리뷰 리스트<
+                                        <!--  <a href="${pageContext.request.contextPath}/admin/reviewList">리뷰 리스트</a> -->
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->

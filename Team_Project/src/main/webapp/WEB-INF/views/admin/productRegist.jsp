@@ -205,11 +205,14 @@ function changeSize(size){
 			      <td>
 			      	<input type="file" name="pic" width = 40px value="사진등록" class="" onclick=>
 				 </td>
-				 </tr>
+				</tr>
+				<tr>
+				<th>제품 설명</th>
+				<td></td>
    				</table>
 			
-			<br><br><button type="button" class="btn btn-primary btn-lg" >제품 등록</button>
-			<button type="button" class="btn btn-primary btn-lg">초기화</button>
+			<br><br><button type="button" class="btn btn-primary btn-lg" value="제품 등록"></button>
+			<button type="reset" class="btn btn-primary btn-lg" value="초기화"></button>
 		</div>	
 			
 	</form>
