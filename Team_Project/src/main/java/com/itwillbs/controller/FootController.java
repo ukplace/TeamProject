@@ -1,6 +1,10 @@
 package com.itwillbs.controller;
 
+<<<<<<< HEAD
 import javax.inject.Inject;
+=======
+import javax.servlet.http.HttpSession;
+>>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -71,6 +75,11 @@ public class FootController {
 	public String login() {
 		// /WEB-INF/views/board/writeForm.jsp
 		return "foot/login";
+	} 
+	@RequestMapping(value = "/foot/logout", method = RequestMethod.GET)
+	public String logout(HttpSession session) {
+			session.invalidate();
+		return "foot/index";
 	} 
 	
 	@RequestMapping(value = "/foot/join", method = RequestMethod.GET)

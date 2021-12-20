@@ -34,8 +34,13 @@ public class AdminController {
 			if(userCheck != null) {
 				System.out.println(memberDTO.getM_email());
 				
+<<<<<<< HEAD
 				if(userCheck.getM_email().equals("admin@shushu")) {
 					session.setAttribute("adminEmail", memberDTO);
+=======
+				if(userCheck.getEmail().equals("admin@shushu")) {
+					session.setAttribute("id", memberDTO.getEmail());
+>>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 					return "redirect:/admin/index";
 				}else {
 					session.setAttribute("userEmail", memberDTO);
