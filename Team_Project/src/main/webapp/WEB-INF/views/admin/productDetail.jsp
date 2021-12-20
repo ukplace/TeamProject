@@ -32,6 +32,12 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
         
+        <script type="text/javascript">
+        function productDelete() {
+			alert("제품삭제버튼");
+		}
+        </script>
+        
         
 </head>
 <body>
@@ -145,7 +151,7 @@
                     
                 <div class="col-lg-12" align="center">  
                 <button type="button" class="btn btn-primary">수정</button>
-                <button type="button" class="btn btn-primary">삭제</button>
+                <button type="button" class="btn btn-primary" onclick="productDelete()">삭제</button>
                 </div>
                 
                 

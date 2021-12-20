@@ -88,8 +88,8 @@
 <%-- 											<tr><td>${memberDTO.id }</td><td>${memberDTO.pass }</td> --%>
 <%-- 											<td>${memberDTO.name }</td><td>${memberDTO.name }</td> --%>
 <%-- 											<td>${memberDTO.name }</td><td>${memberDTO.name }</td></tr> --%>
-<!-- 											</c:forEach> -->
-<!-- 											</table> -->
+<%-- 											</c:forEach> --%>
+<%-- 											</table> --%>
 <%-- 											<a href="${pageContext.request.contextPath}/member/main">메인으로 이동</a> --%>
                                                 <tr class="odd gradeX">
                                                     <td>20211217-1</td>
