@@ -170,14 +170,14 @@
                          	<li>
                                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 문의관리<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
-                                   <li>   공지사항
-                                        <!--<a href="${pageContext.request.contextPath}/admin/notice">공지사항</a>-->
+                                   <li>  
+                                        <a href="${pageContext.request.contextPath}/admin/notice">공지사항</a>
                                     </li>
-                                    <li>   F & Q
-                                        <!-- <a href="${pageContext.request.contextPath}/admin/fnq"> F & Q</a>-->
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/admin/fnq"> F & Q</a>
                                     </li>
-                                    <li>   Q & A
-                                        <!-- <a href="${pageContext.request.contextPath}/admin/qna"> Q & A</a>-->
+                                    <li>
+                                        <a href="${pageContext.request.contextPath}/admin/qna"> Q & A</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
