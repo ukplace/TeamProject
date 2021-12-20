@@ -1,10 +1,7 @@
 package com.itwillbs.controller;
 
-<<<<<<< HEAD
 import javax.inject.Inject;
-=======
 import javax.servlet.http.HttpSession;
->>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -83,8 +80,31 @@ public class FootController {
 	} 
 	
 	@RequestMapping(value = "/foot/join", method = RequestMethod.GET)
-	public String join() {
-
+	public String join(MemberDTO memberDTO,HttpSession session) {
+		System.out.println("/admin/login_Pro");
+		
+		MemberDTO userCheck = memberService.userCheck(memberDTO);
+		
+		if(userCheck != null) {
+			System.out.println(memberDTO.getM_email());
+			
+			if(userCheck.getM_email().equals("admin@shushu")) {
+				session.setAttribute("adminEmail", memberDTO);
+			if(userCheck.getM_email().equals("admin@shushu")) {
+				session.setAttribute("id", memberDTO.getM_email());
+				return "redirect:/admin/index";
+			}else {
+				session.setAttribute("m_Email", memberDTO);
+				return "redirect:/foot/index";
+			}
+					
+		}else {
+			
+		 return "foot/msg";
+		}
+			
+		}
+	
 		return "foot/join";
 	}
 	@RequestMapping(value = "/foot/joinPro", method = RequestMethod.POST)

@@ -46,12 +46,12 @@
 								<li class="cart"><a href="${pageContext.request.contextPath}/foot/notice">customer Center</a></li>
 								<li class="cart"><a href="${pageContext.request.contextPath}/foot/cart"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
 								<c:choose>
-	<c:when test="${empty sessionScope.id }">
+	<c:when test="${empty sessionScope.m_eamil }">
 	<li class="cart"><div id="login"><a href="${pageContext.request.contextPath}/foot/login">login</a> | <a href="${pageContext.request.contextPath}/foot/join">join</a></div></li>
 	</c:when>
 	<c:otherwise>
 		
-	<li class="cart"><div id="login">${sessionScope.id }님 <a href="${pageContext.request.contextPath}/foot/logout">logout</a> | <a href="${pageContext.request.contextPath}/foot/member_info">MYPAGE</a></div></li>
+	<li class="cart"><div id="login">${sessionScope.m_mail }님 <a href="${pageContext.request.contextPath}/foot/logout">logout</a> | <a href="${pageContext.request.contextPath}/foot/member_info">MYPAGE</a></div></li>
 	</c:otherwise>
 </c:choose>
 								
