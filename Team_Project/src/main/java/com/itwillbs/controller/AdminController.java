@@ -35,7 +35,7 @@ public class AdminController {
 				System.out.println(memberDTO.getEmail());
 				
 				if(userCheck.getEmail().equals("admin@shushu")) {
-					session.setAttribute("adminEmail", memberDTO);
+					session.setAttribute("id", memberDTO.getEmail());
 					return "redirect:/admin/index";
 				}else {
 					session.setAttribute("userEmail", memberDTO);
