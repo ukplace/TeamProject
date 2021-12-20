@@ -1,10 +1,7 @@
 package com.itwillbs.controller;
 
-<<<<<<< HEAD
 import javax.inject.Inject;
-=======
 import javax.servlet.http.HttpSession;
->>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
