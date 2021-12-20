@@ -1,11 +1,21 @@
 package com.itwillbs.controller;
 
+import javax.inject.Inject;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.itwillbs.domain.MemberDTO;
+import com.itwillbs.service.MemberService;
+
 @Controller
 public class FootController {
+	
+	@Inject
+	static MemberService memberService;
+	
+	
 	@RequestMapping(value = "/foot/index", method = RequestMethod.GET)
 		public String index() {
 			// /WEB-INF/views/board/writeForm.jsp
@@ -65,9 +75,18 @@ public class FootController {
 	
 	@RequestMapping(value = "/foot/join", method = RequestMethod.GET)
 	public String join() {
-		// /WEB-INF/views/board/writeForm.jsp
+
 		return "foot/join";
 	}
+	@RequestMapping(value = "/foot/joinPro", method = RequestMethod.POST)
+	public String joinPro(MemberDTO memberDTO) {
+		
+		memberService.insertMember(memberDTO);
+			
+		
+		return "foot/login";
+	}
+	
 	
 	@RequestMapping(value = "/foot/qna_list", method = RequestMethod.GET)
 	public String qna_list() {

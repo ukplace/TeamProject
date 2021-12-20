@@ -1,8 +1,8 @@
-package com.itwillbs.dao;
+package com.itwillbs.service;
 
 import com.itwillbs.domain.MemberDTO;
 
-public interface MemberDAO {
+public interface MemberService {
 
 	public void insertMember(MemberDTO memberDTO);
 

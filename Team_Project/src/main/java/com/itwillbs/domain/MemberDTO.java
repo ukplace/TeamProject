@@ -25,74 +25,72 @@ public class MemberDTO {
 	
 										//회원가입 사용x						//회원가입 사용할 것			
 	private int idx;
-	private String email;														//아이디값이랑 같이 사용
-	private String password;													//비밀번호
-	private String name;														//이름
-	private String tel;															//전화번호
-	private String birth;														//생년월일
-	private String zip;															//우편번호
-	private String address;														//기본주소
-	private String detail_address;												//상세주소
+	private String m_email;														//아이디값이랑 같이 사용
+	private String m_pass;													//비밀번호
+	private String m_name;														//이름
+	private String m_tel;															//전화번호
+	private String m_birth;														//생년월일
+	private String m_zip;															//우편번호
+	private String m_address;														//기본주소
+	private String m_detail_address;												//상세주소
 	private int point;				//소유 포인트
 	private String grade;				//회원 등급
 	private Timestamp date;														//가입날짜
 	private String auth_code;	 		//인증코드 
 	private String auth_status;			//인증상태
-	
-	
 	public int getIdx() {
 		return idx;
 	}
 	public void setIdx(int idx) {
 		this.idx = idx;
 	}
-	public String getEmail() {
-		return email;
+	public String getM_email() {
+		return m_email;
 	}
-	public void setEmail(String email) {
-		this.email = email;
+	public void setM_email(String m_email) {
+		this.m_email = m_email;
 	}
-	public String getPassword() {
-		return password;
+	public String getM_pass() {
+		return m_pass;
 	}
-	public void setPassword(String password) {
-		this.password = password;
+	public void setM_pass(String m_pass) {
+		this.m_pass = m_pass;
 	}
-	public String getName() {
-		return name;
+	public String getM_name() {
+		return m_name;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setM_name(String m_name) {
+		this.m_name = m_name;
 	}
-	public String getTel() {
-		return tel;
+	public String getM_tel() {
+		return m_tel;
 	}
-	public void setTel(String tel) {
-		this.tel = tel;
+	public void setM_tel(String m_tel) {
+		this.m_tel = m_tel;
 	}
-	public String getBirth() {
-		return birth;
+	public String getM_birth() {
+		return m_birth;
 	}
-	public void setBirth(String birth) {
-		this.birth = birth;
+	public void setM_birth(String m_birth) {
+		this.m_birth = m_birth;
 	}
-	public String getZip() {
-		return zip;
+	public String getM_zip() {
+		return m_zip;
 	}
-	public void setZip(String zip) {
-		this.zip = zip;
+	public void setM_zip(String m_zip) {
+		this.m_zip = m_zip;
 	}
-	public String getAddress() {
-		return address;
+	public String getM_address() {
+		return m_address;
 	}
-	public void setAddress(String adrress) {
-		this.address = adrress;
+	public void setM_address(String m_address) {
+		this.m_address = m_address;
 	}
-	public String getDetail_address() {
-		return detail_address;
+	public String getM_detail_address() {
+		return m_detail_address;
 	}
-	public void setDetail_address(String detail_address) {
-		this.detail_address = detail_address;
+	public void setM_detail_address(String m_detail_address) {
+		this.m_detail_address = m_detail_address;
 	}
 	public int getPoint() {
 		return point;
@@ -124,7 +122,6 @@ public class MemberDTO {
 	public void setAuth_status(String auth_status) {
 		this.auth_status = auth_status;
 	}
-	
 	
 	
 	

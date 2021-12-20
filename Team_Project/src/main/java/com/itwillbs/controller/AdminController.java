@@ -32,14 +32,13 @@ public class AdminController {
 			MemberDTO userCheck = adminService.userCheck(memberDTO);
 			
 			if(userCheck != null) {
-				System.out.println(memberDTO.getEmail());
+				System.out.println(memberDTO.getM_email());
 				
-				if(userCheck.getEmail().equals("admin@shushu")) {
+				if(userCheck.getM_email().equals("admin@shushu")) {
 					session.setAttribute("adminEmail", memberDTO);
 					return "redirect:/admin/index";
 				}else {
 					session.setAttribute("userEmail", memberDTO);
-					session.setAttribute("userPassword", memberDTO);
 					return "redirect:/foot/index";
 				}
 						

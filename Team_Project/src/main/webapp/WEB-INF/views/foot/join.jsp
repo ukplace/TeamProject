@@ -102,7 +102,7 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-8" >
-						<form method="post" class="colorlib-form" name="join">
+						<form method="post" class="colorlib-form" name="join" action="${pageContext.request.contextPath}/foot/joinPro/">
 							<h2>회원가입</h2>
 		              		<div class="row">
 								<div class="col-md-12">
@@ -115,7 +115,7 @@
 										<div class="form-group" >
 										<label for="email"><h4>* 이메일</h4> </label><br>
 										<table >
-			                    		<tr><td width="80%"><input type="email" id="email" name="email" placeholder="example@email.com" class="form-control" required="required" ></td>
+			                    		<tr><td width="80%"><input type="email" id="email" name="m_email" placeholder="example@email.com" class="form-control" required="required" ></td>
 			                    		<td>&nbsp&nbsp</td>
 			                    		<td><input type="button" value="중복확인" class ="btn btn-default btn-lg"></td></tr>
 			                    		</table>
@@ -123,33 +123,27 @@
 			               	 			
 									     <div class="form-group">
 										 <label for="password"><h4>* 비밀번호</h4></label>
-  										 <input type="password" id="password" name="password" placeholder="영문,숫자 포함 입력해주세요" class="form-control" required="required" />      
+  										 <input type="password" id="password" name="m_pass" placeholder="영문,숫자 포함 입력해주세요" class="form-control" required="required" />      
  								 		 </div>
  								         
  								         <div class="form-group">
 										 <label for="password2"><h4>* 비밀번호 확인</h4></label>
   										 <input type="password2" id="password2" name="password2" placeholder="비밀번호를 확인해주세요" class="form-control"  required="required" />      
  								 		 </div>
- 								 
- 								 
-			                      		 <div class="form-group">
-			                      		 	<div class="checks">
-                                             <label><h4>성별</h4></label>
-                                             <label class="radio-inline">
-                                                 <input type="radio" name="genderCheck1" id="genderCheck1" value="1">
-                                                 <label for="genderCheck1">남</label>
-                                             </label>
-                                             <label class="radio-inline">
-                                                 <input type="radio" name="genderCheck1" id="genderCheck2" value="2">
-                                                 <label for="genderCheck2">여</label> 
-                                             </label>
-                                             </div>
-                                        </div>
-  										            
+ 								 		
+ 								 		<div class="form-group">
+										<label for="name"><h4>이름</h4></label>
+   										<input type="text" id="name" name="m_name" placeholder="이름을 입력해주세요" class="form-control" required="required" />      
+  										</div>
+  										
+  										<div class="form-group">
+										<label for="tel"><h4>전화번호</h4></label>
+   										<input type="text" id="tel" name="m_tel"placeholder="전화번호를 입력해주세요" class="form-control" required="required" />      
+  										</div>
 			    
 										<div class="form-group">
 										<label for="birth"><h4>생년월일</h4></label>
-   										<input type="text" id="birth" name="birth" placeholder="이름을 입력해주세요" class="form-control" required="required" />      
+   										<input type="text" id="birth" name="m_birth" placeholder="생년월일 입력" class="form-control" required="required" />      
   										</div>
   										
   										
@@ -157,24 +151,18 @@
 										<div class="form-group">
 										<label><h4>주소</h4></label>
 										<table >
-			                    		<tr><td width="80%"><input type="text" name= "addressnum" id="sample4_postcode" placeholder="우편번호" readonly class="form-control" required="required" ></td>
+			                    		<tr><td width="80%"><input type="text" name= "m_zip" id="sample4_postcode" placeholder="우편번호" readonly class="form-control" required="required" ></td>
 			                    		<td>&nbsp&nbsp</td>
 			                    		<td><input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" class ="btn btn-default btn-lg"></td></tr>
 											<tr height="10px"></tr>
-											<tr><td colspan="3"><input type="text" class="form-control" name="address" id="sample4_roadAddress" placeholder="도로명주소" readonly></td></tr>
+											<tr><td colspan="3"><input type="text" class="form-control" name="m_address" id="sample4_roadAddress" placeholder="도로명주소" readonly></td></tr>
 											<tr height="10px"></tr>
-											<tr><td colspan="3"><input type="text" class="form-control" name="address2" id="sample4_roadAddress" placeholder="상세주소" ></td></tr>
+											<tr><td colspan="3"><input type="text" class="form-control" name="m_detail_address" id="sample4_roadAddress" placeholder="상세주소" ></td></tr>
 											<tr height="1px"><td><input type="hidden" id="sample4_extraAddress" placeholder="참고항목"></td><td>
 												<span id="guide" style="color:#999;display:none"></span>
 											</td></tr>
 			                    		</table>
 										</div>
-  										
-  										
-  										<div class="form-group">
-										<label for="tel"><h4>전화번호</h4></label>
-   										<input type="text" id="tel" name="tel"placeholder="전화번호를 입력해주세요" class="form-control" required="required" />      
-  										</div>
   										
   										
   										<input type="submit" class="btn btn-default" value="회원가입">
