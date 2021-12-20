@@ -54,7 +54,12 @@
 			<div class="container">
 				<div class="row">
 					<div class="col">
-						<p class="bread"><span><a href="${pageContext.request.contextPath}/foot/index/">Mypage</a></span> / <span>회원정보</span></p>
+						<p class="bread">
+						<span><a href="${pageContext.request.contextPath}/foot/member_info">회원정보</a></span> /
+						<span><a href="${pageContext.request.contextPath}/foot/order_list">주문내역</a></span> /
+						<span><a href="${pageContext.request.contextPath}/foot/withdrawal">회원탈퇴</a></span>
+						
+						</p>
 					</div>
 				</div>
 			</div>

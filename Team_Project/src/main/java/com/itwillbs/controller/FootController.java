@@ -36,108 +36,111 @@ public class FootController {
 		// /WEB-INF/views/board/writeForm.jsp
 		return "foot/contact";
 	}
-	@RequestMapping(value = "/foot/men", method = RequestMethod.GET)
-	public String men() {
-		// /WEB-INF/views/board/writeForm.jsp
-		return "foot/men";
+	@RequestMapping(value = "/foot/product_detail", method = RequestMethod.GET)
+	public String product_detail() {
+		// /WEB-INF/views/foot/product_detail
+		return "foot/product_detail";
 	}
-	@RequestMapping(value = "/foot/product-detail", method = RequestMethod.GET)
-	public String productdetail() {
-		// /WEB-INF/views/board/writeForm.jsp
-		return "foot/product-detail";
+	@RequestMapping(value = "/foot/list_men", method = RequestMethod.GET)
+	public String list_men() {
+		// /WEB-INF/views/foot/list_men
+		return "foot/list_men";
 	}
-	@RequestMapping(value = "/foot/women", method = RequestMethod.GET)
-	public String women() {
-		// /WEB-INF/views/board/writeForm.jsp
-		return "foot/women";
+	@RequestMapping(value = "/foot/list_women", method = RequestMethod.GET)
+	public String list_women() {
+		// /WEB-INF/views/foot/list_women
+		return "foot/list_women";
 	}
-	@RequestMapping(value = "/foot/kids", method = RequestMethod.GET)
-	public String kids() {
-		// /WEB-INF/views/board/writeForm.jsp
-		return "foot/kids";
+	@RequestMapping(value = "/foot/list_kids", method = RequestMethod.GET)
+	public String list_kids() {
+		// /WEB-INF/views/foot/list_kids
+		return "foot/list_kids";
 	}
-	@RequestMapping(value = "/foot/test", method = RequestMethod.GET)
-	public String test() {
-		// /WEB-INF/views/board/writeForm.jsp
-		return "foot/test";
-	}
+
 	@RequestMapping(value = "/foot/login", method = RequestMethod.GET)
 	public String login() {
 		// /WEB-INF/views/board/writeForm.jsp
 		return "foot/login";
 	} 
+	
 	@RequestMapping(value = "/foot/join", method = RequestMethod.GET)
 	public String join() {
 		// /WEB-INF/views/board/writeForm.jsp
 		return "foot/join";
 	}
+	
 	@RequestMapping(value = "/foot/qna_list", method = RequestMethod.GET)
 	public String qna_list() {
 		// /WEB-INF/views/board/writeForm.jsp
 		return "foot/qna_list";
 	}
+	
 	@RequestMapping(value = "/foot/qna_write", method = RequestMethod.GET)
 	public String qna_write() {
 		// /WEB-INF/views/board/writeForm.jsp
 		return "foot/qna_write";
 	}
+	
 	@RequestMapping(value = "/foot/qna_update", method = RequestMethod.GET)
 	public String qna_update() {
 		// /WEB-INF/views/board/qna_update.jsp
 		return "foot/qna_update";
 	}
+	
 	@RequestMapping(value = "/foot/qna_delete", method = RequestMethod.GET)
 	public String qna_delete() {
 		// /WEB-INF/views/foot/qna_delete.jsp
 		return "foot/qna_delete";
 	}
+	
 	@RequestMapping(value = "/foot/qnaDeletePro", method = RequestMethod.POST)
 	public String qnaDeletePro() {
 		// /WEB-INF/views/foot/qnaDeletePro.jsp
-		return "redirect:/foot/product-detail";
+		return "redirect:/foot/qna_list";
 	}
+	
 	@RequestMapping(value = "/foot/review", method = RequestMethod.GET)
 	public String review() {
 		// /WEB-INF/views/foot/review.jsp
 		return "foot/review";
 	}
-	@RequestMapping(value = "/foot/reviewWrite", method = RequestMethod.GET)
-	public String reviewWrite() {
-		// /WEB-INF/views/foot/reviewWirte.jsp
-		return "foot/reviewWrite";
+	@RequestMapping(value = "/foot/review_write", method = RequestMethod.GET)
+	public String review_write() {
+		// /WEB-INF/views/foot/review_write.jsp
+		return "foot/review_write";
 	}
-	@RequestMapping(value = "/foot/reviewWritePro", method = RequestMethod.POST)
-	public String reviewWritePro() {
+	@RequestMapping(value = "/foot/review_write_pro", method = RequestMethod.POST)
+	public String review_write_pro() {
 		// /WEB-INF/views/foot/product-detail.jsp
-		return "redirect:/foot/product-detail";
+		return "redirect:/foot/product_detail";
 	}
-	@RequestMapping(value = "/foot/reviewUpdate", method = RequestMethod.GET)
-	public String reviewUpdate() {
+	@RequestMapping(value = "/foot/review_update", method = RequestMethod.GET)
+	public String review_update() {
 		// /WEB-INF/views/foot/reviewUpdate.jsp
-		return "foot/reviewUpdate";
+		return "foot/review_update";
 	}
-	@RequestMapping(value = "/foot/reviewUpdatePro", method = RequestMethod.POST)
-	public String reviewUpdatePro() {
+	@RequestMapping(value = "/foot/review_update_pro", method = RequestMethod.POST)
+	public String review_update_pro() {
 		// /WEB-INF/views/foot/product-detail.jsp
-		return "redirect:/foot/product-detail";
+		return "redirect:/foot/product_detail";
 	}
 	
-	@RequestMapping(value = "/foot/orderList", method = RequestMethod.GET)
-	public String orderList() {
+	@RequestMapping(value = "/foot/order_list", method = RequestMethod.GET)
+	public String order_list() {
 		// /WEB-INF/views/foot/orderList.jsp
-		return "foot/orderList";
+		return "foot/order_list";
 	}
 	
-	@RequestMapping(value = "/foot/orderDetail", method = RequestMethod.GET)
-	public String orderDetail() {
+	@RequestMapping(value = "/foot/order_detail", method = RequestMethod.GET)
+	public String order_detail() {
 		// /WEB-INF/views/foot/orderDetail.jsp
-		return "foot/orderDetail";
+		return "foot/order_detail";
 	}
 	
-	@RequestMapping(value = "/foot/memberInfo", method = RequestMethod.GET)
-	public String memberInfo() {
+	@RequestMapping(value = "/foot/member_info", method = RequestMethod.GET)
+	public String member_info() {
 		// /WEB-INF/views/foot/memberInfo.jsp
-		return "foot/memberInfo";
+		return "foot/member_info";
 	}
 	
 	@RequestMapping(value = "/foot/withdrawal", method = RequestMethod.GET)

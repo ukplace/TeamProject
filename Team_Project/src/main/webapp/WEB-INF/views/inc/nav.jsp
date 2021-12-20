@@ -130,6 +130,18 @@
                                 <!-- /.nav-second-level -->
                             </li>
                             <!-- 제품관리 끝 -->
+                            <!-- 매출관리 시작 -->
+                         	<li>
+                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 매출관리<span class="fa arrow"></span></a>
+                                <ul class="nav nav-second-level">
+                                   <li>   
+                                        <a href="${pageContext.request.contextPath}/admin/sales_list">매출 리스트</a>
+                                    </li>
+                                    
+                                </ul>
+                                <!-- /.nav-second-level -->
+                            </li>
+                            <!-- 매출관리 끝 -->
                             <!-- 주문관리 시작 -->
                          	<li>
                                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 주문관리<span class="fa arrow"></span></a>
@@ -141,20 +153,6 @@
                                 <!-- /.nav-second-level -->
                             </li>
                             <!-- 주문관리 끝 -->
-                            <!-- 매출관리 시작 -->
-                         	<li>
-                                <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 매출관리<span class="fa arrow"></span></a>
-                                <ul class="nav nav-second-level">
-                                   <li>   매출 리스트
-                                        <!-- <a href="${pageContext.request.contextPath}/admin/salesList">매출 리스트</a> -->
-                                    </li>
-                                    <li>
-                                        <a href="${pageContext.request.contextPath}/admin/morris">Morris.js Charts</a>
-                                    </li>
-                                </ul>
-                                <!-- /.nav-second-level -->
-                            </li>
-                            <!-- 매출관리 끝 -->
                             <!-- 회원관리 시작 -->
                          	<li>
                                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 회원관리<span class="fa arrow"></span></a>
@@ -174,7 +172,7 @@
                                         <a href="${pageContext.request.contextPath}/admin/notice">공지사항</a>
                                     </li>
                                     <li>
-                                        <a href="${pageContext.request.contextPath}/admin/fnq"> F & Q</a>
+                                        <a href="${pageContext.request.contextPath}/admin/faq"> F & Q</a>
                                     </li>
                                     <li>
                                         <a href="${pageContext.request.contextPath}/admin/qna"> Q & A</a>
@@ -188,7 +186,7 @@
                                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 리뷰관리<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                    <li>
-										<a href="${pageContext.request.contextPath}/admin/reviewList">리뷰 리스트</a>
+										<a href="${pageContext.request.contextPath}/admin/review_list">리뷰 리스트</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
@@ -201,6 +199,9 @@
                             <li>
                                 <a href="${pageContext.request.contextPath}/admin/tables"><i class="fa fa-table fa-fw"></i> Tables</a>
                             </li>
+                            <li>
+                                        <a href="${pageContext.request.contextPath}/admin/morris">Morris.js Charts</a>
+                                    </li>
                             <!-- 테이블 끝 -->
                             <!-- chart 시작 -->
                             <li>

@@ -51,53 +51,53 @@ public class AdminController {
 		}
 	
 
-	@RequestMapping(value = "/admin/productRegist", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/product_regist", method = RequestMethod.GET)
 	   public String productRegist() {
-	      // /WEB-INF/views/admin/productRegist.jsp
-	      return "admin/productRegist";
+	      // /WEB-INF/views/admin/product_regist.jsp
+	      return "admin/product_regist";
 	   }
 
-	@RequestMapping(value = "/admin/productList", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/product_list", method = RequestMethod.GET)
 	   public String productList() {
-	      // /WEB-INF/views/admin/productList.jsp
-	      return "admin/productList";
+	      // /WEB-INF/views/admin/product_list.jsp
+	      return "admin/product_list";
 	   }
 	
-	@RequestMapping(value = "/admin/productDetail", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/product_detail", method = RequestMethod.GET)
 	   public String productDetail() {
-	      // /WEB-INF/views/admin/productDetail.jsp
-	      return "admin/productDetail";
+	      // /WEB-INF/views/admin/product_detail.jsp
+	      return "admin/product_detail";
 	   }
 
-	@RequestMapping(value = "/admin/productUpdate", method = RequestMethod.GET)
+	@RequestMapping(value = "/admin/product_update", method = RequestMethod.GET)
 	   public String productUpdate() {
-	      // /WEB-INF/views/admin/productUpdate.jsp
-	      return "admin/productUpdate";
+	      // /WEB-INF/views/admin/product_update
+	      return "admin/product_update";
 	   }
 
 	 
-	 @RequestMapping(value = "/admin/orderList", method = RequestMethod.GET)
-     public String orderList() {
-        // /WEB-INF/views/admin/orderList.jsp
-        return "admin/orderList";
+	 @RequestMapping(value = "/admin/order_list", method = RequestMethod.GET)
+     public String order_list() {
+        // /WEB-INF/views/admin/order_list
+        return "admin/order_list";
      }
 	 
-	 @RequestMapping(value = "/admin/orderDetail", method = RequestMethod.GET)
-     public String orderDetail() {
-        // /WEB-INF/views/admin/orderDetail.jsp
-        return "admin/orderDetail";
+	 @RequestMapping(value = "/admin/order_detail", method = RequestMethod.GET)
+     public String order_detail() {
+        // /WEB-INF/views/admin/order_detail
+        return "admin/order_detail";
      }
 	 
-	 @RequestMapping(value = "/admin/memberList", method = RequestMethod.GET)
-     public String memberList() {
-        // /WEB-INF/views/admin/memberList.jsp
-        return "admin/memberList";
+	 @RequestMapping(value = "/admin/member_list", method = RequestMethod.GET)
+     public String member_list() {
+        // /WEB-INF/views/admin/member_list
+        return "admin/member_list";
      }
 	 
-	 @RequestMapping(value = "/admin/memberDetail", method = RequestMethod.GET)
-     public String memberDetail() {
-        // /WEB-INF/views/admin/memberDetail.jsp
-        return "admin/memberDetail";
+	 @RequestMapping(value = "/admin/member_detail", method = RequestMethod.GET)
+     public String member_detail() {
+        // /WEB-INF/views/admin/member_detail
+        return "admin/member_detail";
      }
 
 	 
@@ -127,10 +127,10 @@ public class AdminController {
      }
 	
 
-	 @RequestMapping(value = "/admin/reviewList", method = RequestMethod.GET)
-     public String reviewList() {
-        // /WEB-INF/views/admin/reviewList.jsp
-        return "admin/reviewList";
+	 @RequestMapping(value = "/admin/review_list", method = RequestMethod.GET)
+     public String review_list() {
+        // /WEB-INF/views/admin/review_list
+        return "admin/review_list";
      }
 	 
 	 

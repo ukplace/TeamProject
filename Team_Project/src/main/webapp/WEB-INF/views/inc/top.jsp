@@ -1,18 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+
+
 <body>
 			
 			<div class="top-menu">
 				<div class="container">
 					<div class="row">
 						<div class="col-sm-7 col-md-9">
-							<div id="colorlib-logo"><a href="${pageContext.request.contextPath}/foot/index">Footwear</a></div>
+							<div id="colorlib-logo"><a href="${pageContext.request.contextPath}/foot/index">SHUSHU</a></div>
 						</div>
 						<div class="col-sm-5 col-md-3">
 			            <form action="#" class="search-wrap">
@@ -28,30 +31,30 @@
 							<ul>
 								<li class="active"><a href="${pageContext.request.contextPath}/foot/index">Home</a></li>
 								<li class="has-dropdown">
-									<a href="${pageContext.request.contextPath}/foot/men">Men</a>
+									<a href="${pageContext.request.contextPath}/foot/list_men">Men</a>
 									<ul class="dropdown">
-										<li><a href="${pageContext.request.contextPath}/foot/product-detail">Product Detail</a></li>
+										<li><a href="${pageContext.request.contextPath}/foot/product_detail">Product Detail</a></li>
 										<li><a href="${pageContext.request.contextPath}/foot/cart">Shopping Cart</a></li>
 										<li><a href="${pageContext.request.contextPath}/foot/checkout">Checkout</a></li>
 										<li><a href="${pageContext.request.contextPath}/foot/order-complete">Order Complete</a></li>
 										<li><a href="${pageContext.request.contextPath}/foot/add-to-wishlist">Wishlist</a></li>
 									</ul>
 								</li>
-								<li><a href="${pageContext.request.contextPath}/foot/women">Women</a></li>
-								<li><a href="${pageContext.request.contextPath}/foot/kids">Kids</a></li>
-								<li><a href="${pageContext.request.contextPath}/foot/about">About</a></li>
+								<li><a href="${pageContext.request.contextPath}/foot/list_women">Women</a></li>
+								<li><a href="${pageContext.request.contextPath}/foot/list_kids">Kids</a></li>
 								<li><a href="${pageContext.request.contextPath}/foot/contact">Contact</a></li>
+								<li class="cart"><a href="${pageContext.request.contextPath}/foot/notice">customer Center</a></li>
 								<li class="cart"><a href="${pageContext.request.contextPath}/foot/cart"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
-								<li class="has-dropdown cart">
-									MyPage
-									<ul class="dropdown">
-										<li><a href="${pageContext.request.contextPath}/foot/orderList">주문내역</a></li>
-										<li><a href="${pageContext.request.contextPath}/foot/memberInfo">회원정보</a></li>
-										<li><a href="${pageContext.request.contextPath}/foot/withdrawal">회원탈퇴</a></li>
-									</ul>
-								</li>
-								<li class="cart"><a href="${pageContext.request.contextPath}/foot/join" >JOIN</a></li>
-								<li class="cart"><a href="${pageContext.request.contextPath}/foot/login" >LOGIN</a></li>
+								<c:choose>
+	<c:when test="${empty sessionScope.id }">
+	<li class="cart"><div id="login"><a href="${pageContext.request.contextPath}/foot/login">login</a> | <a href="${pageContext.request.contextPath}/foot/join">join</a></div></li>
+	</c:when>
+	<c:otherwise>
+		
+	<li class="cart"><div id="login">${sessionScope.id }님 <a href="${pageContext.request.contextPath}/foot/logout">logout</a> | <a href="${pageContext.request.contextPath}/foot/member_info">MYPAGE</a></div></li>
+	</c:otherwise>
+</c:choose>
+								
 								
 							</ul>
 						</div>

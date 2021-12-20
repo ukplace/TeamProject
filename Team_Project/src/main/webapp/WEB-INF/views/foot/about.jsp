@@ -82,7 +82,7 @@
 
 		<footer id="colorlib-footer" role="contentinfo">
 			<!-- 푸터들어가는곳 -->
-			<jsp:include page="${pageContext.request.contextPath}/inc/bottom.jsp"></jsp:include>
+			<jsp:include page="${pageContext.request.contextPath}/inc/bottom"></jsp:include>
 			<!-- 푸터들어가는곳 -->
 		</footer>
 	</div>
