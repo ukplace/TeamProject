@@ -121,10 +121,10 @@
                                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 제품관리<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                 	<li>	
-                                        <a href="${pageContext.request.contextPath}/admin/productRegist">제품등록</a>
+                                        <a href="${pageContext.request.contextPath}/admin/product_regist">제품등록</a>
                                     </li>
                                     <li>
-                                        <a href="${pageContext.request.contextPath}/admin/productList">제품 리스트</a>
+                                        <a href="${pageContext.request.contextPath}/admin/product_list">제품 리스트</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
@@ -135,7 +135,7 @@
                                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 주문관리<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                    <li>   
-                                        <a href="${pageContext.request.contextPath}/admin/orderList">주문 리스트</a>
+                                        <a href="${pageContext.request.contextPath}/admin/order_list">주문 리스트</a>
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
@@ -160,7 +160,7 @@
                                 <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> 회원관리<span class="fa arrow"></span></a>
                                 <ul class="nav nav-second-level">
                                    <li>  
-                                        <a href="${pageContext.request.contextPath}/admin/memberList ">회원 리스트</a> 
+                                        <a href="${pageContext.request.contextPath}/admin/member_list ">회원 리스트</a> 
                                     </li>
                                 </ul>
                                 <!-- /.nav-second-level -->
