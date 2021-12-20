@@ -68,7 +68,13 @@ public class AdminController {
 	      // /WEB-INF/views/admin/productDetail.jsp
 	      return "admin/productDetail";
 	   }
-	 
+
+	@RequestMapping(value = "/admin/productUpdate", method = RequestMethod.GET)
+	   public String productUpdate() {
+	      // /WEB-INF/views/admin/productUpdate.jsp
+	      return "admin/productUpdate";
+	   }
+
 	 
 	 @RequestMapping(value = "/admin/orderList", method = RequestMethod.GET)
      public String orderList() {

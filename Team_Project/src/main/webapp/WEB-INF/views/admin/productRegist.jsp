@@ -125,7 +125,7 @@ function changeSize(size){
                         <div class="col-lg-12">
                             
 <form action="registPro" method="post" name="registForm" onsubmit="return checkForm()" >                     
-   <%--  <table class="table-ca" width=60% tyletable-layout:fixed cellspacing=() cellpadding=1;>                 
+   <table class="table-ca" width=60% tyletable-layout:fixed cellspacing=() cellpadding=1;>                 
        <tr >
           <td width=30% id=td1 align="center"> 구분 1 </td>
           <td class="space"></td>
@@ -143,7 +143,7 @@ function changeSize(size){
       </td>
       </tr>   
       	</table>
- --%>
+ 
 		<div class="main">
 		<div class=table-regist>
        <h1 class="page-header" align="center">제품등록</h1>
@@ -155,7 +155,7 @@ function changeSize(size){
 		 </tr>
 		 <tr>
 			<th>카테고리-소분</th>
-			<td><input type="text" name="" required="required" size="20"></td>
+			<td><input type="text" name="ca" required="required" size="20" values=${selectValue } ></td>
 		 </tr>
 		  <tr>
       		<th>제품명</th>
@@ -270,7 +270,7 @@ function changeSize(size){
 </body>
 </html>
 
-<!-- <script type="text/javascript">
+<script type="text/javascript">
 
  
 $(document).ready(function() {
@@ -412,4 +412,4 @@ $(document).ready(function() {
     //*********** 1depth카테고리 선택 후 2depth 생성 END ***********
         
 });
-</script> -->
+</script>

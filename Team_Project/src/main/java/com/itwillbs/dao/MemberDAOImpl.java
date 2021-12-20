@@ -18,7 +18,7 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public MemberDTO userCheck(MemberDTO memberDTO) {
 		
-		return sqlSession.selectOne(namespace+".memberCheck", memberDTO);
+		return sqlSession.selectOne(namespace+".userCheck", memberDTO);
 	}
 
 }
