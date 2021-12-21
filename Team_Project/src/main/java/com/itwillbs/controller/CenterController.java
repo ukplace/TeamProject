@@ -12,5 +12,6 @@ public class CenterController {
 		// /WEB-INF/views/foot/notice.jsp
 		return "foot/notice";
 	}
+	
 
 }
