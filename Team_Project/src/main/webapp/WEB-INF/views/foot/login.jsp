@@ -54,7 +54,7 @@
 			<div class="container">	
 				<div class="row">
 					<div class="col">
-					<p class="bread"><span><a href="${pageContext.request.contextPath}/foot/join/">회원가입</a></span> / <span>로그인</span></p>
+					<p class="bread"><span><a href="${pageContext.request.contextPath}/foot/join">회원가입</a></span> / <span>로그인</span></p>
 						</div>
 					</div>
 				</div>
@@ -68,7 +68,7 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-8" >
-						<form method="post" class="colorlib-form">
+						<form method="post" class="colorlib-form" action="${pageContext.request.contextPath}/foot/loginPro">
 							<h2>로그인</h2>
 		              		<div class="row">
 								<div class="col-md-12">
@@ -81,10 +81,10 @@
 										
 										
   										 <div class="form-group">
-                                         <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                         <input class="form-control" placeholder="E-mail" name="m_email" type="email" autofocus>
                                     	 </div>
                                    		 <div class="form-group">
-                                         <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                         <input class="form-control" placeholder="Password" name="m_pass" type="password" value="">
                                    		 </div>
                                    		 <div class="checkbox">
                                          &nbsp; &nbsp; &nbsp;&nbsp;<input name="remember" type="checkbox"  value="Remember Me" >로그인 정보 저장<br>
