@@ -24,7 +24,7 @@ public class MemberDTO {
 	
 	
 										//회원가입 사용x						//회원가입 사용할 것			
-	private int idx;
+	private int m_idx;
 	private String m_email;														//아이디값이랑 같이 사용
 	private String m_pass;													//비밀번호
 	private String m_name;														//이름
@@ -33,16 +33,17 @@ public class MemberDTO {
 	private String m_zip;															//우편번호
 	private String m_address;														//기본주소
 	private String m_detail_address;												//상세주소
-	private int point;				//소유 포인트
-	private String grade;				//회원 등급
-	private Timestamp date;														//가입날짜
-	private String auth_code;	 		//인증코드 
-	private String auth_status;			//인증상태
-	public int getIdx() {
-		return idx;
+	private int m_point;				//소유 포인트
+	private String m_grade;				//회원 등급
+	private Timestamp m_date;														//가입날짜
+	private String m_auth_code;	 		//인증코드 
+	private String m_auth_status;			//인증상태
+	
+	public int getM_idx() {
+		return m_idx;
 	}
-	public void setIdx(int idx) {
-		this.idx = idx;
+	public void setM_idx(int m_idx) {
+		this.m_idx = m_idx;
 	}
 	public String getM_email() {
 		return m_email;
@@ -92,36 +93,38 @@ public class MemberDTO {
 	public void setM_detail_address(String m_detail_address) {
 		this.m_detail_address = m_detail_address;
 	}
-	public int getPoint() {
-		return point;
+	public int getM_point() {
+		return m_point;
 	}
-	public void setPoint(int point) {
-		this.point = point;
+	public void setM_point(int m_point) {
+		this.m_point = m_point;
 	}
-	public String getGrade() {
-		return grade;
+	public String getM_grade() {
+		return m_grade;
 	}
-	public void setGrade(String grade) {
-		this.grade = grade;
+	public void setM_grade(String m_grade) {
+		this.m_grade = m_grade;
 	}
-	public Timestamp getDate() {
-		return date;
+	public Timestamp getM_date() {
+		return m_date;
 	}
-	public void setDate(Timestamp date) {
-		this.date = date;
+	public void setM_date(Timestamp m_date) {
+		this.m_date = m_date;
 	}
-	public String getAuth_code() {
-		return auth_code;
+	public String getM_auth_code() {
+		return m_auth_code;
 	}
-	public void setAuth_code(String auth_code) {
-		this.auth_code = auth_code;
+	public void setM_auth_code(String m_auth_code) {
+		this.m_auth_code = m_auth_code;
 	}
-	public String getAuth_status() {
-		return auth_status;
+	public String getM_auth_status() {
+		return m_auth_status;
 	}
-	public void setAuth_status(String auth_status) {
-		this.auth_status = auth_status;
+	public void setM_auth_status(String m_auth_status) {
+		this.m_auth_status = m_auth_status;
 	}
+	
+	
 	
 	
 	

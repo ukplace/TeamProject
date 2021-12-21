@@ -14,7 +14,7 @@ import com.itwillbs.service.MemberService;
 public class FootController {
 	
 	@Inject
-	static MemberService memberService;
+	private MemberService memberService;
 	
 	
 	@RequestMapping(value = "/foot/index", method = RequestMethod.GET)
@@ -27,10 +27,10 @@ public class FootController {
 		// /WEB-INF/views/board/writeForm.jsp
 		return "foot/about";
 	}
-	@RequestMapping(value = "/foot/add-to-wishlist", method = RequestMethod.GET)
-	public String addtowishlistjsp() {
+	@RequestMapping(value = "/foot/wishlist", method = RequestMethod.GET)
+	public String wishlist() {
 		// /WEB-INF/views/board/writeForm.jsp
-		return "foot/add-to-wishlist.jsp";
+		return "foot/wishlist";
 	}
 	@RequestMapping(value = "/foot/cart", method = RequestMethod.GET)
 	public String cart() {
@@ -79,18 +79,34 @@ public class FootController {
 		return "foot/index";
 	} 
 	
-	@RequestMapping(value = "/foot/join", method = RequestMethod.GET)
-	public String join() {
-
-		return "foot/join";
-	}
 	@RequestMapping(value = "/foot/joinPro", method = RequestMethod.POST)
+	public String join(MemberDTO memberDTO,HttpSession session) {
+		System.out.println("/admin/login_Pro");
+		
+		MemberDTO userCheck = memberService.userCheck(memberDTO);
+		
+		if(userCheck != null) {
+			System.out.println(memberDTO.getM_email());
+			
+			if(userCheck.getM_email().equals("admin@shushu")) {
+				session.setAttribute("id", memberDTO.getM_email());
+				return "redirect:/admin/index";
+			}else {
+				session.setAttribute("m_Email", memberDTO);
+				return "redirect:/foot/index";
+			}
+					
+		}else {
+			
+		 return "foot/msg";
+		}
+			
+	}
+	@RequestMapping(value = "/foot/join", method = RequestMethod.GET)
 	public String joinPro(MemberDTO memberDTO) {
 		
-		memberService.insertMember(memberDTO);
-			
 		
-		return "foot/login";
+		return "foot/join";
 	}
 	
 	

@@ -25,9 +25,9 @@ public class AdminController {
 			return "admin/login";
 		}
 	
-	@RequestMapping(value = "/admin/loginPro", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/login_Pro", method = RequestMethod.POST)
 		public String loginPro(MemberDTO memberDTO, HttpSession session) {
-			System.out.println("/admin/loginPro");
+			System.out.println("/admin/login_Pro");
 			
 			MemberDTO userCheck = adminService.userCheck(memberDTO);
 			
@@ -37,18 +37,22 @@ public class AdminController {
 //				if(userCheck.getM_email().equals("admin@shushu")) {
 //					session.setAttribute("adminEmail", memberDTO);
 				if(userCheck.getM_email().equals("admin@shushu")) {
+					session.setAttribute("adminEmail", memberDTO);
+				if(userCheck.getM_email().equals("admin@shushu")) {
 					session.setAttribute("id", memberDTO.getM_email());
 					return "redirect:/admin/index";
 				}else {
-					session.setAttribute("userEmail", memberDTO);
+					session.setAttribute("m_Email", memberDTO);
 					return "redirect:/foot/index";
 				}
 						
 			}else {
 				
-				return "admin/login";
+			 return "foot/msg";
 			}
-			
+				
+			}
+			return "admin/login";
 		}
 	
 
