@@ -100,6 +100,7 @@ public class FootController {
 			session.invalidate();
 		return "foot/index";
 	} 
+	
 	@RequestMapping(value = "/foot/join", method = RequestMethod.GET)
 	public String joinPro(MemberDTO memberDTO) {
 		return "foot/join";
@@ -111,37 +112,6 @@ public class FootController {
 		
 		memberService.insertMember(memberDTO);
 		return "redirect:/foot/index";
-	}
-	
-	
-	@RequestMapping(value = "/foot/qna_list", method = RequestMethod.GET)
-	public String qna_list() {
-		// /WEB-INF/views/board/writeForm.jsp
-		return "foot/qna_list";
-	}
-	
-	@RequestMapping(value = "/foot/qna_write", method = RequestMethod.GET)
-	public String qna_write() {
-		// /WEB-INF/views/board/writeForm.jsp
-		return "foot/qna_write";
-	}
-	
-	@RequestMapping(value = "/foot/qna_update", method = RequestMethod.GET)
-	public String qna_update() {
-		// /WEB-INF/views/board/qna_update.jsp
-		return "foot/qna_update";
-	}
-	
-	@RequestMapping(value = "/foot/qna_delete", method = RequestMethod.GET)
-	public String qna_delete() {
-		// /WEB-INF/views/foot/qna_delete.jsp
-		return "foot/qna_delete";
-	}
-	
-	@RequestMapping(value = "/foot/qnaDeletePro", method = RequestMethod.POST)
-	public String qnaDeletePro() {
-		// /WEB-INF/views/foot/qnaDeletePro.jsp
-		return "redirect:/foot/qna_list";
 	}
 	
 	@RequestMapping(value = "/foot/review", method = RequestMethod.GET)
@@ -193,19 +163,6 @@ public class FootController {
 		// /WEB-INF/views/foot/withdrawal.jsp
 		return "foot/withdrawal";
 	}
-	@RequestMapping(value = "/foot/gongji", method = RequestMethod.GET)
-	public String gongji() {
-		// /WEB-INF/views/foot/withdrawal.jsp
-		return "foot/gongji";
-	}
-	@RequestMapping(value = "/foot/faq_list", method = RequestMethod.GET)
-	public String faq_list() {
-		// /WEB-INF/views/foot/withdrawal.jsp
-		return "foot/faq_list";
-	}
-	
-	
-
 	
 
 }
