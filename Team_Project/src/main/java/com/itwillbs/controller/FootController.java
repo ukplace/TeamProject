@@ -170,6 +170,12 @@ public class FootController {
 		return "redirect:/foot/product_detail";
 	}
 	
+	@RequestMapping(value = "/foot/order", method = RequestMethod.GET)
+	public String order() {
+		// /WEB-INF/views/foot/order.jsp
+		return "foot/order";
+	}
+	
 	@RequestMapping(value = "/foot/order_list", method = RequestMethod.GET)
 	public String order_list() {
 		// /WEB-INF/views/foot/orderList.jsp
