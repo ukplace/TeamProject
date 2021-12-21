@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.itwillbs.domain.QnaDTO;
 import com.itwillbs.service.CenterService;
 
 @Controller
@@ -72,6 +73,7 @@ public class CenterController {
 		// /WEB-INF/views/foot/faq_list.jsp
 		return "foot/faq_list";
 	}
+<<<<<<< HEAD
 	@RequestMapping(value = "/center/faq_detail", method = RequestMethod.GET)
 	public String faq_detail() {
 		
@@ -117,17 +119,33 @@ public class CenterController {
 	
 	
 	// 문의(qna) 매핑
+=======
+
+	@RequestMapping(value = "/center/qna_write", method = RequestMethod.GET)
+	public String qna_write() {
+		// /WEB-INF/views/foot/qna_write.jsp
+		return "foot/qna_write";
+	}
+	
+	@RequestMapping(value = "/center/qna_write_pro", method = RequestMethod.POST)
+	public String qna_write_pro(QnaDTO qnaDTO) {
+		// /WEB-INF/views/foot/qna_write_pro.jsp
+		// DB insert 작업
+		centerService.insertQna(qnaDTO);
+		
+		// qna목록으로 이동
+		return "redirect:/foot/qna_list";
+	}
+
+>>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 	@RequestMapping(value = "/foot/qna_list", method = RequestMethod.GET)
 	public String qna_list() {
 		// /WEB-INF/views/board/writeForm.jsp
+		
+		
 		return "foot/qna_list";
 	}
 	
-	@RequestMapping(value = "/foot/qna_write", method = RequestMethod.GET)
-	public String qna_write() {
-		// /WEB-INF/views/board/writeForm.jsp
-		return "foot/qna_write";
-	}
 	
 	@RequestMapping(value = "/foot/qna_update", method = RequestMethod.GET)
 	public String qna_update() {

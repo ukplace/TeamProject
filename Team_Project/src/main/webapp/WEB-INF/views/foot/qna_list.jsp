@@ -112,7 +112,8 @@
 										<thead>
 											<tr>
 												<th style="text-align: center; width: 50px;">글번호</th>
-												<th style="text-align: center; width: 80px;">아이디</th>
+												<th style="text-align: center; width: 50px;">문의유형</th>
+												<th style="text-align: center; width: 80px;">작성자</th>
 												<th style="text-align: center; width: 200px;">제목</th>
 												<th style="text-align: center; width: 80px;">작성일</th>
 											</tr>
@@ -126,6 +127,8 @@
 												<tr class="odd gradeX">
 													<td style="text-align: center; line-height: auto;"><a
 														href="#">1</a></td>
+													<td style="text-align: center; line-height: auto;"><a
+														href="#"></a></td>
 													<!-- ${memberDTO.id } -->
 													<td id="Qna1"	style="text-align: center; line-height: auto; margin: auto;"><a
 														href="#">hihi@naver.com</a></td>
@@ -140,6 +143,9 @@
 												<tr class="odd gradeX">
 													<td style="text-align: center; line-height: auto;"><a
 														href="#">2</a></td>
+														<!--  -->
+													<td style="text-align: center; line-height: auto;"><a
+														href="#"></a></td>
 													<!-- ${memberDTO.id } -->
 													<td id="Qna1"	style="text-align: center; line-height: auto; margin: auto;"><a
 														href="#">bye@naver.com</a></td>
