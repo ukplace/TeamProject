@@ -12,6 +12,11 @@ public class CenterController {
 		// /WEB-INF/views/foot/notice.jsp
 		return "foot/notice";
 	}
+	@RequestMapping(value = "/center/noticePro", method = RequestMethod.GET)
+	public String noticePro() {
+		// /WEB-INF/views/foot/notice.jsp
+		return "foot/notice";
+	}
 	
 
 }
