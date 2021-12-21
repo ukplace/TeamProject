@@ -73,7 +73,7 @@ public class CenterController {
 		// /WEB-INF/views/foot/faq_list.jsp
 		return "foot/faq_list";
 	}
-<<<<<<< HEAD
+
 	@RequestMapping(value = "/center/faq_detail", method = RequestMethod.GET)
 	public String faq_detail() {
 		
@@ -118,8 +118,6 @@ public class CenterController {
 	
 	
 	
-	// 문의(qna) 매핑
-=======
 
 	@RequestMapping(value = "/center/qna_write", method = RequestMethod.GET)
 	public String qna_write() {
@@ -137,7 +135,6 @@ public class CenterController {
 		return "redirect:/foot/qna_list";
 	}
 
->>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 	@RequestMapping(value = "/foot/qna_list", method = RequestMethod.GET)
 	public String qna_list() {
 		// /WEB-INF/views/board/writeForm.jsp
