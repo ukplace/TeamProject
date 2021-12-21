@@ -27,10 +27,10 @@ public class FootController {
 		// /WEB-INF/views/board/writeForm.jsp
 		return "foot/about";
 	}
-	@RequestMapping(value = "/foot/add-to-wishlist", method = RequestMethod.GET)
-	public String addtowishlistjsp() {
+	@RequestMapping(value = "/foot/wishlist", method = RequestMethod.GET)
+	public String wishlist() {
 		// /WEB-INF/views/board/writeForm.jsp
-		return "foot/add-to-wishlist.jsp";
+		return "foot/wishlist";
 	}
 	@RequestMapping(value = "/foot/cart", method = RequestMethod.GET)
 	public String cart() {
