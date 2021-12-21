@@ -137,12 +137,15 @@
 			                    					할인/혜택
                                                     <table class="table table-bordered ">
                                                       <tr>
-                                                    <th style=background-color:#f5f5f5;>쿠폰</th>
-                                                    <td>보유쿠폰 0장 &nbsp&nbsp&nbsp&nbsp<a href="#" class="btn btn-primary">Place an order</a></td>
+                                                    <th style="background-color:#f5f5f5; line-height:50px;">쿠폰</th>
+                                                    <td style="background-color:#f5f5f5; line-height:50px;">보유쿠폰 0장 
+                                                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                                                    <a href="#" class="btn btn-primary">쿠폰조회</a></td>
                                                 </tr>
                                                 <tr>
-                                                    <th style=background-color:#f5f5f5;>포인트</th>
-                                                    <td ><input type="text" id="fname" class="form-control" style="width:250px;" placeholder="Your firstname" ></td>
+                                                    <th style="background-color:#f5f5f5; line-height:50px;">포인트</th>
+                                                    <td style="background-color:#f5f5f5; line-height:50px;"><input type="text" id="fname" class="form-control col-md-3"  placeholder="0" >원
+                                                    <a href="#" class="btn btn-primary">전액사용</a></td>
                                                 </tr>
                                                     </table>
                                                     
@@ -154,20 +157,20 @@
                                                     <table class="table table-bordered ">
                                                       <tr>
                                                     <th style="background-color:#f5f5f5; line-height:50px;" class="col-md-3">이름</th>
-                                                    <td><input type="text" id="fname" class="form-control" style="width:200px;" placeholder="Your firstname" ></td>
+                                                    <td><input type="text" id="fname" class="form-control col-md-4"  placeholder="이름" ></td>
                                                 </tr>
                                                 <tr>
                                                     <th style="background-color:#f5f5f5; line-height:50px;" class="col-md-3">전화번호</th>
-                                                    <td><input type="text" id="fname" class="form-control" style="width:250px;" placeholder="Your firstname" ></td>
+                                                    <td><input type="text" id="fname" class="form-control col-md-6" placeholder="전화번호 입력하세요" ></td>
                                                     
                                                 </tr>
                                                 <tr>
                                                    <th style="background-color:#f5f5f5; line-height:50px;" class="col-md-3">휴대폰번호</th>
-                                                    <td><input type="text" id="fname" class="form-control" style="width:250px;" placeholder="Your firstname"></td>
+                                                    <td><input type="text" id="fname" class="form-control col-md-6" placeholder="휴대폰번호 입력하세요"></td>
                                                 </tr>
                                                 <tr>
                                                    <th style="background-color:#f5f5f5; line-height:50px;" class="col-md-3">이메일</th>
-                                                    <td><input type="text" id="fname" class="form-control" style="width:300px;" placeholder="Your firstname"></td>
+                                                    <td><input type="text" id="fname" class="form-control col-md-8" placeholder="이메일 입력하세요"></td>
                                                 </tr>
                                                     </table>
                                                     
@@ -180,7 +183,7 @@
                                                     <td>   <div class="form-field">
 							                     	<i class="icon icon-arrow-down3"></i>
 							                        <select name="people" id="people" class="form-control">
-								                      	<option value="#">Select country</option>
+								                      	<option value="#">배송지 선택하세요</option>
 								                        <option value="#">Alaska</option>
 								                        <option value="#">China</option>
 								                        <option value="#">Japan</option>
@@ -192,23 +195,23 @@
                                                 
                                                 <tr>
                                                     <th style="background-color:#f5f5f5; line-height:50px;" class="col-md-3">이름</th>
-                                                    <td colspan="2"><input type="text" id="fname" class="form-control" style="width:200px;" placeholder="Your firstname" ></td>
+                                                    <td colspan="2"><input type="text" id="fname" class="form-control col-md-4" placeholder="이름" ></td>
                                                 </tr>
                                                 <tr>
                                                     <th style="background-color:#f5f5f5; line-height:50px;" class="col-md-3">전화번호</th>
-                                                    <td><input type="text" id="fname" class="form-control col-md-6" placeholder="Your firstname"></td>
+                                                    <td><input type="text" id="fname" class="form-control col-md-6" placeholder="전화번호 입력하세요"></td>
                                                     
                                                 </tr>
                                                 <tr>
                                                     <th style="background-color:#f5f5f5; line-height:150px;" class="col-md-3">주소</th>
-                                                    <td><input type="text" id="fname" class="form-control col-md-4" placeholder="Your firstname">
-													<a href="#" class="btn btn-primary">우편번호</a>
-                                                    <input type="text" id="fname" class="form-control" placeholder="Your firstname">
-                                                    <input type="text" id="fname" class="form-control" placeholder="Your firstname"></td>
+                                                    <td><input type="text" id="fname" class="form-control col-md-4" placeholder="우편번호">
+													&nbsp&nbsp&nbsp<a href="#" class="btn btn-primary">우편번호</a>
+                                                    <input type="text" id="fname" class="form-control" placeholder="주소">
+                                                    <input type="text" id="fname" class="form-control" placeholder="상세주소"></td>
                                                 </tr>
                                                 <tr>
                                                     <th style="background-color:#f5f5f5; line-height:50px;" class="col-md-3">배송메모</th>
-                                                    <td><input type="text" id="fname" class="form-control" placeholder="Your firstname"></td>
+                                                    <td><input type="text" id="fname" class="form-control" placeholder="배송메모"></td>
                                                 </tr>
                                        
                                             
@@ -248,14 +251,14 @@
 									<h2>Cart Total</h2>
 									<ul>
 										<li>
-											<span>Subtotal</span> <span>$100.00</span>
+											<span>총 상품금액</span> <span>50,000원</span>
 											<ul>
-												<li><span>1 x Product Name</span> <span>$99.00</span></li>
-												<li><span>1 x Product Name</span> <span>$78.00</span></li>
+												<li><span>배송료</span> <span>3,000원</span></li>
+												<li><span>쿠폰할인</span> <span>-0원</span></li>
+												<li><span>포인트사용</span> <span>-0원</span></li>
 											</ul>
 										</li>
-										<li><span>Shipping</span> <span>$0.00</span></li>
-										<li><span>Order Total</span> <span>$180.00</span></li>
+										<li style="font-weight:bold;"> <span>총 결제금액</span> <span>53,000원</span></li>
 									</ul>
 								</div>
 						   </div>
@@ -298,7 +301,8 @@
 						</div>
 						<div class="row">
 							<div class="col-md-12 text-center">
-								<p><a href="#" class="btn btn-primary">Place an order</a></p>
+								<a href="#" class="btn btn-primary">결제하기</a>
+								<a href="#" class="btn btn-outline-secondary">취소</a>
 							</div>
 						</div>
 					</div>

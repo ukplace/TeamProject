@@ -199,7 +199,16 @@ public class FootController {
 		// /WEB-INF/views/foot/withdrawal.jsp
 		return "foot/withdrawal";
 	}
-	
+	@RequestMapping(value = "/foot/gongji", method = RequestMethod.GET)
+	public String gongji() {
+		// /WEB-INF/views/foot/withdrawal.jsp
+		return "foot/gongji";
+	}
+	@RequestMapping(value = "/foot/faq_list", method = RequestMethod.GET)
+	public String faq_list() {
+		// /WEB-INF/views/foot/withdrawal.jsp
+		return "foot/faq_list";
+	}
 	
 	
 
