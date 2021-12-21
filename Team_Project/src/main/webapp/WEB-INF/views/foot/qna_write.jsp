@@ -134,8 +134,8 @@
 						<div class="w-100"></div>
 						<div class="col-sm-12">
 										<div class="form-group">
-											<label for="content">문의내용</label>
-											<textarea name="content" id="content" cols="30" rows="10" class="form-control" placeholder="문의 내용을 적어주세요"></textarea>
+											<label for="content">문의내용</label><br>
+											<textarea name="content" id="content" cols="100" rows="30"  placeholder="문의 내용을 적어주세요"></textarea>
 										</div>
 									</div>
 
