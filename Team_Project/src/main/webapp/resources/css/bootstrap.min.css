@@ -5428,7 +5428,7 @@ a.thumbnail.active, a.thumbnail:focus, a.thumbnail:hover {
 	color: #843534
 }
 
-@
+
 -webkit-keyframes progress-bar-stripes {
 	from {background-position: 40px 0
 }
@@ -5438,7 +5438,7 @@ to {
 }
 
 }
-@
+
 -o-keyframes progress-bar-stripes {
 	from {background-position: 40px 0
 }
@@ -5448,7 +5448,7 @@ to {
 }
 
 }
-@
+
 keyframes progress-bar-stripes {
 	from {background-position: 40px 0
 }
