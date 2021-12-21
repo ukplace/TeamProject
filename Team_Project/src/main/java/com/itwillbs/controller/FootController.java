@@ -14,7 +14,7 @@ import com.itwillbs.service.MemberService;
 public class FootController {
 	
 	@Inject
-	static MemberService memberService;
+	private MemberService memberService;
 	
 	
 	@RequestMapping(value = "/foot/index", method = RequestMethod.GET)
@@ -27,10 +27,10 @@ public class FootController {
 		// /WEB-INF/views/board/writeForm.jsp
 		return "foot/about";
 	}
-	@RequestMapping(value = "/foot/add-to-wishlist", method = RequestMethod.GET)
-	public String addtowishlistjsp() {
+	@RequestMapping(value = "/foot/wishlist", method = RequestMethod.GET)
+	public String wishlist() {
 		// /WEB-INF/views/board/writeForm.jsp
-		return "foot/add-to-wishlist.jsp";
+		return "foot/wishlist";
 	}
 	@RequestMapping(value = "/foot/cart", method = RequestMethod.GET)
 	public String cart() {
@@ -73,24 +73,15 @@ public class FootController {
 		// /WEB-INF/views/board/writeForm.jsp
 		return "foot/login";
 	} 
-	@RequestMapping(value = "/foot/logout", method = RequestMethod.GET)
-	public String logout(HttpSession session) {
-			session.invalidate();
-		return "foot/index";
-	} 
 	
-	@RequestMapping(value = "/foot/join", method = RequestMethod.GET)
-	public String join(MemberDTO memberDTO,HttpSession session) {
-		System.out.println("/admin/login_Pro");
-		
+	@RequestMapping(value = "/foot/loginPro", method = RequestMethod.POST)
+	public String loginPro(MemberDTO memberDTO, HttpSession session) {
 		MemberDTO userCheck = memberService.userCheck(memberDTO);
 		
 		if(userCheck != null) {
 			System.out.println(memberDTO.getM_email());
 			
-			if(userCheck.getM_email().equals("admin@shushu")) {
-				session.setAttribute("adminEmail", memberDTO);
-			if(userCheck.getM_email().equals("admin@shushu")) {
+			if(userCheck.getM_email().equals("admin@shushu.com")) {
 				session.setAttribute("id", memberDTO.getM_email());
 				return "redirect:/admin/index";
 			}else {
@@ -102,18 +93,24 @@ public class FootController {
 			
 		 return "foot/msg";
 		}
-			
-		}
+	} 
 	
+	@RequestMapping(value = "/foot/logout", method = RequestMethod.GET)
+	public String logout(HttpSession session) {
+			session.invalidate();
+		return "foot/index";
+	} 
+	@RequestMapping(value = "/foot/join", method = RequestMethod.GET)
+	public String joinPro(MemberDTO memberDTO) {
 		return "foot/join";
 	}
+	
 	@RequestMapping(value = "/foot/joinPro", method = RequestMethod.POST)
-	public String joinPro(MemberDTO memberDTO) {
+	public String join(MemberDTO memberDTO) {
+		System.out.println("/foot/joinPro");
 		
 		memberService.insertMember(memberDTO);
-			
-		
-		return "foot/login";
+		return "redirect:/foot/index";
 	}
 	
 	

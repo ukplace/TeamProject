@@ -17,7 +17,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public void insertMember(MemberDTO memberDTO) {
-		memberDTO.setDate(new Timestamp(System.currentTimeMillis()));	//날짜 
+		memberDTO.setM_date(new Timestamp(System.currentTimeMillis()));	//날짜 
 		memberDAO.insertMember(memberDTO);
 	}
 

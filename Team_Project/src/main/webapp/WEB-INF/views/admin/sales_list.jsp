@@ -47,7 +47,7 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">Tables</h1>
+                            <h1 class="page-header">매출 리스트</h1>
                         </div>
                         <!-- /.col-lg-12 -->
                     </div>
@@ -55,16 +55,18 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    DataTables Advanced Tables
-                                </div>
+<!--                                 <div class="panel-heading"> -->
+                                <h3> &nbsp;&nbsp; 총 매출</h3> 
+                                <hr>
+                                 
+<!--                                 </div> -->
                                 <!-- /.panel-heading -->
                                 <div class="panel-body">
                                     <div class="table-responsive">
                                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                             <thead>
                                                 <tr>
-                                                    <th>품목</th>
+                                                    <th>카테고리</th>
                                                     <th>모델명</th>
                                                     <th>판매량</th>
                                                     <th>판매단가</th>
@@ -74,7 +76,7 @@
                                             <tbody>
                                               
                                                 <tr class="gradeU">
-                                                    <td>Other browsers</td>
+                                                    <td>Men/Women/Kids</td>
                                                     <td>All others</td>
                                                     <td>-</td>
                                                     <td class="center">-</td>
@@ -94,7 +96,7 @@
                                             <thead>
                                                 <tr>
                                                     <th>#</th>
-                                                    <th>품목</th>
+                                                    <th>카테고리</th>
                                                     <th>모델명</th>
                                                     <th>판매량</th>
                                                 </tr>

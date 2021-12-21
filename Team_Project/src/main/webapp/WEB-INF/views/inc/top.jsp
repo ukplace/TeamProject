@@ -53,7 +53,6 @@
 										<li><a href="${pageContext.request.contextPath}/foot/cart">Shopping Cart</a></li>
 										<li><a href="${pageContext.request.contextPath}/foot/checkout">Checkout</a></li>
 										<li><a href="${pageContext.request.contextPath}/foot/order-complete">Order Complete</a></li>
-										<li><a href="${pageContext.request.contextPath}/foot/add-to-wishlist">Wishlist</a></li>
 									</ul>
 								</li>
 								<li><a href="${pageContext.request.contextPath}/foot/list_women">Women</a></li>
@@ -70,7 +69,7 @@
 			                  </form>
 			        </div>
 			         <li class="cart"><a href="${pageContext.request.contextPath}/foot/cart"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
-								<li class="cart"><a href="${pageContext.request.contextPath}/foot/whishlist"><i class="icon-heart2"></i> Wish </a></li>
+								<li class="cart"><a href="${pageContext.request.contextPath}/foot/wishlist"><i class="icon-heart2"></i> Wish </a></li>
 								
 					
 								</ul>

@@ -88,7 +88,7 @@
 			<div class="container">	
 				<div class="row">
 					<div class="col">
-					<p class="bread"><span><a href="${pageContext.request.contextPath}/foot/index/">Home</a></span> / <span>회원가입</span></p>
+					<p class="bread"><span><a href="${pageContext.request.contextPath}/foot/index">Home</a></span> / <span>회원가입</span></p>
 						</div>
 					</div>
 				</div>
@@ -102,7 +102,7 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-8" >
-						<form method="post" class="colorlib-form" name="join" action="${pageContext.request.contextPath}/foot/joinPro/">
+						<form method="post" class="colorlib-form" name="join" action="${pageContext.request.contextPath}/foot/joinPro">
 							<h2>회원가입</h2>
 		              		<div class="row">
 								<div class="col-md-12">
@@ -113,9 +113,9 @@
 									
 										
 										<div class="form-group" >
-										<label for="email"><h4>* 이메일</h4> </label><br>
+										<label for="m_email"><h4>* 이메일</h4> </label><br>
 										<table >
-			                    		<tr><td width="80%"><input type="email" id="email" name="m_email" placeholder="example@email.com" class="form-control" required="required" ></td>
+			                    		<tr><td width="80%"><input type="email" id="m_email" name="m_email" placeholder="example@email.com" class="form-control" required="required" ></td>
 			                    		<td>&nbsp&nbsp</td>
 			                    		<td><input type="button" value="중복확인" class ="btn btn-default btn-lg"></td></tr>
 			                    		</table>
