@@ -3,19 +3,24 @@ package com.itwillbs.domain;
 import java.sql.Timestamp;
 
 /*
-	create table member(
-	idx int primary key,
-	email varchar(30) not null,
-	name varchar(30) not null,
-	tel varchar(30) not null,
-	birth varchar(30),
-	zip varchar(30),
-	address varchar(50)
-	detail_address varchar(100)
-	);
+create table member (
+m_idx int primary key auto_increment,
+m_email varchar(45) not null,
+m_pass varchar(45) not null,
+m_name varchar(45) not null,
+m_tel varchar(45) not null,
+m_birth varchar(45) not null,
+m_zip varchar(45),
+m_address varchar(45),
+m_detail_address varchar(45),
+m_point int default 2000,
+m_grade varchar(45) default '브론즈',
+m_date datetime default now() not null,
+m_auth_code varchar(45) not null default '-',
+m_auth_status char(1) not null default 'N',
+unique (m_email)
+);
 	
-	
- 
  */
 
 

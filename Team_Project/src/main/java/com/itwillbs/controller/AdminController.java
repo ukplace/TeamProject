@@ -208,6 +208,15 @@ public class AdminController {
 	      // /WEB-INF/views/admin/qna_list.jsp
 	      return "admin/qna_list";
 	   }
-	 
+	 @RequestMapping(value = "/admin/faq_insert", method = RequestMethod.GET)
+	   public String faq_insert() {
+	      // /WEB-INF/views/admin/qna_list.jsp
+	      return "admin/faq_insert";
+	   }
+	 @RequestMapping(value = "/admin/gongji_insert", method = RequestMethod.GET)
+	   public String gongji_insert() {
+	      // /WEB-INF/views/admin/qna_list.jsp
+	      return "admin/gongji_insert";
+	   }
 	 
 }
