@@ -85,7 +85,7 @@ public class FootController {
 				session.setAttribute("id", memberDTO.getM_email());
 				return "redirect:/admin/index";
 			}else {
-				session.setAttribute("m_Email", memberDTO);
+				session.setAttribute("id", memberDTO.getM_email());
 				return "redirect:/foot/index";
 			}
 					
