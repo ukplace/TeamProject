@@ -149,8 +149,13 @@
 						</div>
 						<div class="col-sm-12">
 										<div class="form-group">
+<<<<<<< HEAD
 											<label for="content">문의내용</label>
 											<textarea name="content" id="content" cols="50" rows="10" class="form-control-9" placeholder="문의 내용을 적어주세요"></textarea>
+=======
+											<label for="content">문의내용</label><br>
+											<textarea name="content" id="content" cols="100" rows="30"  placeholder="문의 내용을 적어주세요"></textarea>
+>>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 										</div>
 									</div>
 				

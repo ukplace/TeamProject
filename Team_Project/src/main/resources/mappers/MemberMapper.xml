@@ -12,8 +12,8 @@
 	</select>
 
 	<insert id="insertMember">
-		insert into member(m_email,m_pass,m_name,m_tel,m_birth,m_zip,m_address,m_detail_address,m_date) 
-		values(#{m_email}, #{m_pass}, #{m_name}, #{m_tel}, #{m_birth}, #{m_zip}, #{m_address}, #{m_detail_address}, #{m_date})	
+		insert into member(m_email,m_pass,m_name,m_tel,m_birth,m_zip,m_address,m_detail_address) 
+		values(#{m_email}, #{m_pass}, #{m_name}, #{m_tel}, #{m_birth}, #{m_zip}, #{m_address}, #{m_detail_address})	
 	</insert>
 	
 	<select id="getUser">

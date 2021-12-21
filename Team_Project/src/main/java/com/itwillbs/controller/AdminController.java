@@ -106,10 +106,10 @@ public class AdminController {
      }
 
 	 
-	 @RequestMapping(value = "/admin/salesList", method = RequestMethod.GET)
+	 @RequestMapping(value = "/admin/sales_list", method = RequestMethod.GET)
      public String salesList() {
         // /WEB-INF/views/admin/salesList.jsp
-        return "admin/salesList";
+        return "admin/sales_list";
      }
 	 
 
