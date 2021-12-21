@@ -147,6 +147,7 @@
 									id="subject" class="form-control">
 							</div>
 						</div>
+					
 						<div class="col-sm-12">
 										<div class="form-group">
 											<label for="content">문의내용</label>
@@ -168,8 +169,8 @@
 				</form>
 					<div class="col-sm-12">
 										<div class="form-group" style="text-align: center;">
-											<input type="submit" value="등록" class="btn btn-primary">
-											<input type="submit" value="목록" class="btn btn-primary">
+											<input type="submit" value="등록" class="btn btn-primary" onclick="${pageContext.request.contextPath}/foot/qna_list">
+											<input type="submit" value="목록" class="btn btn-primary" onclick="${pageContext.request.contextPath}/foot/qna_list">
 										</div>
 									</div>
 			</div>

@@ -5,6 +5,9 @@
   
 <mapper namespace="com.itwillbs.mapper.CenterMapper">
 
-	
+	<insert id="insertQna">
+		insert into qna(m_idx,name,subject,content) 
+		values(#{m_idx},#{name},#{subject},#{content})
+	</insert>
 
 </mapper>
