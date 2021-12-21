@@ -127,7 +127,6 @@
 												<tr class="odd gradeX">
 													<td style="text-align: center; line-height: auto;"><a
 														href="#">1</a></td>
-													<!--  -->
 													<td style="text-align: center; line-height: auto;"><a
 														href="#"></a></td>
 													<!-- ${memberDTO.id } -->
