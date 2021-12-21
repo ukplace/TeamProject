@@ -133,14 +133,6 @@
 							</div>
 						</div>
 
-						<div class="col-md-6">
-							<div class="form-group">
-								<label for="number">연락처</label> <input type="text"
-									id="number" class="form-control"
-									placeholder="Enter Your number">
-							</div>
-						</div>
-
 						<div class="col-md-7">
 							<div class="form-group">
 								<label for="subject">제목</label> <input type="text"

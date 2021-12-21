@@ -113,7 +113,7 @@
 											<tr>
 												<th style="text-align: center; width: 50px;">글번호</th>
 												<th style="text-align: center; width: 50px;">문의유형</th>
-												<th style="text-align: center; width: 80px;">아이디</th>
+												<th style="text-align: center; width: 80px;">작성자</th>
 												<th style="text-align: center; width: 200px;">제목</th>
 												<th style="text-align: center; width: 80px;">작성일</th>
 											</tr>

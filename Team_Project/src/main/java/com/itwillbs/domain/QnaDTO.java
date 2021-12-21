@@ -2,19 +2,20 @@ package com.itwillbs.domain;
 
 import java.sql.Timestamp;
 
-//	create table qna (
-//			qna_idx int auto_increment,
-//			m_idx int,
-//			qna_name varchar(45) not null,   
-//			qna_subject varchar(45) not null,
-//			qna_content varchar(500) not null,
-//			qna_re_ref int,
-//			qna_re_lev int,
-//			qna_re_seq int,
-//			qna_date datetime default now() not null,
-//			foreign key (m_idx) references member (m_idx),
-//			constraint table_qna_pk primary key(qna_idx, qna_name)
-//			);
+//create table qna (
+//qna_idx int auto_increment,
+//m_idx int, 
+//qna_name varchar(45) not null,  
+//qna_subject varchar(45) not null,
+//qna_content varchar(500) not null,
+//qna_type varchar(45) not null,
+//qna_re_ref int,
+//qna_re_lev int,
+//qna_re_seq int,
+//qna_date datetime default now() not null,
+//foreign key (m_idx) references member (m_idx),
+//constraint table_qna_pk primary key(qna_idx, qna_name)
+//);
 
 public class QnaDTO {
 	
@@ -23,10 +24,12 @@ public class QnaDTO {
 	private String qna_name;
 	private String qna_subject;
 	private String qna_content;
+	private String qna_type;
 	private int qna_re_ref;
 	private int qna_re_lev;
 	private int qna_re_seq;
 	private Timestamp date;
+	
 	
 	public int getQna_idx() {
 		return qna_idx;
@@ -57,6 +60,12 @@ public class QnaDTO {
 	}
 	public void setQna_content(String qna_content) {
 		this.qna_content = qna_content;
+	}
+	public String getQna_type() {
+		return qna_type;
+	}
+	public void setQna_type(String qna_type) {
+		this.qna_type = qna_type;
 	}
 	public int getQna_re_ref() {
 		return qna_re_ref;
