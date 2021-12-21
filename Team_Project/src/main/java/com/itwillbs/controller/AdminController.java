@@ -34,6 +34,8 @@ public class AdminController {
 			if(userCheck != null) {
 				System.out.println(memberDTO.getM_email());
 				
+//				if(userCheck.getM_email().equals("admin@shushu")) {
+//					session.setAttribute("adminEmail", memberDTO);
 				if(userCheck.getM_email().equals("admin@shushu")) {
 					session.setAttribute("adminEmail", memberDTO);
 				if(userCheck.getM_email().equals("admin@shushu")) {
