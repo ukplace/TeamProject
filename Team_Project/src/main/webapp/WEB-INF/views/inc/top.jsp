@@ -53,6 +53,7 @@
 										<li><a href="${pageContext.request.contextPath}/foot/cart">Shopping Cart</a></li>
 										<li><a href="${pageContext.request.contextPath}/foot/checkout">Checkout</a></li>
 										<li><a href="${pageContext.request.contextPath}/foot/order-complete">Order Complete</a></li>
+										<li><a href="${pageContext.request.contextPath}/foot/order">order</a></li>
 									</ul>
 								</li>
 								<li><a href="${pageContext.request.contextPath}/foot/list_women">Women</a></li>
