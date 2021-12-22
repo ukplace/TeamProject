@@ -38,7 +38,7 @@ public class CenterController {
 	@RequestMapping(value = "/center/notice_write_pro", method = RequestMethod.POST)
 	public String notice_write_pro() {
 		
-		// /WEB-INF/views/center/notice_list.jsp
+		// /WEB-INF/views/foot/notice_list.jsp
 		return "redirect:/center/notice_list";
 	}
 	@RequestMapping(value = "/center/notice_update", method = RequestMethod.GET)
@@ -50,7 +50,7 @@ public class CenterController {
 	@RequestMapping(value = "/center/notice_update_pro", method = RequestMethod.POST)
 	public String notice_update_pro() {
 		
-		// /WEB-INF/views/center/notice_list.jsp
+		// /WEB-INF/views/foot/notice_list.jsp
 		return "redirect:/center/notice_list";
 	}
 	
@@ -59,7 +59,7 @@ public class CenterController {
 	@RequestMapping(value = "/center/notice_delete_pro", method = RequestMethod.POST)
 	public String notice_delete_pro() {
 		
-		// /WEB-INF/views/center/notice_list.jsp
+		// /WEB-INF/views/foot/notice_list.jsp
 		return "redirect:/center/notice_list";
 	}
 	
@@ -83,13 +83,13 @@ public class CenterController {
 	@RequestMapping(value = "/center/faq_write", method = RequestMethod.GET)
 	public String faq_write() {
 		
-		// /WEB-INF/views/foot/faq_list.jsp
-		return "foot/faq_list";
+		// /WEB-INF/views/foot/faq_write.jsp
+		return "foot/faq_write";
 	}
 	@RequestMapping(value = "/center/faq_write_pro", method = RequestMethod.POST)
 	public String faq_write_pro() {
 		
-		// /WEB-INF/views/center/faq_list.jsp
+		// /WEB-INF/views/foot/faq_list.jsp
 		return "redirect:/center/faq_list";
 	}
 	@RequestMapping(value = "/center/faq_update", method = RequestMethod.GET)
@@ -101,7 +101,7 @@ public class CenterController {
 	@RequestMapping(value = "/center/faq_update_pro", method = RequestMethod.POST)
 	public String faq_update_pro() {
 		
-		// /WEB-INF/views/center/faq_list.jsp
+		// /WEB-INF/views/foot/faq_list.jsp
 		return "redirect:/center/faq_list";
 	}
 	
@@ -110,63 +110,65 @@ public class CenterController {
 	@RequestMapping(value = "/center/faq_delete_pro", method = RequestMethod.POST)
 	public String faq_delete_pro() {
 		
-		// /WEB-INF/views/center/faq_list.jsp
+		// /WEB-INF/views/foot/faq_list.jsp
 		return "redirect:/center/faq_list";
 	}
 	
 	
 	
 	
-	
-
+	// 자주묻는질문(qna) 매핑
+	@RequestMapping(value = "/center/qna_list", method = RequestMethod.GET)
+	public String qna_list() {
+		
+		// /WEB-INF/views/foot/qna_list.jsp
+		return "foot/qna_list";
+	}
 	@RequestMapping(value = "/center/qna_write", method = RequestMethod.GET)
 	public String qna_write() {
+		
+		
 		// /WEB-INF/views/foot/qna_write.jsp
 		return "foot/qna_write";
 	}
 	
 	@RequestMapping(value = "/center/qna_write_pro", method = RequestMethod.POST)
 	public String qna_write_pro(QnaDTO qnaDTO) {
-		// /WEB-INF/views/foot/qna_write_pro.jsp
 		// DB insert 작업
 		centerService.insertQna(qnaDTO);
 		
 		// qna목록으로 이동
-		return "redirect:/foot/qna_list";
-	}
-
-	@RequestMapping(value = "/foot/qna_list", method = RequestMethod.GET)
-	public String qna_list() {
-		// /WEB-INF/views/board/writeForm.jsp
-		
-		
-		return "foot/qna_list";
+		// /WEB-INF/views/foot/qna_list.jsp
+		return "redirect:/center/qna_list";
 	}
 	
-	
-	@RequestMapping(value = "/foot/qna_update", method = RequestMethod.GET)
+	@RequestMapping(value = "/center/qna_update", method = RequestMethod.GET)
 	public String qna_update() {
-		// /WEB-INF/views/board/qna_update.jsp
+		
+		// /WEB-INF/views/foot/qna_update.jsp
 		return "foot/qna_update";
 	}
 	
-	@RequestMapping(value = "/foot/qna_update_pro", method = RequestMethod.GET)
+	@RequestMapping(value = "/center/qna_update_pro", method = RequestMethod.POST)
 	public String qna_update_pro() {
-		// /WEB-INF/views/foot/qna_delete.jsp
-		return "foot/qna_delete";
+		
+		// /WEB-INF/views/foot/qna_list.jsp
+		return "redirect:/center/qna_list";
 	}
 
-	   @RequestMapping(value = "/foot/qna_delete", method = RequestMethod.GET)
-	   public String qna_delete() {
-	      // /WEB-INF/views/foot/qna_delete.jsp
-	      return "foot/qna_delete";
-	   }
-	   
-	   @RequestMapping(value = "/foot/qna_delete_pro", method = RequestMethod.POST)
-	   public String qna_delete_pro() {
-	      // /WEB-INF/views/foot/qnaDeletePro.jsp
-	      return "redirect:/foot/qna_list";
-	   }
+    @RequestMapping(value = "/center/qna_delete", method = RequestMethod.GET)
+    public String qna_delete() {
+    	
+       // /WEB-INF/views/foot/qna_delete.jsp
+       return "foot/qna_delete";
+    }
+   
+    @RequestMapping(value = "/center/qna_delete_pro", method = RequestMethod.POST)
+    public String qna_delete_pro() {
+    	
+       // /WEB-INF/views/foot/qna_list.jsp
+       return "redirect:/center/qna_list";
+    }
 	
 
 
