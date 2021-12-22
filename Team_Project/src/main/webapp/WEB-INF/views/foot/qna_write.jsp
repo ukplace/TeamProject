@@ -115,17 +115,21 @@
 			                     	<i class="icon icon-arrow-down3"></i>
 								<!-- 문의 유형 태그 -->
 								 <select name="qna_type">
-										<option value="#">카테고리 선택</option>
-										<option value="#">주문내역/배송현황</option>
-										<option value="#">주문상품 취소하기</option>
-										<option value="#">반품/교환/AS 신청하기</option>
-										<option value="#">아이디/비밀번호찾기</option>
-										<option value="#">포인트 사용방법</option>
+										<option value="0">카테고리 선택</option>
+										<option value="1">주문내역/배송현황</option>
+										<option value="2">주문상품 취소하기</option>
+										<option value="3">반품/교환/AS 신청하기</option>
+										<option value="4">아이디/비밀번호찾기</option>
+										<option value="5">포인트 사용방법</option>
 								</select>
 								</div>
 							</div>
 						</div>
-					
+						
+						<!-- 회원번호 자동으로 받아오게 재설정 해야함 -->
+						<input type="text" name="m_idx" value="1" hidden="hidden">
+<!-- 						<input type="text" name="m_idx" value="${memberDTO.m_idx}" hidden="hidden"> -->
+
 						<div class="col-md-6">
 							<div class="form-group">
 								<label for="name">작성자</label> <input type="text"
@@ -150,7 +154,7 @@
 				
 						
 <!-- 						<div class="col-md-12"> -->
-<!-- 							<div class="form-group"> -->
+<!-- 							<div  class="form-group"> -->
 <!-- 								<div class="radio"> -->
 <!-- 									<label><input type="radio" 	name="radio" value="normal"> 일반글</label> -->
 <!-- 									<label><input type="radio" name="radio" value="secret"> 비밀글 </label>  -->
