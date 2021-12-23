@@ -55,7 +55,8 @@
 		<jsp:include page="../inc/top.jsp"></jsp:include>
 		<!-- 헤더들어가는곳 -->
 	</nav>
-
+	</div>
+		<!-- home/checkout 표시 시작  -->
 		<div class="breadcrumbs">
 			<div class="container">
 				<div class="row">
@@ -65,8 +66,9 @@
 				</div>
 			</div>
 		</div>
+		<!-- home/checkout 표시 끝 -->
 
-
+		<!-- 주문진행사항 아이콘 시작 -->
 		<div class="colorlib-product">
 			<div class="container">
 				<div class="row row-pb-lg">
@@ -87,7 +89,11 @@
 						</div>
 					</div>
 				</div>
+				</div>
+				</div>
+		<!-- 주문진행사항 아이콘 끝 -->
 				
+				<div class="container">
 				  <div class="row">
                         <div class="col-lg-12">
                             <div class="panel panel-default">
@@ -308,6 +314,10 @@
 					</div>
 				</div>
 			</div>
+		</div>
+				</div>
+			</div>
+		</div>
 		</div>
 
 		<footer id="colorlib-footer" role="contentinfo">
