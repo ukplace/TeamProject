@@ -1,10 +1,13 @@
 package com.itwillbs.dao;
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.QnaDTO;
 
 @Repository
@@ -21,5 +24,18 @@ public class CenterDAOImpl implements CenterDAO {
 		
 		sqlSession.insert(namespace+".insertQna", qnaDTO);
 	}
+
+	@Override
+	public Integer getMaxNum() {
+		
+		return sqlSession.selectOne(namespace+".getMaxNum");
+	}
+
+	@Override
+	public List<QnaDTO> getQnaList(PageDTO pageDTO) {
+		
+		return sqlSession.selectList(namespace+".getQnaList", pageDTO);
+	}
+
 	
 }
