@@ -66,15 +66,10 @@ public class AdminController {
 	      return "admin/product_regist";
 	   }
 	
-	@RequestMapping(value = "/admin/product_registPro", method = RequestMethod.POST)
+	@RequestMapping(value = "/admin/product_regist_pro", method = RequestMethod.POST)
 	   public String product_registPro(ProductDTO productDTO) {
 		productService.insertProduct(productDTO);
 		
-	      return "admin/product_registPro";
-	      }
-
-	@RequestMapping(value = "/admin/product_regist_pro", method = RequestMethod.POST)
-	   public String product_registPro() {
 	      // /WEB-INF/views/admin/product_registPro.jsp
 	      return "redirect:/admin/product_list";
 	   }

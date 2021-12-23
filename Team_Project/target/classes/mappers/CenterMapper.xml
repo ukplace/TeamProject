@@ -10,4 +10,11 @@
 		values(#{m_idx},#{qna_name},#{qna_subject},#{qna_content},#{qna_type})
 	</insert>
 
+	<select id="getMaxNum" resultType="java.lang.Integer">
+		select max(qna_idx) from qna
+	</select>
+	
+	<select id="getQnaList" resultType="com.itwillbs.domain.QnaDTO">
+		
+	</select>
 </mapper>

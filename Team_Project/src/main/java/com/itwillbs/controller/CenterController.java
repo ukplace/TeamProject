@@ -1,11 +1,16 @@
 package com.itwillbs.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.QnaDTO;
 import com.itwillbs.service.CenterService;
 
@@ -118,12 +123,6 @@ public class CenterController {
 	
 	
 	// 자주묻는질문(qna) 매핑
-	@RequestMapping(value = "/center/qna_list", method = RequestMethod.GET)
-	public String qna_list() {
-		
-		// /WEB-INF/views/foot/qna_list.jsp
-		return "foot/qna_list";
-	}
 	@RequestMapping(value = "/center/qna_write", method = RequestMethod.GET)
 	public String qna_write() {
 		
@@ -140,6 +139,33 @@ public class CenterController {
 		// qna목록으로 이동
 		// /WEB-INF/views/foot/qna_list.jsp
 		return "redirect:/center/qna_list";
+	}
+	
+	@RequestMapping(value = "/center/qna_list", method = RequestMethod.GET)
+	public String qna_list(HttpServletRequest request,Model model) {
+		PageDTO pageDTO = new PageDTO();
+		// 한 페이지에 보여 줄 갯수
+		pageDTO.setPageSize(10);
+		
+		if(request.getParameter("pageNum")==null) { // 없을때
+			pageDTO.setPageNum("1");
+		}else { // 있을때
+			pageDTO.setPageNum(request.getParameter("pageNum"));
+		}
+		
+		// 리스트 받아오기
+		List<QnaDTO> qnaList = centerService.getQnaList(pageDTO);
+		
+		// 카운트
+		
+		// 데이터 담아서 list.jsp에 리스트 전달
+		model.addAttribute("qnaList", qnaList);
+		// 페이지dto에 담아서 전달
+		model.addAttribute("pageDTO", pageDTO);
+		
+		
+		// /WEB-INF/views/foot/qna_list.jsp
+		return "foot/qna_list";
 	}
 	
 	@RequestMapping(value = "/center/qna_update", method = RequestMethod.GET)
