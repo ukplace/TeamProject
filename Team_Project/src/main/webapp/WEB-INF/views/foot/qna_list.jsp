@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -123,26 +124,29 @@
 										</thead>
 
 										<tbody>
-											<!-- <c:forEach> -->
+<%-- 											<c:forEach> --%>
 											<!-- 문의리스트 받아오는 부분 -->
-											<c:forEach>
-												<!-- var="memberDTO" items="${memberList} -->
-												<tr class="odd gradeX">
-													<td style="text-align: center; line-height: auto;"><a
-														href="#">1</a></td>
-													<td style="text-align: center; line-height: auto;"><a
-														href="#"></a></td>
-													<!-- ${memberDTO.id } -->
-													<td id="Qna1"	style="text-align: center; line-height: auto; margin: auto;"><a
-														href="#">hihi@naver.com</a></td>
-													<!-- ${memberDTO.pass } -->
-													<td style="text-align: center; line-height: auto;"><a
-														href="#">주문취소는 어디에서 신청하나요?</a></td>
-													<!-- ${memberDTO.name } -->
-													<td class="center" style="line-height: auto;"><a
-														href="#">2020-12-19</a></td>
-													<!-- ${memberDTO.date } -->
-												</tr>
+<%-- 											<c:forEach var="qnaDTO" items="${qnaList }"> --%>
+<!-- 												<tr class="odd gradeX"> -->
+<!-- 													<td style="text-align: center; line-height: auto;"><a -->
+<%-- 														href="#">${qnaDTO.qna_idx}</a></td> --%>
+<!-- 													${qnaDTO.qna_idx } -->
+<!-- 													<td style="text-align: center; line-height: auto;"><a -->
+<!-- 														href="#"></a>${qnaDTO.qna_type}</td> -->
+<!-- 													${memberDTO.id } -->
+<!-- 													<td id="Qna1"	style="text-align: center; line-height: auto; margin: auto;"><a -->
+<%-- 														href="#">${qnaDTO.qna_email}</a></td> --%>
+<!-- 													${qnaDTO.qna_email} -->
+<!-- 													<td style="text-align: center; line-height: auto;"><a -->
+<%-- 														href="#">${qnaDTO.qna_content}</a></td> --%>
+<!-- 													${qnaDTO.qna_content} -->
+<!-- 													<td class="center" style="line-height: auto;"><a -->
+<%-- 														href="#">${qnaDTO.date}</a></td> --%>
+<!-- 													${qnaDTO.date} -->
+<!-- 												</tr> -->
+<%-- 											</c:forEach> --%>
+<%-- 											<c:forEach> --%>
+<%-- 												var="memberDTO" items="${memberList} --%>
 												<tr class="odd gradeX">
 													<td style="text-align: center; line-height: auto;"><a
 														href="#">2</a></td>
@@ -162,26 +166,26 @@
 												</tr>
 												
 												<!-- 글번호 1번의 답변 -->
-												<tr id="Qna1" style="display: none;">
-													<td colspan="2" > A.
-															<p>
-																<strong>[SHUSHU]</strong><br />- [shushu &gt; 배송조회]에서
-																주문상품 확인 후 직접 취소하실 수 있습니다.<br />- 주문취소가 불가능한 상태 혹은 불가능한
-																상품의 경우는 1:1문의를 접수해주시면 상담원 확인 후 처리결과를 안내해드립니다.
-															</p>
-															<p>
-																<strong>[고객센터]</strong><br />고객센터(1234-5678) 연결 후 상담원을
-																통해 주문을 취소하실 수 있습니다.
-															</p>
-															<div class="noti_txt">
-																답변이 충분치 않으셨다면 1:1문의를 이용해주십시오. 
-																<a	href="#">링크</a>
-															</div>
-													</td>
-												</tr>
-											</c:forEach>
+<!-- 												<tr id="Qna1" style="display: none;"> -->
+<!-- 													<td colspan="2" > A. -->
+<!-- 															<p> -->
+<!-- 																<strong>[SHUSHU]</strong><br />- [shushu &gt; 배송조회]에서 -->
+<!-- 																주문상품 확인 후 직접 취소하실 수 있습니다.<br />- 주문취소가 불가능한 상태 혹은 불가능한 -->
+<!-- 																상품의 경우는 1:1문의를 접수해주시면 상담원 확인 후 처리결과를 안내해드립니다. -->
+<!-- 															</p> -->
+<!-- 															<p> -->
+<!-- 																<strong>[고객센터]</strong><br />고객센터(1234-5678) 연결 후 상담원을 -->
+<!-- 																통해 주문을 취소하실 수 있습니다. -->
+<!-- 															</p> -->
+<!-- 															<div class="noti_txt"> -->
+<!-- 																답변이 충분치 않으셨다면 1:1문의를 이용해주십시오.  -->
+<!-- 																<a	href="#">링크</a> -->
+<!-- 															</div> -->
+<!-- 													</td> -->
+<!-- 												</tr> -->
+<%-- 											</c:forEach> --%>
 											<!-- 문의리스트 반복문 끝 -->
-											<!-- </c:forEach> -->
+<%-- 											</c:forEach> --%>
 											
 										</tbody>
 									</table>
