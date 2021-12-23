@@ -72,7 +72,7 @@
 			<jsp:include page="../inc/top.jsp"></jsp:include>
 			<!-- 헤더들어가는곳 -->
 		</nav>
-
+</div>
 		<div class="breadcrumbs">
 			<div class="container">
 				<div class="row">
@@ -91,8 +91,9 @@
 		</div>
 
 		<!-- Page Content -->
-	<div class="board_list_wrap">
-	<table class = "board_list">
+		<div class="container">
+	<div class="board_list_wrap" >
+	<table class = "board_list" >
 		<h1>공지 사항</h1>
 		<br>
 		<thead>
@@ -135,6 +136,7 @@
 	<a href = "#" class = "bt"> 마지막 페이지로 이동</a>
 	
 	</div>
+</div>
 </div>
 		<!-- /#page-wrapper -->
 

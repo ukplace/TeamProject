@@ -170,5 +170,16 @@ public class FootController {
 		return "foot/withdrawal";
 	}
 	
+	@RequestMapping(value = "/foot/notice_list", method = RequestMethod.GET)
+	public String notice_list() {
+		// /WEB-INF/views/foot/withdrawal.jsp
+		return "foot/notice_list";
+		
+	}
+	@RequestMapping(value = "/foot/faq_list", method = RequestMethod.GET)
+	public String faq_list() {
+		// /WEB-INF/views/foot/withdrawal.jsp
+		return "foot/faq_list";
+	}
 
 }
