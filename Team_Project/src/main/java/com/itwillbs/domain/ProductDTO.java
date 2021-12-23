@@ -12,7 +12,7 @@ public class ProductDTO {
 	private String p_explain;
 	private	String p_category;
 	private	String p_small_category;
-	private String p_image;
+	private String p_img;
 	private String p_size;
 	private String p_color;
 	private int p_price;
@@ -51,10 +51,10 @@ public class ProductDTO {
 		this.p_small_category = p_small_category;
 	}
 	public String getP_image() {
-		return p_image;
+		return p_img;
 	}
 	public void setP_image(String p_image) {
-		this.p_image = p_image;
+		this.p_img = p_image;
 	}
 	public String getP_size() {
 		return p_size;

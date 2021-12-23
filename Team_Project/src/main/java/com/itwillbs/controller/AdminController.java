@@ -8,7 +8,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.itwillbs.domain.MemberDTO;
+import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.service.AdminService;
+import com.itwillbs.service.ProductService;
 
 
 
@@ -17,6 +19,9 @@ public class AdminController {
 	
 	@Inject
 	private AdminService adminService;
+	
+	@Inject
+	private ProductService productService;
 	
 	
 	@RequestMapping(value = "/admin/login", method = RequestMethod.GET)
@@ -55,16 +60,16 @@ public class AdminController {
 			return "admin/login";
 		}
 	
-
+	//상품 등록
 	@RequestMapping(value = "/admin/product_regist", method = RequestMethod.GET)
 	   public String productRegist() {
-	      // /WEB-INF/views/admin/product_regist.jsp
 	      return "admin/product_regist";
 	   }
 	
 	@RequestMapping(value = "/admin/product_registPro", method = RequestMethod.POST)
-	   public String product_registPro() {
-	      // /WEB-INF/views/admin/product_registPro.jsp
+	   public String product_registPro(ProductDTO productDTO) {
+		productService.insertProduct(productDTO);
+		
 	      return "admin/product_registPro";
 	   }
 
