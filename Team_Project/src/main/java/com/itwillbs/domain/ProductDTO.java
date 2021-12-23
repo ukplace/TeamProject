@@ -2,7 +2,25 @@ package com.itwillbs.domain;
 
 import java.sql.Timestamp;
 
+/*
+create table product (
+p_num int primary key auto_increment,
+p_name varchar(45) not null,
+p_explain varchar(500) not null,
+p_catagory varchar(45) not null,
+p_small_category varchar(45) not null,
+p_img varchar(500),
+p_size varchar(45),
+p_color varchar(45),
+p_price int,
+p_discount int default 0,
+p_sellyn varchar(1) default 'Y',
+p_stock int,
+p_date datetime default now() not null
+);
 
+
+ */
 
 
 public class ProductDTO {
@@ -20,6 +38,7 @@ public class ProductDTO {
 	private String p_sellyn;
 	private int p_stcok;
 	private Timestamp p_date;
+	
 	public int getP_num() {
 		return p_num;
 	}
