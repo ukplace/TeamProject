@@ -102,7 +102,7 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-8" >
-						<form method="post" class="colorlib-form" name="join" action="${pageContext.request.contextPath}/foot/joinPro">
+						<form method="post" class="colorlib-form" name="join" action="${pageContext.request.contextPath}/foot/joinPro" onsubmit ="return checkForm()">
 							<h2>회원가입</h2>
 		              		<div class="row">
 								<div class="col-md-12">
@@ -113,27 +113,28 @@
 									
 										
 										<div class="form-group" >
-										<label for="m_email"><h4>* 이메일</h4> </label><br>
+										<label for="m_email"><h4>* 이메일</h4> </label><div id = "btncheck">이메일 중복체크하세요</div><br>
 										<table >
-			                    		<tr><td width="80%"><input type="email" id="m_email" name="m_email" placeholder="example@email.com" class="form-control" required="required" ></td>
+			                    		<tr><td width="80%"><input type="email" id="m_email" name="m_email" placeholder="example@email.com" class="form-control"  ></td>
 			                    		<td>&nbsp&nbsp</td>
-			                    		<td><input type="button" value="중복확인" class ="btn btn-default btn-lg"></td></tr>
+			                    		<td><input type="button" value="중복확인" class ="btn btn-default btn-lg" id = "btn"></td></tr>
 			                    		</table>
+			                    		
 			               	 			</div>
 			               	 			
 									     <div class="form-group">
-										 <label for="password"><h4>* 비밀번호</h4></label>
-  										 <input type="password" id="password" name="m_pass" placeholder="영문,숫자 포함 입력해주세요" class="form-control" required="required" />      
+										 <label for="password"><h4>* 비밀번호</h4></label>&nbsp;&nbsp;&nbsp;&nbsp;<span id = "passwordCheck"></span>
+  										 <input type="password" id="password" name="m_pass" placeholder="영문,숫자 포함 입력해주세요" class="form-control"  onkeyup="checkPasswd(this.value)" />      
  								 		 </div>
  								         
  								         <div class="form-group">
-										 <label for="password2"><h4>* 비밀번호 확인</h4></label>
-  										 <input type="password2" id="password2" name="password2" placeholder="비밀번호를 확인해주세요" class="form-control"  required="required" />      
+										 <label for="password"><h4>* 비밀번호 확인</h4></label>&nbsp;&nbsp;&nbsp;&nbsp;<span id = "passwordCheck2"></span>
+  										 <input type="password" id="password2" name="password2" placeholder="비밀번호를 확인해주세요" class="form-control"   onkeyup="checkConfirmPasswd(this.value)" />      
  								 		 </div>
  								 		
  								 		<div class="form-group">
 										<label for="name"><h4>이름</h4></label>
-   										<input type="text" id="name" name="m_name" placeholder="이름을 입력해주세요" class="form-control" required="required" />      
+   										<input type="text" id="name" name="m_name" placeholder="이름을 입력해주세요" class="form-control" required="required"  />      
   										</div>
   										
   										<div class="form-group">
@@ -211,6 +212,9 @@
 	<script src="${pageContext.request.contextPath}/js/jquery.stellar.min.js"></script>
 	<!-- Main -->
 	<script src="${pageContext.request.contextPath}/js/main.js"></script>
+	
+	<script src="${pageContext.request.contextPath}/js/passwordCheck.js"></script>
+	
 
 
 
@@ -273,6 +277,21 @@
             }
         }).open();
     }
+    
+	 $('#btn').click(function(){
+			if($('#m_email').val() == ""){
+						$('#btncheck').html('아이디를 입력하세요.');
+						$('#btncheck').css('color','red');
+						$('#m_email').focus();
+						return;
+						
+			}
+			
+		});
+		
+		
+    //---------------------
+	
 </script>
 
 	</body>

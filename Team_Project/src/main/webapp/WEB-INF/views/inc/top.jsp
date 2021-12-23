@@ -13,11 +13,11 @@
 	<c:when test="${empty sessionScope.id }">
 	
 	<%-- <li class="container text-right"><div id="login"><a href="${pageContext.request.contextPath}/foot/login">로그인</a> | <a href="${pageContext.request.contextPath}/foot/join">회원가입</a> | <a href="${pageContext.request.contextPath}/foot/notice">고객센터</a></div></li> --%> 
-	<li class="container text-right"><div id="login"><a href="${pageContext.request.contextPath}/foot/login">LOGIN</a> | <a href="${pageContext.request.contextPath}/foot/join">JOIN</a> | <a href="${pageContext.request.contextPath}/foot/notice">CUSTOMER CENTER</a></div></li>
+	<li class="container text-right"><div id="login"><a href="${pageContext.request.contextPath}/foot/login">LOGIN</a> | <a href="${pageContext.request.contextPath}/foot/join">JOIN</a> | <a href="${pageContext.request.contextPath}/center/notice_list">CUSTOMER CENTER</a></div></li>
 	</c:when>
 	<c:otherwise>
 		
-	<li class="container text-right"><div id="login">${sessionScope.id }님 <a href="${pageContext.request.contextPath}/foot/logout">LOGOUT</a> | <a href="${pageContext.request.contextPath}/foot/member_info">MYPAGE</a>| <a href="${pageContext.request.contextPath}/foot/notice">CUSTOMER CENTER</a></div></li>
+	<li class="container text-right"><div id="login">${sessionScope.id }님 <a href="${pageContext.request.contextPath}/foot/logout">LOGOUT</a> | <a href="${pageContext.request.contextPath}/foot/member_info">MYPAGE</a>| <a href="${pageContext.request.contextPath}/center/notice_list">CUSTOMER CENTER</a></div></li>
 	
 	</c:otherwise>
 </c:choose>

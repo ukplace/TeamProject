@@ -72,15 +72,18 @@
 			<jsp:include page="../inc/top.jsp"></jsp:include>
 			<!-- 헤더들어가는곳 -->
 		</nav>
-
+</div>
 		<div class="breadcrumbs">
 			<div class="container">
 				<div class="row">
 					<div class="col">
 						<p class="bread">
-							<span><a
-								href="${pageContext.request.contextPath}/foot/index/">Home</a></span> /
-							<span>공지사항</span>
+							<span>
+							<a href="${pageContext.request.contextPath}/center/notice_list/">공지사항</a></span> /
+							<span>
+							<a href="${pageContext.request.contextPath}/center/faq_list/">자주묻는질문</a></span> /
+							<span>
+							<a href="${pageContext.request.contextPath}/center/qna_list/">1:1 문의하기</a></span>
 						</p>
 					</div>
 				</div>
@@ -88,8 +91,9 @@
 		</div>
 
 		<!-- Page Content -->
-	<div class="board_list_wrap">
-	<table class = "board_list">
+		<div class="container">
+	<div class="board_list_wrap" >
+	<table class = "board_list" >
 		<h1>공지 사항</h1>
 		<br>
 		<thead>
@@ -132,6 +136,7 @@
 	<a href = "#" class = "bt"> 마지막 페이지로 이동</a>
 	
 	</div>
+</div>
 </div>
 		<!-- /#page-wrapper -->
 
