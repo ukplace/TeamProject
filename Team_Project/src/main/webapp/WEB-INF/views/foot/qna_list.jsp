@@ -82,9 +82,12 @@
 				<div class="row">
 					<div class="col">
 						<p class="bread">
-							<span><a
-								href="${pageContext.request.contextPath}/foot/index/">Home</a></span> /
-							<span>QNA list</span>
+							<span>
+							<a href="${pageContext.request.contextPath}/center/notice_list/">공지사항</a></span> /
+							<span>
+							<a href="${pageContext.request.contextPath}/center/faq_list/">자주묻는질문</a></span> /
+							<span>
+							<a href="${pageContext.request.contextPath}/center/qna_list/">1:1 문의하기</a></span>
 						</p>
 					</div>
 				</div>
