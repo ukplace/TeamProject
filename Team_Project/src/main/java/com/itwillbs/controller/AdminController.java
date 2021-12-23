@@ -138,6 +138,34 @@ public class AdminController {
         return "admin/review_list";
      }
 	 
+	
+		// 리뷰 관련
+		@RequestMapping(value = "/foot/review", method = RequestMethod.GET)
+		public String review() {
+			// /WEB-INF/views/foot/review.jsp
+			return "foot/review";
+		}
+		@RequestMapping(value = "/foot/review_write", method = RequestMethod.GET)
+		public String review_write() {
+			// /WEB-INF/views/foot/review_write.jsp
+			return "foot/review_write";
+		}
+		@RequestMapping(value = "/foot/review_write_pro", method = RequestMethod.POST)
+		public String review_write_pro() {
+			// /WEB-INF/views/foot/product-detail.jsp
+			return "redirect:/foot/product_detail";
+		}
+		@RequestMapping(value = "/foot/review_update", method = RequestMethod.GET)
+		public String review_update() {
+			// /WEB-INF/views/foot/reviewUpdate.jsp
+			return "foot/review_update";
+		}
+		@RequestMapping(value = "/foot/review_update_pro", method = RequestMethod.POST)
+		public String review_update_pro() {
+			// /WEB-INF/views/foot/product-detail.jsp
+			return "redirect:/foot/product_detail";
+		}
+	 
 	 
 	 // =============================================================================
 	 
