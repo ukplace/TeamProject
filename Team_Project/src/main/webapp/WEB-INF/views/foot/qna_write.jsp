@@ -105,7 +105,7 @@
 
 		<div class="row" >
 			<div class="col-lg-8" style= "display: inline-block; margin: 0 auto;">
-				<form action="${pageContext.request.contextPath}/foot/qna_writePro" method="post" class="colorlib-form">
+				<form action="${pageContext.request.contextPath}/center/qna_write_pro" method="post" class="colorlib-form">
 					<h2>문의를 남겨주세요!</h2>
 					<div class="row">
 						<div class="col-md-12">
@@ -114,43 +114,47 @@
 			                     <div class="form-field">
 			                     	<i class="icon icon-arrow-down3"></i>
 								<!-- 문의 유형 태그 -->
-								 <select >
-										<option value="#">카테고리 선택</option>
-										<option value="#">주문내역/배송현황</option>
-										<option value="#">주문상품 취소하기</option>
-										<option value="#">반품/교환/AS 신청하기</option>
-										<option value="#">아이디/비밀번호찾기</option>
-										<option value="#">포인트 사용방법</option>
+								 <select name="qna_type">
+										<option value="0">카테고리 선택</option>
+										<option value="1">주문내역/배송현황</option>
+										<option value="2">주문상품 취소하기</option>
+										<option value="3">반품/교환/AS 신청하기</option>
+										<option value="4">아이디/비밀번호찾기</option>
+										<option value="5">포인트 사용방법</option>
 								</select>
 								</div>
 							</div>
 						</div>
-					
+						
+						<!-- 회원번호 자동으로 받아오게 재설정 해야함 -->
+						<input type="text" name="m_idx" value="1" hidden="hidden">
+<!-- 						<input type="text" name="m_idx" value="${memberDTO.m_idx}" hidden="hidden"> -->
+
 						<div class="col-md-6">
 							<div class="form-group">
 								<label for="name">작성자</label> <input type="text"
-									id="name" class="form-control" placeholder="Enter Your user-name">
+									name="qna_name" id="name" class="form-control" placeholder="Enter Your user-name">
 							</div>
 						</div>
 
 						<div class="col-md-7">
 							<div class="form-group">
 								<label for="subject">제목</label> <input type="text"
-									id="subject" class="form-control">
+									name="qna_subject" id="subject" class="form-control">
 							</div>
 						</div>
 					
 						<div class="col-sm-12">
 										<div class="form-group">
 											<label for="content">문의내용</label>
-											<textarea name="content" id="content" cols="50" rows="10" class="form-control-9" placeholder="문의 내용을 적어주세요"></textarea>
+											<textarea name="qna_content" id="content" cols="50" rows="10" class="form-control-9" placeholder="문의 내용을 적어주세요"></textarea>
 											
 										</div>
 									</div>
 				
 						
 <!-- 						<div class="col-md-12"> -->
-<!-- 							<div class="form-group"> -->
+<!-- 							<div  class="form-group"> -->
 <!-- 								<div class="radio"> -->
 <!-- 									<label><input type="radio" 	name="radio" value="normal"> 일반글</label> -->
 <!-- 									<label><input type="radio" name="radio" value="secret"> 비밀글 </label>  -->
@@ -158,13 +162,13 @@
 <!-- 							</div> -->
 <!-- 						</div> -->
 					</div>
-				</form>
 					<div class="col-sm-12">
 										<div class="form-group" style="text-align: center;">
-											<input type="submit" value="등록" class="btn btn-primary" onclick="${pageContext.request.contextPath}/foot/qna_list">
-											<input type="submit" value="목록" class="btn btn-primary" onclick="${pageContext.request.contextPath}/foot/qna_list">
+											<input type="submit" value="등록" class="btn btn-primary">
+											<input type="button" value="목록" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/center/qna_list'">
 										</div>
 									</div>
+				</form>
 			</div>
 
 	</div>
