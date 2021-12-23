@@ -124,46 +124,53 @@
 										</thead>
 
 										<tbody>
-<%-- 											<c:forEach> --%>
 											<!-- 문의리스트 받아오는 부분 -->
-<%-- 											<c:forEach var="qnaDTO" items="${qnaList }"> --%>
-<!-- 												<tr class="odd gradeX"> -->
-<!-- 													<td style="text-align: center; line-height: auto;"><a -->
-<%-- 														href="#">${qnaDTO.qna_idx}</a></td> --%>
-<!-- 													${qnaDTO.qna_idx } -->
-<!-- 													<td style="text-align: center; line-height: auto;"><a -->
-<!-- 														href="#"></a>${qnaDTO.qna_type}</td> -->
-<!-- 													${memberDTO.id } -->
-<!-- 													<td id="Qna1"	style="text-align: center; line-height: auto; margin: auto;"><a -->
-<%-- 														href="#">${qnaDTO.qna_email}</a></td> --%>
-<!-- 													${qnaDTO.qna_email} -->
-<!-- 													<td style="text-align: center; line-height: auto;"><a -->
-<%-- 														href="#">${qnaDTO.qna_content}</a></td> --%>
-<!-- 													${qnaDTO.qna_content} -->
-<!-- 													<td class="center" style="line-height: auto;"><a -->
-<%-- 														href="#">${qnaDTO.date}</a></td> --%>
-<!-- 													${qnaDTO.date} -->
-<!-- 												</tr> -->
-<%-- 											</c:forEach> --%>
-<%-- 											<c:forEach> --%>
-<%-- 												var="memberDTO" items="${memberList} --%>
+											<c:forEach var="qnaDTO" items="${qnaList }">
 												<tr class="odd gradeX">
 													<td style="text-align: center; line-height: auto;"><a
-														href="#">2</a></td>
-														<!--  -->
+														href="#">${qnaDTO.qna_idx}</a></td>
 													<td style="text-align: center; line-height: auto;"><a
-														href="#"></a></td>
-													<!-- ${memberDTO.id } -->
+														href="#"></a>${qnaDTO.qna_type}</td>
 													<td id="Qna1"	style="text-align: center; line-height: auto; margin: auto;"><a
-														href="#">bye@naver.com</a></td>
-													<!-- ${memberDTO.pass } -->
+														href="#">${qnaDTO.qna_email}</a></td>
 													<td style="text-align: center; line-height: auto;"><a
-														href="#">배송은 언제되나요?</a></td>
-													<!-- ${memberDTO.name } -->
+														href="#">${qnaDTO.qna_content}</a></td>
 													<td class="center" style="line-height: auto;"><a
-														href="#">2020-12-19</a></td>
-													<!-- ${memberDTO.date } -->
+														href="#">${qnaDTO.date}</a></td>
 												</tr>
+											</c:forEach>
+
+										<!-- start페이지가 block보다 더 클때 -->
+										<c:if test="${pageDTO.startPage > pageDTO.pageBlock }">
+											<a href="${pageContext.request.contextPath}/center/qna_list?pageNum=${pageDTO.startPage-pageDTO.pageBlock}">이전</a>												
+										</c:if>
+										
+<!-- 										1씩 증가 : 꼭 있어야 하는지? 한번 물어보고 넘어가기 -->
+										<c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1">
+											<a href="${pageContext.request.contextPath}/center/qna_list?pageNum=${i }"${1 }></a>
+										</c:forEach>
+										
+										<!-- end페이지가 count보다 더 클때 -->
+										<c:if test="${pageDTO.endPage > pageDTO.pageCount }">
+											<a href="${pageContext.request.contextPath}/center/qna_list?pageNum=${pageDTO.startPage+pageDTO.pageBlock}">다음</a>
+										</c:if>
+<!-- 												<tr class="odd gradeX"> -->
+<!-- 													<td style="text-align: center; line-height: auto;"><a -->
+<!-- 														href="#">2</a></td> -->
+<!-- 														 -->
+<!-- 													<td style="text-align: center; line-height: auto;"><a -->
+<!-- 														href="#"></a></td> -->
+<!-- 													${memberDTO.id } -->
+<!-- 													<td id="Qna1"	style="text-align: center; line-height: auto; margin: auto;"><a -->
+<!-- 														href="#">bye@naver.com</a></td> -->
+<!-- 													${memberDTO.pass } -->
+<!-- 													<td style="text-align: center; line-height: auto;"><a -->
+<!-- 														href="#">배송은 언제되나요?</a></td> -->
+<!-- 													${memberDTO.name } -->
+<!-- 													<td class="center" style="line-height: auto;"><a -->
+<!-- 														href="#">2020-12-19</a></td> -->
+<!-- 													${memberDTO.date } -->
+<!-- 												</tr> -->
 												
 												<!-- 글번호 1번의 답변 -->
 <!-- 												<tr id="Qna1" style="display: none;"> -->
@@ -185,7 +192,6 @@
 <!-- 												</tr> -->
 <%-- 											</c:forEach> --%>
 											<!-- 문의리스트 반복문 끝 -->
-<%-- 											</c:forEach> --%>
 											
 										</tbody>
 									</table>
