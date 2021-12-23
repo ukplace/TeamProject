@@ -91,6 +91,7 @@
 		</div>
 
 		<!-- Page Content -->
+		<div class = "container">
 	<div class="board_list_wrap">
 	<table class = "board_list">
 		<h1>FAQ</h1>
@@ -135,6 +136,7 @@
 	<a href = "#" class = "bt"> 마지막 페이지로 이동</a>
 	
 	</div>
+</div>
 </div>
 		<!-- /#page-wrapper -->
 
