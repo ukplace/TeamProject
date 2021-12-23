@@ -70,6 +70,6 @@ public class ProductController {
 		return "foot/cart";
 	}
 	
-	
+
 
 }

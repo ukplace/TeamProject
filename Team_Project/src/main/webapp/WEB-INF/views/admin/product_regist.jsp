@@ -39,26 +39,6 @@
        
                <Title>Category</Title> 
         <Meta Http-Equiv="Content-Type" Content="text/html; charset=utf-8">
-        <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-        
-<script type="text/javascript">
-
-function changeColor(color){
-	//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
-	document.registForm.color.value = color;
-}
-
-function changeCa(ca){
-	//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
-	document.registForm.ca.value = ca;
-}
-
-function changeSize(size){
-	//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
-	document.registForm.size.value = size;
-}
-
-</script>
 
         
  <style type="text/css">
@@ -112,8 +92,8 @@ function changeSize(size){
 	}
 </style>
 </head>
-<body>
 
+<body>
 <div id="wrapper">
          <!-- 네비게이션 들어간곳  -->
             <jsp:include page="../inc/nav.jsp"></jsp:include>
@@ -125,7 +105,7 @@ function changeSize(size){
                     <div class="row">
                         <div class="col-lg-12">
                             
-<form action="registPro" method="post" name="registForm" onsubmit="return checkForm()" >                     
+<form action="${pageContext.request.contextPath }/admin/product_regist_pro" method="post" name="registForm" onsubmit="return checkForm()" >                     
    <table class="table-ca" width=60% tyletable-layout:fixed cellspacing=() cellpadding=1;>                 
        <tr >
           <td width=30% id=td1 align="center"> 구분 1 </td>
@@ -134,12 +114,12 @@ function changeSize(size){
        </tr>
        <tr>
        <td>   
-          <select name="mainCategory" size=10 style=width:100%>
+          <select name="mainCategory" size=10 style=width:100% >
          </select>
       </td>
       	<td class="space"></td>
       <td>   
-          <select name="subCategory"  size=10 style=width:100% values=${selectValue } onchange="changeCa(this.value)">
+          <select name="subCategory"  size=10 style=width:100% value="${selectValue }" onchange="changeCa(this.value)">
          </select>
       </td>
       </tr>   
@@ -152,36 +132,36 @@ function changeSize(size){
       <!-- 제품명 -->
 	      <tr>
 			<th>카테고리-대분류</th>
-			<td><input type="text" name="" required="required" size="20"></td>
+			<td><input type="text" name="p_category" required="required" size="20"></td>
 		 </tr>
 		 <tr>
-			<th>카테고리-소분</th>
-			<td><input type="text" name="ca" required="required" size="20" values=${selectValue } ></td>
+			<th>카테고리-소분류</th>
+			<td><input type="text" name="p_small_category" required="required" size="20" value="${selectValue }" ></td>
 		 </tr>
 		  <tr>
       		<th>제품명</th>
-      		<td><input type="text" name="name" required="required" size="20"></td>
+      		<td><input type="text" name="p_name" required="required" size="20"></td>
       	
       	</tr>
       <!-- 재고 -->
       	<tr>
       <th>재고</th>
       	<td>
-      	  <input type="text" name="" width = 40px padding= 6px  margin= 100px  placeholder="재고수량입력">
+      	  <input type="text" name="p_stock" width = 40px padding= 6px  margin= 100px  placeholder="재고수량입력">
       	</td>
       	</tr>
       <!-- 제품가격 -->
       <tr>
       <th>제품 가격</th>
       <td>
-      	<input type="text" name="price" width = 40px padding= 6px margin= 100px placeholder="제품가격입력">
+      	<input type="text" name="p_price" width = 40px padding= 6px margin= 100px placeholder="제품가격입력">
 	 </td>
 	 </tr>	
 	
 	<tr>
      <th>색상</th>
 					<td>
-						<input type="text" name="color" required="required" size="10">
+						<input type="text" name="p_color" required="required" size="10">
 						<select name="selectColor" onchange="changeColor(this.value)">
 						<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입란에 표시 -->
 						<!-- this 주면 여기 이 태그가 날라간다!  -->
@@ -200,7 +180,7 @@ function changeSize(size){
 			<tr>
 				<th>사이즈</th>
 					<td>
-						<input type="text" name="size" required="required" size="10">
+						<input type="text" name="p_size" required="required" size="10">
 						<select name="selectSize" onchange="changeSize(this.value)">
 						<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입란에 표시 -->
 						<!-- this 주면 여기 이 태그가 날라간다!  -->
@@ -224,7 +204,7 @@ function changeSize(size){
 				<tr>
 			      <th>대표 사진</th>
 			      <td>
-			      	<input type="file" name="pic" width = 40px value="사진등록" class="" onclick=>
+			      	<input type="file" name="p_img" width = 40px value="사진등록" class="" onclick=>
 				 </td>
 				</tr>
 				<tr>
@@ -233,7 +213,7 @@ function changeSize(size){
 						<textarea rows="20" cols="40"></textarea>
 					</td></tr>
 					<tr><td colspan="2" align="center">
-						<input type="button" class="btn btn-default" value="등록" >
+						<input type="submit" class="btn btn-default" value="등록" >
 	   					<input type="reset" class="btn btn-default" value="취소">
    					</td></tr>
    				</table>
@@ -268,12 +248,32 @@ function changeSize(size){
         <!-- Custom Theme JavaScript -->
         <script src="${pageContext.request.contextPath}/js/startmin.js"></script>
 
-</body>
-</html>
 
+
+
+
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>    
 <script type="text/javascript">
 
+function changeColor(color){
+	//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
+	document.registForm.color.value = color;
+}
+
+function changeCa(ca){
+	//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
+	document.registForm.ca.value = ca;
+}
+
+function changeSize(size){
+	//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
+	document.registForm.size.value = size;
+}
+
+
+// ============================================================================================================================
  
+	
 $(document).ready(function() {
     
     //Main 카테고리를 선택 할때 마다 AJAX를 호출할 수 있지만 DB접속을 매번 해야 하기 때문에 main, sub카테고리 전체을 들고온다.
@@ -414,3 +414,6 @@ $(document).ready(function() {
         
 });
 </script>
+
+</body>
+</html>
