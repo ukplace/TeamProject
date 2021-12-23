@@ -16,8 +16,7 @@ a {
 
 
 .board_list_wrap {
-	margin-left: 200px;
-	padding : 50px;
+	padding : auto;
 	}
 	
 	.board_list {
