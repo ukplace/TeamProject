@@ -28,3 +28,9 @@ function checkConfirmPasswd(password) {
 		document.getElementById("passwordCheck2").innerHTML = "패스워드 불일치";		document.getElementById("passwordCheck2").style.color = "RED";		isConfirmpasswdCheck = false;
 	}
 }
+   function checkForm(){
+	if(isPasswdCheck && isConfirmpasswdCheck){		document.join.submit();			return true;
+	}else {
+		alert("비밀번호 확인 하세요");		return false;
+	}
+}

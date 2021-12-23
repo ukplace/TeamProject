@@ -102,7 +102,7 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-8" >
-						<form method="post" class="colorlib-form" name="join" action="${pageContext.request.contextPath}/foot/joinPro">
+						<form method="post" class="colorlib-form" name="join" action="${pageContext.request.contextPath}/foot/joinPro" onsubmit ="return checkForm()">
 							<h2>회원가입</h2>
 		              		<div class="row">
 								<div class="col-md-12">
