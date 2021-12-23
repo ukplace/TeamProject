@@ -61,6 +61,12 @@ public class AdminController {
 	      // /WEB-INF/views/admin/product_regist.jsp
 	      return "admin/product_regist";
 	   }
+	
+	@RequestMapping(value = "/admin/product_registPro", method = RequestMethod.POST)
+	   public String product_registPro() {
+	      // /WEB-INF/views/admin/product_registPro.jsp
+	      return "admin/product_registPro";
+	   }
 
 	@RequestMapping(value = "/admin/product_list", method = RequestMethod.GET)
 	   public String productList() {

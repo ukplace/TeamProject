@@ -40,6 +40,7 @@
                <Title>Category</Title> 
         <Meta Http-Equiv="Content-Type" Content="text/html; charset=utf-8">
         <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+        
 <script type="text/javascript">
 
 function changeColor(color){
