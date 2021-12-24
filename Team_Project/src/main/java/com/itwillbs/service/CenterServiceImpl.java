@@ -31,7 +31,10 @@ public class CenterServiceImpl implements CenterService {
 		}else {
 			qnaDTO.setQna_re_ref(centerDAO.getIncrementNum());
 		}
-		
+
+		qnaDTO.setQna_re_lev(0);
+		qnaDTO.setQna_re_seq(0);
+
 		centerDAO.insertQna(qnaDTO);
 		
 	}

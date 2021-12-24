@@ -22,7 +22,7 @@ public class CenterDAOImpl implements CenterDAO {
 	public void insertQna(QnaDTO qnaDTO) {
 		System.out.println("CenterDAOImpl insertQna()");
 		
-		sqlSession.insert(namespace+".insertQna", qnaDTO);
+				sqlSession.insert(namespace+".insertQna", qnaDTO);
 	}
 
 	@Override
