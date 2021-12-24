@@ -13,12 +13,18 @@ public interface CenterDAO {
 
 	public List<QnaDTO> getQnaList(PageDTO pageDTO);
 
-//	public Object getMaxNum();
+	public Integer getMaxNum();
 
+<<<<<<< HEAD
 	public int getQnaCount();
 
 	public void insertNotice(NoticeDTO noticeDTO);
+=======
+	public Integer getQnaCount();
+>>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 	
+	public Integer getIncrementNum();
 	
+	public void insertReplyAricle(QnaDTO qnaDTO);
 	
 }

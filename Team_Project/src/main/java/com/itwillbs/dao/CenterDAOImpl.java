@@ -23,14 +23,14 @@ public class CenterDAOImpl implements CenterDAO {
 	public void insertQna(QnaDTO qnaDTO) {
 		System.out.println("CenterDAOImpl insertQna()");
 		
-		sqlSession.insert(namespace+".insertQna", qnaDTO);
+				sqlSession.insert(namespace+".insertQna", qnaDTO);
 	}
 
-//	@Override
-//	public Integer getMaxNum() {
-//		
-//		return sqlSession.selectOne(namespace+".getMaxNum");
-//	}
+	@Override
+	public Integer getMaxNum() {
+		
+		return sqlSession.selectOne(namespace+".getMaxNum");
+	}
 
 	@Override
 	public List<QnaDTO> getQnaList(PageDTO pageDTO) {
@@ -39,18 +39,37 @@ public class CenterDAOImpl implements CenterDAO {
 	}
 
 	@Override
-	public int getQnaCount() {
+	public Integer getQnaCount() {
 		
 		return sqlSession.selectOne(namespace+".getQnaCount");
 		
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void insertNotice(NoticeDTO noticeDTO) {
 
 		sqlSession.insert(namespace+".insertNotice", noticeDTO);
 	}
 
+=======
+	public Integer getIncrementNum() {
+
+		return sqlSession.selectOne(namespace+".getIncrementNum");
+	}
+
+	@Override
+	public void insertReplyAricle(QnaDTO qnaDTO) {
+		
+		sqlSession.update(namespace+".setQna_re_seq",qnaDTO);
+		
+		sqlSession.insert(namespace+".insertReplyAricle",qnaDTO);
+		
+		
+	}
+
+	 
+>>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 	
 
 	

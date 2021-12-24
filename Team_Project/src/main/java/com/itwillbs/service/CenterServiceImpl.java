@@ -21,11 +21,21 @@ public class CenterServiceImpl implements CenterService {
 	public void insertQna(QnaDTO qnaDTO) {
 		System.out.println("CenterServiceImpl insertQna()");
 		
-//		if(centerDAO.getMaxNum()==null) { // 글 없는 경우
-//			qnaDTO.setQna_idx(1);
-//		}else { // 게시판 글 있는 경우
-//			qnaDTO.setQna_idx(centerDAO.getMaxNum()+1);
-//		}
+		if(centerDAO.getMaxNum()==null) { // 글 없는 경우
+			qnaDTO.setQna_idx(1);
+		}else { // 게시판 글 있는 경우
+			qnaDTO.setQna_idx(centerDAO.getMaxNum()+1);
+		}
+		
+		if(centerDAO.getIncrementNum()==null) {
+			qnaDTO.setQna_re_ref(1);
+		}else {
+			qnaDTO.setQna_re_ref(centerDAO.getIncrementNum());
+		}
+
+		qnaDTO.setQna_re_lev(0);
+		qnaDTO.setQna_re_seq(0);
+
 		centerDAO.insertQna(qnaDTO);
 		
 	}
@@ -49,8 +59,18 @@ public class CenterServiceImpl implements CenterService {
 	}
 
 	@Override
+<<<<<<< HEAD
 	public void insertNotice(NoticeDTO noticeDTO) {
 		centerDAO.insertNotice(noticeDTO);
 	}
+=======
+	public void insertReplyAricle(QnaDTO qnaDTO) {
+		
+		centerDAO.insertReplyAricle(qnaDTO);
+		
+	}
+	
+	
+>>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 	
 }
