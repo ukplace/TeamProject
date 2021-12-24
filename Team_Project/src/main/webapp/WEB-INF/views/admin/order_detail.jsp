@@ -141,7 +141,7 @@
                                             </thead>
                                             
                                               <tr>
-                                                    <td class="text-center"><img alt="product" src="../resources/images/pdetail_img.jpg" width="200" height="150">Deviate 나이트로 WTR 러닝화/Deviate</a></td>
+                                                    <td class="text-center"><img alt="product" src="../resources/images/pdetail_img.jpg" width="200" height="150">Deviate 나이트로 WTR 러닝화/Deviate</td>
                                                     <td class="text-center" style="line-height:1000%;">250</td>
                                                     <td class="text-center" style="line-height:1000%;">10</td>
                                                     <td class="text-center" style="line-height:1000%;">997,000</td>
