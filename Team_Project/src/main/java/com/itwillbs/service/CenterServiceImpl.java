@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.itwillbs.dao.CenterDAO;
+import com.itwillbs.domain.FaqDTO;
 import com.itwillbs.domain.NoticeDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.QnaDTO;
@@ -46,8 +47,8 @@ public class CenterServiceImpl implements CenterService {
 		pageDTO.setStartRow((pageDTO.getCurrentPage()-1)*pageDTO.getPageSize()+1); //글 시작 번호 정의
 		pageDTO.setEndRow(pageDTO.getStartRow()+pageDTO.getPageSize()-1); // 끝페이지
 		// 매퍼대신
-		pageDTO.setStartRow(pageDTO.getStartRow()-1);
 		
+		pageDTO.setStartRow(pageDTO.getStartRow()-1);
 		return centerDAO.getQnaList(pageDTO);
 	}
 
@@ -66,6 +67,13 @@ public class CenterServiceImpl implements CenterService {
 	public void insertReplyAricle(QnaDTO qnaDTO) {
 		
 		centerDAO.insertReplyAricle(qnaDTO);
+		
+	}
+
+	@Override
+	public void insertFaq(FaqDTO faqDTO) {
+		
+		centerDAO.insertFaq(faqDTO);
 		
 	}
 	

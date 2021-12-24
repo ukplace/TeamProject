@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.itwillbs.domain.FaqDTO;
 import com.itwillbs.domain.NoticeDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.QnaDTO;
@@ -63,6 +64,13 @@ public class CenterDAOImpl implements CenterDAO {
 		
 		sqlSession.insert(namespace+".insertReplyAricle",qnaDTO);
 		
+		
+	}
+
+	@Override
+	public void insertFaq(FaqDTO FaqDTO) {
+		
+		sqlSession.insert(namespace+".insertFaq", FaqDTO);
 		
 	}
 

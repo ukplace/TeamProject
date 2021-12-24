@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -105,6 +106,7 @@
 			<th style = "width : 70px;">조회</th>
 		</tr>
 		</thead>
+		
 		<tbody>
 			<tr>
 			<td>2</td>
@@ -126,18 +128,23 @@
 		</tr>
 		</tbody>
 	</table>
-	<div class = "paging">
-	<a href = "#" class = "bt"> 첫 페이지로 이동</a>
-	<a href = "#" class = "bt">  이전 페이지로 이동</a>
-	<a href = "#" class = "num">  1</a>
-	<a href = "#" class = "num">  2</a>
-	<a href = "#" class = "num">  3</a>
-	<a href = "#" class = "bt"> 다음 페이지로 이동</a>
-	<a href = "#" class = "bt"> 마지막 페이지로 이동</a>
+	<!-- 페이징 버튼부분 -->
 	
-	</div>
 </div>
 </div>
+
+
+<c:choose>
+<c:when test="${'admin@shushu.com' eq sessionScope.id }">
+		<input type="button" value="등록" onclick="location.href='${pageContext.request.contextPath}/center/faq_write'">
+	</c:when>
+</c:choose>
+
+
+
+
+
+
 		<!-- /#page-wrapper -->
 
 	<!-- /#wrapper -->
