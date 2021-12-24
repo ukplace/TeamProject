@@ -47,8 +47,8 @@ public class CenterServiceImpl implements CenterService {
 		pageDTO.setStartRow((pageDTO.getCurrentPage()-1)*pageDTO.getPageSize()+1); //글 시작 번호 정의
 		pageDTO.setEndRow(pageDTO.getStartRow()+pageDTO.getPageSize()-1); // 끝페이지
 		// 매퍼대신
-		pageDTO.setStartRow(pageDTO.getStartRow()-1);
 		
+		pageDTO.setStartRow(pageDTO.getStartRow()-1);
 		return centerDAO.getQnaList(pageDTO);
 	}
 

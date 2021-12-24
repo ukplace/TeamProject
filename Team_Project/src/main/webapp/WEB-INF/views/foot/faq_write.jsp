@@ -105,7 +105,7 @@
 
 		<div class="row" >
 			<div class="col-lg-8" style= "display: inline-block; margin: 0 auto;">
-				<form action="${pageContext.request.contextPath}/center/qna_write_pro" method="post" class="colorlib-form">
+				<form action="${pageContext.request.contextPath}/center/faq_write_pro" method="post" class="colorlib-form">
 					<h2>FAQ</h2>
 					
 						<div class="col-md-6">
