@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.itwillbs.domain.NoticeDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.QnaDTO;
 import com.itwillbs.service.CenterService;
@@ -40,8 +41,10 @@ public class CenterController {
 		// /WEB-INF/views/foot/notice_write.jsp
 		return "foot/notice_write";
 	}
-	@RequestMapping(value = "/center/notice_write_pro", method = RequestMethod.POST)
-	public String notice_write_pro() {
+	@RequestMapping(value = "/center/notice_writePro", method = RequestMethod.POST)
+	public String notice_write_pro(NoticeDTO noticeDTO) {
+		
+		centerService.insertNotice(noticeDTO);
 		
 		// /WEB-INF/views/foot/notice_list.jsp
 		return "redirect:/center/notice_list";

@@ -2,6 +2,8 @@ package com.itwillbs.service;
 
 import java.util.List;
 
+import com.itwillbs.domain.FaqDTO;
+import com.itwillbs.domain.NoticeDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.QnaDTO;
 
@@ -13,9 +15,12 @@ public interface CenterService {
 	public List<QnaDTO> getQnaList(PageDTO pageDTO);
 
 	public int getQnaCount();
+
+	public void insertNotice(NoticeDTO noticeDTO);
+
 	
 	public void insertReplyAricle(QnaDTO qnaDTO);
 
-	
+	public void insertFaq(FaqDTO faqDTO);
 	
 }
