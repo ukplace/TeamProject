@@ -154,25 +154,35 @@
 				<div class="col-md-12 text-center">
 						<div class="block-27">
 				               <ul>
-					              <li>
-									<c:if test="${pageDTO.startPage > pageDTO.pageBlock }">	
-									<a href ="${pageContext.request.contextPath}/center/qna_list?pageNum=${pageDTO.startPage-pageDTO.pageBlock}"><i class="ion-ios-arrow-back">이전</i></a>
-									</c:if></li>
+					              <li class="active">
+									<c:choose >	
+										<c:when test="${pageDTO.startPage > pageDTO.pageBlock }" >
+											<a href ="${pageContext.request.contextPath}/center/qna_list?pageNum=${pageDTO.startPage-pageDTO.pageBlock}"><i class="ion-ios-arrow-back">이전</i></a>
+										</c:when>
+										<c:otherwise>
+											<i class="ion-ios-arrow-back">이전</i>
+										</c:otherwise>
+									</c:choose></li>
+				               
 				                  <li class="active">
-				                  <!-- 	1씩 증가 : 꼭 있어야 하는지? 한번 물어보고 넘어가기 -->
 									<c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1">
-									<a href="${pageContext.request.contextPath}/center/qna_list?pageNum=${i }"${1 }>i</a>
+										<a href="${pageContext.request.contextPath}/center/qna_list?pageNum=${i }"${1 }>${i }</a>
 									</c:forEach></li>
 <!-- 				                  <li><a href="#">2</a></li> -->
 <!-- 				                  <li><a href="#">3</a></li> -->
 <!-- 				                  <li><a href="#">4</a></li> -->
 <!-- 				                  <li><a href="#">5</a></li> -->
 								<!-- end페이지가 count보다 더 클때 -->
-				                  <li>
+				                  <li class="active">
 				                 <!-- end페이지가 count보다 더 클때 -->
-									<c:if test="${pageDTO.endPage > pageDTO.pageCount }">
-									<a href = "${pageContext.request.contextPath}/center/qna_list?pageNum=${pageDTO.startPage+pageDTO.pageBlock}"><i class="ion-ios-arrow-back">다음</i></a>
-									</c:if>
+				                 	<c:choose>
+										<c:when test= "${pageDTO.endPage > pageDTO.pageCount }">
+											<a href = "${pageContext.request.contextPath}/center/qna_list?pageNum=${pageDTO.startPage+pageDTO.pageBlock}">다음<i class="ion-ios-arrow-forward"></i></a>
+										</c:when>
+										<c:otherwise>
+											다음<i class="ion-ios-arrow-forward"></i>
+										</c:otherwise>
+									</c:choose>
 								</li>
 				               </ul>
 				            </div>

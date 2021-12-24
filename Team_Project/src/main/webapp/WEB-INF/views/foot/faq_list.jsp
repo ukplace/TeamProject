@@ -128,16 +128,8 @@
 		</tr>
 		</tbody>
 	</table>
-	<div class = "paging">
-	<a href = "#" class = "bt"> 첫 페이지로 이동</a>
-	<a href = "#" class = "bt">  이전 페이지로 이동</a>
-	<a href = "#" class = "num">  1</a>
-	<a href = "#" class = "num">  2</a>
-	<a href = "#" class = "num">  3</a>
-	<a href = "#" class = "bt"> 다음 페이지로 이동</a>
-	<a href = "#" class = "bt"> 마지막 페이지로 이동</a>
+	<!-- 페이징 버튼부분 -->
 	
-	</div>
 </div>
 </div>
 
