@@ -49,6 +49,7 @@
 		values(#{qna_name},#{qna_subject},#{qna_content},#{qna_type},#{qna_re_ref},#{re_lev},#{re_seq})
 	</insert>
 	
+	
 	<insert id="insertFaq">
 		INSERT into faq values (#{faq_subject},#{faq_question},#{faq_answer})
 	</insert>
