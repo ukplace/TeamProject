@@ -64,7 +64,7 @@
 				<div class="row">
 							<h2>FAQ</h2>
 					<div class="col-lg-8" >
-						<form method="post" class="colorlib-form" name="join" action="${pageContext.request.contextPath}/admin/faq_insertPro">
+						<form method="post" class="colorlib-form" name="join" action="${pageContext.request.contextPath}/admin/faq_writePro">
 		              		<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
@@ -78,11 +78,11 @@
   										
   										<div class="form-group">
 										<label for="tel"><h4>FAQ 제목</h4></label>
-   										<input type="text" id="subject" name="subject" class = "subject"/>      
+   										<input type="text" id="subject" name="f_subject" class = "subject"/>      
   										</div>
 			    
 										<div class="form-group">
-										<label for="content"><h4>내용</h4></label>
+										<label for="f_content"><h4>내용</h4></label>
 										<textarea rows="30" cols="100"></textarea>
   										</div>
   										

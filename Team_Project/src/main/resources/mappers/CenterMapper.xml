@@ -21,4 +21,9 @@
 	<select id="getQnaCount" resultType="java.lang.Integer">
 		select count(*) from qna
 	</select>
+	
+	<insert id="insertNotice">
+		insert into notice(notice_sbject, notice_content)
+		vales(#{notice_subject},#{notice_content},#{notice_readcount})
+	</insert>
 </mapper>

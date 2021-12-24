@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.itwillbs.domain.NoticeDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.QnaDTO;
 
@@ -42,6 +43,12 @@ public class CenterDAOImpl implements CenterDAO {
 		
 		return sqlSession.selectOne(namespace+".getQnaCount");
 		
+	}
+
+	@Override
+	public void insertNotice(NoticeDTO noticeDTO) {
+
+		sqlSession.insert(namespace+".insertNotice", noticeDTO);
 	}
 
 	
