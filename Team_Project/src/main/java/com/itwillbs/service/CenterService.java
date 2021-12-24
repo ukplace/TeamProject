@@ -13,7 +13,8 @@ public interface CenterService {
 	public List<QnaDTO> getQnaList(PageDTO pageDTO);
 
 	public int getQnaCount();
-
+	
+	public void insertReplyAricle(QnaDTO qnaDTO);
 
 	
 	

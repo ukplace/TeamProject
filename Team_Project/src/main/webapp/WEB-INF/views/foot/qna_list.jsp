@@ -132,7 +132,7 @@
 													<td style="text-align: center; line-height: auto;"><a
 														href="#"></a>${qnaDTO.qna_type}</td>
 													<td id="Qna1"	style="text-align: center; line-height: auto; margin: auto;"><a
-														href="#">${qnaDTO.qna_email}</a></td>
+														href="#">${qnaDTO.qna_name}</a></td>
 													<td style="text-align: center; line-height: auto;"><a
 														href="#">${qnaDTO.qna_content}</a></td>
 													<td class="center" style="line-height: auto;"><a
