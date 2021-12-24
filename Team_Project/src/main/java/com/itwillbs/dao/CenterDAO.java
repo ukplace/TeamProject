@@ -15,13 +15,10 @@ public interface CenterDAO {
 
 	public Integer getMaxNum();
 
-<<<<<<< HEAD
 	public int getQnaCount();
 
 	public void insertNotice(NoticeDTO noticeDTO);
-=======
 	public Integer getQnaCount();
->>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 	
 	public Integer getIncrementNum();
 	

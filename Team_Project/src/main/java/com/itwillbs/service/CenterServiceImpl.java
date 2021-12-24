@@ -59,11 +59,10 @@ public class CenterServiceImpl implements CenterService {
 	}
 
 	@Override
-<<<<<<< HEAD
 	public void insertNotice(NoticeDTO noticeDTO) {
 		centerDAO.insertNotice(noticeDTO);
 	}
-=======
+
 	public void insertReplyAricle(QnaDTO qnaDTO) {
 		
 		centerDAO.insertReplyAricle(qnaDTO);
@@ -71,6 +70,6 @@ public class CenterServiceImpl implements CenterService {
 	}
 	
 	
->>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
+
 	
 }

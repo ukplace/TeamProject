@@ -14,14 +14,11 @@ public interface CenterService {
 	public List<QnaDTO> getQnaList(PageDTO pageDTO);
 
 	public int getQnaCount();
-<<<<<<< HEAD
 
 	public void insertNotice(NoticeDTO noticeDTO);
 
-=======
 	
 	public void insertReplyAricle(QnaDTO qnaDTO);
->>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 
 	
 	

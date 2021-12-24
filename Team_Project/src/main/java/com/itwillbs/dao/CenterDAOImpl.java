@@ -46,13 +46,11 @@ public class CenterDAOImpl implements CenterDAO {
 	}
 
 	@Override
-<<<<<<< HEAD
 	public void insertNotice(NoticeDTO noticeDTO) {
 
 		sqlSession.insert(namespace+".insertNotice", noticeDTO);
 	}
 
-=======
 	public Integer getIncrementNum() {
 
 		return sqlSession.selectOne(namespace+".getIncrementNum");
@@ -69,7 +67,6 @@ public class CenterDAOImpl implements CenterDAO {
 	}
 
 	 
->>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 	
 
 	
