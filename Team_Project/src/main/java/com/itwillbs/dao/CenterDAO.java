@@ -2,6 +2,8 @@ package com.itwillbs.dao;
 
 import java.util.List;
 
+import com.itwillbs.domain.FaqDTO;
+import com.itwillbs.domain.NoticeDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.QnaDTO;
 
@@ -14,10 +16,14 @@ public interface CenterDAO {
 
 	public Integer getMaxNum();
 
+
+	public void insertNotice(NoticeDTO noticeDTO);
 	public Integer getQnaCount();
 	
 	public Integer getIncrementNum();
 	
 	public void insertReplyAricle(QnaDTO qnaDTO);
+	
+	public void insertFaq(FaqDTO FaqDTO);
 	
 }

@@ -65,7 +65,7 @@
 				<div class="row">
 							<h2>공지사항</h2>
 					<div class="col-lg-8" >
-						<form method="post" class="colorlib-form" name="join" action="${pageContext.request.contextPath}/admin/gongji_insertPro">
+						<form method="post" class="colorlib-form" name="join" action="${pageContext.request.contextPath}/center/notice_writePro">
 		              		<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
@@ -79,11 +79,11 @@
   										
   										<div class="form-group">
 										<label for="tel"><h4>공지사항 제목</h4></label>
-   										<input type="text" id="subject" name="subject" class = "subject"/>      
+   										<input type="text" id="notice_subject" name="subject" class = "subject"/>      
   										</div>
 			    
 										<div class="form-group">
-										<label for="content"><h4>내용</h4></label>
+										<label for="notice_content"><h4>내용</h4></label>
 										<textarea rows="30" cols="100"></textarea>
   										</div>
   										
