@@ -90,6 +90,8 @@
 		margin : auto;
 		padding-left : 5px;
 	}
+	
+	.select_img img {margin:20px 0;}
 </style>
 </head>
 
@@ -202,12 +204,34 @@
 						</select>
 					</td>
 				</tr>		
+				
 				<tr>
-			      <th>대표 사진</th>
+			      <th >대표 사진</th>
 			      <td>
-			      	<input type="file" name="p_img" width = 40px value="사진등록" class="" onclick=>
+			      	<input type="file" id="p_img" name="p_img" width = 40px value="사진등록" class="" onclick=>
 				 </td>
-				</tr>
+				 </tr>
+				 
+				 	
+				 <tr>
+				 <th></th>
+				 	<td>
+				 <div class="select_img"><img src="${pageContext.request.contextPath}/resources/images/pdetail_img" width="100" height="150"></div>
+					</td>
+				 </tr>
+				
+<!-- 				 <td align="center"> -->
+<!-- 				 <div class="inputArea"> -->
+<!--  						<label for="p_img">이미지</label> -->
+<!--  						<input type="file" id="p_img" name="file" /> -->
+
+ 
+					 
+						 
+<!-- 					</div> -->
+<!-- 					</td> -->
+<!-- 					</tr> -->
+										
 				<tr>
 				<th>제품 설명</th>
 					<td>
@@ -217,6 +241,9 @@
 						<input type="submit" class="btn btn-default" value="등록" >
 	   					<input type="reset" class="btn btn-default" value="취소">
    					</td></tr>
+   					
+   					
+   			
    				</table>
    				
    				</div>
@@ -255,6 +282,18 @@
 
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>    
 <script type="text/javascript">
+
+
+$("#p_img").change(function(){
+	   if(this.files && this.files[0]) {
+		   var reader = new FileReader;
+	    reader.onload = function(data) {
+	     $(".select_img img").attr("src", data.target.result).width(500);        
+	    }
+	    reader.readAsDataURL(this.files[0]);
+	   }
+	  });
+ 
 
 function changeColor(color){
 	//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
