@@ -68,11 +68,11 @@
                                         <table class="table table-striped table-bordered table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th style="width:50px;">제품번호</th>
-                                                    <th style="width:110px;">제품사진</th>
-                                                    <th style="width:300px;">제품명</th>
-                                                    <th style="width:50px;">재고유무</th>
-                                                    <th style="width:100px;">제품등록일</th>
+                                                    <th class="text-center" style="width:50px;">제품번호</th>
+                                                    <th class="text-center" style="width:50px;">제품사진</th>
+                                                    <th class="text-center" style="width:400px;">제품명</th>
+                                                    <th class="text-center" style="width:50px;">재고유무</th>
+                                                    <th class="text-center" style="width:100px;">제품등록일</th>
                                                 </tr>
                                             </thead>
                                             
@@ -81,7 +81,7 @@
 <%-- 											<c:forEach var="memberDTO" items="${productList}"> --%>
                                                 <tr class="odd gradeX" onclick="location.href='${pageContext.request.contextPath}/admin/product_detail?num=${productDTO.p_num}'">
                                                     <td>${productDTO.p_num}</td>
-                                                    <td><img alt="product_img" src="${pageContext.request.contextPath}/images/pdetail_img.jpg" width="100" height="100"></td>
+                                                    <td align="center"><img alt="product_img" src="${pageContext.request.contextPath}/images/pdetail_img.jpg" width="100" height="100"></td>
                                                     <td class="center">${productrDTO.p_name}</td>
                                                     <td class="center">${productDTO.p_stock}</td>
                                                     <td class="center">${productDTO.p_date}</td>
