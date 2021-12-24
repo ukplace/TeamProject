@@ -15,7 +15,6 @@ public interface CenterDAO {
 
 	public Integer getMaxNum();
 
-	public int getQnaCount();
 
 	public void insertNotice(NoticeDTO noticeDTO);
 	public Integer getQnaCount();
