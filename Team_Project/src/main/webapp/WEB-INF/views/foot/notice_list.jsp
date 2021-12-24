@@ -98,18 +98,18 @@
 		<br>
 		<thead>
 		<tr class = "ti">
-			<th>번호</th>
-			<th>제목</th>
-			<th>글쓴이</th>
-			<th>작성일</th>
-			<th>조회</th>
+			<th style = "width: 70px;">번호</th>
+			<th style="width: 450px;">제목</th>
+			<th style = "width : 100px;">글쓴이</th>
+			<th style = "width : 100px;">작성일</th>
+			<th style = "width : 70px;">조회</th>
 		</tr>
 		</thead>
 		<tbody>
 			<tr>
 			<td>2</td>
 			<td>
-			<a href = "#" class = "tit">공지사항2</a>
+			<a href = "#" class = "tit">공지 사항2</a>
 			</td>
 			<td>관리자</td>
 			<td>날짜</td>
@@ -120,7 +120,7 @@
 			<td>
 			<a href = "#" class = "tit">공지사항</a>
 			</td>
-			<td>관리자</td>
+			<td class = "garo_size2">관리자</td>
 			<td>날짜</td>
 			<td>111</td>
 		</tr>

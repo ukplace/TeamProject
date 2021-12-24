@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.itwillbs.dao.CenterDAO;
+import com.itwillbs.domain.NoticeDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.QnaDTO;
 
@@ -31,7 +32,10 @@ public class CenterServiceImpl implements CenterService {
 		}else {
 			qnaDTO.setQna_re_ref(centerDAO.getIncrementNum());
 		}
-		
+
+		qnaDTO.setQna_re_lev(0);
+		qnaDTO.setQna_re_seq(0);
+
 		centerDAO.insertQna(qnaDTO);
 		
 	}
@@ -55,6 +59,10 @@ public class CenterServiceImpl implements CenterService {
 	}
 
 	@Override
+	public void insertNotice(NoticeDTO noticeDTO) {
+		centerDAO.insertNotice(noticeDTO);
+	}
+
 	public void insertReplyAricle(QnaDTO qnaDTO) {
 		
 		centerDAO.insertReplyAricle(qnaDTO);
@@ -62,5 +70,6 @@ public class CenterServiceImpl implements CenterService {
 	}
 	
 	
+
 	
 }

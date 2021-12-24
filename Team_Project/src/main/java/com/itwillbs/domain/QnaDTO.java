@@ -28,7 +28,7 @@ public class QnaDTO {
 	private int qna_re_ref;
 	private int qna_re_lev;
 	private int qna_re_seq;
-	private Timestamp date;
+	private Timestamp qna_date;
 	
 	
 	public int getQna_idx() {
@@ -85,11 +85,12 @@ public class QnaDTO {
 	public void setQna_re_seq(int qna_re_seq) {
 		this.qna_re_seq = qna_re_seq;
 	}
-	public Timestamp getDate() {
-		return date;
+	public Timestamp getQna_date() {
+		return qna_date;
 	}
-	public void setDate(Timestamp date) {
-		this.date = date;
-	} 
+	public void setQna_date(Timestamp qna_date) {
+		this.qna_date = qna_date;
+	}
+	
 	
 }

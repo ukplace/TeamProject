@@ -24,41 +24,6 @@ public class AdminController {
 	private ProductService productService;
 	
 	
-	@RequestMapping(value = "/admin/login", method = RequestMethod.GET)
-		public String login() {
-			System.out.println("/admin/login");
-			return "admin/login";
-		}
-	
-	@RequestMapping(value = "/admin/login_Pro", method = RequestMethod.POST)
-		public String loginPro(MemberDTO memberDTO, HttpSession session) {
-			System.out.println("/admin/login_Pro");
-			
-			MemberDTO userCheck = adminService.userCheck(memberDTO);
-			
-			if(userCheck != null) {
-				System.out.println(memberDTO.getM_email());
-				
-//				if(userCheck.getM_email().equals("admin@shushu")) {
-//					session.setAttribute("adminEmail", memberDTO);
-				if(userCheck.getM_email().equals("admin@shushu")) {
-					session.setAttribute("adminEmail", memberDTO);
-				if(userCheck.getM_email().equals("admin@shushu")) {
-					session.setAttribute("id", memberDTO.getM_email());
-					return "redirect:/admin/index";
-				}else {
-					session.setAttribute("m_Email", memberDTO);
-					return "redirect:/foot/index";
-				}
-						
-			}else {
-				
-			 return "foot/msg";
-			}
-				
-			}
-			return "admin/login";
-		}
 	
 	//상품 등록
 	@RequestMapping(value = "/admin/product_regist", method = RequestMethod.GET)

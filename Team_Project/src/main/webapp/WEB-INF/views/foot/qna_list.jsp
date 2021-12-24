@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -135,8 +136,9 @@
 														href="#">${qnaDTO.qna_name}</a></td>
 													<td style="text-align: center; line-height: auto;"><a
 														href="#">${qnaDTO.qna_content}</a></td>
-													<td class="center" style="line-height: auto;"><a
-														href="#">${qnaDTO.date}</a></td>
+													<td class="center" style="line-height: auto;">
+														<fmt:formatDate value="${qnaDTO.qna_date}" pattern="yyyy-MM-dd"/></td>
+														
 												</tr>
 											</c:forEach>
 

@@ -13,8 +13,8 @@
 	
 	
 	<insert id="insertQna">
-		insert into qna(m_idx,qna_name,qna_subject,qna_content,qna_type,qna_re_ref,_qna_re_lev,qna_re_seq) 
-		values(#{null},#{qna_name},#{qna_subject},#{qna_content},#{qna_type},#{qna_re_ref},#{0},#{0})
+		insert into qna(m_idx,qna_name,qna_subject,qna_content,qna_type,qna_re_ref,qna_re_lev,qna_re_seq) 
+		values(#{m_idx},#{qna_name},#{qna_subject},#{qna_content},#{qna_type},#{qna_re_ref},#{qna_re_lev},#{qna_re_seq})
 	</insert>
 	
 
@@ -30,6 +30,10 @@
 		select count(*) from qna
 	</select>
 	
+	<insert id="insertNotice">
+		insert into notice(notice_sbject, notice_content)
+		vales(#{notice_subject},#{notice_content},#{notice_readcount})
+	</insert>
 	<select id="getIncrementNum" resultType="java.lang.Integer">
 		SELECT auto_increment FROM information_schema.tables 
 		WHERE table_name='shushu' AND table_schema=DATABASE();
@@ -41,8 +45,8 @@
 	</update>
 	
 	<insert id="insertReplyAricle">
-		INSERT into qna(m_idx,qna_name,qna_subject,qna_content,qna_type,qna_re_ref,_qna_re_lev,qna_re_seq) 
-		values(#{null},#{qna_name},#{qna_subject},#{qna_content},#{qna_type},#{qna_re_ref},#{re_lev}+1,#{re_seq}+1)
+		INSERT into qna(qna_name,qna_subject,qna_content,qna_type,qna_re_ref,_qna_re_lev,qna_re_seq) 
+		values(#{qna_name},#{qna_subject},#{qna_content},#{qna_type},#{qna_re_ref},#{re_lev}+1,#{re_seq}+1)
 	</insert>
 	
 </mapper>
