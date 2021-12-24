@@ -167,12 +167,12 @@
 				                  <li class="active">
 									<c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1">
 										<a href="${pageContext.request.contextPath}/center/qna_list?pageNum=${i }"${1 }>${i }</a>
-									</c:forEach></li>
+									</c:forEach>
+								  </li>
 <!-- 				                  <li><a href="#">2</a></li> -->
 <!-- 				                  <li><a href="#">3</a></li> -->
 <!-- 				                  <li><a href="#">4</a></li> -->
 <!-- 				                  <li><a href="#">5</a></li> -->
-								<!-- end페이지가 count보다 더 클때 -->
 				                  <li class="active">
 				                 <!-- end페이지가 count보다 더 클때 -->
 				                 	<c:choose>
