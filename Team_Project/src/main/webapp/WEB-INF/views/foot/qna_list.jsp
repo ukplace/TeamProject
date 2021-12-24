@@ -136,7 +136,7 @@
 <%-- 	<c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1"> --%>
 <%-- 	<a href="${pageContext.request.contextPath}/center/qna_list?pageNum=${i }"${1 }></a> --%>
 <%-- 	</c:forEach> --%>
-	
+	<br>
 	<!-- 페이징 -->
 	<div class="row">
 				<div class="col-md-12 text-center">
@@ -144,12 +144,12 @@
 				               <ul>
 					              <li>
 									<c:if test="${pageDTO.startPage > pageDTO.pageBlock }">	
-									<a href ="${pageContext.request.contextPath}/center/qna_list?pageNum=${pageDTO.startPage-pageDTO.pageBlock}"><i class = "ion-ios-arrow-back">이전</i></a>
+									<a href ="${pageContext.request.contextPath}/center/qna_list?pageNum=${pageDTO.startPage-pageDTO.pageBlock}"><i class="ion-ios-arrow-back">이전</i></a>
 									</c:if></li>
 				                  <li class="active">
 				                  <!-- 	1씩 증가 : 꼭 있어야 하는지? 한번 물어보고 넘어가기 -->
 									<c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1">
-									<a href="${pageContext.request.contextPath}/center/qna_list?pageNum=${i }"${1 }>1</a>
+									<a href="${pageContext.request.contextPath}/center/qna_list?pageNum=${i }"${1 }>i</a>
 									</c:forEach></li>
 <!-- 				                  <li><a href="#">2</a></li> -->
 <!-- 				                  <li><a href="#">3</a></li> -->
@@ -159,7 +159,7 @@
 				                  <li>
 				                 <!-- end페이지가 count보다 더 클때 -->
 									<c:if test="${pageDTO.endPage > pageDTO.pageCount }">
-									<a href = "${pageContext.request.contextPath}/center/qna_list?pageNum=${pageDTO.startPage+pageDTO.pageBlock}"><i class = "ion-ios-arrow-back">다음</i></a>
+									<a href = "${pageContext.request.contextPath}/center/qna_list?pageNum=${pageDTO.startPage+pageDTO.pageBlock}"><i class="ion-ios-arrow-back">다음</i></a>
 									</c:if>
 								</li>
 				               </ul>
