@@ -5,7 +5,7 @@ import java.sql.Timestamp;
 /*
 create table faq (
 faq_idx int primary key auto_increment,
-faq_name varchar(45) not null,
+faq_subject varchar(45) not null,
 faq_question varchar(500) not null,
 faq_answer varchar(500) not null,
 faq_date datetime default now() not null
@@ -15,22 +15,21 @@ faq_date datetime default now() not null
 public class FaqDTO {
 	
 	private int faq_idx;
-	private String faq_name;
+	private String faq_subject;
 	private String faq_question;
 	private String faq_answer;
 	private Timestamp faq_date;
-	
 	public int getFaq_idx() {
 		return faq_idx;
 	}
 	public void setFaq_idx(int faq_idx) {
 		this.faq_idx = faq_idx;
 	}
-	public String getFaq_name() {
-		return faq_name;
+	public String getFaq_subject() {
+		return faq_subject;
 	}
-	public void setFaq_name(String faq_name) {
-		this.faq_name = faq_name;
+	public void setFaq_subject(String faq_subject) {
+		this.faq_subject = faq_subject;
 	}
 	public String getFaq_question() {
 		return faq_question;
@@ -50,6 +49,8 @@ public class FaqDTO {
 	public void setFaq_date(Timestamp faq_date) {
 		this.faq_date = faq_date;
 	}
+	
+	
 	
 
 }

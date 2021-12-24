@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -98,18 +99,19 @@
 		<br>
 		<thead>
 		<tr class = "ti">
-			<th>번호</th>
-			<th>제목</th>
-			<th>글쓴이</th>
-			<th>작성일</th>
-			<th>조회</th>
+			<th style = "width : 70px;">번호</th>
+			<th style="width: 450px;">제목</th>
+			<th style = "width : 100px;">글쓴이</th>
+			<th style = "width : 100px;">작성일</th>
+			<th style = "width : 70px;">조회</th>
 		</tr>
 		</thead>
+		
 		<tbody>
 			<tr>
 			<td>2</td>
 			<td>
-			<a href = "#" class = "tit">공지사항2</a>
+			<a href = "#" class = "tit">자주 묻는 질문2</a>
 			</td>
 			<td>관리자</td>
 			<td>날짜</td>
@@ -118,26 +120,31 @@
 		<tr>
 			<td>1</td>
 			<td>
-			<a href = "#" class = "tit">공지사항</a>
+			<a href = "#" class = "tit">자주 묻는 질문</a>
 			</td>
-			<td>관리자</td>
+			<td class = "garo_size2">관리자</td>
 			<td>날짜</td>
 			<td>111</td>
 		</tr>
 		</tbody>
 	</table>
-	<div class = "paging">
-	<a href = "#" class = "bt"> 첫 페이지로 이동</a>
-	<a href = "#" class = "bt">  이전 페이지로 이동</a>
-	<a href = "#" class = "num">  1</a>
-	<a href = "#" class = "num">  2</a>
-	<a href = "#" class = "num">  3</a>
-	<a href = "#" class = "bt"> 다음 페이지로 이동</a>
-	<a href = "#" class = "bt"> 마지막 페이지로 이동</a>
+	<!-- 페이징 버튼부분 -->
 	
-	</div>
 </div>
 </div>
+
+
+<c:choose>
+<c:when test="${'admin@shushu.com' eq sessionScope.id }">
+		<input type="button" value="등록" onclick="location.href='${pageContext.request.contextPath}/center/faq_write'">
+	</c:when>
+</c:choose>
+
+
+
+
+
+
 		<!-- /#page-wrapper -->
 
 	<!-- /#wrapper -->

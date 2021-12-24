@@ -16,7 +16,10 @@ p_price int,
 p_discount int default 0,
 p_sellyn varchar(1) default 'Y',
 p_stock int,
-p_date datetime default now() not null
+p_date datetime default now() not null,
+
+// p_productImg 컬럼 추가! 상품목록에 이미지 썸네일로 나오기 위한 컬럼
+p_productImg varchar(500)
 );
 
 
@@ -38,7 +41,17 @@ public class ProductDTO {
 	private String p_sellyn;
 	private int p_stock;
 	private Timestamp p_date;
+	private String p_productImg;
 	
+	
+	
+	
+	public String getP_productImg() {
+		return p_productImg;
+	}
+	public void setP_productImg(String p_productImg) {
+		this.p_productImg = p_productImg;
+	}
 	public int getP_num() {
 		return p_num;
 	}
@@ -69,11 +82,11 @@ public class ProductDTO {
 	public void setP_small_category(String p_small_category) {
 		this.p_small_category = p_small_category;
 	}
-	public String getP_image() {
+	public String getP_img() {
 		return p_img;
 	}
-	public void setP_image(String p_image) {
-		this.p_img = p_image;
+	public void setP_img(String p_img) {
+		this.p_img = p_img;
 	}
 	public String getP_size() {
 		return p_size;

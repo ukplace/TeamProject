@@ -24,45 +24,11 @@ public class AdminController {
 	private ProductService productService;
 	
 	
-	@RequestMapping(value = "/admin/login", method = RequestMethod.GET)
-		public String login() {
-			System.out.println("/admin/login");
-			return "admin/login";
-		}
 	
-	@RequestMapping(value = "/admin/login_Pro", method = RequestMethod.POST)
-		public String loginPro(MemberDTO memberDTO, HttpSession session) {
-			System.out.println("/admin/login_Pro");
-			
-			MemberDTO userCheck = adminService.userCheck(memberDTO);
-			
-			if(userCheck != null) {
-				System.out.println(memberDTO.getM_email());
-				
-//				if(userCheck.getM_email().equals("admin@shushu")) {
-//					session.setAttribute("adminEmail", memberDTO);
-				if(userCheck.getM_email().equals("admin@shushu")) {
-					session.setAttribute("adminEmail", memberDTO);
-				if(userCheck.getM_email().equals("admin@shushu")) {
-					session.setAttribute("id", memberDTO.getM_email());
-					return "redirect:/admin/index";
-				}else {
-					session.setAttribute("m_Email", memberDTO);
-					return "redirect:/foot/index";
-				}
-						
-			}else {
-				
-			 return "foot/msg";
-			}
-				
-			}
-			return "admin/login";
-		}
-	
-	//상품 등록
+	//상품 관리(상품 리스트/등록/수정/삭제)
 	@RequestMapping(value = "/admin/product_regist", method = RequestMethod.GET)
 	   public String productRegist() {
+		// /WEB-INF/views/admin/product_regist.jsp
 	      return "admin/product_regist";
 	   }
 	
@@ -92,7 +58,23 @@ public class AdminController {
 	      return "admin/product_update";
 	   }
 
+	@RequestMapping(value = "/admin/product_update_pro", method = RequestMethod.POST)
+	   public String productUpdatePro() {
+		
+	      // /WEB-INF/views/admin/product_list
+	      return "redirect:/admin/product_list";
+	   }
+
+	@RequestMapping(value = "/admin/product_delete_pro", method = RequestMethod.POST)
+	   public String productDeletePro() {
+		
+	      // /WEB-INF/views/admin/product_list
+	      return "redirect:/admin/product_list";
+	   }
+
 	 
+	
+	// 주문 관리(주문 리스트)
 	 @RequestMapping(value = "/admin/order_list", method = RequestMethod.GET)
      public String order_list() {
         // /WEB-INF/views/admin/order_list
@@ -105,6 +87,8 @@ public class AdminController {
         return "admin/order_detail";
      }
 	 
+	 
+	 // 회원관리(회원 리스트/상세정보)
 	 @RequestMapping(value = "/admin/member_list", method = RequestMethod.GET)
      public String member_list() {
         // /WEB-INF/views/admin/member_list
@@ -118,6 +102,7 @@ public class AdminController {
      }
 
 	 
+	 // 매출관리(매출 리스트)
 	 @RequestMapping(value = "/admin/sales_list", method = RequestMethod.GET)
      public String salesList() {
         // /WEB-INF/views/admin/salesList.jsp
@@ -125,6 +110,7 @@ public class AdminController {
      }
 	 
 
+	 
 	 @RequestMapping(value = "/admin/notice", method = RequestMethod.POST)
      public String adminNotice() {
         // /WEB-INF/views/foot/notice.jsp
