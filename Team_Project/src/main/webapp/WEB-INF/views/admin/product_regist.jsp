@@ -97,14 +97,14 @@
 
 <body>
 <div id="wrapper">
-         <!-- 네비게이션 들어간곳  -->
+
+			<!-- 네비게이션 들어간곳  -->
             <jsp:include page="../inc/nav.jsp"></jsp:include>
-             <!-- 네비게이션 들어간곳  -->
-         
+          	<!-- 네비게이션 들어간곳  -->
             <!-- Page Content -->
             <div id="page-wrapper">
                 <div class="container-fluid">
-                    <div class="row">
+                    <div class="row">0
                         <div class="col-lg-12">
                             
 <!--                             **폼태그 맨끝 코드 일단 빼놓음 onsubmit="return checkForm()"  -->

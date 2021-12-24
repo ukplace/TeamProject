@@ -25,9 +25,10 @@ public class AdminController {
 	
 	
 	
-	//상품 등록
+	//상품 관리(상품 리스트/등록/수정/삭제)
 	@RequestMapping(value = "/admin/product_regist", method = RequestMethod.GET)
 	   public String productRegist() {
+		// /WEB-INF/views/admin/product_regist.jsp
 	      return "admin/product_regist";
 	   }
 	
@@ -57,7 +58,23 @@ public class AdminController {
 	      return "admin/product_update";
 	   }
 
+	@RequestMapping(value = "/admin/product_update_pro", method = RequestMethod.POST)
+	   public String productUpdatePro() {
+		
+	      // /WEB-INF/views/admin/product_list
+	      return "redirect:/admin/product_list";
+	   }
+
+	@RequestMapping(value = "/admin/product_delete_pro", method = RequestMethod.POST)
+	   public String productDeletePro() {
+		
+	      // /WEB-INF/views/admin/product_list
+	      return "redirect:/admin/product_list";
+	   }
+
 	 
+	
+	// 주문 관리(주문 리스트)
 	 @RequestMapping(value = "/admin/order_list", method = RequestMethod.GET)
      public String order_list() {
         // /WEB-INF/views/admin/order_list
@@ -70,6 +87,8 @@ public class AdminController {
         return "admin/order_detail";
      }
 	 
+	 
+	 // 회원관리(회원 리스트/상세정보)
 	 @RequestMapping(value = "/admin/member_list", method = RequestMethod.GET)
      public String member_list() {
         // /WEB-INF/views/admin/member_list
@@ -83,6 +102,7 @@ public class AdminController {
      }
 
 	 
+	 // 매출관리(매출 리스트)
 	 @RequestMapping(value = "/admin/sales_list", method = RequestMethod.GET)
      public String salesList() {
         // /WEB-INF/views/admin/salesList.jsp
@@ -90,6 +110,7 @@ public class AdminController {
      }
 	 
 
+	 
 	 @RequestMapping(value = "/admin/notice", method = RequestMethod.POST)
      public String adminNotice() {
         // /WEB-INF/views/foot/notice.jsp
