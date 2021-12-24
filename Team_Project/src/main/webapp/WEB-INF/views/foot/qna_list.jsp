@@ -20,7 +20,7 @@
 <meta name="twitter:image" content="" />
 <meta name="twitter:url" content="" />
 <meta name="twitter:card" content="" />
-
+<link href="${pageContext.request.contextPath}/css/style12.css" rel="stylesheet">
 <link
 	href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700"
 	rel="stylesheet">
@@ -97,65 +97,81 @@
 		</div>
 
 		<!-- Page Content -->
-		<div id="page-wrapper">
-			<div class="container-fluid">
-				<div class="row"></div>
-				<!-- /.row -->
+	<div class = "container">
+	<div class="board_list_wrap">
+	<table class = "board_list">
+		<h1>QnA 관리</h1>
+		<br>
+		<thead>
+		<tr class = "ti">
+			<th>글번호</th>
+			<th>문의유형</th>
+			<th>작성자</th>
+			<th>제목</th>
+			<th>작성일</th>
+		</tr>
+		</thead>
+		
+		<tbody>
+		<!-- 문의리스트 받아오는 부분 -->
+		<c:forEach var="qnaDTO" items="${qnaList }">
+			<tr class="tit">
+				<tr>
+				<td><a href="#" class="tit">${qnaDTO.qna_idx}</a></td>
+				<td><a href="#" class="tit"></a>${qnaDTO.qna_type}</td>
+				<td><a href="#" class="tit">${qnaDTO.qna_name}</a></td>
+				<td><a href="#" class="tit">${qnaDTO.qna_content}</a></td>
+				<td><fmt:formatDate value="${qnaDTO.qna_date}" pattern="yyyy-MM-dd"/></td>
+			</tr>
+		</c:forEach>
+		</tbody>
+	</table>
+<!-- 	<a href = "#" class = "bt"> 첫 페이지로 이동</a> -->
+<!-- 	<div class = "paging"> -->
+<%-- 	<c:if test="${pageDTO.startPage > pageDTO.pageBlock }">	 --%>
+<%-- 	<a href ="${pageContext.request.contextPath}/center/qna_list?pageNum=${pageDTO.startPage-pageDTO.pageBlock}"><i class = "ion-ios-arrow-back"></i></a> --%>
+<%-- 	</c:if> --%>
+	
+<!-- 1씩 증가 : 꼭 있어야 하는지? 한번 물어보고 넘어가기 -->
+<%-- 	<c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1"> --%>
+<%-- 	<a href="${pageContext.request.contextPath}/center/qna_list?pageNum=${i }"${1 }></a> --%>
+<%-- 	</c:forEach> --%>
+	
+	<!-- 페이징 -->
+	<div class="row">
+				<div class="col-md-12 text-center">
+						<div class="block-27">
+				               <ul>
+					              <li>
+									<c:if test="${pageDTO.startPage > pageDTO.pageBlock }">	
+									<a href ="${pageContext.request.contextPath}/center/qna_list?pageNum=${pageDTO.startPage-pageDTO.pageBlock}"><i class = "ion-ios-arrow-back">이전</i></a>
+									</c:if></li>
+				                  <li class="active">
+				                  <!-- 	1씩 증가 : 꼭 있어야 하는지? 한번 물어보고 넘어가기 -->
+									<c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1">
+									<a href="${pageContext.request.contextPath}/center/qna_list?pageNum=${i }"${1 }>1</a>
+									</c:forEach></li>
+<!-- 				                  <li><a href="#">2</a></li> -->
+<!-- 				                  <li><a href="#">3</a></li> -->
+<!-- 				                  <li><a href="#">4</a></li> -->
+<!-- 				                  <li><a href="#">5</a></li> -->
+								<!-- end페이지가 count보다 더 클때 -->
+				                  <li>
+				                 <!-- end페이지가 count보다 더 클때 -->
+									<c:if test="${pageDTO.endPage > pageDTO.pageCount }">
+									<a href = "${pageContext.request.contextPath}/center/qna_list?pageNum=${pageDTO.startPage+pageDTO.pageBlock}"><i class = "ion-ios-arrow-back">다음</i></a>
+									</c:if>
+								</li>
+				               </ul>
+				            </div>
+				</div>
+	</div>
 
-				<div class="row">
-					<div
-						style="width: 1200px; text-align: center; display: inline-block; margin: 0 auto;">
-						<div class="panel panel-default">
-							<div class="panel-heading">QNA 관리</div>
-							<!-- /.panel-heading -->
-							<!-- 문의시작 -->
-							<div class="panel-body"
-								style="width: 1100px; padding: 200; display: inline-block; margin: 0 auto;">
-								<div class="table-responsive">
-									<table class="table table-striped table-bordered table-hover"
-										id="dataTables-example">
-										<thead>
-											<tr>
-												<th style="text-align: center; width: 50px;">글번호</th>
-												<th style="text-align: center; width: 50px;">문의유형</th>
-												<th style="text-align: center; width: 80px;">작성자</th>
-												<th style="text-align: center; width: 200px;">제목</th>
-												<th style="text-align: center; width: 80px;">작성일</th>
-											</tr>
-										</thead>
-
-										<tbody>
-											<!-- 문의리스트 받아오는 부분 -->
-											<c:forEach var="qnaDTO" items="${qnaList }">
-												<tr class="odd gradeX">
-													<td style="text-align: center; line-height: auto;"><a
-														href="#">${qnaDTO.qna_idx}</a></td>
-													<td style="text-align: center; line-height: auto;"><a
-														href="#"></a>${qnaDTO.qna_type}</td>
-													<td id="Qna1"	style="text-align: center; line-height: auto; margin: auto;"><a
-														href="#">${qnaDTO.qna_name}</a></td>
-													<td style="text-align: center; line-height: auto;"><a
-														href="#">${qnaDTO.qna_content}</a></td>
-													<td class="center" style="line-height: auto;">
-														<fmt:formatDate value="${qnaDTO.qna_date}" pattern="yyyy-MM-dd"/></td>
-														
-												</tr>
-											</c:forEach>
-
-										<!-- start페이지가 block보다 더 클때 -->
-										<c:if test="${pageDTO.startPage > pageDTO.pageBlock }">
-											<a href="${pageContext.request.contextPath}/center/qna_list?pageNum=${pageDTO.startPage-pageDTO.pageBlock}">이전</a>												
-										</c:if>
-										
-<!-- 										1씩 증가 : 꼭 있어야 하는지? 한번 물어보고 넘어가기 -->
-										<c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1">
-											<a href="${pageContext.request.contextPath}/center/qna_list?pageNum=${i }"${1 }></a>
-										</c:forEach>
-										
-										<!-- end페이지가 count보다 더 클때 -->
-										<c:if test="${pageDTO.endPage > pageDTO.pageCount }">
-											<a href="${pageContext.request.contextPath}/center/qna_list?pageNum=${pageDTO.startPage+pageDTO.pageBlock}">다음</a>
-										</c:if>
+	</div>
+</div>
+</div>
+	
+		
 <!-- 												<tr class="odd gradeX"> -->
 <!-- 													<td style="text-align: center; line-height: auto;"><a -->
 <!-- 														href="#">2</a></td> -->
@@ -195,50 +211,15 @@
 <%-- 											</c:forEach> --%>
 											<!-- 문의리스트 반복문 끝 -->
 											
-										</tbody>
-									</table>
-								</div>
-								<!-- 페이징 버튼 -->
-								<div class="row">
-							<div class="col-md-12 text-center">
-								<div class="block-27">
-				               <ul>
-					               <li><a href="#"><i class="ion-ios-arrow-back"></i></a></li>
-				                  <li class="active"><span>1</span></li>
-				                  <li><a href="#">2</a></li>
-				                  <li><a href="#">3</a></li>
-				                  <li><a href="#">4</a></li>
-				                  <li><a href="#">5</a></li>
-				                  <li><a href="#"><i class="ion-ios-arrow-forward"></i></a></li>
-				               </ul>
-				            </div>
-							</div>
-						</div>
 								<!-- /.table-responsive -->
-							</div>
-							<!-- /.panel-body -->
-						</div>
-						<!-- /.panel -->
-					</div>
-					<!-- /.col-lg-12 -->
-				</div>
-				<!-- /.row -->
 
-
-			</div>
-			<!-- /.container-fluid -->
-		</div>
-		<!-- /#page-wrapper -->
-
-	</div>
-	<!-- /#wrapper -->
+			
 
 	<footer id="colorlib-footer" role="contentinfo">
 		<!-- 푸터들어가는곳 -->
 		<jsp:include page="../inc/bottom.jsp"></jsp:include>
 		<!-- 푸터들어가는곳 -->
 	</footer>
-	</div>
 
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="ion-ios-arrow-up"></i></a>
