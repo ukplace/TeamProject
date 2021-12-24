@@ -12,6 +12,8 @@ public interface CenterService {
 
 	public List<QnaDTO> getQnaList(PageDTO pageDTO);
 
+	public int getQnaCount();
+
 
 	
 	

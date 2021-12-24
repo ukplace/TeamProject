@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -123,65 +124,74 @@
 										</thead>
 
 										<tbody>
-											<!-- <c:forEach> -->
 											<!-- 문의리스트 받아오는 부분 -->
-											<c:forEach>
-												<!-- var="memberDTO" items="${memberList} -->
+											<c:forEach var="qnaDTO" items="${qnaList }">
 												<tr class="odd gradeX">
 													<td style="text-align: center; line-height: auto;"><a
-														href="#">1</a></td>
+														href="#">${qnaDTO.qna_idx}</a></td>
 													<td style="text-align: center; line-height: auto;"><a
-														href="#"></a></td>
-													<!-- ${memberDTO.id } -->
+														href="#"></a>${qnaDTO.qna_type}</td>
 													<td id="Qna1"	style="text-align: center; line-height: auto; margin: auto;"><a
-														href="#">hihi@naver.com</a></td>
-													<!-- ${memberDTO.pass } -->
+														href="#">${qnaDTO.qna_email}</a></td>
 													<td style="text-align: center; line-height: auto;"><a
-														href="#">주문취소는 어디에서 신청하나요?</a></td>
-													<!-- ${memberDTO.name } -->
+														href="#">${qnaDTO.qna_content}</a></td>
 													<td class="center" style="line-height: auto;"><a
-														href="#">2020-12-19</a></td>
-													<!-- ${memberDTO.date } -->
-												</tr>
-												<tr class="odd gradeX">
-													<td style="text-align: center; line-height: auto;"><a
-														href="#">2</a></td>
-														<!--  -->
-													<td style="text-align: center; line-height: auto;"><a
-														href="#"></a></td>
-													<!-- ${memberDTO.id } -->
-													<td id="Qna1"	style="text-align: center; line-height: auto; margin: auto;"><a
-														href="#">bye@naver.com</a></td>
-													<!-- ${memberDTO.pass } -->
-													<td style="text-align: center; line-height: auto;"><a
-														href="#">배송은 언제되나요?</a></td>
-													<!-- ${memberDTO.name } -->
-													<td class="center" style="line-height: auto;"><a
-														href="#">2020-12-19</a></td>
-													<!-- ${memberDTO.date } -->
-												</tr>
-												
-												<!-- 글번호 1번의 답변 -->
-												<tr id="Qna1" style="display: none;">
-													<td colspan="2" > A.
-															<p>
-																<strong>[SHUSHU]</strong><br />- [shushu &gt; 배송조회]에서
-																주문상품 확인 후 직접 취소하실 수 있습니다.<br />- 주문취소가 불가능한 상태 혹은 불가능한
-																상품의 경우는 1:1문의를 접수해주시면 상담원 확인 후 처리결과를 안내해드립니다.
-															</p>
-															<p>
-																<strong>[고객센터]</strong><br />고객센터(1234-5678) 연결 후 상담원을
-																통해 주문을 취소하실 수 있습니다.
-															</p>
-															<div class="noti_txt">
-																답변이 충분치 않으셨다면 1:1문의를 이용해주십시오. 
-																<a	href="#">링크</a>
-															</div>
-													</td>
+														href="#">${qnaDTO.date}</a></td>
 												</tr>
 											</c:forEach>
+
+										<!-- start페이지가 block보다 더 클때 -->
+										<c:if test="${pageDTO.startPage > pageDTO.pageBlock }">
+											<a href="${pageContext.request.contextPath}/center/qna_list?pageNum=${pageDTO.startPage-pageDTO.pageBlock}">이전</a>												
+										</c:if>
+										
+<!-- 										1씩 증가 : 꼭 있어야 하는지? 한번 물어보고 넘어가기 -->
+										<c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1">
+											<a href="${pageContext.request.contextPath}/center/qna_list?pageNum=${i }"${1 }></a>
+										</c:forEach>
+										
+										<!-- end페이지가 count보다 더 클때 -->
+										<c:if test="${pageDTO.endPage > pageDTO.pageCount }">
+											<a href="${pageContext.request.contextPath}/center/qna_list?pageNum=${pageDTO.startPage+pageDTO.pageBlock}">다음</a>
+										</c:if>
+<!-- 												<tr class="odd gradeX"> -->
+<!-- 													<td style="text-align: center; line-height: auto;"><a -->
+<!-- 														href="#">2</a></td> -->
+<!-- 														 -->
+<!-- 													<td style="text-align: center; line-height: auto;"><a -->
+<!-- 														href="#"></a></td> -->
+<!-- 													${memberDTO.id } -->
+<!-- 													<td id="Qna1"	style="text-align: center; line-height: auto; margin: auto;"><a -->
+<!-- 														href="#">bye@naver.com</a></td> -->
+<!-- 													${memberDTO.pass } -->
+<!-- 													<td style="text-align: center; line-height: auto;"><a -->
+<!-- 														href="#">배송은 언제되나요?</a></td> -->
+<!-- 													${memberDTO.name } -->
+<!-- 													<td class="center" style="line-height: auto;"><a -->
+<!-- 														href="#">2020-12-19</a></td> -->
+<!-- 													${memberDTO.date } -->
+<!-- 												</tr> -->
+												
+												<!-- 글번호 1번의 답변 -->
+<!-- 												<tr id="Qna1" style="display: none;"> -->
+<!-- 													<td colspan="2" > A. -->
+<!-- 															<p> -->
+<!-- 																<strong>[SHUSHU]</strong><br />- [shushu &gt; 배송조회]에서 -->
+<!-- 																주문상품 확인 후 직접 취소하실 수 있습니다.<br />- 주문취소가 불가능한 상태 혹은 불가능한 -->
+<!-- 																상품의 경우는 1:1문의를 접수해주시면 상담원 확인 후 처리결과를 안내해드립니다. -->
+<!-- 															</p> -->
+<!-- 															<p> -->
+<!-- 																<strong>[고객센터]</strong><br />고객센터(1234-5678) 연결 후 상담원을 -->
+<!-- 																통해 주문을 취소하실 수 있습니다. -->
+<!-- 															</p> -->
+<!-- 															<div class="noti_txt"> -->
+<!-- 																답변이 충분치 않으셨다면 1:1문의를 이용해주십시오.  -->
+<!-- 																<a	href="#">링크</a> -->
+<!-- 															</div> -->
+<!-- 													</td> -->
+<!-- 												</tr> -->
+<%-- 											</c:forEach> --%>
 											<!-- 문의리스트 반복문 끝 -->
-											<!-- </c:forEach> -->
 											
 										</tbody>
 									</table>

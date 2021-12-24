@@ -105,7 +105,8 @@
                     <div class="row">
                         <div class="col-lg-12">
                             
-<form action="${pageContext.request.contextPath }/admin/product_regist_pro" method="post" name="registForm" onsubmit="return checkForm()" >                     
+<!--                             **폼태그 맨끝 코드 일단 빼놓음 onsubmit="return checkForm()"  -->
+<form action="${pageContext.request.contextPath }/admin/product_regist_pro" method="post" name="registForm">                     
    <table class="table-ca" width=60% tyletable-layout:fixed cellspacing=() cellpadding=1;>                 
        <tr >
           <td width=30% id=td1 align="center"> 구분 1 </td>
@@ -124,7 +125,7 @@
       </td>
       </tr>   
       	</table>
- 
+      	
 		<div class="main">
 		<div class=table-regist>
        <h1 class="page-header" align="center">제품등록</h1>
@@ -210,7 +211,7 @@
 				<tr>
 				<th>제품 설명</th>
 					<td>
-						<textarea rows="20" cols="40"></textarea>
+						<textarea rows="20" cols="40" name="p_explain"></textarea>
 					</td></tr>
 					<tr><td colspan="2" align="center">
 						<input type="submit" class="btn btn-default" value="등록" >

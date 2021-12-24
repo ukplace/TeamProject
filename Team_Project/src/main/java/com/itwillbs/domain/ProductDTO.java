@@ -7,7 +7,7 @@ create table product (
 p_num int primary key auto_increment,
 p_name varchar(45) not null,
 p_explain varchar(500) not null,
-p_catagory varchar(45) not null,
+p_category varchar(45) not null,
 p_small_category varchar(45) not null,
 p_img varchar(500),
 p_size varchar(45),
@@ -36,7 +36,7 @@ public class ProductDTO {
 	private int p_price;
 	private int p_discount;
 	private String p_sellyn;
-	private int p_stcok;
+	private int p_stock;
 	private Timestamp p_date;
 	
 	public int getP_num() {
@@ -105,11 +105,11 @@ public class ProductDTO {
 	public void setP_sellyn(String p_sellyn) {
 		this.p_sellyn = p_sellyn;
 	}
-	public int getP_stcok() {
-		return p_stcok;
+	public int getP_stock() {
+		return p_stock;
 	}
-	public void setP_stcok(int p_stcok) {
-		this.p_stcok = p_stcok;
+	public void setP_stock(int p_stock) {
+		this.p_stock = p_stock;
 	}
 	public Timestamp getP_date() {
 		return p_date;

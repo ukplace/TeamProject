@@ -15,6 +15,10 @@
 	</select>
 	
 	<select id="getQnaList" resultType="com.itwillbs.domain.QnaDTO">
-		
+		select * from qna order by qna_idx limit #{startRow},#{pageSize}
+	</select>
+	
+	<select id="getQnaCount" resultType="java.lang.Integer">
+		select count(*) from qna
 	</select>
 </mapper>

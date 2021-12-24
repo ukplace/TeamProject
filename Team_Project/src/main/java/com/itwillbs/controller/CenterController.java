@@ -157,6 +157,7 @@ public class CenterController {
 		List<QnaDTO> qnaList = centerService.getQnaList(pageDTO);
 		
 		// 카운트
+		pageDTO.setCount(centerService.getQnaCount());
 		
 		// 데이터 담아서 list.jsp에 리스트 전달
 		model.addAttribute("qnaList", qnaList);
