@@ -20,11 +20,18 @@ public class CenterServiceImpl implements CenterService {
 	public void insertQna(QnaDTO qnaDTO) {
 		System.out.println("CenterServiceImpl insertQna()");
 		
-//		if(centerDAO.getMaxNum()==null) { // 글 없는 경우
-//			qnaDTO.setQna_idx(1);
-//		}else { // 게시판 글 있는 경우
-//			qnaDTO.setQna_idx(centerDAO.getMaxNum()+1);
-//		}
+		if(centerDAO.getMaxNum()==null) { // 글 없는 경우
+			qnaDTO.setQna_idx(1);
+		}else { // 게시판 글 있는 경우
+			qnaDTO.setQna_idx(centerDAO.getMaxNum()+1);
+		}
+		
+		if(centerDAO.getIncrementNum()==null) {
+			qnaDTO.setQna_re_ref(1);
+		}else {
+			qnaDTO.setQna_re_ref(centerDAO.getIncrementNum());
+		}
+		
 		centerDAO.insertQna(qnaDTO);
 		
 	}
@@ -46,5 +53,14 @@ public class CenterServiceImpl implements CenterService {
 		return centerDAO.getQnaCount();
 		
 	}
+
+	@Override
+	public void insertReplyAricle(QnaDTO qnaDTO) {
+		
+		centerDAO.insertReplyAricle(qnaDTO);
+		
+	}
+	
+	
 	
 }

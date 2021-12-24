@@ -25,11 +25,11 @@ public class CenterDAOImpl implements CenterDAO {
 		sqlSession.insert(namespace+".insertQna", qnaDTO);
 	}
 
-//	@Override
-//	public Integer getMaxNum() {
-//		
-//		return sqlSession.selectOne(namespace+".getMaxNum");
-//	}
+	@Override
+	public Integer getMaxNum() {
+		
+		return sqlSession.selectOne(namespace+".getMaxNum");
+	}
 
 	@Override
 	public List<QnaDTO> getQnaList(PageDTO pageDTO) {
@@ -38,12 +38,29 @@ public class CenterDAOImpl implements CenterDAO {
 	}
 
 	@Override
-	public int getQnaCount() {
+	public Integer getQnaCount() {
 		
 		return sqlSession.selectOne(namespace+".getQnaCount");
 		
 	}
 
+	@Override
+	public Integer getIncrementNum() {
+
+		return sqlSession.selectOne(namespace+".getIncrementNum");
+	}
+
+	@Override
+	public void insertReplyAricle(QnaDTO qnaDTO) {
+		
+		sqlSession.update(namespace+".setQna_re_seq",qnaDTO);
+		
+		sqlSession.insert(namespace+".insertReplyAricle",qnaDTO);
+		
+		
+	}
+
+	 
 	
 
 	

@@ -12,10 +12,12 @@ public interface CenterDAO {
 
 	public List<QnaDTO> getQnaList(PageDTO pageDTO);
 
-//	public Object getMaxNum();
+	public Integer getMaxNum();
 
-	public int getQnaCount();
+	public Integer getQnaCount();
 	
+	public Integer getIncrementNum();
 	
+	public void insertReplyAricle(QnaDTO qnaDTO);
 	
 }
