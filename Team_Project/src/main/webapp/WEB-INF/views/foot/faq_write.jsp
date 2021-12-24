@@ -1,24 +1,3 @@
-faq_write 
-
-제목
-
-질문
-
-답변 찢어두기
-
-버튼 센터로 바꿔주기
-
-<c:choose>
-<c:when test="${'admin@shushu.com' eq sessionScope.id }">
-	
-	<%-- <li class="container text-right"><div id="login"><a href="${pageContext.request.contextPath}/foot/login">로그인</a> | <a href="${pageContext.request.contextPath}/foot/join">회원가입</a> | <a href="${pageContext.request.contextPath}/foot/notice">고객센터</a></div></li> --%> 
-	<li class="container text-right"><div id="login"><a href="${pageContext.request.contextPath}/foot/login">LOGIN</a> | <a href="${pageContext.request.contextPath}/foot/join">JOIN</a> | <a href="${pageContext.request.contextPath}/center/notice_list">CUSTOMER CENTER</a></div></li>
-	</c:when>
-</c:choose>
-
-
-
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>

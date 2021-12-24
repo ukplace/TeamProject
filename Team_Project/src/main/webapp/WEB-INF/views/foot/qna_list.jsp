@@ -66,6 +66,18 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css">
 
+<style type="text/css">
+.qna_insert{
+	float: right;
+	
+}
+
+</style>
+
+
+
+
+
 
 </head>
 <body>
@@ -100,7 +112,7 @@
 	<div class = "container">
 	<div class="board_list_wrap">
 	<table class = "board_list">
-		<h1>QnA 관리</h1>
+		<span><h1>QnA 관리</h1><input type="button" onclick="location.href='${pageContext.request.contextPath}/center/qna_write'" class="qna_insert" value="글쓰기" ></span>
 		<br>
 		<thead>
 		<tr class = "ti">

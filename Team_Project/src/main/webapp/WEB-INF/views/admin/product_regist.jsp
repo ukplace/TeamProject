@@ -206,7 +206,7 @@
 				</tr>		
 				
 				<tr>
-			      <th >대표 사진</th>
+			      <th rowspan="2">대표 사진</th>
 			      <td>
 			      	<input type="file" id="p_img" name="p_img" width = 40px value="사진등록" class="" onclick=>
 				 </td>
@@ -214,9 +214,8 @@
 				 
 				 	
 				 <tr>
-				 <th></th>
 				 	<td>
-				 <div class="select_img"><img src="${pageContext.request.contextPath}/resources/images/pdetail_img" width="100" height="150"></div>
+				 <div class="select_img"><img src="${pageContext.request.contextPath}/images/pdetail_img.jpg" width="310" height="310"></div>
 					</td>
 				 </tr>
 				
@@ -235,7 +234,7 @@
 				<tr>
 				<th>제품 설명</th>
 					<td>
-						<textarea rows="20" cols="40" name="p_explain"></textarea>
+						<textarea rows="20" cols="41" name="p_explain"></textarea>
 					</td></tr>
 					<tr><td colspan="2" align="center">
 						<input type="submit" class="btn btn-default" value="등록" >

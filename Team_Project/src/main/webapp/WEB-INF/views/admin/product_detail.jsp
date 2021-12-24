@@ -80,7 +80,7 @@
                                        		<tbody>
 			                            		<tr>
 			                            			<td rowspan="11">
-			                            				<img alt="pdetail_img" src="../resources/images/pdetail_img.jpg" width="450" height="450">
+			                            				<img alt="pdetail_img" src="${pageContext.request.contextPath}/images/pdetail_img.jpg" width="450" height="450">
 			                            			</td>
                                                     <td>1</td>
                                                     <td>제품 이름</td>

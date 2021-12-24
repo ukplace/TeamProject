@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -39,19 +41,21 @@
     <body>
 
         <div id="wrapper">
-<!-- 네비게이션 들어간곳  -->
+			<!-- 네비게이션 들어간곳  -->
             <jsp:include page="../inc/nav.jsp"></jsp:include>
           	<!-- 네비게이션 들어간곳  -->
 
             <div id="page-wrapper">
-                <div class="container-fluid">
+                <div class="container-fluid"> 
+                
                     <div class="row">
-                        <div class="col-lg-12">
+                        <div class="col-lg-12" >
                             <h1 class="page-header">제품 목록 조회</h1>
                         </div>
                         <!-- /.col-lg-12 -->
                     </div>
                     <!-- /.row -->
+                    
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="panel panel-default">
@@ -64,30 +68,42 @@
                                         <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                             <thead>
                                                 <tr>
-                                                    <th style="width:150px;">제품번호</th>
-                                                    <th style="width:300px;">제품사진</th>
+                                                    <th style="width:50px;">제품번호</th>
+                                                    <th style="width:110px;">제품사진</th>
                                                     <th style="width:250px;">제품명</th>
-                                                    <th style="width:120px;">재고유무</th>
-                                                    
+                                                    <th style="width:50px;">재고유무</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
                                             
-                                            <!-- 제품리스트 받아오는 부분 -->
-                                            <c:forEach var="memberDTO" items="${memberList}">
-											<tr><td>${memberDTO.id }</td><td>${memberDTO.pass }</td>
-											<td>${memberDTO.name }</td><td>${memberDTO.date }</td></tr>
-											</c:forEach>
-<!-- 											</table> -->
-<%-- 											<a href="${pageContext.request.contextPath}/member/main">메인으로 이동</a> --%>
-
-                                                <tr class="odd gradeX">
-                                                    <td style="text-align: center; line-height:97px;">1</td>
-                                                    <td style="line-height:97px; margin: auto;"><a href=""><img alt="product1_img" src="../resources/img/product1.PNG" width="200" height="80"></a></td>
-                                                    <td style="line-height:97px;">스웨이드 VTG 더 네버원/Suede VTG The NeverWorn</td>
-                                                    <td class="center" style="text-align: center; line-height:97px;">8</td>
-                                                   
+                                            <tbody>
+											<!-- 제품리스트 받아오는 부분 -->
+<%-- 											<c:forEach var="memberDTO" items="${productList}"> --%>
+                                                <tr class="odd gradeX" onclick="location.href='${pageContext.request.contextPath}/admin/product_detail?num=${productDTO.p_num}'">
+                                                    <td>${productDTO.p_num}</td>
+                                                    <td><img alt="product_img" src="${pageContext.request.contextPath}/images/pdetail_img.jpg" width="100" height="100"></td>
+                                                    <td class="center">${productrDTO.p_name}</td>
+                                                    <td class="center">${productDTO.p_stock}</td>
                                                 </tr>
+<%-- 											</c:forEach> --%>
+											<!-- 제품리스트 받아오는 부분 -->
+											</tbody>
+										</table>
+									</div>
+								</div>
+								
+								
+							</div>
+						</div>
+					</div>
+					
+					
+				</div>
+			</div>
+		</div>
+											
+											
+<%-- 											<a href="${pageContext.request.contextPath}/member/main">메인으로 이동</a> --%>
+											
 <!--                                                 <tr class="even gradeC"> -->
 <!--                                                     <td>2</td> -->
 <!--                                                     <td>제품사진2</td> -->
