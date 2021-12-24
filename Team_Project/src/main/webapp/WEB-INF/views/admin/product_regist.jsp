@@ -297,17 +297,17 @@ $("#p_img").change(function(){
 
 function changeColor(color){
 	//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
-	document.registForm.color.value = color;
+	document.registForm.p_color.value = color;
 }
 
 function changeCa(ca){
 	//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
-	document.registForm.ca.value = ca;
+	document.registForm.p_category.value = ca;
 }
 
 function changeSize(size){
 	//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
-	document.registForm.size.value = size;
+	document.registForm.p_size.value = size;
 }
 
 
