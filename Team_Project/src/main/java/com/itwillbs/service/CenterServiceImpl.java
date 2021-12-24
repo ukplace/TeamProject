@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.itwillbs.dao.CenterDAO;
+import com.itwillbs.domain.FaqDTO;
 import com.itwillbs.domain.NoticeDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.QnaDTO;
@@ -66,6 +67,13 @@ public class CenterServiceImpl implements CenterService {
 	public void insertReplyAricle(QnaDTO qnaDTO) {
 		
 		centerDAO.insertReplyAricle(qnaDTO);
+		
+	}
+
+	@Override
+	public void insertFaq(FaqDTO faqDTO) {
+		
+		centerDAO.insertFaq(faqDTO);
 		
 	}
 	
