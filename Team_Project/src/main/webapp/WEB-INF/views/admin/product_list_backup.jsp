@@ -65,14 +65,13 @@
                                 <!-- /.panel-heading -->
                                 <div class="panel-body">
                                     <div class="table-responsive">
-                                        <table class="table table-striped table-bordered table-hover">
+                                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                             <thead>
                                                 <tr>
                                                     <th style="width:50px;">제품번호</th>
                                                     <th style="width:110px;">제품사진</th>
                                                     <th style="width:300px;">제품명</th>
                                                     <th style="width:50px;">재고유무</th>
-                                                    <th style="width:100px;">제품등록일</th>
                                                 </tr>
                                             </thead>
                                             
@@ -84,11 +83,22 @@
                                                     <td><img alt="product_img" src="${pageContext.request.contextPath}/images/pdetail_img.jpg" width="100" height="100"></td>
                                                     <td class="center">${productrDTO.p_name}</td>
                                                     <td class="center">${productDTO.p_stock}</td>
-                                                    <td class="center">${productDTO.p_date}</td>
                                                 </tr>
 <%-- 											</c:forEach> --%>
 											<!-- 제품리스트 받아오는 부분 -->
 											</tbody>
+											
+											<c:if test="${pageDTO.startPage > pageDTO.pageBlock }">
+												<a href="${pageContext.request.contextPath}/admin/product_list?pageNum=${pageDTO.startPage - pageDTO.pageBlock}">Prev</a>
+											</c:if>
+											
+											<c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1">
+												<a href="${pageContext.request.contextPath}/admin/product_list?pageNum=${i}">${i }</a>
+											</c:forEach>
+											
+											<c:if test="${pageDTO.endPage < pageDTO.pageCount }">
+												<a href="${pageContext.request.contextPath}/admin/product_list?pageNum=${pageDTO.startPage + pageDTO.pageBlock}">Next</a>
+											</c:if>
 
 
 											
@@ -96,25 +106,6 @@
 									</div>
 								</div>
 								
-										<div class="panel-body" align="center">
-<%-- 											<c:if test="${pageDTO.startPage > pageDTO.pageBlock }"> --%>
-												<button type="button" class="btn btn-default" onclick="${pageContext.request.contextPath}/admin/product_list?pageNum=${pageDTO.startPage - pageDTO.pageBlock}">
-												Prev
-												</button>
-<%-- 											</c:if> --%>
-											
-											<c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1">
-												<button type="button" class="btn btn-default" onclick="${pageContext.request.contextPath}/admin/product_list?pageNum=${i}">
-												${i}
-												</button>
-											</c:forEach>
-											
-<%-- 											<c:if test="${pageDTO.endPage < pageDTO.pageCount }"> --%>
-												<button type="button" class="btn btn-default" onclick="${pageContext.request.contextPath}/admin/product_list?pageNum=${pageDTO.startPage + pageDTO.pageBlock}">
-												Next
-												</button>
-<%-- 											</c:if> --%>
-										</div>
 								
 							</div>
 						</div>
