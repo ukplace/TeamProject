@@ -111,13 +111,13 @@
 <form action="${pageContext.request.contextPath }/admin/product_regist_pro" method="post" name="registForm">                     
    <table class="table-ca" width=60% tyletable-layout:fixed cellspacing=() cellpadding=1;>                 
        <tr >
-          <td width=30% id=td1 align="center"> 구분 1 </td>
+          <td width=30% id=td1 align="center"> 대 분 류 </td>
           <td class="space"></td>
-          <td width=30% id=td2 align="center"> 구분 2 </td>
+          <td width=30% id=td2 align="center"> 소 분 류 </td>
        </tr>
        <tr>
        <td>   
-          <select name="mainCategory" size=10 style=width:100% >
+          <select name="mainCategory" size=10 style=width:100%  onchange="changeCa1(this.value)">
          </select>
       </td>
       	<td class="space"></td>
@@ -301,6 +301,10 @@ function changeColor(color){
 
 function changeCa(ca){
 	//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
+	document.registForm.p_small_category.value = ca;
+}
+function changeCa1(ca){
+	//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
 	document.registForm.p_category.value = ca;
 }
 
@@ -323,18 +327,18 @@ $(document).ready(function() {
     var mainCategoryObject = new Object();
     
     mainCategoryObject = new Object();
-    mainCategoryObject.main_category_id = "1";
-    mainCategoryObject.main_category_name = "MAN";
+    mainCategoryObject.main_category_id = "MEN";
+    mainCategoryObject.main_category_name = "MEN";
     mainCategoryArray.push(mainCategoryObject);
     
     mainCategoryObject = new Object();
-    mainCategoryObject.main_category_id = "2";
+    mainCategoryObject.main_category_id = "WOMEN";
     mainCategoryObject.main_category_name = "WOMAN";
     mainCategoryArray.push(mainCategoryObject);
     
     mainCategoryObject = new Object();
-    mainCategoryObject.main_category_id = "3";
-    mainCategoryObject.main_category_name = "KIDZ";
+    mainCategoryObject.main_category_id = "KIDS";
+    mainCategoryObject.main_category_name = "KIDS";
     mainCategoryArray.push(mainCategoryObject);
     
     //Sub 카테고리 셋팅 (DB에서 값을 가져와 셋팅 하세요.)
@@ -343,76 +347,76 @@ $(document).ready(function() {
     
     //남성에 해당하는 sub category 리스트
     subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "1";
-    subCategoryObject.sub_category_id = "1"
+    subCategoryObject.main_category_id = "MEN";
+    subCategoryObject.sub_category_id = "정장화"
     subCategoryObject.sub_category_name = "정장화"    
     subCategoryArray.push(subCategoryObject);
     
     subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "1";
-    subCategoryObject.sub_category_id = "2"
+    subCategoryObject.main_category_id = "MEN";
+    subCategoryObject.sub_category_id = "로퍼&모카신"
     subCategoryObject.sub_category_name = "로퍼&모카신"    
     subCategoryArray.push(subCategoryObject);
     
     subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "1";
-    subCategoryObject.sub_category_id = "3"
+    subCategoryObject.main_category_id = "MEN";
+    subCategoryObject.sub_category_id = "스니커즈"
     subCategoryObject.sub_category_name = "스니커즈"    
     subCategoryArray.push(subCategoryObject);
     
     subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "1";
-    subCategoryObject.sub_category_id = "3"
+    subCategoryObject.main_category_id = "MEN";
+    subCategoryObject.sub_category_id = "스포츠/아웃도어"
     subCategoryObject.sub_category_name = "스포츠/아웃도어"    
     subCategoryArray.push(subCategoryObject);
     
     subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "1";
-    subCategoryObject.sub_category_id = "3"
+    subCategoryObject.main_category_id = "MEN";
+    subCategoryObject.sub_category_id = "하이탑/부츠"
     subCategoryObject.sub_category_name = "하이탑/부츠"    
     subCategoryArray.push(subCategoryObject);
     
     //여성에 해당하는 sub category 리스트
     subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "2";
-    subCategoryObject.sub_category_id = "1"
+    subCategoryObject.main_category_id = "WOMEN";
+    subCategoryObject.sub_category_id = "힐/펌프스"
     subCategoryObject.sub_category_name = "힐/펌프스"    
     subCategoryArray.push(subCategoryObject);
     
     subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "2";
-    subCategoryObject.sub_category_id = "2"
+    subCategoryObject.main_category_id = "WOMEN";
+    subCategoryObject.sub_category_id = "플랫슈즈/로퍼"
     subCategoryObject.sub_category_name = "플랫슈즈/로퍼"    
     subCategoryArray.push(subCategoryObject);
     
     subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "2";
-    subCategoryObject.sub_category_id = "3"
+    subCategoryObject.main_category_id = "WOMEN";
+    subCategoryObject.sub_category_id = "스니커즈/슬립온"
     subCategoryObject.sub_category_name = "스니커즈/슬립온"    
     subCategoryArray.push(subCategoryObject);
     
     subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "2";
-    subCategoryObject.sub_category_id = "4"
+    subCategoryObject.main_category_id = "WOMEN";
+    subCategoryObject.sub_category_id = "스포츠/아웃도어"
     subCategoryObject.sub_category_name = "스포츠/아웃도어"    
     subCategoryArray.push(subCategoryObject);
     
     //키즈에 해당하는 sub category 리스트
     subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "3";
-    subCategoryObject.sub_category_id = "1"
+    subCategoryObject.main_category_id = "KIDS";
+    subCategoryObject.sub_category_id = "스포츠/아웃도어"
     subCategoryObject.sub_category_name = "스포츠/아웃도어"    
     subCategoryArray.push(subCategoryObject);
     
     subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "3";
-    subCategoryObject.sub_category_id = "2"
+    subCategoryObject.main_category_id = "KIDS";
+    subCategoryObject.sub_category_id = "스니커즈"
     subCategoryObject.sub_category_name = "스니커즈"    
     subCategoryArray.push(subCategoryObject);
     
     subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "3";
-    subCategoryObject.sub_category_id = "3"
+    subCategoryObject.main_category_id = "KIDS";
+    subCategoryObject.sub_category_id = "플랫슈즈"
     subCategoryObject.sub_category_name = "플랫슈즈"    
     subCategoryArray.push(subCategoryObject);
     
