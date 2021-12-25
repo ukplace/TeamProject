@@ -281,15 +281,10 @@
 
 
 
-<<<<<<< HEAD
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>    
-=======
   
 <script type="text/javascript">
->>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 
-<<<<<<< HEAD
-=======
 $("#p_img").change(function(){
 	   if(this.files && this.files[0]) {
 		   var reader = new FileReader;
@@ -464,7 +459,6 @@ $(document).ready(function() {
         
 });
 </script>
->>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 
 </body>
 </html>
