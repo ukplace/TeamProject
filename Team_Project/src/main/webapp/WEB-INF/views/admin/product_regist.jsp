@@ -39,7 +39,7 @@
        
                <Title>Category</Title> 
         <Meta Http-Equiv="Content-Type" Content="text/html; charset=utf-8">
-		<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>  
+		<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
         
  <style type="text/css">
  .regist-button{
@@ -60,16 +60,12 @@
  .btn.btn-primary.btn-lg{
  	text-align: center;
  }
-.fr {
-	width: 1700px;
-}
-      
+ 
+        
  .table-ca{
   	border-collapse: separate;
  	border-spacing: 20px 0;
  	margin: auto;
- 	padding-top:50px;
- 	
  }
  td.space{
   border: 10px solid #fff;
@@ -82,8 +78,7 @@
  }
  	table {
 		margin: auto;
-		width: 780px;
-		align-content: center;
+		width: 480px;
 	}
 	th{
 			text-align : center;
@@ -95,8 +90,6 @@
 		margin : auto;
 		padding-left : 5px;
 	}
-	
-
 	
 	.select_img img {margin:20px 0;}
 </style>
@@ -110,13 +103,13 @@
           	<!-- 네비게이션 들어간곳  -->
             <!-- Page Content -->
             <div id="page-wrapper">
-                <div class="container-fluid" >
+                <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
                             
 <!--                             **폼태그 맨끝 코드 일단 빼놓음 onsubmit="return checkForm()"  -->
-<form action="${pageContext.request.contextPath }/admin/product_regist_pro" method="post" name="registForm" class = "fr">                     
-   <table class="table-ca" >                 
+<form action="${pageContext.request.contextPath }/admin/product_regist_pro" method="post" name="registForm">                     
+   <table class="table-ca" width=60% tyletable-layout:fixed cellspacing=() cellpadding=1;>                 
        <tr >
           <td width=30% id=td1 align="center"> 대 분 류 </td>
           <td class="space"></td>
@@ -133,10 +126,10 @@
          </select>
       </td>
       </tr>   
-      	</table>
+	</table>
       	
-		<div class="main">
-		<div class=table-regist>
+	<div class="main">
+	<div class=table-regist>
        <h1 class="page-header" align="center">제품등록</h1>
 		<table >
       <!-- 제품명 -->
@@ -168,8 +161,8 @@
 	 </td>
 	 </tr>	
 	
-	<tr>
-     <th>색상</th>
+				<tr>
+					<th>색상</th>
 					<td>
 						<input type="text" name="p_color" required="required" size="10">
 						<select name="selectColor" onchange="changeColor(this.value)">
@@ -243,6 +236,7 @@
 					<td>
 						<textarea rows="20" cols="41" name="p_explain"></textarea>
 					</td></tr>
+				
 					<tr><td colspan="2" align="center">
 						<input type="submit" class="btn btn-default" value="등록" >
 	   					<input type="reset" class="btn btn-default" value="취소">
@@ -250,13 +244,14 @@
    					
    					
    			
-   				</table>
-   				
+	</table>
+	
    				</div>
 		</div>	
-			
-	</form>
+	
+</form>
 
+			
 
                         </div>
                         <!-- /.col-lg-12 -->
@@ -281,15 +276,10 @@
 
         <!-- Custom Theme JavaScript -->
         <script src="${pageContext.request.contextPath}/js/startmin.js"></script>
-        <!-- product_regist Script -->
-        <script src="${pageContext.request.contextPath}/js/p_regist.js"></script>
 
 
 
 
-
-
-<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>    
 
   
 <script type="text/javascript">
