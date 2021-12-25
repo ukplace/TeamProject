@@ -36,7 +36,7 @@
 	</insert>
 	<select id="getIncrementNum" resultType="java.lang.Integer">
 		SELECT auto_increment FROM information_schema.tables 
-		WHERE table_name='shushu' AND table_schema=DATABASE();
+		WHERE table_name='qna' AND table_schema=DATABASE();
 	</select>
 	
 	<update id="setQna_re_seq">

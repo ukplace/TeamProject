@@ -76,22 +76,6 @@
 </style>
 
 
-<script type="text/javascript">
-
-$(documet).ready(function() {
-	
-	$('#qna_write').submit(function(){
-		if($('#qna_type').val() == ""){
-			alert("문의유형을 선택하세요")
-			$('#qna_type').focus();
-					return false;
-					
-		}
-
-})
-</script>
-
-
 </head>
 <body>
 
@@ -111,7 +95,7 @@ $(documet).ready(function() {
 						<p class="bread">
 							<span><a
 								href="${pageContext.request.contextPath}/foot/index/">Home</a></span> /
-							<span>QNA Write</span>
+							<span>QNA DETAIL</span>
 						</p>
 					</div>
 				</div>
@@ -121,7 +105,7 @@ $(documet).ready(function() {
 		<div class="row" >
 			<div class="col-lg-8" style= "display: inline-block; margin: 0 auto;">
 				<form action="${pageContext.request.contextPath}/center/qna_write_pro" method="post" class="colorlib-form" id="qna_write">
-					<h2>문의를 남겨주세요!</h2>
+					<h2>문의내용</h2>
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">

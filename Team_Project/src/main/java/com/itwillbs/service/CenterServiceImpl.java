@@ -27,13 +27,13 @@ public class CenterServiceImpl implements CenterService {
 		}else { // 게시판 글 있는 경우
 			qnaDTO.setQna_idx(centerDAO.getMaxNum()+1);
 		}
-		
+		System.out.println(centerDAO.getIncrementNum());
 		if(centerDAO.getIncrementNum()==null) {
 			qnaDTO.setQna_re_ref(1);
 		}else {
 			qnaDTO.setQna_re_ref(centerDAO.getIncrementNum());
 		}
-
+		System.out.println(qnaDTO.getQna_re_ref());
 		qnaDTO.setQna_re_lev(0);
 		qnaDTO.setQna_re_seq(0);
 
