@@ -24,6 +24,11 @@
 
         <!-- Custom Fonts -->
         <link href="${pageContext.request.contextPath}/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        
+		<!-- review-img-div.css  -->
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/product-img-div.css">
+	
+	
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -215,7 +220,11 @@
 				 	
 				 <tr>
 				 	<td>
-				 <div class="select_img"><img src="${pageContext.request.contextPath}/images/pdetail_img.jpg" width="310" height="310"></div>
+				 <div class="select_img">
+				 	<div class="product-img-div">
+				 		<img alt="product_img" src="${pageContext.request.contextPath}/images/pdetail_img.jpg" class="product-img" />
+				 	</div>
+				 </div>
 					</td>
 				 </tr>
 				
@@ -235,12 +244,15 @@
 				<th>제품 설명</th>
 					<td>
 						<textarea rows="20" cols="41" name="p_explain"></textarea>
-					</td></tr>
+					</td>
+				</tr>
 				
-					<tr><td colspan="2" align="center">
-						<input type="submit" class="btn btn-default" value="등록" >
-	   					<input type="reset" class="btn btn-default" value="취소">
-   					</td></tr>
+					<tr>
+						<td colspan="2" align="center">
+							<input type="submit" class="btn btn-default" value="등록" >
+	   						<input type="reset" class="btn btn-default" value="취소">
+   						</td>
+   					</tr>
    					
    					
    			
