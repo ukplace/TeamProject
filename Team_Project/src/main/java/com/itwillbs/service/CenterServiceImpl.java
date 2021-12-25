@@ -22,10 +22,10 @@ public class CenterServiceImpl implements CenterService {
 	public void insertQna(QnaDTO qnaDTO) {
 		System.out.println("CenterServiceImpl insertQna()");
 		
-		if(centerDAO.getMaxNum()==null) { // 글 없는 경우
+		if(centerDAO.getMaxQna()==null) { // 글 없는 경우
 			qnaDTO.setQna_idx(1);
 		}else { // 게시판 글 있는 경우
-			qnaDTO.setQna_idx(centerDAO.getMaxNum()+1);
+			qnaDTO.setQna_idx(centerDAO.getMaxQna()+1);
 		}
 		System.out.println(centerDAO.getIncrementNum());
 		if(centerDAO.getIncrementNum()==null) {
@@ -58,6 +58,21 @@ public class CenterServiceImpl implements CenterService {
 		return centerDAO.getQnaCount();
 		
 	}
+	
+	@Override
+	public QnaDTO getQnaDetail(QnaDTO qnaDTO) {
+System.out.println("centerSerice getQnaDetail");
+		
+		return centerDAO.getQnaDetail(qnaDTO);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
 
 	@Override
 	public void insertNotice(NoticeDTO noticeDTO) {
@@ -76,6 +91,8 @@ public class CenterServiceImpl implements CenterService {
 		centerDAO.insertFaq(faqDTO);
 		
 	}
+
+	
 	
 	
 

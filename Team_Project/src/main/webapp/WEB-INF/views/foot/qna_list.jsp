@@ -112,7 +112,8 @@
 	<div class = "container">
 	<div class="board_list_wrap">
 	<table class = "board_list">
-		<span><h1>QnA 관리</h1><input type="button" onclick="location.href='${pageContext.request.contextPath}/center/qna_write'" class="qna_insert" value="글쓰기" ></span>
+		<span><h1>QnA 관리</h1>
+		<input type="button" onclick="location.href='${pageContext.request.contextPath}/center/qna_write'" class="qna_insert" value="글쓰기" ></span>
 		<br>
 		<thead>
 		<tr class = "ti">
@@ -153,7 +154,7 @@
 		</c:otherwise>
 	</c:choose>
 								
-				<td><a href="#" class="tit">${qnaDTO.qna_subject}</a></td>
+				<td><a href="${pageContext.request.contextPath}/center/qna_detail?qna_idx=${qnaDTO.qna_idx}&page=${pageDTO.pageNum } "class="tit">${qnaDTO.qna_subject}</a></td>
 				<td><a href="#" class="tit">${qnaDTO.qna_name}</a></td>
 				<td><fmt:formatDate value="${qnaDTO.qna_date}" pattern="yyyy-MM-dd"/></td>
 			</tr>

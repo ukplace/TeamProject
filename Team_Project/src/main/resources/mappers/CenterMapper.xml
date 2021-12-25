@@ -18,7 +18,7 @@
 	</insert>
 	
 
-	<select id="getMaxNum" resultType="java.lang.Integer">
+	<select id="getMaxQna" resultType="java.lang.Integer">
 		select max(qna_idx) from qna
 	</select>
 	
@@ -29,6 +29,11 @@
 	<select id="getQnaCount" resultType="java.lang.Integer">
 		select count(*) from qna
 	</select>
+	
+	<select id="getQnaDetail" resultType="com.itwillbs.domain.QnaDTO" >
+		select * from qna where qna_idx = ${qna_idx} 
+	</select>
+	
 	
 	<insert id="insertNotice">
 		insert into notice(notice_sbject, notice_content)

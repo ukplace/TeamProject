@@ -1,5 +1,6 @@
 package com.itwillbs.dao;
 
+import java.net.MulticastSocket;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -28,9 +29,9 @@ public class CenterDAOImpl implements CenterDAO {
 	}
 
 	@Override
-	public Integer getMaxNum() {
+	public Integer getMaxQna() {
 		
-		return sqlSession.selectOne(namespace+".getMaxNum");
+		return sqlSession.selectOne(namespace+".getMaxQna");
 	}
 
 	@Override
@@ -44,6 +45,11 @@ public class CenterDAOImpl implements CenterDAO {
 		
 		return sqlSession.selectOne(namespace+".getQnaCount");
 		
+	}
+	@Override
+	public QnaDTO getQnaDetail(QnaDTO qnaDTO) {
+		System.out.println("centerDAO getQnaDetail");
+		return sqlSession.selectOne(namespace+".getQnaDetail", qnaDTO);
 	}
 
 	@Override
@@ -73,6 +79,7 @@ public class CenterDAOImpl implements CenterDAO {
 		sqlSession.insert(namespace+".insertFaq", FaqDTO);
 		
 	}
+
 
 	 
 	

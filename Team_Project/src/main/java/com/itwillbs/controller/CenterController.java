@@ -174,6 +174,28 @@ public class CenterController {
 		return "foot/qna_list";
 	}
 	
+	@RequestMapping(value = "/center/qna_detail", method = RequestMethod.GET)
+	public String qna_detail(HttpServletRequest request,Model model) {
+		PageDTO pageDTO = new PageDTO();
+		
+		if(request.getParameter("pageNum")==null) { // 없을때
+			pageDTO.setPageNum("1");
+		}else { // 있을때
+			pageDTO.setPageNum(request.getParameter("pageNum"));
+		}
+		QnaDTO qnaDTO = new QnaDTO();
+		qnaDTO.setQna_idx(Integer.parseInt(request.getParameter("qna_idx"))); 
+		
+		qnaDTO = centerService.getQnaDetail(qnaDTO);
+		
+		model.addAttribute("pageDTO", pageDTO);
+		model.addAttribute("qnaDTO",qnaDTO);
+		
+		// /WEB-INF/views/foot/qna_update.jsp
+		return "foot/qna_detail";
+	}
+	
+	
 	@RequestMapping(value = "/center/qna_update", method = RequestMethod.GET)
 	public String qna_update() {
 		

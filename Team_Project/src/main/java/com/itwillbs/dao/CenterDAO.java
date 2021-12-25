@@ -9,21 +9,25 @@ import com.itwillbs.domain.QnaDTO;
 
 public interface CenterDAO {
 	
-	// 추상메서드
+	///qna/////
 	public void insertQna(QnaDTO qnaDTO);
 
 	public List<QnaDTO> getQnaList(PageDTO pageDTO);
 
-	public Integer getMaxNum();
-
-
-	public void insertNotice(NoticeDTO noticeDTO);
+	public Integer getMaxQna();
 	public Integer getQnaCount();
+
+	public QnaDTO getQnaDetail(QnaDTO qnaDTO);
+	///qna/////
+	
+	
+	public void insertNotice(NoticeDTO noticeDTO);
 	
 	public Integer getIncrementNum();
 	
 	public void insertReplyAricle(QnaDTO qnaDTO);
 	
 	public void insertFaq(FaqDTO FaqDTO);
+
 	
 }

@@ -95,7 +95,7 @@
 					<div class="col">
 						<p class="bread">
 							<span><a
-								href="${pageContext.request.contextPath}/foot/index/">Home</a></span> /
+								href="${pageContext.request.contextPath}/foot/index/">Home</a></span>
 							<span>QNA DETAIL</span>
 						</p>
 					</div>
@@ -105,33 +105,33 @@
 
 		<div class="row" >
 			<div class="col-lg-8" style= "display: inline-block; margin: 0 auto;">
-				<form action="${pageContext.request.contextPath}/center/qna_write_pro" method="post" class="colorlib-form" id="qna_write">
+				
 					<h2>문의내용</h2>
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">
 								<label for="type">문의유형</label>
 			                     <div class="form-field">
-			                     	<i class="icon icon-arrow-down3"></i>
+			                     	
 								<!-- 문의 유형 태그 -->
 								<c:choose>
 									<c:when test="${qnaDTO.qna_type eq 1 }">
-										<td><a href="#" class="tit">주문내역/배송현황</a></td>
+										주문내역/배송현황
 									</c:when>
 									<c:when test="${qnaDTO.qna_type eq 2 }">
-										<td><a href="#" class="tit">주문상품 취소하기</a></td>
+										주문상품 취소하기
 									</c:when>
 									<c:when test="${qnaDTO.qna_type eq 3 }">
-										<td><a href="#" class="tit">반품/교환/AS 신청하기</a></td>
+										반품/교환/AS 신청하기
 									</c:when>
 									<c:when test="${qnaDTO.qna_type eq 4 }">
-										<td><a href="#" class="tit">아이디/비밀번호찾기</a></td>
+										아이디/비밀번호찾기
 									</c:when>
 									<c:when test="${qnaDTO.qna_type eq 5 }">
-										<td><a href="#" class="tit">포인트 사용방법</a></td>
+										포인트 사용방법
 									</c:when>
 									<c:otherwise>
-										<td><a href="#" class="tit">없음.</a></td>
+										없음.
 									</c:otherwise>
 								</c:choose>
 								</div>
@@ -144,19 +144,21 @@
 
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="name">작성자</label> ${qnaDTO.qna_name }
+								<label for="name">작성자</label><br>
+								 ${qnaDTO.qna_name }
 							</div>
 						</div>
 						
 						<div class="col-md-7">
 							<div class="form-group">
-								<label for="subject">제목</label> ${qnaDTO.qna_subject}
+								<label for="subject">제목</label><br>
+								 ${qnaDTO.qna_subject}
 							</div>
 						</div>
 						
 						<div class="col-sm-12">
 										<div class="form-group">
-											<label for="content">문의내용</label>
+											<label for="content">문의내용</label><br>
 												${qnaDTO.qna_content}
 										</div>
 									</div>
@@ -173,7 +175,7 @@
 					</div>
 					<div class="col-sm-12">
 										<div class="form-group" style="text-align: center;">
-											<input type="submit" value="등록" class="btn btn-primary" id=btn>
+											<input type="button" value="답글" class="btn btn-primary" id=btn>
 											<input type="button" value="목록" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/center/qna_list'">
 										</div>
 									</div>
