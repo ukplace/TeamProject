@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.itwillbs.domain.FaqDTO;
 import com.itwillbs.domain.NoticeDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.QnaDTO;
@@ -71,35 +72,36 @@ public class CenterController {
 		return "redirect:/center/notice_list";
 	}
 	
-	
+	//-------------------------------------FFFFFFFFAAAAAAAAAAAQQQQQQQQQQQ_-----------------------------
 	
 	
 	// 자주묻는질문(faq) 매핑
 	@RequestMapping(value = "/center/faq_list", method = RequestMethod.GET)
 	public String faq_list() {
 		
-		// /WEB-INF/views/foot/faq_list.jsp
 		return "foot/faq_list";
 	}
 
 	@RequestMapping(value = "/center/faq_detail", method = RequestMethod.GET)
 	public String faq_detail() {
+
 		
-		// /WEB-INF/views/foot/faq_detail.jsp
-		return "foot/faq_detail";
+
+	return "foot/faq_detail";
 	}
 	@RequestMapping(value = "/center/faq_write", method = RequestMethod.GET)
 	public String faq_write() {
-		
-		// /WEB-INF/views/foot/faq_write.jsp
-		return "foot/faq_write";
+
+	return "foot/faq_write";
 	}
 	@RequestMapping(value = "/center/faq_write_pro", method = RequestMethod.POST)
-	public String faq_write_pro() {
+	public String faq_write_pro(FaqDTO faqDTO) {
 		
-		// /WEB-INF/views/foot/faq_list.jsp
-		return "redirect:/center/faq_list";
+		centerService.insertFaq(faqDTO);
+		
+	return "redirect:/center/faq_list";
 	}
+	
 	@RequestMapping(value = "/center/faq_update", method = RequestMethod.GET)
 	public String faq_update() {
 		
