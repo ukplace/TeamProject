@@ -1,7 +1,9 @@
 package com.itwillbs.controller;
 
+import java.io.File;
 import java.util.List;
 
+import javax.annotation.Resource;
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -10,12 +12,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.service.AdminService;
 import com.itwillbs.service.ProductService;
+import com.itwillbs.utils.UploadFileUtils;
 
 
 
@@ -24,6 +28,10 @@ public class AdminController {
 	
 	@Inject
 	private AdminService adminService;
+	
+	@Resource(name="uploadPath")
+	private String uploadPath;
+	
 	
 	
 	// 상품관리 - 상품 등록
@@ -34,10 +42,24 @@ public class AdminController {
 	   }
 	
 	@RequestMapping(value = "/admin/product_regist_pro", method = RequestMethod.POST)
-	   public String product_registPro(ProductDTO productDTO) {
-		adminService.insertProduct(productDTO);
+	   public String product_registPro(ProductDTO productDTO, MultipartFile file)throws Exception {
 		
-	      // /WEB-INF/views/admin/product_registPro.jsp
+		String imgUploadPath = uploadPath + File.separator + "imgUpload";
+		String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
+		String fileName = null;
+
+		if(file != null) {
+		 fileName = UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath); 
+		} else {
+		 fileName = uploadPath + File.separator + "images" + File.separator + "none.png";
+		}
+
+		productDTO.setP_img(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
+		productDTO.setP_thumImg(File.separator + "imgUpload" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);
+		
+		adminService.insertProduct(productDTO);
+
+		// /WEB-INF/views/admin/product_registPro.jsp
 	      return "redirect:/admin/product_list";
 	   }
 

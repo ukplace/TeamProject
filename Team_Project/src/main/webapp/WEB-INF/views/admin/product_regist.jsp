@@ -108,7 +108,7 @@
                         <div class="col-lg-12">
                             
 <!--                             **폼태그 맨끝 코드 일단 빼놓음 onsubmit="return checkForm()"  -->
-<form action="${pageContext.request.contextPath }/admin/product_regist_pro" method="post" name="registForm">                     
+<form action="${pageContext.request.contextPath }/admin/product_regist_pro" method="post" name="registForm" enctype="multipart/form-data">                     
    <table class="table-ca" width=60% tyletable-layout:fixed cellspacing=() cellpadding=1;>                 
        <tr >
           <td width=30% id=td1 align="center"> 대 분 류 </td>
@@ -208,16 +208,17 @@
 				<tr>
 			      <th rowspan="2">대표 사진</th>
 			      <td>
-			      	<input type="file" id="p_img" name="p_img" width = 40px value="사진등록" class="" onclick=>
+			      	<input type="file" id="p_img" name="p_img" width = 40px value="사진등록" />
 				 </td>
 				 </tr>
 				 
 				 	
 				 <tr>
 				 	<td>
-				 <div class="select_img"><img src="${pageContext.request.contextPath}/images/pdetail_img.jpg" width="310" height="310"></div>
+				 <div class="select_img"><img src="" width="310" height="310" /></div>
 					</td>
 				 </tr>
+				 <%=request.getRealPath("/") %>
 				
 <!-- 				 <td align="center"> -->
 <!-- 				 <div class="inputArea"> -->
