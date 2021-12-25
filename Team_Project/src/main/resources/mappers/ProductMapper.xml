@@ -5,9 +5,6 @@
   
 <mapper namespace="com.itwillbs.mapper.ProductMapper">
 
-	<insert id="insertProduct">
-	insert into product( p_name, p_explain, p_category, p_small_category, p_img, p_size, p_color, p_price, p_stock, p_productImg)
-				values(#{p_name}, #{p_explain},#{p_category},#{p_small_category},#{p_img},#{p_size},#{p_color},#{p_price},#{p_stock},#{p_productImg})
-	</insert>
+	
 	
 </mapper>

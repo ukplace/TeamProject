@@ -35,6 +35,7 @@
         <script type="text/javascript">
         function productDelete() {
 			alert("제품삭제버튼");
+			location.href="${pageContext.request.contextPath}/admin/product_delete_pro";
 		}
         </script>
         
@@ -73,7 +74,7 @@
                                                 	<th></th>
                                                     <th width="25">#</th>
                                                     <th width="200">제품번호</th>
-                                                    <th>101</th>
+                                                    <th>101 ${productDTO.p_num}</th>
                                                 </tr>
                                             </thead>
                                             
@@ -84,60 +85,60 @@
 			                            			</td>
                                                     <td>1</td>
                                                     <td>제품 이름</td>
-                                                    <td>SHUSHU1217</td>
+                                                    <td>SHUSHU1217 ${productDTO.p_name}</td>
 			                            		</tr>
 	                            	
      
                                                 <tr>
                                                     <td>2</td>
                                                     <td>제품 설명</td>
-                                                    <td>콜라보레이션으로 탄생한 슈퍼어스 슈즈입니다.</td>
+                                                    <td>콜라보레이션으로 탄생한 슈퍼어스 슈즈입니다. ${productDTO.p_explain}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>3</td>
                                                     <td>카테고리 - 대분류</td>
-                                                    <td>여성</td>
+                                                    <td>여성 ${productDTO.p_category}</td>
                                                 </tr>
                                                 
                                                 <tr>
                                                     <td>4</td>
                                                     <td>카테고리 - 소분류</td>
-                                                    <td>운동화</td>
+                                                    <td>운동화 ${productDTO.p_small_category}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>5</td>
                                                     <td>사이즈</td>
-                                                    <td>240</td>
+                                                    <td>240  ${productDTO.p_size}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>6</td>
                                                     <td>색상</td>
-                                                    <td>GREEN</td>
+                                                    <td>GREEN  ${productDTO.p_color}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>7</td>
                                                     <td>제품 가격</td>
-                                                    <td>127,000원</td>
+                                                    <td>127,000원  ${productDTO.p_price}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>8</td>
                                                     <td>제품 할인</td>
-                                                    <td>0</td>
+                                                    <td>0  ${productDTO.p_discount}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>9</td>
                                                     <td>품절 여부</td>
-                                                    <td>N</td>
+                                                    <td>N  ${productDTO.p_sellyn}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>10</td>
                                                     <td>제품 재고</td>
-                                                    <td>50</td>
+                                                    <td>50 ${productDTO.p_stock}</td>
                                                 </tr>
                                                 <tr>
                                                     <td>11</td>
                                                     <td>주문 날짜</td>
-                                                    <td>2021-12-17</td>
+                                                    <td>2021-12-17 ${productDTO.p_date}</td>
                                                 </tr>
                                             </tbody>
                                         </table>
@@ -150,7 +151,7 @@
                         
                     
                 <div class="col-lg-12" align="center">  
-                <button type="button" class="btn btn-primary">수정</button>
+                <button type="button" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/admin/product_update'">수정</button>
                 <button type="button" class="btn btn-primary" onclick="productDelete()">삭제</button>
                 </div>
                 

@@ -128,15 +128,40 @@
 		</tr>
 		</tbody>
 	</table>
-	<div class = "paging">
-	<a href = "#" class = "bt"> 첫 페이지로 이동</a>
-	<a href = "#" class = "bt">  이전 페이지로 이동</a>
-	<a href = "#" class = "num">  1</a>
-	<a href = "#" class = "num">  2</a>
-	<a href = "#" class = "num">  3</a>
-	<a href = "#" class = "bt"> 다음 페이지로 이동</a>
-	<a href = "#" class = "bt"> 마지막 페이지로 이동</a>
-	
+	<br>
+	<!-- 페이징 버튼부분 -->
+		<div class="row">
+				<div class="col-md-12 text-center">
+						<div class="block-27">
+				               <ul>
+					              <li class="active">
+									<c:choose >	
+										<c:when test="${pageDTO.startPage > pageDTO.pageBlock }" >
+											<a href ="${pageContext.request.contextPath}/center/faq_list?pageNum=${pageDTO.startPage-pageDTO.pageBlock}"><i class="ion-ios-arrow-back">이전</i></a>
+										</c:when>
+										<c:otherwise>
+											<i class="ion-ios-arrow-back">이전</i>
+										</c:otherwise>
+									</c:choose></li>
+				               
+				                  <li class="active">
+									<c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1">
+										<a href="${pageContext.request.contextPath}/center/faq_list?pageNum=${i }"${1 }>${i }</a>
+									</c:forEach></li>
+				                  <li class="active">
+				                 <!-- end페이지 -->
+				                 	<c:choose>
+										<c:when test= "${pageDTO.endPage > pageDTO.pageCount }">
+											<a href = "${pageContext.request.contextPath}/center/faq_list?pageNum=${pageDTO.startPage+pageDTO.pageBlock}">다음<i class="ion-ios-arrow-forward"></i></a>
+										</c:when>
+										<c:otherwise>
+											다음<i class="ion-ios-arrow-forward"></i>
+										</c:otherwise>
+									</c:choose>
+								</li>
+				               </ul>
+				            </div>
+				</div>
 	</div>
 </div>
 </div>
