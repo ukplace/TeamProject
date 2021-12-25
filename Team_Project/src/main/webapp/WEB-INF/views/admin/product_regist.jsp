@@ -60,12 +60,16 @@
  .btn.btn-primary.btn-lg{
  	text-align: center;
  }
- 
-        
+.fr {
+	width: 1700px;
+}
+      
  .table-ca{
   	border-collapse: separate;
  	border-spacing: 20px 0;
  	margin: auto;
+ 	padding-top:50px;
+ 	
  }
  td.space{
   border: 10px solid #fff;
@@ -78,7 +82,8 @@
  }
  	table {
 		margin: auto;
-		width: 480px;
+		width: 780px;
+		align-content: center;
 	}
 	th{
 			text-align : center;
@@ -90,6 +95,8 @@
 		margin : auto;
 		padding-left : 5px;
 	}
+	
+
 	
 	.select_img img {margin:20px 0;}
 </style>
@@ -103,13 +110,13 @@
           	<!-- 네비게이션 들어간곳  -->
             <!-- Page Content -->
             <div id="page-wrapper">
-                <div class="container-fluid">
+                <div class="container-fluid" >
                     <div class="row">
                         <div class="col-lg-12">
                             
 <!--                             **폼태그 맨끝 코드 일단 빼놓음 onsubmit="return checkForm()"  -->
-<form action="${pageContext.request.contextPath }/admin/product_regist_pro" method="post" name="registForm">                     
-   <table class="table-ca" width=60% tyletable-layout:fixed cellspacing=() cellpadding=1;>                 
+<form action="${pageContext.request.contextPath }/admin/product_regist_pro" method="post" name="registForm" class = "fr">                     
+   <table class="table-ca" >                 
        <tr >
           <td width=30% id=td1 align="center"> 대 분 류 </td>
           <td class="space"></td>
@@ -281,7 +288,9 @@
 
 
 
+
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>    
+
   
 <script type="text/javascript">
 
