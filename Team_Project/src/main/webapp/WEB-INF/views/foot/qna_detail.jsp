@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -113,14 +114,26 @@
 			                     <div class="form-field">
 			                     	<i class="icon icon-arrow-down3"></i>
 								<!-- 문의 유형 태그 -->
-								 <select name="qna_type" required="required" id=qna_type>
-										<option value="">카테고리 선택</option>
-										<option value="1">주문내역/배송현황</option>
-										<option value="2">주문상품 취소하기</option>
-										<option value="3">반품/교환/AS 신청하기</option>
-										<option value="4">아이디/비밀번호찾기</option>
-										<option value="5">포인트 사용방법</option>
-								</select>
+								<c:choose>
+									<c:when test="${qnaDTO.qna_type eq 1 }">
+										<td><a href="#" class="tit">주문내역/배송현황</a></td>
+									</c:when>
+									<c:when test="${qnaDTO.qna_type eq 2 }">
+										<td><a href="#" class="tit">주문상품 취소하기</a></td>
+									</c:when>
+									<c:when test="${qnaDTO.qna_type eq 3 }">
+										<td><a href="#" class="tit">반품/교환/AS 신청하기</a></td>
+									</c:when>
+									<c:when test="${qnaDTO.qna_type eq 4 }">
+										<td><a href="#" class="tit">아이디/비밀번호찾기</a></td>
+									</c:when>
+									<c:when test="${qnaDTO.qna_type eq 5 }">
+										<td><a href="#" class="tit">포인트 사용방법</a></td>
+									</c:when>
+									<c:otherwise>
+										<td><a href="#" class="tit">없음.</a></td>
+									</c:otherwise>
+								</c:choose>
 								</div>
 							</div>
 						</div>
@@ -131,23 +144,20 @@
 
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="name">작성자</label> <input type="text"
-									name="qna_name" id="name" class="form-control" placeholder="Enter Your user-name" required="required">
+								<label for="name">작성자</label> ${qnaDTO.qna_name }
 							</div>
 						</div>
 						
 						<div class="col-md-7">
 							<div class="form-group">
-								<label for="subject">제목</label> <input type="text"
-									name="qna_subject" id="subject" class="form-control" required="required">
+								<label for="subject">제목</label> ${qnaDTO.qna_subject}
 							</div>
 						</div>
 						
 						<div class="col-sm-12">
 										<div class="form-group">
 											<label for="content">문의내용</label>
-											<textarea name="qna_content" id="content" cols="50" rows="10" class="form-control-9" placeholder="문의 내용을 적어주세요" required="required"></textarea>
-											
+												${qnaDTO.qna_content}
 										</div>
 									</div>
 				
