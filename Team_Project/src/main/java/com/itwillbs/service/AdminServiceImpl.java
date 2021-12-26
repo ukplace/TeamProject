@@ -56,6 +56,13 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 
+	@Override
+	public void updateProduct(ProductDTO productDTO) {
+		System.out.println("AdminServiceImpl - updateProduct()");
+		adminDAO.updateProduct(productDTO);
+	}
+
+
 
 
 }

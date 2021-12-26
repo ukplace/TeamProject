@@ -42,7 +42,7 @@ public class AdminController {
 	   }
 	
 	@RequestMapping(value = "/admin/product_regist_pro", method = RequestMethod.POST)
-	   public String product_registPro(ProductDTO productDTO, MultipartFile file)throws Exception {
+	   public String product_registPro(ProductDTO productDTO, MultipartFile file) throws Exception {
 		
 		String imgUploadPath = uploadPath + File.separator + "imgUpload";
 		String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
@@ -68,7 +68,7 @@ public class AdminController {
 	public String productList(HttpServletRequest request, Model model) {
 		// 데이터 가져오기 (페이지 있는지 없는지 비교)
 		PageDTO pageDTO = new PageDTO();
-		pageDTO.setPageSize(8); // *pageSize(한화면에보여줄글갯수)
+		pageDTO.setPageSize(3); // *pageSize(한화면에보여줄글갯수)
 		
 		if(request.getParameter("pageNum") == null) { // 없으면 pageNum 1 로 세팅
 			pageDTO.setPageNum("1");
@@ -103,10 +103,26 @@ public class AdminController {
 	   }
 
 	@RequestMapping(value = "/admin/product_update_pro", method = RequestMethod.POST)
-	   public String productUpdatePro() {
-		
-	      // /WEB-INF/views/admin/product_list
-	      return "redirect:/admin/product_list";
+	   public String productUpdatePro(ProductDTO productDTO, MultipartFile file) throws Exception {
+
+			String imgUploadPath = uploadPath + File.separator + "imgUpload";
+			String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
+			String fileName = null;
+			
+			if(file != null) {
+			 fileName = UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath); 
+			} else {
+			 fileName = uploadPath + File.separator + "images" + File.separator + "none.png";
+			}
+			
+			productDTO.setP_img(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
+			productDTO.setP_thumImg(File.separator + "imgUpload" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);
+			
+			
+			adminService.updateProduct(productDTO);
+			
+			// /WEB-INF/views/admin/product_list
+			return "redirect:/admin/product_list";
 	   }
 
 	// 상품관리 - 상품 삭제
