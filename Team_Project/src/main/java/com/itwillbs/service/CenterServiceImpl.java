@@ -74,11 +74,6 @@ System.out.println("centerSerice getQnaDetail");
 	
 	
 
-	@Override
-	public void insertNotice(NoticeDTO noticeDTO) {
-		centerDAO.insertNotice(noticeDTO);
-	}
-
 	public void insertReplyAricle(QnaDTO qnaDTO) {
 		
 		centerDAO.insertReplyAricle(qnaDTO);
@@ -92,9 +87,53 @@ System.out.println("centerSerice getQnaDetail");
 		
 	}
 
+	@Override
+	public List<FaqDTO> getFaqList(PageDTO pageDTO) {
+		pageDTO.setCurrentPage(Integer.parseInt(pageDTO.getPageNum())); // 번호 인트형
+		pageDTO.setStartRow((pageDTO.getCurrentPage()-1)*pageDTO.getPageSize()+1); // 시작번호정의
+		pageDTO.setEndRow(pageDTO.getStartRow()+pageDTO.getPageSize()-1); // 끝페이지
+		
+		pageDTO.setStartRow(pageDTO.getStartRow()-1);
+		
+		return centerDAO.getFaqList(pageDTO);
+	}
+
+	
+	
 	//-------------------------------------notice-------------------------------
 	
 	
+	@Override
+	public void insertNotice(NoticeDTO noticeDTO) {
+		System.out.println(noticeDTO.getNotice_subject());
+		centerDAO.insertNotice(noticeDTO);
+	}
+
+	@Override
+	public List<NoticeDTO> getNoticeList(PageDTO pageDTO) {
+		pageDTO.setCurrentPage(Integer.parseInt(pageDTO.getPageNum())); // 번호 인트형
+		pageDTO.setStartRow((pageDTO.getCurrentPage()-1)*pageDTO.getPageSize()+1); // 시작번호정의
+		pageDTO.setEndRow(pageDTO.getStartRow()+pageDTO.getPageSize()-1); // 끝페이지
+		
+		pageDTO.setStartRow(pageDTO.getStartRow()-1);
+		
+		return centerDAO.getNoticeList(pageDTO);
+		
+		
+		
+	}
+
+	@Override
+	public int getNoticeCount() {
+
+		
+		return  centerDAO.getNoticeCount();
+	}
+
+	@Override
+	public NoticeDTO getNoticeDetail(NoticeDTO noticeDTO) {
+		return centerDAO.getNoticeDetail(noticeDTO);
+	}
 
 	
 }

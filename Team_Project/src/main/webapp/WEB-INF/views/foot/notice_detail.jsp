@@ -96,7 +96,7 @@
 						<p class="bread">
 							<span><a
 								href="${pageContext.request.contextPath}/foot/index/">Home</a></span>
-							<span>QNA DETAIL</span>
+							<span>공지사항</span>
 						</p>
 					</div>
 				</div>
@@ -106,60 +106,20 @@
 		<div class="row" >
 			<div class="col-lg-8" style= "display: inline-block; margin: 0 auto;">
 				
-					<h2>문의내용</h2>
-					<div class="row">
-						<div class="col-md-12">
-							<div class="form-group">
-								<label for="type">문의유형</label>
-			                     <div class="form-field">
-			                     	
-								<!-- 문의 유형 태그 -->
-								<c:choose>
-									<c:when test="${qnaDTO.qna_type eq 1 }">
-										주문내역/배송현황
-									</c:when>
-									<c:when test="${qnaDTO.qna_type eq 2 }">
-										주문상품 취소하기
-									</c:when>
-									<c:when test="${qnaDTO.qna_type eq 3 }">
-										반품/교환/AS 신청하기
-									</c:when>
-									<c:when test="${qnaDTO.qna_type eq 4 }">
-										아이디/비밀번호찾기
-									</c:when>
-									<c:when test="${qnaDTO.qna_type eq 5 }">
-										포인트 사용방법
-									</c:when>
-									<c:otherwise>
-										없음.
-									</c:otherwise>
-								</c:choose>
-								</div>
-							</div>
-						</div>
+					<h2>공지사항</h2>
 						
-						<!-- 회원번호 자동으로 받아오게 설정 -->
-						<input type="text" name="m_idx" value="1" hidden="hidden">
-<!-- 						<input type="text" name="m_idx" value="${memberDTO.m_idx}" hidden="hidden"> -->
-
-						<div class="col-md-6">
-							<div class="form-group">
-								<label for="name">작성자</label><br>
-								 ${qnaDTO.qna_name }
-							</div>
-						</div>
 						
 						<div class="col-md-7">
 							<div class="form-group">
-								<label for="subject">제목</label><br>
-								 ${qnaDTO.qna_subject}
+								<label for="subject">공지사항 제목</label><br>
+								 ${noticeDTO.notice_subject}
 							</div>
 						</div>
 						
 						<div class="col-sm-12">
 										<div class="form-group">
-											<label for="content">문의내용</label><br>
-												${qnaDTO.qna_content}
+											<label for="content">공지내용</label><br>
+												${noticeDTO.notice_content}
 										</div>
 									</div>
 				
@@ -175,8 +135,8 @@
 					</div>
 					<div class="col-sm-12">
 										<div class="form-group" style="text-align: center;">
-											<input type="button" value="답글" class="btn btn-primary" id=btn>
-											<input type="button" value="목록" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/center/qna_list'">
+											<input type="button" value="목록" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/center/notice_list'">
+											
 										</div>
 									</div>
 				</form>

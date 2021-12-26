@@ -52,12 +52,6 @@ public class CenterDAOImpl implements CenterDAO {
 		return sqlSession.selectOne(namespace+".getQnaDetail", qnaDTO);
 	}
 
-	@Override
-	public void insertNotice(NoticeDTO noticeDTO) {
-
-		sqlSession.insert(namespace+".insertNotice", noticeDTO);
-	}
-
 	public Integer getIncrementNum() {
 
 		return sqlSession.selectOne(namespace+".getIncrementNum");
@@ -80,9 +74,40 @@ public class CenterDAOImpl implements CenterDAO {
 		
 	}
 
-	//-------------------------------------notice-------------------------------
+	@Override
+	public List<FaqDTO> getFaqList(PageDTO pageDTO) {
+		
+		return sqlSession.selectList(namespace+".getFaqList", pageDTO);
+	}
 
+
+	//-------------------------------------notice-------------------------------
 	 
+	
+	@Override
+	public void insertNotice(NoticeDTO noticeDTO) {
+		System.out.println(noticeDTO.getNotice_subject());
+		sqlSession.insert(namespace+".insertNotice", noticeDTO);
+	}
+
+	@Override
+	public List<NoticeDTO> getNoticeList(PageDTO pageDTO) {
+		
+		
+		return sqlSession.selectList(namespace+".getNoticeList", pageDTO);
+	}
+
+	@Override
+	public int getNoticeCount() {
+
+		return sqlSession.selectOne(namespace+".getNoticeCount");
+	}
+
+	@Override
+	public NoticeDTO getNoticeDetail(NoticeDTO noticeDTO) {
+
+		return sqlSession.selectOne(namespace+".getNoticeDetail",noticeDTO);
+	}
 	
 
 	
