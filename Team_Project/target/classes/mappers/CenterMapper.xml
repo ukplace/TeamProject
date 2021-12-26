@@ -52,10 +52,20 @@
 	
 	
 	<insert id="insertFaq">
-		INSERT into faq values (#{faq_subject},#{faq_question},#{faq_answer})
+		INSERT into faq(faq_subject,faq_question,faq_answer) values (#{faq_subject},#{faq_question},#{faq_answer}) 
 	</insert>
 	
+	<select id="getFaqList" resultType="com.itwillbs.domain.FaqDTO">
+		select * from faq order by faq_idx desc limit #{startRow},#{pageSize}
+	</select>
 	
+	<select id="getFaqCount" resultType="java.lang.Integer">
+		select count(*) from faq
+	</select>
+	
+	<select id="getFaqDetail" resultType="com.itwillbs.domain.FaqDTO" >
+		select * from faq where faq_idx = ${faq_idx} 
+	</select>
 	
 	
 	

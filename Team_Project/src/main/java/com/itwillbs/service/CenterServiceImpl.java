@@ -61,7 +61,7 @@ public class CenterServiceImpl implements CenterService {
 	
 	@Override
 	public QnaDTO getQnaDetail(QnaDTO qnaDTO) {
-System.out.println("centerSerice getQnaDetail");
+		System.out.println("centerSerice getQnaDetail");
 		
 		return centerDAO.getQnaDetail(qnaDTO);
 	}
@@ -89,6 +89,8 @@ System.out.println("centerSerice getQnaDetail");
 
 	@Override
 	public List<FaqDTO> getFaqList(PageDTO pageDTO) {
+		System.out.println("centerSerice getFaqList");
+		
 		pageDTO.setCurrentPage(Integer.parseInt(pageDTO.getPageNum())); // 번호 인트형
 		pageDTO.setStartRow((pageDTO.getCurrentPage()-1)*pageDTO.getPageSize()+1); // 시작번호정의
 		pageDTO.setEndRow(pageDTO.getStartRow()+pageDTO.getPageSize()-1); // 끝페이지
@@ -96,6 +98,19 @@ System.out.println("centerSerice getQnaDetail");
 		pageDTO.setStartRow(pageDTO.getStartRow()-1);
 		
 		return centerDAO.getFaqList(pageDTO);
+	}
+
+	@Override
+	public int getFaqCount() {
+		
+		return centerDAO.getFaqCount();
+	}
+
+	@Override
+	public FaqDTO getFaqDetail(FaqDTO faqDTO) {
+		System.out.println("centerSerice getFaqDetail");
+		
+		return centerDAO.getFaqDetail(faqDTO);
 	}
 
 	

@@ -80,6 +80,18 @@ public class CenterDAOImpl implements CenterDAO {
 		return sqlSession.selectList(namespace+".getFaqList", pageDTO);
 	}
 
+	@Override
+	public int getFaqCount() {
+		
+		return sqlSession.selectOne(namespace+".getFaqCount");
+	}
+
+	@Override
+	public FaqDTO getFaqDetail(FaqDTO faqDTO) {
+		
+		return sqlSession.selectOne(namespace+".getFaqDetail", faqDTO);
+	}
+
 
 	//-------------------------------------notice-------------------------------
 	 

@@ -32,6 +32,10 @@ public interface CenterDAO {
 
 	public List<FaqDTO> getFaqList(PageDTO pageDTO);
 
+	public int getFaqCount();
+
+	public FaqDTO getFaqDetail(FaqDTO faqDTO);
+
 	
 	//notice
 	public List<NoticeDTO> getNoticeList(PageDTO pageDTO);
