@@ -219,6 +219,14 @@
 				 
 				 <tr>
 				 	<td>
+<<<<<<< HEAD
+				 <div class="select_img"><img src="" width="310" height="310" /></div>
+				 <div class="select_img">
+				 	<div class="product-img-div">
+				 		<img alt="product_img" src="${pageContext.request.contextPath}/images/pdetail_img.jpg" class="product-img" />
+				 	</div>
+				 </div>
+=======
 				 		<div class="select_img">
 				 			<img alt="product_img" src="" class="product-img"/>
 				 		</div>
@@ -228,6 +236,7 @@
 				 <tr>
 				 	<td colspan="2"> 
 						 <%=request.getRealPath("/") %>	
+>>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 					</td>
 				 </tr>
 <!-- 				 <tr> -->
