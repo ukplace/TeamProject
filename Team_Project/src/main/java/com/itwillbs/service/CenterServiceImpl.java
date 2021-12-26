@@ -92,7 +92,7 @@ System.out.println("centerSerice getQnaDetail");
 		
 	}
 
-	
+	//-------------------------------------notice-------------------------------
 	
 	
 

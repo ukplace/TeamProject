@@ -80,6 +80,7 @@ public class CenterDAOImpl implements CenterDAO {
 		
 	}
 
+	//-------------------------------------notice-------------------------------
 
 	 
 	

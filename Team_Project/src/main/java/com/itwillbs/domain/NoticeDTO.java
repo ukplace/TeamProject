@@ -11,8 +11,7 @@ notice_content varchar(500) not null,
 notice_readcount int,
 notice_date datetime default now() not null
 );
-
- */
+*/
 public class NoticeDTO {
 	
 	private int notice_idx;
