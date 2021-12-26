@@ -105,8 +105,23 @@ public class CenterController {
 	}
 
 	@RequestMapping(value = "/center/faq_detail", method = RequestMethod.GET)
-	public String faq_detail() {
-
+	public String faq_detail(HttpServletRequest request, Model model) {
+		PageDTO pageDTO = new PageDTO();
+		
+		if(request.getParameter("pageNum")==null){
+			pageDTO.setPageNum("1");
+		}else {
+			pageDTO.setPageNum(request.getParameter("pageNum"));
+		}
+		
+		FaqDTO faqDTO = new FaqDTO();
+		faqDTO.setFaq_idx(Integer.parseInt(request.getParameter("faq_idx")));
+		
+		faqDTO = centerService.getFaqDetail(faqDTO);
+		
+		model.addAttribute("pageDTO", pageDTO);
+		model.addAttribute("faqDTO", faqDTO);
+		
 		return "foot/faq_detail";
 	}
 

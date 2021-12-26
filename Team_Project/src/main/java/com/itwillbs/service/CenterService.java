@@ -28,5 +28,7 @@ public interface CenterService {
 	public List<FaqDTO> getFaqList(PageDTO pageDTO);
 
 	public int getFaqCount();
+
+	public FaqDTO getFaqDetail(FaqDTO faqDTO);
 	
 }

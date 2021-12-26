@@ -34,5 +34,7 @@ public interface CenterDAO {
 
 	public int getFaqCount();
 
+	public FaqDTO getFaqDetail(FaqDTO faqDTO);
+
 	
 }

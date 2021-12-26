@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -76,7 +77,6 @@
 </style>
 
 
-
 </head>
 <body>
 
@@ -95,8 +95,8 @@
 					<div class="col">
 						<p class="bread">
 							<span><a
-								href="${pageContext.request.contextPath}/foot/index/">Home</a></span> /
-							<span>QNA Write</span>
+								href="${pageContext.request.contextPath}/foot/index/">Home</a></span>
+							<span>FAQ DETAIL</span>
 						</p>
 					</div>
 				</div>
@@ -105,35 +105,47 @@
 
 		<div class="row" >
 			<div class="col-lg-8" style= "display: inline-block; margin: 0 auto;">
-				<form action="${pageContext.request.contextPath}/center/faq_write_pro" method="post" class="colorlib-form">
-					<h2>FAQ</h2>
-					
+				
+					<h2>자주묻는질문</h2>
+						
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="subject">제목</label> <input type="text"
-									name="faq_subject" id="subject" class="form-control">
+								<label for="name">글번호</label><br>
+								 ${faqDTO.faq_idx }
 							</div>
 						</div>
 						
 						<div class="col-md-7">
 							<div class="form-group">
-								<label for="subject">질문</label> <input type="text"
-									name="faq_question" id="subject" class="form-control">
+								<label for="subject">제목</label><br>
+								 ${faqDTO.faq_subject}
 							</div>
 						</div>
-
+						
 						<div class="col-sm-12">
 										<div class="form-group">
-											<label for="content">내용</label>
-											<textarea name="faq_answer" id="content" cols="50" rows="10" class="form-control-9" placeholder="내용을 적어주세요"></textarea>
-											
+											<label for="question">질문</label><br>
+												${faqDTO.faq_question}
 										</div>
 									</div>
-				
+						<div class="col-sm-12">
+										<div class="form-group">
+											<label for="answer">내용</label><br>
+												${faqDTO.faq_answer}
+										</div>
+									</div>
 						
+<!-- 						<div class="col-md-12"> -->
+<!-- 							<div  class="form-group"> -->
+<!-- 								<div class="radio"> -->
+<!-- 									<label><input type="radio" 	name="radio" value="normal"> 일반글</label> -->
+<!-- 									<label><input type="radio" name="radio" value="secret"> 비밀글 </label>  -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+					</div>
 					<div class="col-sm-12">
 										<div class="form-group" style="text-align: center;">
-											<input type="submit" value="등록" class="btn btn-primary">
 											<input type="button" value="목록" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/center/faq_list'">
 										</div>
 									</div>
