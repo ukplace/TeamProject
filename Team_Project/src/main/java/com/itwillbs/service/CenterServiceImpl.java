@@ -92,6 +92,17 @@ System.out.println("centerSerice getQnaDetail");
 		
 	}
 
+	@Override
+	public List<FaqDTO> getFaqList(PageDTO pageDTO) {
+		pageDTO.setCurrentPage(Integer.parseInt(pageDTO.getPageNum())); // 번호 인트형
+		pageDTO.setStartRow((pageDTO.getCurrentPage()-1)*pageDTO.getPageSize()+1); // 시작번호정의
+		pageDTO.setEndRow(pageDTO.getStartRow()+pageDTO.getPageSize()-1); // 끝페이지
+		
+		pageDTO.setStartRow(pageDTO.getStartRow()-1);
+		
+		return centerDAO.getFaqList(pageDTO);
+	}
+
 	
 	
 	

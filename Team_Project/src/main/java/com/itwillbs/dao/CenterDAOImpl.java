@@ -80,6 +80,12 @@ public class CenterDAOImpl implements CenterDAO {
 		
 	}
 
+	@Override
+	public List<FaqDTO> getFaqList(PageDTO pageDTO) {
+		
+		return sqlSession.selectList(namespace+".getFaqList", pageDTO);
+	}
+
 
 	 
 	

@@ -24,5 +24,7 @@ public interface CenterService {
 	public void insertFaq(FaqDTO faqDTO);
 
 	public QnaDTO getQnaDetail(QnaDTO qnaDTO);
+
+	public List<FaqDTO> getFaqList(PageDTO pageDTO);
 	
 }

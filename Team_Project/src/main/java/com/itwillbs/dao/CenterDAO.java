@@ -27,7 +27,10 @@ public interface CenterDAO {
 	
 	public void insertReplyAricle(QnaDTO qnaDTO);
 	
+	// faq
 	public void insertFaq(FaqDTO FaqDTO);
+
+	public List<FaqDTO> getFaqList(PageDTO pageDTO);
 
 	
 }
