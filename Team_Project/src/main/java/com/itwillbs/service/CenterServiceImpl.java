@@ -118,6 +118,13 @@ public class CenterServiceImpl implements CenterService {
 		return centerDAO.getFaqDetail(faqDTO);
 	}
 
+	@Override
+	public void faq_update(FaqDTO faqDTO) {
+		System.out.println(faqDTO.getFaq_subject()+"서비스");
+		centerDAO.faq_update(faqDTO);
+		
+	}
+
 	
 	
 	

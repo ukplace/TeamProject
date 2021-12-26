@@ -98,6 +98,13 @@ public class CenterDAOImpl implements CenterDAO {
 		return sqlSession.selectOne(namespace+".getFaqDetail", faqDTO);
 	}
 
+	@Override
+	public void faq_update(FaqDTO faqDTO) {
+		System.out.println(faqDTO.getFaq_subject()+"디에이오");
+		sqlSession.update(namespace+".updateFaq", faqDTO);
+		
+	}
+
 
 	 
 	

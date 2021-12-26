@@ -68,7 +68,10 @@
 	</select>
 	
 	<select id="getFaqDetail" resultType="com.itwillbs.domain.FaqDTO" >
-		select * from faq where faq_idx = ${faq_idx} 
+		select * from faq where faq_idx = #{faq_idx} 
 	</select>
 	
+	<update id="updateFaq">
+		update faq set faq_subject=#{faq_subject},faq_question=#{faq_question},faq_answer=#{faq_answer} where faq_idx=#{faq_idx}
+	</update>
 </mapper>

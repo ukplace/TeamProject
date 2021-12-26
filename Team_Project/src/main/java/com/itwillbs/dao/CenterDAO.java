@@ -36,5 +36,7 @@ public interface CenterDAO {
 
 	public FaqDTO getFaqDetail(FaqDTO faqDTO);
 
+	public void faq_update(FaqDTO faqDTO);
+
 	
 }
