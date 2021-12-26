@@ -90,16 +90,31 @@ public class CenterController {
 	}
 	
 	@RequestMapping(value = "/center/notice_update", method = RequestMethod.GET)
-	public String notice_update() {
+	public String notice_update(HttpServletRequest request, Model model) {
+		PageDTO pageDTO = new PageDTO();
 
-		// /WEB-INF/views/foot/notice_update.jsp
+		if (request.getParameter("pageNum") == null) { // 없을때
+			pageDTO.setPageNum("1");
+		} else { // 있을때
+			pageDTO.setPageNum(request.getParameter("pageNum"));
+		}
+		NoticeDTO noticeDTO = new NoticeDTO();
+		noticeDTO.setNotice_idx(Integer.parseInt(request.getParameter("notice_idx")));
+		System.out.println(noticeDTO.getNotice_idx());
+		System.out.println(pageDTO.getPageNum());
+		noticeDTO = centerService.getNoticeDetail(noticeDTO);
+
+		model.addAttribute("pageDTO", pageDTO);
+		model.addAttribute("noticeDTO", noticeDTO);
+
 		return "foot/notice_update";
 	}
 
 	@RequestMapping(value = "/center/notice_update_pro", method = RequestMethod.POST)
-	public String notice_update_pro() {
-
-		// /WEB-INF/views/foot/notice_list.jsp
+	public String notice_update_pro(HttpServletRequest request, NoticeDTO noticeDTO) {
+		noticeDTO.setNotice_idx(Integer.parseInt(request.getParameter("notice_idx")));
+		centerService.updateNotice(noticeDTO);
+		
 		return "redirect:/center/notice_list";
 	}
 
@@ -176,15 +191,33 @@ public class CenterController {
 	}
 
 	@RequestMapping(value = "/center/faq_update", method = RequestMethod.GET)
-	public String faq_update() {
-
+	public String faq_update(HttpServletRequest request, Model model) {
+		PageDTO pageDTO = new PageDTO();
+		
+		if(request.getParameter("pageNum")==null){
+			pageDTO.setPageNum("1");
+		}else {
+			pageDTO.setPageNum(request.getParameter("pageNum"));
+		}
+		
+		FaqDTO faqDTO = new FaqDTO();
+		faqDTO.setFaq_idx(Integer.parseInt(request.getParameter("faq_idx")));
+		
+		faqDTO = centerService.getFaqDetail(faqDTO);
+		
+		model.addAttribute("pageDTO", pageDTO);
+		model.addAttribute("faqDTO", faqDTO);
+		
 		// /WEB-INF/views/foot/faq_update.jsp
 		return "foot/faq_update";
 	}
 
 	@RequestMapping(value = "/center/faq_update_pro", method = RequestMethod.POST)
-	public String faq_update_pro() {
-
+	public String faq_update_pro(HttpServletRequest request,FaqDTO faqDTO) {
+		faqDTO.setFaq_idx(Integer.parseInt(request.getParameter("faq_idx")));
+		
+		centerService.faq_update(faqDTO);
+		
 		// /WEB-INF/views/foot/faq_list.jsp
 		return "redirect:/center/faq_list";
 	}

@@ -44,5 +44,9 @@ public interface CenterService {
 	public int getFaqCount();
 
 	public FaqDTO getFaqDetail(FaqDTO faqDTO);
+
+	public void faq_update(FaqDTO faqDTO);
+
+	public void updateNotice(NoticeDTO noticeDTO);
 	
 }

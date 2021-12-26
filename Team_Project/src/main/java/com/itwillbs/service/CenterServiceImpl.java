@@ -113,6 +113,13 @@ public class CenterServiceImpl implements CenterService {
 		return centerDAO.getFaqDetail(faqDTO);
 	}
 
+	@Override
+	public void faq_update(FaqDTO faqDTO) {
+		System.out.println(faqDTO.getFaq_subject()+"서비스");
+		centerDAO.faq_update(faqDTO);
+		
+	}
+
 	
 	
 	//-------------------------------------notice-------------------------------
@@ -148,6 +155,11 @@ public class CenterServiceImpl implements CenterService {
 	@Override
 	public NoticeDTO getNoticeDetail(NoticeDTO noticeDTO) {
 		return centerDAO.getNoticeDetail(noticeDTO);
+	}
+
+	@Override
+	public void updateNotice(NoticeDTO noticeDTO) {
+		centerDAO.updateNotice(noticeDTO);
 	}
 
 	

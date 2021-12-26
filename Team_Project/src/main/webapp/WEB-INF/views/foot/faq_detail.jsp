@@ -146,6 +146,11 @@
 					</div>
 					<div class="col-sm-12">
 										<div class="form-group" style="text-align: center;">
+										<c:choose>
+											<c:when test="${'admin@shushu.com' eq sessionScope.id }">
+											<input type="button" value="수정" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/center/faq_update?faq_idx=${faqDTO.faq_idx}&page=${pageDTO.pageNum }'">
+											</c:when>
+										</c:choose>
 											<input type="button" value="목록" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/center/faq_list'">
 										</div>
 									</div>

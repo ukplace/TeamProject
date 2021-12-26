@@ -92,6 +92,13 @@ public class CenterDAOImpl implements CenterDAO {
 		return sqlSession.selectOne(namespace+".getFaqDetail", faqDTO);
 	}
 
+	@Override
+	public void faq_update(FaqDTO faqDTO) {
+		System.out.println(faqDTO.getFaq_subject()+"디에이오");
+		sqlSession.update(namespace+".updateFaq", faqDTO);
+		
+	}
+
 
 	//-------------------------------------notice-------------------------------
 	 
@@ -119,6 +126,12 @@ public class CenterDAOImpl implements CenterDAO {
 	public NoticeDTO getNoticeDetail(NoticeDTO noticeDTO) {
 
 		return sqlSession.selectOne(namespace+".getNoticeDetail",noticeDTO);
+	}
+
+	@Override
+	public void updateNotice(NoticeDTO noticeDTO) {
+		
+		sqlSession.update(namespace+".updateNotice", noticeDTO);
 	}
 	
 
