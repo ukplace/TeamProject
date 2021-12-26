@@ -81,7 +81,7 @@
 											<c:forEach var="productDTO" items="${productList}">
                                                 <tr class="odd gradeX" onclick="location.href='${pageContext.request.contextPath}/admin/product_detail?num=${productDTO.p_num}'">
                                                     <td class="text-center">${productDTO.p_num}</td>
-                                                    <td align="center"><img alt="product_thumImg" src="${productDTO.p_thumImg}" width="100" height="100"></td>
+                                                    <td align="center"><img alt="product_thumImg" src="${pageContext.request.contextPath}/${productDTO.p_thumImg }" width="100" height="100"></td>
                                                     <td class="text-center">${productDTO.p_name}</td>
                                                     <td class="text-center">${productDTO.p_stock}</td>
                                                     <td class="text-center"><fmt:formatDate value="${productDTO.p_date}" pattern="yyyy-MM-dd" /> </td>
@@ -98,19 +98,19 @@
 								
 										<div class="panel-body" align="center">
 											<c:if test="${pageDTO.startPage > pageDTO.pageBlock }">
-												<button type="button" class="btn btn-default" onclick="${pageContext.request.contextPath}/admin/product_list?pageNum=${pageDTO.startPage - pageDTO.pageBlock}">
+												<button type="button" class="btn btn-default" onclick="location.href='${pageContext.request.contextPath}/admin/product_list?pageNum=${pageDTO.startPage - pageDTO.pageBlock}'">
 												Prev
 												</button>
 											</c:if>
 											
 											<c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1">
-												<button type="button" class="btn btn-default" onclick="${pageContext.request.contextPath}/admin/product_list?pageNum=${i}">
+												<button type="button" class="btn btn-default" onclick="location.href='${pageContext.request.contextPath}/admin/product_list?pageNum=${i}'">
 												${i}
 												</button>
 											</c:forEach>
 											
 											<c:if test="${pageDTO.endPage < pageDTO.pageCount }">
-												<button type="button" class="btn btn-default" onclick="${pageContext.request.contextPath}/admin/product_list?pageNum=${pageDTO.startPage + pageDTO.pageBlock}">
+												<button type="button" class="btn btn-default" onclick="location.href='${pageContext.request.contextPath}/admin/product_list?pageNum=${pageDTO.startPage + pageDTO.pageBlock}'">
 												Next
 												</button>
 											</c:if>

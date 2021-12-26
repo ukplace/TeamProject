@@ -166,25 +166,25 @@
 	 </td>
 	 </tr>	
 	
-				<tr>
-					<th>색상</th>
-					<td>
-						<input type="text" name="p_color" required="required" size="10">
-						<select name="selectColor" onchange="changeColor(this.value)">
-						<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입란에 표시 -->
-						<!-- this 주면 여기 이 태그가 날라간다!  -->
-						<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입력란에 표시 -->
-							<option value="">직접입력</option>	
-							<option value="빨강">빨강</option>
-							<option value="주황">주황</option>
-							<option value="노랑">노랑</option>
-							<option value="초록">초록</option>
-							<option value="파랑">파랑</option>
-							<option value="남색">남색</option>
-							<option value="보라">보라</option>
-						</select>
-					</td>
-				</tr>
+<!-- 				<tr> -->
+<!-- 					<th>색상</th> -->
+<!-- 					<td> -->
+<!-- 						<input type="text" name="p_color" required="required" size="10"> -->
+<!-- 						<select name="selectColor" onchange="changeColor(this.value)"> -->
+<!-- 						셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입란에 표시 -->
+<!-- 						this 주면 여기 이 태그가 날라간다!  -->
+<!-- 						셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입력란에 표시 -->
+<!-- 							<option value="">직접입력</option>	 -->
+<!-- 							<option value="빨강">빨강</option> -->
+<!-- 							<option value="주황">주황</option> -->
+<!-- 							<option value="노랑">노랑</option> -->
+<!-- 							<option value="초록">초록</option> -->
+<!-- 							<option value="파랑">파랑</option> -->
+<!-- 							<option value="남색">남색</option> -->
+<!-- 							<option value="보라">보라</option> -->
+<!-- 						</select> -->
+<!-- 					</td> -->
+<!-- 				</tr> -->
 			<tr>
 				<th>사이즈</th>
 					<td>

@@ -16,4 +16,8 @@ public interface AdminDAO {
 	// pageDTO.setCount(adminService.getProductCount());
 	public Integer getProductCount();
 
+	// adminService.updateProduct(productDTO);
+	public void updateProduct(ProductDTO productDTO);
+	
+
 }

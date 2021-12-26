@@ -37,5 +37,11 @@ public class AdminDAOImpl implements AdminDAO {
 		return sqlSession.selectOne(namespace + ".getProductCount");
 	}
 
+	@Override
+	public void updateProduct(ProductDTO productDTO) {
+		System.out.println("AdminDAOImpl - updateProduct()");
+		sqlSession.update(namespace + ".updateProduct", productDTO);
+	}
+
 
 }

@@ -11,7 +11,6 @@ p_category varchar(45) not null,
 p_small_category varchar(45) not null,
 p_img varchar(500),
 p_size varchar(45),
-p_color varchar(45),
 p_price int,
 p_discount int default 0,
 p_sellyn varchar(1) default 'Y',
@@ -21,6 +20,7 @@ p_thumImg varchar(500)
 );
 
 // p_thumImg 컬럼 추가! 상품목록에 이미지 썸네일로 나오기 위한 컬럼
+// p_color varchar(45) 컬럼 뺌!
 
  */
 
