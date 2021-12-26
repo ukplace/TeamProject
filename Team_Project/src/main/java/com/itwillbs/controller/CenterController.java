@@ -80,7 +80,7 @@ public class CenterController {
 
 	// 자주묻는질문(faq) 매핑
 	@RequestMapping(value = "/center/faq_list", method = RequestMethod.GET)
-	public String faq_list(HttpServletRequest request) {
+	public String faq_list(HttpServletRequest request,Model model) {
 		PageDTO pageDTO = new PageDTO();
 		pageDTO.setPageSize(10); // 페이지 글 갯수
 		
@@ -92,6 +92,14 @@ public class CenterController {
 		
 		// 리스트
 		List<FaqDTO> faqList = centerService.getFaqList(pageDTO);
+		
+		// 카운트
+		pageDTO.setCount(centerService.getFaqCount());
+		
+		// 모델에 담아서 list에 전달
+		model.addAttribute("faqList", faqList);
+		// 페이지 DTO에 담아서 전달
+		model.addAttribute("pageDTO", pageDTO);
 		
 		return "foot/faq_list";
 	}

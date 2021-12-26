@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -101,31 +102,30 @@
 		<tr class = "ti">
 			<th style = "width : 70px;">번호</th>
 			<th style="width: 450px;">제목</th>
-			<th style = "width : 100px;">글쓴이</th>
+			<th style = "width : 100px;">질문</th>
 			<th style = "width : 100px;">작성일</th>
-			<th style = "width : 70px;">조회</th>
 		</tr>
 		</thead>
 		
 		<tbody>
+		<!-- 리스트 받아오는 부분 -->
+		<c:forEach var="faqDTO" items="${faqList }">
 			<tr>
-			<td>2</td>
-			<td>
-			<a href = "#" class = "tit">자주 묻는 질문2</a>
-			</td>
-			<td>관리자</td>
-			<td>날짜</td>
-			<td>111</td>
-		</tr>
-		<tr>
-			<td>1</td>
-			<td>
-			<a href = "#" class = "tit">자주 묻는 질문</a>
-			</td>
-			<td class = "garo_size2">관리자</td>
-			<td>날짜</td>
-			<td>111</td>
-		</tr>
+				<td><a href="#" class="tit">${faqDTO.faq_idx }</a></td>
+				<td><a href="${pageContext.request.contextPath}/center/faq_detail?faq_idx=${faqDTO.faq_idx}&page=${pageDTO.pageNum } "class="tit">${faqDTO.faq_subject}</a></td>
+				<td><a href="#" class="tit">${faqDTO.faq_question}</a></td>
+				<td><fmt:formatDate value="${faqDTO.faq_date}" pattern="yyyy-MM-dd"/></td>
+			</tr>
+		</c:forEach>
+<!-- 			<tr> -->
+<!-- 			<td>2</td> -->
+<!-- 			<td> -->
+<!-- 			<a href = "#" class = "tit">자주 묻는 질문2</a> -->
+<!-- 			</td> -->
+<!-- 			<td>관리자</td> -->
+<!-- 			<td>날짜</td> -->
+<!-- 			<td>111</td> -->
+<!-- 		</tr> -->
 		</tbody>
 	</table>
 	<br>

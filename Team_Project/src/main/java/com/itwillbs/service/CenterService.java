@@ -26,5 +26,7 @@ public interface CenterService {
 	public QnaDTO getQnaDetail(QnaDTO qnaDTO);
 
 	public List<FaqDTO> getFaqList(PageDTO pageDTO);
+
+	public int getFaqCount();
 	
 }

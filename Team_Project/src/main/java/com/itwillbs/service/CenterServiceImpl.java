@@ -103,6 +103,12 @@ System.out.println("centerSerice getQnaDetail");
 		return centerDAO.getFaqList(pageDTO);
 	}
 
+	@Override
+	public int getFaqCount() {
+		
+		return centerDAO.getFaqCount();
+	}
+
 	
 	
 	
