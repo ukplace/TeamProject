@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.itwillbs.mapper.AdminMapper">
+
+	<insert id="insertProduct">
+		insert into product (p_name, p_explain, p_category, p_small_category, p_img, p_size, p_price, p_stock, p_thumImg)
+			values (#{p_name},#{p_explain},#{p_category},#{p_small_category},#{p_img},#{p_size},#{p_price},#{p_stock},#{p_thumImg})
+	</insert>
+
+	<select id="getProductList" resultType="com.itwillbs.domain.ProductDTO">
+		select * from product order by p_num desc limit #{startRow},#{pageSize} 
+	</select>
+	
+	<select id="getProductCount" resultType="java.lang.Integer">
+		select count(*) from product
+	</select>
+	
+	<update id="updateProduct">
+		update product set p_name=${p_name},p_explain=${p_explain},p_category=${p_category},p_small_category=${p_small_category},p_img=${p_img},
+			p_size=${p_size},p_price=${p_price},p_stock=${p_stock},p_thumImg=${p_thumImg} where p_num=${p_num}
+	</update>
+	
+	
+</mapper>

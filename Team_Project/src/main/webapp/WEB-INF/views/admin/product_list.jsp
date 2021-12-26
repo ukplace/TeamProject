@@ -60,7 +60,7 @@
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    <h4>제품 관리</h4>
+                                    <h4>제품 관리 [전체제품수 : ${pageDTO.count} 개]</h4>
                                 </div>
                                 <!-- /.panel-heading -->
                                 <div class="panel-body">
@@ -78,15 +78,15 @@
                                             
                                             <tbody>
 											<!-- 제품리스트 받아오는 부분 -->
-<%-- 											<c:forEach var="memberDTO" items="${productList}"> --%>
-                                                <tr class="odd gradeX" onclick="location.href='${pageContext.request.contextPath}/admin/product_detail?num=${productDTO.p_num}'">
-                                                    <td>${productDTO.p_num}</td>
-                                                    <td align="center"><img alt="product_img" src="${pageContext.request.contextPath}/images/pdetail_img.jpg" width="100" height="100"></td>
-                                                    <td class="center">${productrDTO.p_name}</td>
-                                                    <td class="center">${productDTO.p_stock}</td>
-                                                    <td class="center">${productDTO.p_date}</td>
+											<c:forEach var="productDTO" items="${productList}">
+                                                <tr class="odd gradeX" onclick="location.href='${pageContext.request.contextPath}/admin/product_update?num=${productDTO.p_num}'">
+                                                    <td class="text-center">${productDTO.p_num}</td>
+                                                    <td align="center"><img alt="product_thumImg" src="${pageContext.request.contextPath}/${productDTO.p_thumImg }" width="100" height="100"></td>
+                                                    <td class="text-center">${productDTO.p_name}</td>
+                                                    <td class="text-center">${productDTO.p_stock}</td>
+                                                    <td class="text-center"><fmt:formatDate value="${productDTO.p_date}" pattern="yyyy-MM-dd" /> </td>
                                                 </tr>
-<%-- 											</c:forEach> --%>
+											</c:forEach>
 											<!-- 제품리스트 받아오는 부분 -->
 											</tbody>
 
@@ -97,23 +97,23 @@
 								</div>
 								
 										<div class="panel-body" align="center">
-<%-- 											<c:if test="${pageDTO.startPage > pageDTO.pageBlock }"> --%>
-												<button type="button" class="btn btn-default" onclick="${pageContext.request.contextPath}/admin/product_list?pageNum=${pageDTO.startPage - pageDTO.pageBlock}">
+											<c:if test="${pageDTO.startPage > pageDTO.pageBlock }">
+												<button type="button" class="btn btn-default" onclick="location.href='${pageContext.request.contextPath}/admin/product_list?pageNum=${pageDTO.startPage - pageDTO.pageBlock}'">
 												Prev
 												</button>
-<%-- 											</c:if> --%>
+											</c:if>
 											
 											<c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1">
-												<button type="button" class="btn btn-default" onclick="${pageContext.request.contextPath}/admin/product_list?pageNum=${i}">
+												<button type="button" class="btn btn-default" onclick="location.href='${pageContext.request.contextPath}/admin/product_list?pageNum=${i}'">
 												${i}
 												</button>
 											</c:forEach>
 											
-<%-- 											<c:if test="${pageDTO.endPage < pageDTO.pageCount }"> --%>
-												<button type="button" class="btn btn-default" onclick="${pageContext.request.contextPath}/admin/product_list?pageNum=${pageDTO.startPage + pageDTO.pageBlock}">
+											<c:if test="${pageDTO.endPage < pageDTO.pageCount }">
+												<button type="button" class="btn btn-default" onclick="location.href='${pageContext.request.contextPath}/admin/product_list?pageNum=${pageDTO.startPage + pageDTO.pageBlock}'">
 												Next
 												</button>
-<%-- 											</c:if> --%>
+											</c:if>
 										</div>
 								
 							</div>

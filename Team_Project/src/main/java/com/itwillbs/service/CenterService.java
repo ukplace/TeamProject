@@ -22,5 +22,7 @@ public interface CenterService {
 	public void insertReplyAricle(QnaDTO qnaDTO);
 
 	public void insertFaq(FaqDTO faqDTO);
+
+	public QnaDTO getQnaDetail(QnaDTO qnaDTO);
 	
 }

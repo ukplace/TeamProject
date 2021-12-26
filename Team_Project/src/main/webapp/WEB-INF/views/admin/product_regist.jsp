@@ -24,6 +24,11 @@
 
         <!-- Custom Fonts -->
         <link href="${pageContext.request.contextPath}/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        
+		<!-- review-img-div.css  -->
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/product-img-div.css">
+	
+	
 
         <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -39,7 +44,7 @@
        
                <Title>Category</Title> 
         <Meta Http-Equiv="Content-Type" Content="text/html; charset=utf-8">
-
+		<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
         
  <style type="text/css">
  .regist-button{
@@ -104,11 +109,11 @@
             <!-- Page Content -->
             <div id="page-wrapper">
                 <div class="container-fluid">
-                    <div class="row">0
+                    <div class="row">
                         <div class="col-lg-12">
                             
 <!--                             **폼태그 맨끝 코드 일단 빼놓음 onsubmit="return checkForm()"  -->
-<form action="${pageContext.request.contextPath }/admin/product_regist_pro" method="post" name="registForm">                     
+<form action="${pageContext.request.contextPath }/admin/product_regist_pro" method="post" name="registForm" enctype="multipart/form-data">                     
    <table class="table-ca" width=60% tyletable-layout:fixed cellspacing=() cellpadding=1;>                 
        <tr >
           <td width=30% id=td1 align="center"> 대 분 류 </td>
@@ -126,10 +131,10 @@
          </select>
       </td>
       </tr>   
-      	</table>
+	</table>
       	
-		<div class="main">
-		<div class=table-regist>
+	<div class="main">
+	<div class=table-regist>
        <h1 class="page-header" align="center">제품등록</h1>
 		<table >
       <!-- 제품명 -->
@@ -161,25 +166,25 @@
 	 </td>
 	 </tr>	
 	
-	<tr>
-     <th>색상</th>
-					<td>
-						<input type="text" name="p_color" required="required" size="10">
-						<select name="selectColor" onchange="changeColor(this.value)">
-						<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입란에 표시 -->
-						<!-- this 주면 여기 이 태그가 날라간다!  -->
-						<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입력란에 표시 -->
-							<option value="">직접입력</option>	
-							<option value="빨강">빨강</option>
-							<option value="주황">주황</option>
-							<option value="노랑">노랑</option>
-							<option value="초록">초록</option>
-							<option value="파랑">파랑</option>
-							<option value="남색">남색</option>
-							<option value="보라">보라</option>
-						</select>
-					</td>
-				</tr>
+<!-- 				<tr> -->
+<!-- 					<th>색상</th> -->
+<!-- 					<td> -->
+<!-- 						<input type="text" name="p_color" required="required" size="10"> -->
+<!-- 						<select name="selectColor" onchange="changeColor(this.value)"> -->
+<!-- 						셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입란에 표시 -->
+<!-- 						this 주면 여기 이 태그가 날라간다!  -->
+<!-- 						셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입력란에 표시 -->
+<!-- 							<option value="">직접입력</option>	 -->
+<!-- 							<option value="빨강">빨강</option> -->
+<!-- 							<option value="주황">주황</option> -->
+<!-- 							<option value="노랑">노랑</option> -->
+<!-- 							<option value="초록">초록</option> -->
+<!-- 							<option value="파랑">파랑</option> -->
+<!-- 							<option value="남색">남색</option> -->
+<!-- 							<option value="보라">보라</option> -->
+<!-- 						</select> -->
+<!-- 					</td> -->
+<!-- 				</tr> -->
 			<tr>
 				<th>사이즈</th>
 					<td>
@@ -208,16 +213,43 @@
 				<tr>
 			      <th rowspan="2">대표 사진</th>
 			      <td>
-			      	<input type="file" id="p_img" name="p_img" width = 40px value="사진등록" class="" onclick=>
+			      	<input type="file" id="p_img" name="file" width = 40px value="사진등록" />
 				 </td>
 				 </tr>
 				 
-				 	
 				 <tr>
 				 	<td>
-				 <div class="select_img"><img src="${pageContext.request.contextPath}/images/pdetail_img.jpg" width="310" height="310"></div>
+<<<<<<< HEAD
+				 <div class="select_img"><img src="" width="310" height="310" /></div>
+				 <div class="select_img">
+				 	<div class="product-img-div">
+				 		<img alt="product_img" src="${pageContext.request.contextPath}/images/pdetail_img.jpg" class="product-img" />
+				 	</div>
+				 </div>
+=======
+				 		<div class="select_img">
+				 			<img alt="product_img" src="" class="product-img"/>
+				 		</div>
+				 	</td>
+				 </tr>
+				 
+				 <tr>
+				 	<td colspan="2"> 
+						 <%=request.getRealPath("/") %>	
+>>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 					</td>
 				 </tr>
+<!-- 				 <tr> -->
+<!-- 				 	<td> -->
+<!-- 				 <div class="select_img"><img src="" width="310" height="310" /></div> -->
+<!-- 				 <div class="select_img"> -->
+<!-- 				 	<div class="product-img-div"> -->
+<%-- 				 		<img alt="product_img" src="${pageContext.request.contextPath}/images/pdetail_img.jpg" class="product-img" /> --%>
+<!-- 				 	</div> -->
+<!-- 				 </div> -->
+<!-- 					</td> -->
+<!-- 				 </tr> -->
+				 <%//=request.getRealPath("/") %>
 				
 <!-- 				 <td align="center"> -->
 <!-- 				 <div class="inputArea"> -->
@@ -235,21 +267,26 @@
 				<th>제품 설명</th>
 					<td>
 						<textarea rows="20" cols="41" name="p_explain"></textarea>
-					</td></tr>
-					<tr><td colspan="2" align="center">
-						<input type="submit" class="btn btn-default" value="등록" >
-	   					<input type="reset" class="btn btn-default" value="취소">
-   					</td></tr>
+					</td>
+				</tr>
+				
+					<tr>
+						<td colspan="2" align="center">
+							<input type="submit" class="btn btn-default" value="등록" >
+	   						<input type="reset" class="btn btn-default" value="취소">
+   						</td>
+   					</tr>
    					
    					
    			
-   				</table>
-   				
+	</table>
+	
    				</div>
 		</div>	
-			
-	</form>
+	
+</form>
 
+			
 
                         </div>
                         <!-- /.col-lg-12 -->
@@ -279,9 +316,8 @@
 
 
 
-<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>    
+  
 <script type="text/javascript">
-
 
 $("#p_img").change(function(){
 	   if(this.files && this.files[0]) {

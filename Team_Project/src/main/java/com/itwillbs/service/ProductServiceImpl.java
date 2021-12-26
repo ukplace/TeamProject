@@ -13,12 +13,6 @@ public class ProductServiceImpl implements ProductService {
 	@Inject
 	private ProductDAO productDAO;
 
-	@Override
-	public void insertProduct(ProductDTO productDTO) {
-
-		productDAO.insertProduct(productDTO);
-	}
-
 	
 	
 }

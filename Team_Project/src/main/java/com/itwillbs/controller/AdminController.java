@@ -1,16 +1,25 @@
 package com.itwillbs.controller;
 
+import java.io.File;
+import java.util.List;
+
+import javax.annotation.Resource;
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.itwillbs.domain.MemberDTO;
+import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.service.AdminService;
 import com.itwillbs.service.ProductService;
+import com.itwillbs.utils.UploadFileUtils;
 
 
 
@@ -20,12 +29,12 @@ public class AdminController {
 	@Inject
 	private AdminService adminService;
 	
-	@Inject
-	private ProductService productService;
+	@Resource(name="uploadPath")
+	private String uploadPath;
 	
 	
 	
-	//상품 관리(상품 리스트/등록/수정/삭제)
+	// 상품관리 - 상품 등록
 	@RequestMapping(value = "/admin/product_regist", method = RequestMethod.GET)
 	   public String productRegist() {
 		// /WEB-INF/views/admin/product_regist.jsp
@@ -33,25 +42,60 @@ public class AdminController {
 	   }
 	
 	@RequestMapping(value = "/admin/product_regist_pro", method = RequestMethod.POST)
-	   public String product_registPro(ProductDTO productDTO) {
-		productService.insertProduct(productDTO);
+	   public String product_registPro(ProductDTO productDTO, MultipartFile file) throws Exception {
 		
-	      // /WEB-INF/views/admin/product_registPro.jsp
+		String imgUploadPath = uploadPath + File.separator + "imgUpload";
+		String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
+		String fileName = null;
+
+		if(file != null) {
+		 fileName = UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath); 
+		} else {
+		 fileName = uploadPath + File.separator + "images" + File.separator + "none.png";
+		}
+
+		productDTO.setP_img(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
+		productDTO.setP_thumImg(File.separator + "imgUpload" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);
+		
+		adminService.insertProduct(productDTO);
+
+		// /WEB-INF/views/admin/product_registPro.jsp
 	      return "redirect:/admin/product_list";
 	   }
 
+	// 상품관리 - 상품 리스트
 	@RequestMapping(value = "/admin/product_list", method = RequestMethod.GET)
-	   public String productList() {
-	      // /WEB-INF/views/admin/product_list.jsp
-	      return "admin/product_list";
-	   }
+	public String productList(HttpServletRequest request, Model model) {
+		// 데이터 가져오기 (페이지 있는지 없는지 비교)
+		PageDTO pageDTO = new PageDTO();
+		pageDTO.setPageSize(3); // *pageSize(한화면에보여줄글갯수)
+		
+		if(request.getParameter("pageNum") == null) { // 없으면 pageNum 1 로 세팅
+			pageDTO.setPageNum("1");
+		} else { // 있으면 pageNum 2 로 세팅
+			pageDTO.setPageNum(request.getParameter("pageNum"));
+		}
+		
+		List<ProductDTO> productList = adminService.getProductList(pageDTO);
+		
+		// 페이징처리 - 제품리스트 전체 글 개수
+		pageDTO.setCount(adminService.getProductCount());
+		
+		model.addAttribute("productList", productList); // model 에 담아서 데이터 들고 감!
+		model.addAttribute("pageDTO", pageDTO); // 페이지관련 계산 -> pageDTO값으로 들고 감!
+		
+		// /WEB-INF/views/admin/product_list.jsp
+		return "admin/product_list";
+	}
 	
+	// 상품관리 - 상품 상세페이지
 	@RequestMapping(value = "/admin/product_detail", method = RequestMethod.GET)
 	   public String productDetail() {
 	      // /WEB-INF/views/admin/product_detail.jsp
 	      return "admin/product_detail";
 	   }
 
+	// 상품관리 - 상품 수정
 	@RequestMapping(value = "/admin/product_update", method = RequestMethod.GET)
 	   public String productUpdate() {
 	      // /WEB-INF/views/admin/product_update
@@ -59,12 +103,29 @@ public class AdminController {
 	   }
 
 	@RequestMapping(value = "/admin/product_update_pro", method = RequestMethod.POST)
-	   public String productUpdatePro() {
-		
-	      // /WEB-INF/views/admin/product_list
-	      return "redirect:/admin/product_list";
+	   public String productUpdatePro(ProductDTO productDTO, MultipartFile file) throws Exception {
+
+			String imgUploadPath = uploadPath + File.separator + "imgUpload";
+			String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
+			String fileName = null;
+			
+			if(file != null) {
+			 fileName = UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath); 
+			} else {
+			 fileName = uploadPath + File.separator + "images" + File.separator + "none.png";
+			}
+			
+			productDTO.setP_img(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
+			productDTO.setP_thumImg(File.separator + "imgUpload" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);
+			
+			
+			adminService.updateProduct(productDTO);
+			
+			// /WEB-INF/views/admin/product_list
+			return "redirect:/admin/product_list";
 	   }
 
+	// 상품관리 - 상품 삭제
 	@RequestMapping(value = "/admin/product_delete_pro", method = RequestMethod.POST)
 	   public String productDeletePro() {
 		

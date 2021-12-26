@@ -15,13 +15,7 @@ public class ProductDAOImpl implements ProductDAO {
 	
 	private static final String namespace="com.itwillbs.mapper.ProductMapper";
 
-	@Override
-	public void insertProduct(ProductDTO productDTO) {
-		sqlSession.insert(namespace+".insertProduct", productDTO);
-	}
 	
 	
 	
-	
-
 }
