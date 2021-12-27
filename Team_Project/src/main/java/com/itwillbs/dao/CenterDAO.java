@@ -49,6 +49,8 @@ public interface CenterDAO {
 	public NoticeDTO getNoticeDetail(NoticeDTO noticeDTO);
 
 	public void updateNotice(NoticeDTO noticeDTO);
+
+	public void notice_delete_pro(int notice_idx);
 	
 	//notice
 }

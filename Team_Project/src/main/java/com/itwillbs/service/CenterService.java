@@ -48,5 +48,7 @@ public interface CenterService {
 	public void faq_update(FaqDTO faqDTO);
 
 	public void updateNotice(NoticeDTO noticeDTO);
+
+	public void notice_delete_pro(int notice_idx);
 	
 }

@@ -133,6 +133,13 @@ public class CenterDAOImpl implements CenterDAO {
 		
 		sqlSession.update(namespace+".updateNotice", noticeDTO);
 	}
+
+	@Override
+	public void notice_delete_pro(int notice_idx) {
+		
+		sqlSession.delete(namespace+".notice_delete_pro", notice_idx);
+		
+	}
 	
 
 	
