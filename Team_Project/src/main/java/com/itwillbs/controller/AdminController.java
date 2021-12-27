@@ -8,11 +8,15 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
@@ -25,6 +29,7 @@ import com.itwillbs.utils.UploadFileUtils;
 
 @Controller
 public class AdminController {
+	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 	
 	@Inject
 	private AdminService adminService;
@@ -88,12 +93,12 @@ public class AdminController {
 		return "admin/product_list";
 	}
 	
-	// 상품관리 - 상품 상세페이지
-	@RequestMapping(value = "/admin/product_detail", method = RequestMethod.GET)
-	   public String productDetail() {
-	      // /WEB-INF/views/admin/product_detail.jsp
-	      return "admin/product_detail";
-	   }
+//	// 상품관리 - 상품 상세페이지
+//	@RequestMapping(value = "/admin/product_detail", method = RequestMethod.GET)
+//	   public String productDetail() {
+//	      // /WEB-INF/views/admin/product_detail.jsp
+//	      return "admin/product_detail";
+//	   }
 
 	// 상품관리 - 상품 수정
 	@RequestMapping(value = "/admin/product_update", method = RequestMethod.GET)
@@ -124,14 +129,31 @@ public class AdminController {
 			// /WEB-INF/views/admin/product_list
 			return "redirect:/admin/product_list";
 	   }
-
-	// 상품관리 - 상품 삭제
-	@RequestMapping(value = "/admin/product_delete_pro", method = RequestMethod.POST)
-	   public String productDeletePro() {
+	
+	
+	// 상품 조회
+		@RequestMapping(value = "/admin/productView", method = RequestMethod.GET)
+		public String productView(@RequestParam("num") int p_num, Model model) throws Exception {
+			logger.info("get goods view");
+			
+			ProductDTO productDTO = adminService.productView(p_num);
+			
+			model.addAttribute("ProductDTO", productDTO);
+			
+			return "admin/product_view";
+		}
+	
+	
+	
+	
+	
+	// 상품 삭제
+	@RequestMapping(value = "/admin/delete", method = RequestMethod.POST)
+	public String delete(@RequestParam("num") int p_num) throws Exception{
+		adminService.deleteProduct(p_num);
 		
-	      // /WEB-INF/views/admin/product_list
-	      return "redirect:/admin/product_list";
-	   }
+		return "redirect:/admin/product_list";
+	}
 
 	 
 	
