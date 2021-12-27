@@ -50,5 +50,7 @@ public interface CenterDAO {
 
 	public void updateNotice(NoticeDTO noticeDTO);
 	
+	public void deleteNotice(NoticeDTO noticeDTO);
+	
 	//notice
 }

@@ -77,6 +77,23 @@
 </style>
 
 
+<script type="text/javascript">
+function removeCheck() {
+	 if (confirm("정말 삭제하시겠습니까??") == true){    //확인
+	
+	    location.href='${pageContext.request.contextPath}/center/notice_delete_pro?notice_idx=${noticeDTO.notice_idx}&page=${pageDTO.pageNum }';
+
+	 }else{   //취소
+
+	     return false;
+
+	 }
+	
+}
+
+</script>
+
+
 </head>
 <body>
 
@@ -141,7 +158,11 @@
 										</c:when>
 										</c:choose>
 											<input type="button" value="목록" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/center/notice_list'">
-											
+										<c:choose>
+										<c:when test="${'admin@shushu.com' eq sessionScope.id }">
+											<input type="button" value="삭제" class="btn btn-primary" onclick="removeCheck()">
+										</c:when>
+										</c:choose>	
 										</div>
 									</div>
 				</form>

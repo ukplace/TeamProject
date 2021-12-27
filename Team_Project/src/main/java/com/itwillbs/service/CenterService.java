@@ -48,5 +48,7 @@ public interface CenterService {
 	public void faq_update(FaqDTO faqDTO);
 
 	public void updateNotice(NoticeDTO noticeDTO);
+
+	public void deleteNotice(NoticeDTO noticeDTO);
 	
 }

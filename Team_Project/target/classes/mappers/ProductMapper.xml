@@ -5,6 +5,8 @@
   
 <mapper namespace="com.itwillbs.mapper.ProductMapper">
 
-	
+<!-- 	<select id="ProwomenList" resultType="com.itwillbs.domain.productDTO">
+		select * from product where p_category = 'WOMEN'
+	</select> -->
 	
 </mapper>

@@ -162,5 +162,10 @@ public class CenterServiceImpl implements CenterService {
 		centerDAO.updateNotice(noticeDTO);
 	}
 
+	@Override
+	public void deleteNotice(NoticeDTO noticeDTO) {
+		centerDAO.deleteNotice(noticeDTO);
+	}
+
 	
 }
