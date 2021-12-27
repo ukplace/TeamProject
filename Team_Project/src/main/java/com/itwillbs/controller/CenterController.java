@@ -119,7 +119,7 @@ public class CenterController {
 		return "redirect:/center/notice_list";
 	}
 
-	// **공지사항 삭제페이지 만들어야할까? 아님 버튼누르면 바로 삭제기능만 구현할까?
+	// **공지사항 삭제페이지 만들어야할까? 아님 버튼누르면 바로 삭제기능만 구현할까? -> 버튼누르면 삭제구현하기로
 
 	@RequestMapping(value = "/center/notice_delete_pro", method = RequestMethod.GET)
 	public String notice_delete_pro(HttpServletRequest request) {
@@ -229,9 +229,13 @@ public class CenterController {
 
 	// **자주묻는질문(faq)도 삭제페이지 만들어야할까? 아님 버튼누르면 바로 삭제기능만 구현할까?
 
-	@RequestMapping(value = "/center/faq_delete_pro", method = RequestMethod.POST)
-	public String faq_delete_pro() {
-
+	@RequestMapping(value = "/center/faq_delete_pro", method = RequestMethod.GET)
+	public String faq_delete_pro(HttpServletRequest request) {
+		FaqDTO faqDTO = new FaqDTO();
+		faqDTO.setFaq_idx(Integer.parseInt(request.getParameter("faq_idx")));
+		
+		centerService.deleteFaq(faqDTO);
+		
 		// /WEB-INF/views/foot/faq_list.jsp
 		return "redirect:/center/faq_list";
 	}
@@ -304,7 +308,7 @@ public class CenterController {
 
 	@RequestMapping(value = "/center/qna_update", method = RequestMethod.GET)
 	public String qna_update() {
-
+		
 		// /WEB-INF/views/foot/qna_update.jsp
 		return "foot/qna_update";
 	}
@@ -317,8 +321,11 @@ public class CenterController {
 	}
 
 	@RequestMapping(value = "/center/qna_delete", method = RequestMethod.GET)
-	public String qna_delete() {
-
+	public String qna_delete(HttpServletRequest request) {
+		QnaDTO qnaDTO = new QnaDTO();
+		qnaDTO.setQna_idx(Integer.parseInt(request.getParameter("qna_idx")));
+		
+		centerService.deleteQna(qnaDTO);
 		// /WEB-INF/views/foot/qna_delete.jsp
 		return "foot/qna_delete";
 	}
