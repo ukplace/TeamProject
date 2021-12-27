@@ -211,7 +211,7 @@
 				 <div class="select_img">
 				 	<div class="product-img-div">
 				 		<div class="select_img">
-				 			<img alt="product_img" src="${pageContext.request.contextPath}/${ProductDTO.p_thumImg}" class="product-img"/>
+				 			<img alt="product_img" src="${pageContext.request.contextPath}${ProductDTO.p_thumImg}" class="product-img"/>
 				 		</div>
 				 	</div>
 				 </div>
