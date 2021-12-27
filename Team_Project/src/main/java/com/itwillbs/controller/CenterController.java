@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.itwillbs.domain.FaqDTO;
 import com.itwillbs.domain.NoticeDTO;
@@ -124,7 +125,6 @@ public class CenterController {
 	public String notice_delete_pro(HttpServletRequest request) {
 		NoticeDTO noticeDTO = new NoticeDTO();
 		noticeDTO.setNotice_idx(Integer.parseInt(request.getParameter("notice_idx")));
-		System.out.println("노티스 아이디엑스 "+noticeDTO.getNotice_idx());
 		
 		centerService.deleteNotice(noticeDTO);
 		

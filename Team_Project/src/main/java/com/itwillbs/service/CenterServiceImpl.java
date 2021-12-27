@@ -165,6 +165,7 @@ public class CenterServiceImpl implements CenterService {
 	@Override
 	public void deleteNotice(NoticeDTO noticeDTO) {
 		centerDAO.deleteNotice(noticeDTO);
+		
 	}
 
 	

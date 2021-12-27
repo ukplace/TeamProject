@@ -97,6 +97,4 @@
 	<delete id="deleteNotice">
 		delete from notice WHERE notice_idx = #{notice_idx}
 	</delete>
-	
-	
 </mapper>

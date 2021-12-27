@@ -75,7 +75,16 @@
 	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
 }
 </style>
+<!-- <script type="text/javascript"> -->
+<!-- $("#deleteBtn").click(function(){ -->
+<!-- 	// 글 삭제 확인 -->
+<!-- 	if(confirm("삭제하시겠습니까?")){ -->
+<%-- 		document.deleteForm.action="${pageContext.request.contextPath}/center/notice_delete_pro?num=${NoticeDTO.notice_idx}" --%>
+<!-- 		document.deleteForm.submit(); -->
+<!-- 	} -->
+<!-- } -->
 
+<!-- </script> -->
 
 <script type="text/javascript">
 function removeCheck() {
@@ -119,10 +128,11 @@ function removeCheck() {
 				</div>
 			</div>
 		</div>
-
+		<br>
 		<div class="row" >
 			<div class="col-lg-8" style= "display: inline-block; margin: 0 auto;">
-				
+				<form method="post" name="deleteForm" enctype="multipart/form-data">                     
+				<input type="hidden" name="idx" value="${NoticeDTO.notice_idx}" />
 					<h2>공지사항</h2>
 						
 						
@@ -132,7 +142,7 @@ function removeCheck() {
 								 ${noticeDTO.notice_subject}
 							</div>
 						</div>
-						
+						<br>
 						<div class="col-sm-12">
 										<div class="form-group">
 											<label for="content">공지내용</label><br>
@@ -158,11 +168,15 @@ function removeCheck() {
 										</c:when>
 										</c:choose>
 											<input type="button" value="목록" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/center/notice_list'">
+<<<<<<< HEAD
 										<c:choose>
 										<c:when test="${'admin@shushu.com' eq sessionScope.id }">
 											<input type="button" value="삭제" class="btn btn-primary" onclick="removeCheck()">
 										</c:when>
 										</c:choose>	
+=======
+											<input type="button" class="btn btn-primary" value="삭제" onclick="location.href='${pageContext.request.contextPath}/center/notice_delete_pro?notice_idx=${noticeDTO.notice_idx }">
+>>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 										</div>
 									</div>
 				</form>
