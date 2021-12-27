@@ -383,14 +383,8 @@ $(document).ready(function() {
     //남성에 해당하는 sub category 리스트
     subCategoryObject = new Object();
     subCategoryObject.main_category_id = "MEN";
-    subCategoryObject.sub_category_id = "정장화"
-    subCategoryObject.sub_category_name = "정장화"    
-    subCategoryArray.push(subCategoryObject);
-    
-    subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "MEN";
-    subCategoryObject.sub_category_id = "로퍼&모카신"
-    subCategoryObject.sub_category_name = "로퍼&모카신"    
+    subCategoryObject.sub_category_id = "구두"
+    subCategoryObject.sub_category_name = "구두"    
     subCategoryArray.push(subCategoryObject);
     
     subCategoryObject = new Object();
@@ -401,58 +395,64 @@ $(document).ready(function() {
     
     subCategoryObject = new Object();
     subCategoryObject.main_category_id = "MEN";
-    subCategoryObject.sub_category_id = "스포츠/아웃도어"
-    subCategoryObject.sub_category_name = "스포츠/아웃도어"    
+    subCategoryObject.sub_category_id = "러닝화"
+    subCategoryObject.sub_category_name = "러닝화"    
     subCategoryArray.push(subCategoryObject);
     
     subCategoryObject = new Object();
     subCategoryObject.main_category_id = "MEN";
-    subCategoryObject.sub_category_id = "하이탑/부츠"
-    subCategoryObject.sub_category_name = "하이탑/부츠"    
+    subCategoryObject.sub_category_id = "아웃도어"
+    subCategoryObject.sub_category_name = "아웃도어"    
     subCategoryArray.push(subCategoryObject);
+    
+//     subCategoryObject = new Object();
+//     subCategoryObject.main_category_id = "MEN";
+//     subCategoryObject.sub_category_id = "하이탑/부츠"
+//     subCategoryObject.sub_category_name = "하이탑/부츠"    
+//     subCategoryArray.push(subCategoryObject);
     
     //여성에 해당하는 sub category 리스트
     subCategoryObject = new Object();
     subCategoryObject.main_category_id = "WOMEN";
-    subCategoryObject.sub_category_id = "힐/펌프스"
-    subCategoryObject.sub_category_name = "힐/펌프스"    
+    subCategoryObject.sub_category_id = "구두/힐"
+    subCategoryObject.sub_category_name = "구두/힐"    
     subCategoryArray.push(subCategoryObject);
     
     subCategoryObject = new Object();
     subCategoryObject.main_category_id = "WOMEN";
-    subCategoryObject.sub_category_id = "플랫슈즈/로퍼"
-    subCategoryObject.sub_category_name = "플랫슈즈/로퍼"    
+    subCategoryObject.sub_category_id = "스니커즈"
+    subCategoryObject.sub_category_name = "스니커즈"    
     subCategoryArray.push(subCategoryObject);
     
     subCategoryObject = new Object();
     subCategoryObject.main_category_id = "WOMEN";
-    subCategoryObject.sub_category_id = "스니커즈/슬립온"
-    subCategoryObject.sub_category_name = "스니커즈/슬립온"    
+    subCategoryObject.sub_category_id = "러닝화"
+    subCategoryObject.sub_category_name = "러닝화"    
     subCategoryArray.push(subCategoryObject);
     
     subCategoryObject = new Object();
     subCategoryObject.main_category_id = "WOMEN";
-    subCategoryObject.sub_category_id = "스포츠/아웃도어"
-    subCategoryObject.sub_category_name = "스포츠/아웃도어"    
+    subCategoryObject.sub_category_id = "아웃도어"
+    subCategoryObject.sub_category_name = "아웃도어"    
     subCategoryArray.push(subCategoryObject);
     
     //키즈에 해당하는 sub category 리스트
     subCategoryObject = new Object();
     subCategoryObject.main_category_id = "KIDS";
-    subCategoryObject.sub_category_id = "스포츠/아웃도어"
-    subCategoryObject.sub_category_name = "스포츠/아웃도어"    
-    subCategoryArray.push(subCategoryObject);
-    
-    subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "KIDS";
     subCategoryObject.sub_category_id = "스니커즈"
     subCategoryObject.sub_category_name = "스니커즈"    
     subCategoryArray.push(subCategoryObject);
     
     subCategoryObject = new Object();
     subCategoryObject.main_category_id = "KIDS";
-    subCategoryObject.sub_category_id = "플랫슈즈"
-    subCategoryObject.sub_category_name = "플랫슈즈"    
+    subCategoryObject.sub_category_id = "러닝화"
+    subCategoryObject.sub_category_name = "러닝화"    
+    subCategoryArray.push(subCategoryObject);
+    
+    subCategoryObject = new Object();
+    subCategoryObject.main_category_id = "KIDS";
+    subCategoryObject.sub_category_id = "구두"
+    subCategoryObject.sub_category_name = "구두"    
     subCategoryArray.push(subCategoryObject);
     
     //****************이부분은 DB로 셋팅하세요.
