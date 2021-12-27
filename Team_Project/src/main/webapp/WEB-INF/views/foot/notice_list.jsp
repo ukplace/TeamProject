@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -61,6 +62,14 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css">
 
+<style type="text/css">
+.notice_write{
+	float: right;
+}
+
+</style>
+
+
 
 </head>
 <body>
@@ -95,36 +104,33 @@
 		<div class="container">
 	<div class="board_list_wrap" >
 	<table class = "board_list" >
-		<h1>공지 사항</h1>
-		<br>
+		<span><h1>공지 사항</h1>
+		
+		<c:choose>
+	<c:when test="${'admin@shushu.com' eq sessionScope.id }">
+		<input type="button" onclick="location.href='${pageContext.request.contextPath}/center/notice_write'" class="notice_write" value="글쓰기" >
+	</c:when>
+	</c:choose>
+		
+		</span><br>
+		
 		<thead>
 		<tr class = "ti">
 			<th style = "width: 70px;">번호</th>
-			<th style="width: 450px;">제목</th>
-			<th style = "width : 100px;">글쓴이</th>
-			<th style = "width : 100px;">작성일</th>
-			<th style = "width : 70px;">조회</th>
+			<th style="width: 550px;">제목</th>
+			<th style = "width : 170px;">작성일</th>
 		</tr>
 		</thead>
 		<tbody>
-			<tr>
-			<td>2</td>
-			<td>
-			<a href = "#" class = "tit">공지 사항2</a>
-			</td>
-			<td>관리자</td>
-			<td>날짜</td>
-			<td>111</td>
-		</tr>
+		<c:forEach var="noticeDTO" items="${noticeList }">
 		<tr>
-			<td>1</td>
+			<td>${noticeDTO.notice_idx}</td>
 			<td>
-			<a href = "#" class = "tit">공지사항</a>
+			<a href = "${pageContext.request.contextPath}/center/notice_detail?notice_idx=${noticeDTO.notice_idx}&page=${pageDTO.pageNum } " class = "tit">${noticeDTO.notice_subject}</a>
 			</td>
-			<td class = "garo_size2">관리자</td>
-			<td>날짜</td>
-			<td>111</td>
+			<td>${noticeDTO.notice_date}</td>
 		</tr>
+		</c:forEach>
 		</tbody>
 	</table>
 	<br>
