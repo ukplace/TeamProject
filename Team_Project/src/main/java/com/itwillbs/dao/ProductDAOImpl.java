@@ -24,6 +24,12 @@ public class ProductDAOImpl implements ProductDAO {
 		return sqlSession.selectList(namespace + ".getProductKidsList", pageDTO);
 	}
 
+	@Override
+	public List<ProductDTO> getProductWomenList(PageDTO pageDTO) {
+		System.out.println("ProductDAOImpl - getProductWomenList()");
+		return sqlSession.selectList(namespace + ".getProductWomenList", pageDTO);
+	}
+
 	
 	
 	
