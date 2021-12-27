@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -10,13 +9,6 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<!-- Facebook and Twitter integration -->
-
-<meta name="twitter:title" content="" />
-<meta name="twitter:image" content="" />
-<meta name="twitter:url" content="" />
-<meta name="twitter:card" content="" />
- <link href="${pageContext.request.contextPath}/css/style12.css" rel="stylesheet">
 <link
 	href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,700"
 	rel="stylesheet">
@@ -62,6 +54,28 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css">
 
+<style type="text/css">
+.form-control-9 {
+	display: block;
+	width: 100%;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.42857143;
+	color: #555;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+	-webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow
+		ease-in-out .15s;
+	-o-transition: border-color ease-in-out .15s, box-shadow ease-in-out
+		.15s;
+	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
+}
+</style>
+
 
 </head>
 <body>
@@ -76,117 +90,71 @@
 		</nav>
 
 		<div class="breadcrumbs">
-			<div class="container">
+			<div class="container" >
 				<div class="row">
 					<div class="col">
 						<p class="bread">
-							<span>
-							<a href="${pageContext.request.contextPath}/center/notice_list/">공지사항</a></span> /
-							<span>
-							<a href="${pageContext.request.contextPath}/center/faq_list/">자주묻는질문</a></span> /
-							<span>
-							<a href="${pageContext.request.contextPath}/center/qna_list/">1:1 문의하기</a></span>
+							<span><a
+								href="${pageContext.request.contextPath}/foot/index/">Home</a></span>
+							<span>공지사항</span>
 						</p>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<!-- Page Content -->
-		<div class = "container">
-	<div class="board_list_wrap">
-	<table class = "board_list">
-		<h1>FAQ</h1>
-		<br>
-		<thead>
-		<tr class = "ti">
-			<th style = "width : 70px;">번호</th>
-			<th style="width: 450px;">제목</th>
-			<th style = "width : 100px;">질문</th>
-			<th style = "width : 100px;">작성일</th>
-		</tr>
-		</thead>
-		
-		<tbody>
-		<!-- 리스트 받아오는 부분 -->
-		<c:forEach var="faqDTO" items="${faqList }">
-			<tr>
-				<td><a href="#" class="tit">${faqDTO.faq_idx }</a></td>
-				<td><a href="${pageContext.request.contextPath}/center/faq_detail?faq_idx=${faqDTO.faq_idx}&page=${pageDTO.pageNum } "class="tit">${faqDTO.faq_subject}</a></td>
-				<td><a href="#" class="tit">${faqDTO.faq_question}</a></td>
-				<td><fmt:formatDate value="${faqDTO.faq_date}" pattern="yyyy-MM-dd"/></td>
-			</tr>
-		</c:forEach>
-<!-- 			<tr> -->
-<!-- 			<td>2</td> -->
-<!-- 			<td> -->
-<!-- 			<a href = "#" class = "tit">자주 묻는 질문2</a> -->
-<!-- 			</td> -->
-<!-- 			<td>관리자</td> -->
-<!-- 			<td>날짜</td> -->
-<!-- 			<td>111</td> -->
-<!-- 		</tr> -->
-		</tbody>
-	</table>
-	<br>
-	<!-- 페이징 버튼부분 -->
-		<div class="row">
-				<div class="col-md-12 text-center">
-						<div class="block-27">
-				               <ul>
-					              <li class="active">
-									<c:choose >	
-										<c:when test="${pageDTO.startPage > pageDTO.pageBlock }" >
-											<a href ="${pageContext.request.contextPath}/center/faq_list?pageNum=${pageDTO.startPage-pageDTO.pageBlock}"><i class="ion-ios-arrow-back">이전</i></a>
+		<div class="row" >
+			<div class="col-lg-8" style= "display: inline-block; margin: 0 auto;">
+				
+					<h2>공지사항</h2>
+						
+						
+						<div class="col-md-7">
+							<div class="form-group">
+								<label for="subject">공지사항 제목</label><br>
+								 ${noticeDTO.notice_subject}
+							</div>
+						</div>
+						
+						<div class="col-sm-12">
+										<div class="form-group">
+											<label for="content">공지내용</label><br>
+												${noticeDTO.notice_content}
+										</div>
+									</div>
+				
+						
+<!-- 						<div class="col-md-12"> -->
+<!-- 							<div  class="form-group"> -->
+<!-- 								<div class="radio"> -->
+<!-- 									<label><input type="radio" 	name="radio" value="normal"> 일반글</label> -->
+<!-- 									<label><input type="radio" name="radio" value="secret"> 비밀글 </label>  -->
+<!-- 								</div> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+					</div>
+					<div class="col-sm-12">
+										<div class="form-group" style="text-align: center;">
+										<c:choose>
+										<c:when test="${'admin@shushu.com' eq sessionScope.id }">
+											<input type="button" value="수정" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/center/notice_update?notice_idx=${noticeDTO.notice_idx}&page=${pageDTO.pageNum }'">
 										</c:when>
-										<c:otherwise>
-											<i class="ion-ios-arrow-back">이전</i>
-										</c:otherwise>
-									</c:choose></li>
-				               
-				                  <li class="active">
-									<c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1">
-										<a href="${pageContext.request.contextPath}/center/faq_list?pageNum=${i }"${1 }>${i }</a>
-									</c:forEach></li>
-				                  <li class="active">
-				                 <!-- end페이지 -->
-				                 	<c:choose>
-										<c:when test= "${pageDTO.endPage > pageDTO.pageCount }">
-											<a href = "${pageContext.request.contextPath}/center/faq_list?pageNum=${pageDTO.startPage+pageDTO.pageBlock}">다음<i class="ion-ios-arrow-forward"></i></a>
-										</c:when>
-										<c:otherwise>
-											다음<i class="ion-ios-arrow-forward"></i>
-										</c:otherwise>
-									</c:choose>
-								</li>
-				               </ul>
-				            </div>
-				</div>
+										</c:choose>
+											<input type="button" value="목록" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/center/notice_list'">
+											
+										</div>
+									</div>
+				</form>
+			</div>
+
 	</div>
-</div>
-</div>
-
-
-<c:choose>
-<c:when test="${'admin@shushu.com' eq sessionScope.id }">
-		<input type="button" value="등록" onclick="location.href='${pageContext.request.contextPath}/center/faq_write'">
-	</c:when>
-</c:choose>
-
-
-
-
-
-
-		<!-- /#page-wrapper -->
-
-	<!-- /#wrapper -->
 
 	<footer id="colorlib-footer" role="contentinfo">
 		<!-- 푸터들어가는곳 -->
 		<jsp:include page="../inc/bottom.jsp"></jsp:include>
 		<!-- 푸터들어가는곳 -->
 	</footer>
+	</div>
 
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="ion-ios-arrow-up"></i></a>

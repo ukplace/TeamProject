@@ -65,7 +65,7 @@
 				<div class="row">
 							<h2>공지사항</h2>
 					<div class="col-lg-8" >
-						<form method="post" class="colorlib-form" name="join" action="${pageContext.request.contextPath}/center/notice_writePro">
+						<form method="post" class="colorlib-form" name="join" action="${pageContext.request.contextPath}/center/notice_update_pro?notice_idx=${noticeDTO.notice_idx}">
 		              		<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
@@ -79,12 +79,12 @@
   										
   										<div class="form-group">
 										<label for="tel"><h4>공지사항 제목</h4></label>
-   										<input type="text" id="notice_subject" name="notice_subject" class = "subject"/>      
+   										<input type="text" id="notice_subject" name="notice_subject" class = "subject" value="${noticeDTO.notice_subject }">      
   										</div>
 			    
 										<div class="form-group">
 										<label for="notice_content"><h4>내용</h4></label>
-										<textarea rows="30" cols="100" name="notice_content"></textarea>
+										<textarea rows="30" cols="100" name="notice_content">${noticeDTO.notice_content }</textarea>
   										</div>
   										
   										

@@ -21,13 +21,34 @@ public interface CenterDAO {
 	///qna/////
 	
 	
-	public void insertNotice(NoticeDTO noticeDTO);
+	
 	
 	public Integer getIncrementNum();
 	
 	public void insertReplyAricle(QnaDTO qnaDTO);
 	
+	// faq
 	public void insertFaq(FaqDTO FaqDTO);
 
+	public List<FaqDTO> getFaqList(PageDTO pageDTO);
+
+	public int getFaqCount();
+
+	public FaqDTO getFaqDetail(FaqDTO faqDTO);
+
+	public void faq_update(FaqDTO faqDTO);
+
 	
+	//notice
+	public List<NoticeDTO> getNoticeList(PageDTO pageDTO);
+
+	public void insertNotice(NoticeDTO noticeDTO);
+
+	public int getNoticeCount();
+
+	public NoticeDTO getNoticeDetail(NoticeDTO noticeDTO);
+
+	public void updateNotice(NoticeDTO noticeDTO);
+	
+	//notice
 }
