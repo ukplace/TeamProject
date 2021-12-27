@@ -19,5 +19,10 @@ public interface AdminDAO {
 	// adminService.updateProduct(productDTO);
 	public void updateProduct(ProductDTO productDTO);
 	
+	public ProductDTO productView(int p_num);
+	
+	// adminService.deleteMember(memberDTO);
+	public void deleteProduct(int p_num);
+	
 
 }

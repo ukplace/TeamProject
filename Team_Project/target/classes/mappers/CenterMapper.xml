@@ -34,11 +34,6 @@
 		select * from qna where qna_idx = ${qna_idx} 
 	</select>
 	
-	
-	<insert id="insertNotice">
-		insert into notice(notice_sbject, notice_content)
-		vales(#{notice_subject},#{notice_content},#{notice_readcount})
-	</insert>
 	<select id="getIncrementNum" resultType="java.lang.Integer">
 		SELECT auto_increment FROM information_schema.tables 
 		WHERE table_name='qna' AND table_schema=DATABASE();
@@ -53,6 +48,7 @@
 		INSERT into qna(qna_name,qna_subject,qna_content,qna_type,qna_re_ref,_qna_re_lev,qna_re_seq) 
 		values(#{qna_name},#{qna_subject},#{qna_content},#{qna_type},#{qna_re_ref},#{re_lev},#{re_seq})
 	</insert>
+	
 	
 	
 	<insert id="insertFaq">
@@ -71,7 +67,31 @@
 		select * from faq where faq_idx = #{faq_idx} 
 	</select>
 	
+	
+	
+	<insert id="insertNotice">
+		insert into notice (notice_subject, notice_content)
+		values (#{notice_subject},#{notice_content})
+	</insert>
+	
+	<select id="getNoticeCount" resultType="java.lang.Integer">
+		select count(*) from notice
+	</select>
+	
+	<select id="getNoticeList" resultType="com.itwillbs.domain.NoticeDTO">
+		select * from notice order by notice_idx  DESC limit #{startRow},#{pageSize}
+	</select>
+	
+	<select id="getNoticeDetail" resultType="com.itwillbs.domain.NoticeDTO" >
+		select * from notice where notice_idx = ${notice_idx} 
+	</select>
+	
 	<update id="updateFaq">
 		update faq set faq_subject=#{faq_subject},faq_question=#{faq_question},faq_answer=#{faq_answer} where faq_idx=#{faq_idx}
 	</update>
+	
+	<update id="updateNotice">
+		update notice set notice_subject=#{notice_subject},notice_content=#{notice_content} where notice_idx=#{notice_idx}
+	</update>
+	
 </mapper>

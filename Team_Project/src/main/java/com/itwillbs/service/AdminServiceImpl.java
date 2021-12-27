@@ -63,6 +63,21 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 
+	@Override
+	public void deleteProduct(int p_num) {
+		
+		adminDAO.deleteProduct(p_num);
+
+	}
+
+
+	@Override
+	public ProductDTO productView(int p_num) {
+		
+		return adminDAO.productView(p_num);
+	}
+
+
 
 
 }

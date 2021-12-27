@@ -21,7 +21,7 @@ public interface CenterDAO {
 	///qna/////
 	
 	
-	public void insertNotice(NoticeDTO noticeDTO);
+	
 	
 	public Integer getIncrementNum();
 	
@@ -39,4 +39,16 @@ public interface CenterDAO {
 	public void faq_update(FaqDTO faqDTO);
 
 	
+	//notice
+	public List<NoticeDTO> getNoticeList(PageDTO pageDTO);
+
+	public void insertNotice(NoticeDTO noticeDTO);
+
+	public int getNoticeCount();
+
+	public NoticeDTO getNoticeDetail(NoticeDTO noticeDTO);
+
+	public void updateNotice(NoticeDTO noticeDTO);
+	
+	//notice
 }

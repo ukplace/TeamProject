@@ -10,13 +10,22 @@ import com.itwillbs.domain.QnaDTO;
 public interface CenterService {
 
 	// 추상메서드
-	public void insertQna(QnaDTO qnaDTO);
+	public int getNoticeCount();
+	
+	public List<NoticeDTO> getNoticeList(PageDTO pageDTO);
 
+	public void insertNotice(NoticeDTO noticeDTO);
+	
+	
+	
+	
+	public void insertQna(QnaDTO qnaDTO);
+	
 	public List<QnaDTO> getQnaList(PageDTO pageDTO);
 
 	public int getQnaCount();
 
-	public void insertNotice(NoticeDTO noticeDTO);
+
 
 	
 	public void insertReplyAricle(QnaDTO qnaDTO);
@@ -27,10 +36,17 @@ public interface CenterService {
 
 	public List<FaqDTO> getFaqList(PageDTO pageDTO);
 
+	public NoticeDTO getNoticeDetail(NoticeDTO noticeDTO);
+
+	
+
+	
 	public int getFaqCount();
 
 	public FaqDTO getFaqDetail(FaqDTO faqDTO);
 
 	public void faq_update(FaqDTO faqDTO);
+
+	public void updateNotice(NoticeDTO noticeDTO);
 	
 }

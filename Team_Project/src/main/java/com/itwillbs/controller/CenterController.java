@@ -1,5 +1,6 @@
 package com.itwillbs.controller;
 
+import java.util.Arrays;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -24,16 +25,51 @@ public class CenterController {
 
 	// 공지사항(notice) 매핑
 	@RequestMapping(value = "/center/notice_list", method = RequestMethod.GET)
-	public String notice_list() {
+	public String notice_list(HttpServletRequest request, Model model) {
+			PageDTO pageDTO = new PageDTO();
+			// 한 페이지에 보여 줄 갯수
+			pageDTO.setPageSize(10);
+
+			if (request.getParameter("pageNum") == null) { // 없을때
+				pageDTO.setPageNum("1");
+			} else { // 있을때
+				pageDTO.setPageNum(request.getParameter("pageNum"));
+			}
+
+			// 리스트 받아오기
+			List<NoticeDTO> noticeList = centerService.getNoticeList(pageDTO);
+
+			// 카운트
+			pageDTO.setCount(centerService.getNoticeCount());
+
+			// 데이터 담아서 list.jsp에 리스트 전달
+			model.addAttribute("noticeList", noticeList);
+			// 페이지dto에 담아서 전달
+			model.addAttribute("pageDTO", pageDTO);
 
 		// /WEB-INF/views/foot/notice_list.jsp
 		return "foot/notice_list";
 	}
 
 	@RequestMapping(value = "/center/notice_detail", method = RequestMethod.GET)
-	public String notice_detail() {
+	public String notice_detail(HttpServletRequest request, Model model) {
+		PageDTO pageDTO = new PageDTO();
 
-		// /WEB-INF/views/foot/notice_detail.jsp
+		if (request.getParameter("pageNum") == null) { // 없을때
+			pageDTO.setPageNum("1");
+		} else { // 있을때
+			pageDTO.setPageNum(request.getParameter("pageNum"));
+		}
+		NoticeDTO noticeDTO = new NoticeDTO();
+		noticeDTO.setNotice_idx(Integer.parseInt(request.getParameter("notice_idx")));
+		System.out.println(noticeDTO.getNotice_idx());
+		System.out.println(pageDTO.getPageNum());
+		noticeDTO = centerService.getNoticeDetail(noticeDTO);
+
+		model.addAttribute("pageDTO", pageDTO);
+		model.addAttribute("noticeDTO", noticeDTO);
+
+		// /WEB-INF/views/foot/qna_update.jsp
 		return "foot/notice_detail";
 	}
 
@@ -48,22 +84,37 @@ public class CenterController {
 	public String notice_write_pro(NoticeDTO noticeDTO) {
 
 		centerService.insertNotice(noticeDTO);
-
+		System.out.println(noticeDTO.getNotice_subject());
 		// /WEB-INF/views/foot/notice_list.jsp
 		return "redirect:/center/notice_list";
 	}
-
+	
 	@RequestMapping(value = "/center/notice_update", method = RequestMethod.GET)
-	public String notice_update() {
+	public String notice_update(HttpServletRequest request, Model model) {
+		PageDTO pageDTO = new PageDTO();
 
-		// /WEB-INF/views/foot/notice_update.jsp
+		if (request.getParameter("pageNum") == null) { // 없을때
+			pageDTO.setPageNum("1");
+		} else { // 있을때
+			pageDTO.setPageNum(request.getParameter("pageNum"));
+		}
+		NoticeDTO noticeDTO = new NoticeDTO();
+		noticeDTO.setNotice_idx(Integer.parseInt(request.getParameter("notice_idx")));
+		System.out.println(noticeDTO.getNotice_idx());
+		System.out.println(pageDTO.getPageNum());
+		noticeDTO = centerService.getNoticeDetail(noticeDTO);
+
+		model.addAttribute("pageDTO", pageDTO);
+		model.addAttribute("noticeDTO", noticeDTO);
+
 		return "foot/notice_update";
 	}
 
 	@RequestMapping(value = "/center/notice_update_pro", method = RequestMethod.POST)
-	public String notice_update_pro() {
-
-		// /WEB-INF/views/foot/notice_list.jsp
+	public String notice_update_pro(HttpServletRequest request, NoticeDTO noticeDTO) {
+		noticeDTO.setNotice_idx(Integer.parseInt(request.getParameter("notice_idx")));
+		centerService.updateNotice(noticeDTO);
+		
 		return "redirect:/center/notice_list";
 	}
 
