@@ -79,9 +79,9 @@
                                             <tbody>
 											<!-- 제품리스트 받아오는 부분 -->
 											<c:forEach var="productDTO" items="${productList}">
-                                                <tr class="odd gradeX" onclick="location.href='${pageContext.request.contextPath}/admin/product_update?num=${productDTO.p_num}'">
+                                                <tr class="odd gradeX" onclick="location.href='${pageContext.request.contextPath}/admin/productView?num=${productDTO.p_num}'">
                                                     <td class="text-center">${productDTO.p_num}</td>
-                                                    <td align="center"><img alt="product_thumImg" src="${pageContext.request.contextPath}/${productDTO.p_thumImg }" width="100" height="100"></td>
+                                                    <td align="center"><img alt="product_thumImg" src="${pageContext.request.contextPath}${productDTO.p_thumImg }" width="100" height="100"></td>
                                                     <td class="text-center">${productDTO.p_name}</td>
                                                     <td class="text-center">${productDTO.p_stock}</td>
                                                     <td class="text-center"><fmt:formatDate value="${productDTO.p_date}" pattern="yyyy-MM-dd" /> </td>

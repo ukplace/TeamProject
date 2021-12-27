@@ -19,9 +19,30 @@
 	</select>
 	
 	<update id="updateProduct">
-		update product set p_name=${p_name},p_explain=${p_explain},p_category=${p_category},p_small_category=${p_small_category},p_img=${p_img},
-			p_size=${p_size},p_price=${p_price},p_stock=${p_stock},p_thumImg=${p_thumImg} where p_num=${p_num}
+		update product set p_name=#{p_name},p_explain=#{p_explain},p_category=#{p_category},p_small_category=#{p_small_category},p_img=#{p_img},
+			p_size=#{p_size},p_price=#{p_price},p_stock=#{p_stock},p_thumImg=#{p_thumImg} where p_num=#{p_num}
 	</update>
 	
+	<delete id="deleteProduct" parameterType="int">
+		delete from product where p_num = #{p_num}
+	</delete>
+	
+	<select id="productView" resultType="com.itwillbs.domain.ProductDTO">
+		select p_num, p_name, p_explain, p_category, p_small_category, p_size, p_price, p_stock, p_thumImg
+			from product
+			where p_num = #{p_num}
+	</select>
+	
+	<select id="getMemberList" resultType="com.itwillbs.domain.MemberDTO">
+		select * from member limit #{startRow},#{pageSize}
+	</select>
+	
+	<select id="getMemberCount" resultType="java.lang.Integer">
+		select count(*) from member
+	</select>
+	
+	<select id="getMemberDetail" resultType="com.itwillbs.domain.MemberDTO">
+		select * from member WHERE m_idx = #{m_idx}
+	</select>
 	
 </mapper>

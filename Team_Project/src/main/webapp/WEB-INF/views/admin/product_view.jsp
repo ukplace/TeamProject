@@ -1,12 +1,10 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>제품수정 페이지</title>
+<title>제품등록 페이지</title>
 <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -115,66 +113,64 @@
                         <div class="col-lg-12">
                             
 <!--                             **폼태그 맨끝 코드 일단 빼놓음 onsubmit="return checkForm()"  -->
-<form action="${pageContext.request.contextPath}/admin/product_update_pro" method="post" name="updateForm" enctype="multipart/form-data"> 
-
-	<input type="hidden" name="p_num" value="${ProductDTO.p_num}" />
-	                    
-   <table class="table-ca" width=60% tyletable-layout:fixed cellspacing=() cellpadding=1;>                 
-       <tr >
-          <td width=30% id=td1 align="center"> 대 분 류 </td>
-          <td class="space"></td>
-          <td width=30% id=td2 align="center"> 소 분 류 </td>
-       </tr>
-       <tr>
-       <td>   
-          <select name="mainCategory" size=10 style=width:100%  onchange="changeCa1(this.value)" >
-         </select>
-      </td>
-      	<td class="space"></td>
-      <td>   
-          <select name="subCategory"  size=10 style=width:100% value="${selectValue }" onchange="changeCa(this.value)">
-         </select>
-      </td>
-      </tr>   
-	</table>
+	<form method="post" name="registForm" enctype="multipart/form-data">                     
+		<input type="hidden" name="n" value="${ProductDTO.p_num}" />
+<!--    <table class="table-ca" width=60% tyletable-layout:fixed cellspacing=() cellpadding=1;>                  -->
+<!--        <tr > -->
+<!--           <td width=30% id=td1 align="center"> 대 분 류 </td> -->
+<!--           <td class="space"></td> -->
+<!--           <td width=30% id=td2 align="center"> 소 분 류 </td> -->
+<!--        </tr> -->
+<!--        <tr> -->
+<!--        <td>    -->
+<!--           <select name="mainCategory" size=10 style=width:100%  onchange="changeCa1(this.value)"> -->
+<!--          </select> -->
+<!--       </td> -->
+<!--       	<td class="space"></td> -->
+<!--       <td>    -->
+<%--           <select name="subCategory"  size=10 style=width:100% value="${selectValue }" onchange="changeCa(this.value)"> --%>
+<!--          </select> -->
+<!--       </td> -->
+<!--       </tr>    -->
+<!-- 	</table> -->
       	
 	<div class="main">
 	<div class=table-regist>
-       <h1 class="page-header" align="center">제품수정</h1>
+       <h1 class="page-header" align="center">제품조회</h1>
 		<table >
       <!-- 제품명 -->
 	      <tr>
-			<th>카테고리-대분류</th>
-			<td><input type="text" name="p_category" required="required" size="20" value="${ProductDTO.p_category}"></td>
+			<th width="200px">카테고리-대분류</th>
+			<td>${ProductDTO.p_category}</td>
 		 </tr>
 		 <tr>
 			<th>카테고리-소분류</th>
-			<td><input type="text" name="p_small_category" required="required" size="20" value="${ProductDTO.p_small_category}" ></td>
+			<td>${ProductDTO.p_small_category}</td>
 		 </tr>
 		  <tr>
       		<th>제품명</th>
-      		<td><input type="text" name="p_name" required="required" size="20" value="${ProductDTO.p_name}"></td>
+      		<td>${ProductDTO.p_name}<td>
       	
       	</tr>
       <!-- 재고 -->
       	<tr>
       <th>재고</th>
       	<td>
-      	  <input type="text" name="p_stock" width = 40px padding= 6px  margin= 100px  placeholder="재고수량입력" value="${ProductDTO.p_stock}">
+      	  ${ProductDTO.p_stock}
       	</td>
       	</tr>
       <!-- 제품가격 -->
       <tr>
       <th>제품 가격</th>
       <td>
-      	<input type="text" name="p_price" width = 40px padding= 6px margin= 100px placeholder="제품가격입력" value="${ProductDTO.p_price}">
+      	${ProductDTO.p_price}
 	 </td>
 	 </tr>	
 	
 <!-- 				<tr> -->
 <!-- 					<th>색상</th> -->
 <!-- 					<td> -->
-<%-- 						<input type="text" name="p_color" required="required" size="10" value="${ProductDTO.p_color}"> --%>
+<!-- 						<input type="text" name="p_color" required="required" size="10"> -->
 <!-- 						<select name="selectColor" onchange="changeColor(this.value)"> -->
 <!-- 						셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입란에 표시 -->
 <!-- 						this 주면 여기 이 태그가 날라간다!  -->
@@ -193,98 +189,68 @@
 			<tr>
 				<th>사이즈</th>
 					<td>
-						<input type="text" name="p_size" required="required" size="10" value="${ProductDTO.p_size}">
-						<select name="selectSize" onchange="changeSize(this.value)">
+						${ProductDTO.p_size}
+						
 						<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입란에 표시 -->
 						<!-- this 주면 여기 이 태그가 날라간다!  -->
 						<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입력란에 표시 -->
-							<option value="">직접입력</option>	
-							<option value="220">220</option>
-							<option value="235">235</option>
-							<option value="240">240</option>
-							<option value="245">245</option>
-							<option value="250">250</option>
-							<option value="255">255</option>
-							<option value="260">260</option>
-							<option value="265">265</option>
-							<option value="270">270</option>
-							<option value="275">275</option>
-							<option value="280">280</option>
-							
-						</select>
+						
 					</td>
 				</tr>		
 				
 				<tr>
 			      <th rowspan="2">대표 사진</th>
 			      <td>
-			      	<input type="file" id="p_img" name="file" width = 40px value="사진등록" />
 				 </td>
 				 </tr>
 				 
 				 <tr>
 				 	<td>
+
+				 <div class="select_img"></div>
+				 <div class="select_img">
+				 	<div class="product-img-div">
 				 		<div class="select_img">
-				 			<img alt="product_img" src="${pageContext.request.contextPath}/${ProductDTO.p_thumImg}" class="product-img"/>
+				 			<img alt="product_img" src="${pageContext.request.contextPath}${ProductDTO.p_thumImg}" class="product-img"/>
 				 		</div>
+				 	</div>
+				 </div>
+
 				 	</td>
 				 </tr>
 				 
 				 <tr>
 				 	<td colspan="2"> 
-						 <%=request.getRealPath("/") %>	
+<%-- 						 <%=request.getRealPath("/") %>	 --%>
+
 					</td>
 				 </tr>
-<!-- 				 <tr> -->
-<!-- 				 	<td> -->
-<!-- 				 <div class="select_img"><img src="" width="310" height="310" /></div> -->
-<!-- 				 <div class="select_img"> -->
-<!-- 				 	<div class="product-img-div"> -->
-<%-- 				 		<img alt="product_img" src="${pageContext.request.contextPath}/images/pdetail_img.jpg" class="product-img" /> --%>
-<!-- 				 	</div> -->
-<!-- 				 </div> -->
-<!-- 					</td> -->
-<!-- 				 </tr> -->
-				 <%//=request.getRealPath("/") %>
-				
-<!-- 				 <td align="center"> -->
-<!-- 				 <div class="inputArea"> -->
-<!--  						<label for="p_img">이미지</label> -->
-<!--  						<input type="file" id="p_img" name="file" /> -->
-
- 
-					 
-						 
-<!-- 					</div> -->
-<!-- 					</td> -->
-<!-- 					</tr> -->
 										
 				<tr>
 				<th>제품 설명</th>
 					<td>
-						<textarea rows="20" cols="41" name="p_explain" value="${ProductDTO.p_explain}"></textarea>
+						${ProductDTO.p_explain}
 					</td>
 				</tr>
 				
 					<tr>
 						<td colspan="2" align="center">
-							<input type="submit" class="btn btn-default" value="수정" >
-							<button type="button" id="back_Btn" class="btn btn-warning">취소</button>
-<!-- 	   					
-
-}	
+						<div class="inputArea">
+<!-- 								 <button type="button" id="modify_Btn" class="btn btn-warning">수정</button> -->
+								 <a href="${pageContext.request.contextPath}/admin/product_update?num=${ProductDTO.p_num}" class="btn btn-default">수정</a>
+								 <input type="button" class="btn btn-default" id="deleteBtn" value="삭제">
+								 
+								
+								</div>
    						</td>
    					</tr>
-   					
-   					
-   					
    			
-	</table>
+				</table>
 	
-   				</div>
-		</div>	
+   					</div>
+					</div>	
 	
-</form>
+<!-- </form> -->
 
 			
 
@@ -319,31 +285,14 @@
   
 <script type="text/javascript">
 
-// 상품리셋 버튼 클릭 이벤트
-$("#back_Btn").click(function(){
- 	//history.back();
- 	location.href = "${pageContext.request.contextPath}/admin/product_update?num=${ProductDTO.p_num}";
-});   
-
-// 상품삭제 버튼 클릭 이벤트
+//상품삭제 버튼 클릭 이벤트
 $("#deleteBtn").click(function(){
 	// 상품 삭제 확인
 	if(confirm("상품을 삭제하시겠습니까?")){
-		document.updateForm.action="${pageContext.request.contextPath}/admin/delete?num=${ProductDTO.p_num}"
-		document.updateForm.submit();
+		document.registForm.action="${pageContext.request.contextPath}/admin/delete?num=${ProductDTO.p_num}"
+		document.registForm.submit();
 	}
 });
-
-
-$("#p_img").change(function(){
-	   if(this.files && this.files[0]) {
-		   var reader = new FileReader;
-	    reader.onload = function(data) {
-	     $(".select_img img").attr("src", data.target.result).width(500);        
-	    }
-	    reader.readAsDataURL(this.files[0]);
-	   }
-	  });
  
 
 function changeColor(color){

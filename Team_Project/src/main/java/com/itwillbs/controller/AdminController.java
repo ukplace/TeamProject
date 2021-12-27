@@ -1,6 +1,7 @@
 package com.itwillbs.controller;
 
 import java.io.File;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -8,16 +9,22 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.itwillbs.domain.MemberDTO;
+import com.itwillbs.domain.NoticeDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.service.AdminService;
+import com.itwillbs.service.MemberService;
 import com.itwillbs.service.ProductService;
 import com.itwillbs.utils.UploadFileUtils;
 
@@ -25,6 +32,7 @@ import com.itwillbs.utils.UploadFileUtils;
 
 @Controller
 public class AdminController {
+	private static final Logger logger = LoggerFactory.getLogger(AdminController.class);
 	
 	@Inject
 	private AdminService adminService;
@@ -88,16 +96,22 @@ public class AdminController {
 		return "admin/product_list";
 	}
 	
-	// 상품관리 - 상품 상세페이지
-	@RequestMapping(value = "/admin/product_detail", method = RequestMethod.GET)
-	   public String productDetail() {
-	      // /WEB-INF/views/admin/product_detail.jsp
-	      return "admin/product_detail";
-	   }
+//	// 상품관리 - 상품 상세페이지
+//	@RequestMapping(value = "/admin/product_detail", method = RequestMethod.GET)
+//	   public String productDetail() {
+//	      // /WEB-INF/views/admin/product_detail.jsp
+//	      return "admin/product_detail";
+//	   }
 
 	// 상품관리 - 상품 수정
 	@RequestMapping(value = "/admin/product_update", method = RequestMethod.GET)
-	   public String productUpdate() {
+	   public String productUpdate(@RequestParam("num") int p_num, Model model) throws Exception {
+			logger.info("get goods view");
+			
+			ProductDTO productDTO = adminService.productView(p_num);
+			
+			model.addAttribute("ProductDTO", productDTO);
+			
 	      // /WEB-INF/views/admin/product_update
 	      return "admin/product_update";
 	   }
@@ -117,21 +131,38 @@ public class AdminController {
 			
 			productDTO.setP_img(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
 			productDTO.setP_thumImg(File.separator + "imgUpload" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);
-			
+			productDTO.setP_num(productDTO.getP_num());
 			
 			adminService.updateProduct(productDTO);
 			
 			// /WEB-INF/views/admin/product_list
 			return "redirect:/admin/product_list";
 	   }
-
-	// 상품관리 - 상품 삭제
-	@RequestMapping(value = "/admin/product_delete_pro", method = RequestMethod.POST)
-	   public String productDeletePro() {
+	
+	
+	// 상품 조회
+		@RequestMapping(value = "/admin/productView", method = RequestMethod.GET)
+		public String productView(@RequestParam("num") int p_num, Model model) throws Exception {
+			logger.info("get goods view");
+			
+			ProductDTO productDTO = adminService.productView(p_num);
+			
+			model.addAttribute("ProductDTO", productDTO);
+			
+			return "admin/product_view";
+		}
+	
+	
+	
+	
+	
+	// 상품 삭제
+	@RequestMapping(value = "/admin/delete", method = RequestMethod.POST)
+	public String delete(@RequestParam("num") int p_num) throws Exception{
+		adminService.deleteProduct(p_num);
 		
-	      // /WEB-INF/views/admin/product_list
-	      return "redirect:/admin/product_list";
-	   }
+		return "redirect:/admin/product_list";
+	}
 
 	 
 	
@@ -151,15 +182,60 @@ public class AdminController {
 	 
 	 // 회원관리(회원 리스트/상세정보)
 	 @RequestMapping(value = "/admin/member_list", method = RequestMethod.GET)
-     public String member_list() {
-        // /WEB-INF/views/admin/member_list
-        return "admin/member_list";
+     public String member_list(HttpServletRequest request, Model model) {
+		 PageDTO pageDTO = new PageDTO();
+			// 한 페이지에 보여 줄 갯수
+			pageDTO.setPageSize(10);
+
+			if (request.getParameter("pageNum") == null) { // 없을때
+				pageDTO.setPageNum("1");
+			} else { // 있을때
+				pageDTO.setPageNum(request.getParameter("pageNum"));
+			}
+
+			// 리스트 받아오기
+			List<MemberDTO> MemberList = adminService.getMemberList(pageDTO);
+			
+			// 카운트
+			pageDTO.setCount(adminService.getMemberCount());
+
+			// 데이터 담아서 list.jsp에 리스트 전달
+			model.addAttribute("MemberList", MemberList);
+			System.out.println(MemberList);
+			// 페이지dto에 담아서 전달
+			model.addAttribute("pageDTO", pageDTO);
+
+		// /WEB-INF/views/foot/notice_list.jsp
+		 
+		 return "admin/member_list";
      }
 	 
 	 @RequestMapping(value = "/admin/member_detail", method = RequestMethod.GET)
-     public String member_detail() {
-        // /WEB-INF/views/admin/member_detail
-        return "admin/member_detail";
+     public String member_detail(HttpServletRequest request, Model model) {
+		 PageDTO pageDTO = new PageDTO();
+			// 한 페이지에 보여 줄 갯수
+			pageDTO.setPageSize(10);
+
+			if (request.getParameter("pageNum") == null) { // 없을때
+				pageDTO.setPageNum("1");
+			} else { // 있을때
+				pageDTO.setPageNum(request.getParameter("pageNum"));
+			}
+			MemberDTO memberDTO = new MemberDTO();
+			memberDTO.setM_idx(Integer.parseInt(request.getParameter("m_idx")));
+			// 리스트 받아오기
+			memberDTO = adminService.getMemberDetail(memberDTO);
+			
+			// 카운트
+			pageDTO.setCount(adminService.getMemberCount());
+
+			// 데이터 담아서 list.jsp에 리스트 전달
+			model.addAttribute("memberDTO", memberDTO);
+			// 페이지dto에 담아서 전달
+			model.addAttribute("pageDTO", pageDTO);
+
+		 
+		 return "admin/member_detail";
      }
 
 	 

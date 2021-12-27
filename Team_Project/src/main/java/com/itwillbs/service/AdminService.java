@@ -22,5 +22,17 @@ public interface AdminService {
 	// adminService.updateProduct(productDTO);
 	public void updateProduct(ProductDTO productDTO);
 	
+	public void deleteProduct(int p_num);
+	
+	public ProductDTO productView(int p_num);
+
+	public List<MemberDTO> getMemberList(PageDTO pageDTO);
+
+	public int getMemberCount();
+
+	public MemberDTO getMemberDetail(MemberDTO memberDTO);
+	
+	
+	
 	
 }

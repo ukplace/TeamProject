@@ -7,6 +7,7 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
 
@@ -43,5 +44,33 @@ public class AdminDAOImpl implements AdminDAO {
 		sqlSession.update(namespace + ".updateProduct", productDTO);
 	}
 
+	@Override
+	public void deleteProduct(int p_num) {
+		sqlSession.delete(namespace+".deleteProduct", p_num);		
+	}
+
+	@Override
+	public ProductDTO productView(int p_num) {
+		
+		return sqlSession.selectOne(namespace + ".productView", p_num);
+	}
+
+	@Override
+	public List<MemberDTO> getMemberList(PageDTO pageDTO) {
+
+		return sqlSession.selectList(namespace+".getMemberList", pageDTO);
+	}
+
+	@Override
+	public int getMemberCount() {
+		return sqlSession.selectOne(namespace+".getMemberCount");
+	}
+
+	@Override
+	public MemberDTO getMemberDetail(MemberDTO memberDTO) {
+		return sqlSession.selectOne(namespace+".getMemberDetail", memberDTO);
+	}
+	
+	
 
 }
