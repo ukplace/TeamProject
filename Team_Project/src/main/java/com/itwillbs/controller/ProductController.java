@@ -21,22 +21,77 @@ public class ProductController {
 		// /WEB-INF/views/foot/product_detail
 		return "foot/product_detail";
 	}
+	@RequestMapping(value = "/foot/list_men_outdoor", method = RequestMethod.GET)
+	public String list_men_outdoor() {
+		// /WEB-INF/views/foot/list_men
+		return "foot/list_men_outdoor";
+	}
+	@RequestMapping(value = "/foot/list_men_running", method = RequestMethod.GET)
+	public String list_men_running() {
+		// /WEB-INF/views/foot/list_men
+		return "foot/list_men_running";
+	}
+	@RequestMapping(value = "/foot/list_men_sneakers", method = RequestMethod.GET)
+	public String list_men_sneakers() {
+		// /WEB-INF/views/foot/list_men
+		return "foot/list_men_sneakers";
+	}
+	@RequestMapping(value = "/foot/list_men_gentleman", method = RequestMethod.GET)
+	public String list_men_gentleman() {
+		// /WEB-INF/views/foot/list_men
+		return "foot/list_men_gentleman";
+	}
 	@RequestMapping(value = "/foot/list_men", method = RequestMethod.GET)
 	public String list_men() {
 		// /WEB-INF/views/foot/list_men
 		return "foot/list_men";
 	}
+	
 	@RequestMapping(value = "/foot/list_women", method = RequestMethod.GET)
 	public String list_women() {
 		// /WEB-INF/views/foot/list_women
 		return "foot/list_women";
+	}
+	@RequestMapping(value = "/foot/list_women_outdoor", method = RequestMethod.GET)
+	public String list_women_outdoor() {
+		// /WEB-INF/views/foot/list_men
+		return "foot/list_women_outdoor";
+	}
+	@RequestMapping(value = "/foot/list_women_running", method = RequestMethod.GET)
+	public String list_women_running() {
+		// /WEB-INF/views/foot/list_men
+		return "foot/list_women_running";
+	}
+	@RequestMapping(value = "/foot/list_women_sneakers", method = RequestMethod.GET)
+	public String list_women_sneakers() {
+		// /WEB-INF/views/foot/list_men
+		return "foot/list_women_sneakers";
+	}
+	@RequestMapping(value = "/foot/list_women_lady", method = RequestMethod.GET)
+	public String list_women_lady() {
+		// /WEB-INF/views/foot/list_men
+		return "foot/list_women_lady";
 	}
 	@RequestMapping(value = "/foot/list_kids", method = RequestMethod.GET)
 	public String list_kids() {
 		// /WEB-INF/views/foot/list_kids
 		return "foot/list_kids";
 	}
-	
+	@RequestMapping(value = "/foot/list_kids_kid", method = RequestMethod.GET)
+	public String list_kids_kid() {
+		// /WEB-INF/views/foot/list_men
+		return "foot/list_kids_kid";
+	}
+	@RequestMapping(value = "/foot/list_kids_running", method = RequestMethod.GET)
+	public String list_kids_running() {
+		// /WEB-INF/views/foot/list_men
+		return "foot/list_kids_running";
+	}
+	@RequestMapping(value = "/foot/list_kids_sneakers", method = RequestMethod.GET)
+	public String list_kids_sneakers() {
+		// /WEB-INF/views/foot/list_men
+		return "foot/list_kids_sneakers";
+	}
 	// 주문정보
 	@RequestMapping(value = "/foot/order", method = RequestMethod.GET)
 	public String order() {
