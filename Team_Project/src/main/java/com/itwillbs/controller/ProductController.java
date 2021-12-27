@@ -53,11 +53,30 @@ public class ProductController {
 		return "foot/list_men";
 	}
 	
-	@RequestMapping(value = "/foot/list_women", method = RequestMethod.GET)
-	public String list_women() {
-		// /WEB-INF/views/foot/list_women
-		return "foot/list_women";
-	}
+	
+	
+	// WOMEN 리스트
+		@RequestMapping(value = "/foot/list_women", method = RequestMethod.GET)
+		public String list_women(HttpServletRequest request, Model model) {
+			// 데이터 가져오기
+			PageDTO pageDTO = new PageDTO();
+			pageDTO.setPageSize(8); // pageSize(한 행에 보여줄 상품갯수)
+			
+			if(request.getParameter("pageNum") == null) { // 없으면 pageNum 1 로 세팅
+				pageDTO.setPageNum("1");
+			} else { // 있으면 pageNum 2 로 세팅
+				pageDTO.setPageNum(request.getParameter("pageNum"));
+			}
+			
+			List<ProductDTO> productWomenList = productService.getProductWomenList(pageDTO);
+			
+			model.addAttribute("productWomenList", productWomenList);
+			model.addAttribute("pageDTO", pageDTO);
+			
+			// /WEB-INF/views/foot/list_kids
+			return "foot/list_women";
+		}
+		
 	@RequestMapping(value = "/foot/list_women_outdoor", method = RequestMethod.GET)
 	public String list_women_outdoor() {
 		// /WEB-INF/views/foot/list_men

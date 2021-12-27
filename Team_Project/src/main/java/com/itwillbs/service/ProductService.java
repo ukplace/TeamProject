@@ -10,6 +10,7 @@ public interface ProductService {
 	// List<ProductDTO> productKidsList = productService.getProductKidsList(pageDTO);
 	public List<ProductDTO> getProductKidsList(PageDTO pageDTO);
 
-	
+	// List<ProductDTO> productWomenList = productService.getProductWomenList(pageDTO);
+	public List<ProductDTO> getProductWomenList(PageDTO pageDTO);
 
 }
