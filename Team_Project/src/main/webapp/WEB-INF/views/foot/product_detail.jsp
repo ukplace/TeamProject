@@ -110,35 +110,28 @@
 								</span>
 							</p>
 							<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
+							
+							
+							<!-- 사이즈 -->
 							<div class="size-wrap">
 								<div class="block-26 mb-2">
 									<h4>Size</h4>
 				               <ul>
-				                  <li><a href="#">7</a></li>
-				                  <li><a href="#">7.5</a></li>
-				                  <li><a href="#">8</a></li>
-				                  <li><a href="#">8.5</a></li>
-				                  <li><a href="#">9</a></li>
-				                  <li><a href="#">9.5</a></li>
-				                  <li><a href="#">10</a></li>
-				                  <li><a href="#">10.5</a></li>
-				                  <li><a href="#">11</a></li>
-				                  <li><a href="#">11.5</a></li>
-				                  <li><a href="#">12</a></li>
-				                  <li><a href="#">12.5</a></li>
-				                  <li><a href="#">13</a></li>
-				                  <li><a href="#">13.5</a></li>
-				                  <li><a href="#">14</a></li>
-				               </ul>
-				            </div>
-				            <div class="block-26 mb-4">
-									<h4>Width</h4>
-				               <ul>
-				                  <li><a href="#">M</a></li>
-				                  <li><a href="#">W</a></li>
+				                  <li><a href="#">220</a></li>
+				                  <li><a href="#">230</a></li>
+				                  <li><a href="#">240</a></li>
+				                  <li><a href="#">250</a></li>
+				                  <li><a href="#">260</a></li>
+				                  <li><a href="#">270</a></li>
+				                  <li><a href="#">280</a></li>
+				               
 				               </ul>
 				            </div>
 							</div>
+					<br>
+                  	
+                  	
+					<!-- 개수 -->	
                      <div class="input-group mb-4">
                      	<span class="input-group-btn">
                         	<button type="button" class="quantity-left-minus btn"  data-type="minus" data-field="">
@@ -152,11 +145,18 @@
                          </button>
                      	</span>
                   	</div>
-                  	<div class="row">
-	                  	<div class="col-sm-12 text-center">
-									<p class="addtocart"><a href="cart.html" class="btn btn-primary btn-addtocart"><i class="icon-shopping-cart"></i> Add to Cart</a></p>
-								</div>
-							</div>
+                  	
+                  	
+                  	
+                  	<!-- 쇼핑카트 -->
+				     <div class="input-group mb-4">          
+				     <a href="${pageContext.request.contextPath}/foot/wishlist" class="btn btn-primary btn-addtocart"><i class="icon-heart2"></i>Wish</a>
+					 <a href="cart.html" class="btn btn-primary btn-addtocart"><i class="icon-shopping-cart"></i>Cart</a>
+				     <a href="${pageContext.request.contextPath}/foot/order_detail" class="btn btn-primary btn-addtocart"><i class="icon-credit-card"></i>Buy</a>
+				     </div>             
+				               
+
+							
 						</div>
 					</div>
 				</div>
