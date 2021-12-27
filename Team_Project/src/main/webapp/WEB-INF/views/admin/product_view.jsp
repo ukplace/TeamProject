@@ -140,30 +140,30 @@
 		<table >
       <!-- 제품명 -->
 	      <tr>
-			<th>카테고리-대분류</th>
-			<td><input type="text" name="p_category" required="required" size="20" value="${ProductDTO.p_category}"></td>
+			<th width="200px">카테고리-대분류</th>
+			<td>${ProductDTO.p_category}</td>
 		 </tr>
 		 <tr>
 			<th>카테고리-소분류</th>
-			<td><input type="text" name="p_small_category" required="required" size="20" value="${ProductDTO.p_small_category}" ></td>
+			<td>${ProductDTO.p_small_category}</td>
 		 </tr>
 		  <tr>
       		<th>제품명</th>
-      		<td><input type="text" name="p_name" required="required" size="20" value="${ProductDTO.p_name}"></td>
+      		<td>${ProductDTO.p_name}<td>
       	
       	</tr>
       <!-- 재고 -->
       	<tr>
       <th>재고</th>
       	<td>
-      	  <input type="text" name="p_stock" width = 40px padding= 6px  margin= 100px value="${ProductDTO.p_stock}">
+      	  ${ProductDTO.p_stock}
       	</td>
       	</tr>
       <!-- 제품가격 -->
       <tr>
       <th>제품 가격</th>
       <td>
-      	<input type="text" name="p_price" width = 40px padding= 6px margin= 100px value="${ProductDTO.p_price}">
+      	${ProductDTO.p_price}
 	 </td>
 	 </tr>	
 	
@@ -189,32 +189,18 @@
 			<tr>
 				<th>사이즈</th>
 					<td>
-						<input type="text" name="p_size" required="required" size="10" value="${ProductDTO.p_size}">
-						<select name="selectSize" onchange="changeSize(this.value)">
+						${ProductDTO.p_size}
+						
 						<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입란에 표시 -->
 						<!-- this 주면 여기 이 태그가 날라간다!  -->
 						<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입력란에 표시 -->
-							<option value="">직접입력</option>	
-							<option value="220">220</option>
-							<option value="235">235</option>
-							<option value="240">240</option>
-							<option value="245">245</option>
-							<option value="250">250</option>
-							<option value="255">255</option>
-							<option value="260">260</option>
-							<option value="265">265</option>
-							<option value="270">270</option>
-							<option value="275">275</option>
-							<option value="280">280</option>
-							
-						</select>
+						
 					</td>
 				</tr>		
 				
 				<tr>
 			      <th rowspan="2">대표 사진</th>
 			      <td>
-			      	<input type="file" id="p_img" name="file" width = 40px value="사진등록" />
 				 </td>
 				 </tr>
 				 
@@ -224,7 +210,7 @@
 				 <div class="select_img"></div>
 				 <div class="select_img">
 				 	<div class="product-img-div">
-				 		<img alt="product_img" src="${pageContext.request.contextPath}/${ProductDTO.p_thumImg}" class="product-img" />
+				 		${pageContext.request.contextPath}/${ProductDTO.p_thumImg}
 				 	</div>
 				 </div>
 
@@ -241,7 +227,7 @@
 				<tr>
 				<th>제품 설명</th>
 					<td>
-						<textarea rows="20" cols="41" name="p_explain">${ProductDTO.p_explain}</textarea>
+						${ProductDTO.p_explain}
 					</td>
 				</tr>
 				
