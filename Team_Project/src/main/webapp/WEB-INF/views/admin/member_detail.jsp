@@ -64,60 +64,48 @@
                                             <thead>
                                                 <tr>
                                                     <th class="text-center col-md-3">이메일</th>
-                                                     <td><input type="email"  style="width:300px;"></td>
+                                                     <td>${memberDTO.m_email}</td>
                                                 </tr>
                                                 <tr  >
                                                     <th class="text-center">회원명</th>
-                                                    <td><input type="text"></td>
+                                                    <td>${memberDTO.m_name}</td>
                                                 </tr>
                                                 <tr  >
                                                     <th class="text-center">비밀번호</th>
-                                                    <td><input type="password"></td>
+                                                    <td>${memberDTO.m_pass}</td>
                                                 </tr>
-                                                <tr  >
-                                                    <th class="text-center">성별</th>
-                                                    <td>
-                                                    <select class=”form-control” style="width:80px";>
-                                                    <option class="text-center" value = "gender1">남성</option>
-                                                    <option class="text-center" value = "gender2">여성</option>
-                                                    </select>
-                                                    </td>
-                                                </tr>
-                                                <tr  >
+                                                
+                                                <tr >
                                                     <th class="text-center">생일</th>
-                                                    <td> <input type="text" readonly></td>
+                                                    <td>${memberDTO.m_birth}</td>
                                                 </tr>
                                                 <tr  >
                                                     <th class="text-center">전화번호</th>
-                                                    <td><input type="tel"></td>
+                                                    <td>${memberDTO.m_tel}</td>
                                                 </tr>
                                                 <tr>
                                                     <th class="text-center">우편번호</th>
-                                                    <td><input type="text"></td>
+                                                    <td>${memberDTO.m_zip}</td>
                                                 </tr>
                                                 <tr>
                                                     <th class="text-center">주소</th>
-                                                    <td><input type="text" style="width:400px;"></td>
+                                                    <td>${memberDTO.m_address}</td>
                                                 </tr>
                                                 <tr>
                                                     <th class="text-center">상세주소</th>
-                                                    <td><input type="text" style="width:300px;"></td>
+                                                    <td>${memberDTO.m_detail_address}</td>
                                                 </tr>
                                                 <tr  >
                                                     <th class="text-center">회원포인트</th>
-                                                    <td><input type="text"></td>
+                                                    <td>${memberDTO.m_point}</td>
                                                 </tr>
                                                 <tr  >
                                                     <th class="text-center">회원등급</th>
-                                                    <td><select class=”form-control” style="width:80px";>
-                                                    <option class="text-center" value = "grade1">grade1</option>
-                                                    <option class="text-center" value = "grade2">grade1</option>
-                                                    <option class="text-center" value = "grade3">grade1</option>
-                                                    </select></td>
+                                                    <td>${memberDTO.m_grade}</td>
                                                 </tr>
-                                                <tr  >
+                                                <tr>
                                                     <th class="text-center">가입일자</th>
-                                                    <td> <input type="text" readonly></td>
+                                                    <td>${memberDTO.m_date}</td>
                                                 </tr>
                                                  <tr>
                                                     <th class="text-center" style="line-height:300px;">비고</th>
@@ -132,7 +120,7 @@
                                        <div class="text-center">
                                        <a href=""> <button type="button" class="btn btn-primary">수정</button></a>
                                        <a href=""> <button type="button" class="btn btn-primary">삭제</button></a>
-                                       <a href="memberList"> <button type="button" class="btn btn-primary">목록</button></a>
+                                       <a href="${pageContext.request.contextPath}/admin/member_detail?page=${pageDTO.pageNum }"> <button type="button" class="btn btn-primary">목록</button></a>
                                    	 </div> 
                                    	 </div>
                                 </div>

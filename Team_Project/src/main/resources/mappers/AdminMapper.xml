@@ -32,5 +32,17 @@
 			from product
 			where p_num = #{p_num}
 	</select>
-
+	
+	<select id="getMemberList" resultType="com.itwillbs.domain.MemberDTO">
+		select * from member limit #{startRow},#{pageSize}
+	</select>
+	
+	<select id="getMemberCount" resultType="java.lang.Integer">
+		select count(*) from member
+	</select>
+	
+	<select id="getMemberDetail" resultType="com.itwillbs.domain.MemberDTO">
+		select * from member WHERE m_idx = #{m_idx}
+	</select>
+	
 </mapper>

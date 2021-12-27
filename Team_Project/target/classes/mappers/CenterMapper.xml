@@ -94,4 +94,7 @@
 		update notice set notice_subject=#{notice_subject},notice_content=#{notice_content} where notice_idx=#{notice_idx}
 	</update>
 	
+	<delete id="deleteNotice">
+		delete from notice WHERE notice_idx = #{notice_idx}
+	</delete>
 </mapper>

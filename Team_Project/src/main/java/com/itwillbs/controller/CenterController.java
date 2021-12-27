@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.itwillbs.domain.FaqDTO;
 import com.itwillbs.domain.NoticeDTO;
@@ -120,10 +121,14 @@ public class CenterController {
 
 	// **공지사항 삭제페이지 만들어야할까? 아님 버튼누르면 바로 삭제기능만 구현할까?
 
-	@RequestMapping(value = "/center/notice_delete_pro", method = RequestMethod.POST)
-	public String notice_delete_pro() {
-
-		// /WEB-INF/views/foot/notice_list.jsp
+	@RequestMapping(value = "/center/notice_delete_pro", method = RequestMethod.GET)
+	public String notice_delete_pro(HttpServletRequest request) {
+		NoticeDTO noticeDTO = new NoticeDTO();
+		noticeDTO.setNotice_idx(Integer.parseInt(request.getParameter("notice_idx")));
+		
+		centerService.deleteNotice(noticeDTO);
+		
+		
 		return "redirect:/center/notice_list";
 	}
 
