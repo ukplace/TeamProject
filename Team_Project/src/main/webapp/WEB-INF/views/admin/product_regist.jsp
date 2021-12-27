@@ -71,7 +71,11 @@
   	border-collapse: separate;
  	border-spacing: 20px 0;
  	margin: auto;
+ 	padding: 10px;
+ 	width:700px;
+ 	font-size: 20px;
  }
+
  td.space{
   border: 10px solid #fff;
   width : 3%
@@ -116,15 +120,15 @@
 <form action="${pageContext.request.contextPath }/admin/product_regist_pro" method="post" name="registForm" enctype="multipart/form-data">                     
    <table class="table-ca" width=60% tyletable-layout:fixed cellspacing=() cellpadding=1;>                 
        <tr >
-          <td width=30% id=td1 align="center"> 대 분 류 </td>
+          <td width=30% id=td1 align="center"> <h1>대 분 류</h1> </td>
           <td class="space"></td>
-          <td width=30% id=td2 align="center"> 소 분 류 </td>
+          <td width=30% id=td2 align="center"> <h1>소 분 류</h1> </td>
        </tr>
        <tr>
        <td>   
           <select name="mainCategory" size=10 style=width:100%  onchange="changeCa1(this.value)">
          </select>
-      </td>
+      </td>  
       	<td class="space"></td>
       <td>   
           <select name="subCategory"  size=10 style=width:100% value="${selectValue }" onchange="changeCa(this.value)">
@@ -219,24 +223,19 @@
 				 
 				 <tr>
 				 	<td>
-<<<<<<< HEAD
-				 <div class="select_img"><img src="" width="310" height="310" /></div>
+<!-- 				 <div class="select_img"><img src="" width="310" height="310" /></div> -->
 				 <div class="select_img">
 				 	<div class="product-img-div">
-				 		<img alt="product_img" src="${pageContext.request.contextPath}/images/pdetail_img.jpg" class="product-img" />
+				 		<img alt="product_img" src="" class="product-img" />
 				 	</div>
 				 </div>
-=======
-				 		<div class="select_img">
-				 			<img alt="product_img" src="" class="product-img"/>
-				 		</div>
+				 		
 				 	</td>
 				 </tr>
 				 
 				 <tr>
 				 	<td colspan="2"> 
 						 <%=request.getRealPath("/") %>	
->>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 					</td>
 				 </tr>
 <!-- 				 <tr> -->
@@ -384,14 +383,8 @@ $(document).ready(function() {
     //남성에 해당하는 sub category 리스트
     subCategoryObject = new Object();
     subCategoryObject.main_category_id = "MEN";
-    subCategoryObject.sub_category_id = "정장화"
-    subCategoryObject.sub_category_name = "정장화"    
-    subCategoryArray.push(subCategoryObject);
-    
-    subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "MEN";
-    subCategoryObject.sub_category_id = "로퍼&모카신"
-    subCategoryObject.sub_category_name = "로퍼&모카신"    
+    subCategoryObject.sub_category_id = "구두"
+    subCategoryObject.sub_category_name = "구두"    
     subCategoryArray.push(subCategoryObject);
     
     subCategoryObject = new Object();
@@ -402,58 +395,64 @@ $(document).ready(function() {
     
     subCategoryObject = new Object();
     subCategoryObject.main_category_id = "MEN";
-    subCategoryObject.sub_category_id = "스포츠/아웃도어"
-    subCategoryObject.sub_category_name = "스포츠/아웃도어"    
+    subCategoryObject.sub_category_id = "러닝화"
+    subCategoryObject.sub_category_name = "러닝화"    
     subCategoryArray.push(subCategoryObject);
     
     subCategoryObject = new Object();
     subCategoryObject.main_category_id = "MEN";
-    subCategoryObject.sub_category_id = "하이탑/부츠"
-    subCategoryObject.sub_category_name = "하이탑/부츠"    
+    subCategoryObject.sub_category_id = "아웃도어"
+    subCategoryObject.sub_category_name = "아웃도어"    
     subCategoryArray.push(subCategoryObject);
+    
+//     subCategoryObject = new Object();
+//     subCategoryObject.main_category_id = "MEN";
+//     subCategoryObject.sub_category_id = "하이탑/부츠"
+//     subCategoryObject.sub_category_name = "하이탑/부츠"    
+//     subCategoryArray.push(subCategoryObject);
     
     //여성에 해당하는 sub category 리스트
     subCategoryObject = new Object();
     subCategoryObject.main_category_id = "WOMEN";
-    subCategoryObject.sub_category_id = "힐/펌프스"
-    subCategoryObject.sub_category_name = "힐/펌프스"    
+    subCategoryObject.sub_category_id = "구두/힐"
+    subCategoryObject.sub_category_name = "구두/힐"    
     subCategoryArray.push(subCategoryObject);
     
     subCategoryObject = new Object();
     subCategoryObject.main_category_id = "WOMEN";
-    subCategoryObject.sub_category_id = "플랫슈즈/로퍼"
-    subCategoryObject.sub_category_name = "플랫슈즈/로퍼"    
+    subCategoryObject.sub_category_id = "스니커즈"
+    subCategoryObject.sub_category_name = "스니커즈"    
     subCategoryArray.push(subCategoryObject);
     
     subCategoryObject = new Object();
     subCategoryObject.main_category_id = "WOMEN";
-    subCategoryObject.sub_category_id = "스니커즈/슬립온"
-    subCategoryObject.sub_category_name = "스니커즈/슬립온"    
+    subCategoryObject.sub_category_id = "러닝화"
+    subCategoryObject.sub_category_name = "러닝화"    
     subCategoryArray.push(subCategoryObject);
     
     subCategoryObject = new Object();
     subCategoryObject.main_category_id = "WOMEN";
-    subCategoryObject.sub_category_id = "스포츠/아웃도어"
-    subCategoryObject.sub_category_name = "스포츠/아웃도어"    
+    subCategoryObject.sub_category_id = "아웃도어"
+    subCategoryObject.sub_category_name = "아웃도어"    
     subCategoryArray.push(subCategoryObject);
     
     //키즈에 해당하는 sub category 리스트
     subCategoryObject = new Object();
     subCategoryObject.main_category_id = "KIDS";
-    subCategoryObject.sub_category_id = "스포츠/아웃도어"
-    subCategoryObject.sub_category_name = "스포츠/아웃도어"    
-    subCategoryArray.push(subCategoryObject);
-    
-    subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "KIDS";
     subCategoryObject.sub_category_id = "스니커즈"
     subCategoryObject.sub_category_name = "스니커즈"    
     subCategoryArray.push(subCategoryObject);
     
     subCategoryObject = new Object();
     subCategoryObject.main_category_id = "KIDS";
-    subCategoryObject.sub_category_id = "플랫슈즈"
-    subCategoryObject.sub_category_name = "플랫슈즈"    
+    subCategoryObject.sub_category_id = "러닝화"
+    subCategoryObject.sub_category_name = "러닝화"    
+    subCategoryArray.push(subCategoryObject);
+    
+    subCategoryObject = new Object();
+    subCategoryObject.main_category_id = "KIDS";
+    subCategoryObject.sub_category_id = "구두"
+    subCategoryObject.sub_category_name = "구두"    
     subCategoryArray.push(subCategoryObject);
     
     //****************이부분은 DB로 셋팅하세요.

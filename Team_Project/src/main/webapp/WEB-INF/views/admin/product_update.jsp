@@ -115,18 +115,21 @@
                         <div class="col-lg-12">
                             
 <!--                             **폼태그 맨끝 코드 일단 빼놓음 onsubmit="return checkForm()"  -->
-<form action="${pageContext.request.contextPath}/admin/product_update_pro?num=${productDTO.p_num}" method="post" name="updateForm" enctype="multipart/form-data">                     
+<form action="${pageContext.request.contextPath}/admin/product_update_pro" method="post" name="updateForm" enctype="multipart/form-data"> 
+
+	<input type="hidden" name="p_num" value="${ProductDTO.p_num}" />
+	                    
    <table class="table-ca" width=60% tyletable-layout:fixed cellspacing=() cellpadding=1;>                 
        <tr >
-          <td width=30% id=td1 align="center"> 대 분 류 </td>
+          <td width=30% id=td1 align="center"> <h1>대 분 류</h1> </td>
           <td class="space"></td>
-          <td width=30% id=td2 align="center"> 소 분 류 </td>
+          <td width=30% id=td2 align="center"> <h1>소 분 류</h1> </td>
        </tr>
        <tr>
        <td>   
-          <select name="mainCategory" size=10 style=width:100%  onchange="changeCa1(this.value)" >
+          <select name="mainCategory" size=10 style=width:100%  onchange="changeCa1(this.value)">
          </select>
-      </td>
+      </td>  
       	<td class="space"></td>
       <td>   
           <select name="subCategory"  size=10 style=width:100% value="${selectValue }" onchange="changeCa(this.value)">
@@ -137,60 +140,60 @@
       	
 	<div class="main">
 	<div class=table-regist>
-       <h1 class="page-header" align="center">제품등록</h1>
+       <h1 class="page-header" align="center">제품수정</h1>
 		<table >
       <!-- 제품명 -->
 	      <tr>
 			<th>카테고리-대분류</th>
-			<td><input type="text" name="p_category" required="required" size="20" value="${productDTO.category}"></td>
+			<td><input type="text" name="p_category" required="required" size="20" value="${ProductDTO.p_category}"></td>
 		 </tr>
 		 <tr>
 			<th>카테고리-소분류</th>
-			<td><input type="text" name="p_small_category" required="required" size="20" value="${productDTO.small_category}" ></td>
+			<td><input type="text" name="p_small_category" required="required" size="20" value="${ProductDTO.p_small_category}" ></td>
 		 </tr>
 		  <tr>
       		<th>제품명</th>
-      		<td><input type="text" name="p_name" required="required" size="20" value="${productDTO.name}"></td>
+      		<td><input type="text" name="p_name" required="required" size="20" value="${ProductDTO.p_name}"></td>
       	
       	</tr>
       <!-- 재고 -->
       	<tr>
       <th>재고</th>
       	<td>
-      	  <input type="text" name="p_stock" width = 40px padding= 6px  margin= 100px  placeholder="재고수량입력" value="${productDTO.stock}">
+      	  <input type="text" name="p_stock" width = 40px padding= 6px  margin= 100px  placeholder="재고수량입력" value="${ProductDTO.p_stock}">
       	</td>
       	</tr>
       <!-- 제품가격 -->
       <tr>
       <th>제품 가격</th>
       <td>
-      	<input type="text" name="p_price" width = 40px padding= 6px margin= 100px placeholder="제품가격입력" value="${productDTO.price}">
+      	<input type="text" name="p_price" width = 40px padding= 6px margin= 100px placeholder="제품가격입력" value="${ProductDTO.p_price}">
 	 </td>
 	 </tr>	
 	
-				<tr>
-					<th>색상</th>
-					<td>
-						<input type="text" name="p_color" required="required" size="10" value="${productDTO.color}">
-						<select name="selectColor" onchange="changeColor(this.value)">
-						<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입란에 표시 -->
-						<!-- this 주면 여기 이 태그가 날라간다!  -->
-						<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입력란에 표시 -->
-							<option value="">직접입력</option>	
-							<option value="빨강">빨강</option>
-							<option value="주황">주황</option>
-							<option value="노랑">노랑</option>
-							<option value="초록">초록</option>
-							<option value="파랑">파랑</option>
-							<option value="남색">남색</option>
-							<option value="보라">보라</option>
-						</select>
-					</td>
-				</tr>
+<!-- 				<tr> -->
+<!-- 					<th>색상</th> -->
+<!-- 					<td> -->
+<%-- 						<input type="text" name="p_color" required="required" size="10" value="${ProductDTO.p_color}"> --%>
+<!-- 						<select name="selectColor" onchange="changeColor(this.value)"> -->
+<!-- 						셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입란에 표시 -->
+<!-- 						this 주면 여기 이 태그가 날라간다!  -->
+<!-- 						셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입력란에 표시 -->
+<!-- 							<option value="">직접입력</option>	 -->
+<!-- 							<option value="빨강">빨강</option> -->
+<!-- 							<option value="주황">주황</option> -->
+<!-- 							<option value="노랑">노랑</option> -->
+<!-- 							<option value="초록">초록</option> -->
+<!-- 							<option value="파랑">파랑</option> -->
+<!-- 							<option value="남색">남색</option> -->
+<!-- 							<option value="보라">보라</option> -->
+<!-- 						</select> -->
+<!-- 					</td> -->
+<!-- 				</tr> -->
 			<tr>
 				<th>사이즈</th>
 					<td>
-						<input type="text" name="p_size" required="required" size="10" value="${productDTO.size}">
+						<input type="text" name="p_size" required="required" size="10" value="${ProductDTO.p_size}">
 						<select name="selectSize" onchange="changeSize(this.value)">
 						<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입란에 표시 -->
 						<!-- this 주면 여기 이 태그가 날라간다!  -->
@@ -222,7 +225,7 @@
 				 <tr>
 				 	<td>
 				 		<div class="select_img">
-				 			<img alt="product_img" src="${pageContext.request.contextPath}/${productDTO.p_thumImg}" class="product-img"/>
+				 			<img alt="product_img" src="${pageContext.request.contextPath}${ProductDTO.p_thumImg}" class="product-img"/>
 				 		</div>
 				 	</td>
 				 </tr>
@@ -259,15 +262,14 @@
 				<tr>
 				<th>제품 설명</th>
 					<td>
-						<textarea rows="20" cols="41" name="p_explain" value="${productDTO.explain}"></textarea>
+						<textarea rows="20" cols="41" name="p_explain" value="${ProductDTO.p_explain}"></textarea>
 					</td>
 				</tr>
 				
 					<tr>
 						<td colspan="2" align="center">
 							<input type="submit" class="btn btn-default" value="수정" >
-							<input type="button" class="btn btn-default" id="deleteBtn" value="삭제">
-							
+							<button type="button" id="back_Btn" class="btn btn-warning">취소</button>
 <!-- 	   					
 
 }	
@@ -317,6 +319,12 @@
   
 <script type="text/javascript">
 
+// 상품리셋 버튼 클릭 이벤트
+$("#back_Btn").click(function(){
+ 	//history.back();
+ 	location.href = "${pageContext.request.contextPath}/admin/product_update?num=${ProductDTO.p_num}";
+});   
+
 // 상품삭제 버튼 클릭 이벤트
 $("#deleteBtn").click(function(){
 	// 상품 삭제 확인
@@ -338,23 +346,24 @@ $("#p_img").change(function(){
 	  });
  
 
+
 function changeColor(color){
 	//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
-	document.registForm.p_color.value = color;
+	document.update.p_color.value = color;
 }
 
 function changeCa(ca){
 	//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
-	document.registForm.p_small_category.value = ca;
+	document.updateForm.p_small_category.value = ca;
 }
 function changeCa1(ca){
 	//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
-	document.registForm.p_category.value = ca;
+	document.updateForm.p_category.value = ca;
 }
 
 function changeSize(size){
 	//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
-	document.registForm.p_size.value = size;
+	document.updateForm.p_size.value = size;
 }
 
 
@@ -392,14 +401,8 @@ $(document).ready(function() {
     //남성에 해당하는 sub category 리스트
     subCategoryObject = new Object();
     subCategoryObject.main_category_id = "MEN";
-    subCategoryObject.sub_category_id = "정장화"
-    subCategoryObject.sub_category_name = "정장화"    
-    subCategoryArray.push(subCategoryObject);
-    
-    subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "MEN";
-    subCategoryObject.sub_category_id = "로퍼&모카신"
-    subCategoryObject.sub_category_name = "로퍼&모카신"    
+    subCategoryObject.sub_category_id = "구두"
+    subCategoryObject.sub_category_name = "구두"    
     subCategoryArray.push(subCategoryObject);
     
     subCategoryObject = new Object();
@@ -410,58 +413,64 @@ $(document).ready(function() {
     
     subCategoryObject = new Object();
     subCategoryObject.main_category_id = "MEN";
-    subCategoryObject.sub_category_id = "스포츠/아웃도어"
-    subCategoryObject.sub_category_name = "스포츠/아웃도어"    
+    subCategoryObject.sub_category_id = "러닝화"
+    subCategoryObject.sub_category_name = "러닝화"    
     subCategoryArray.push(subCategoryObject);
     
     subCategoryObject = new Object();
     subCategoryObject.main_category_id = "MEN";
-    subCategoryObject.sub_category_id = "하이탑/부츠"
-    subCategoryObject.sub_category_name = "하이탑/부츠"    
+    subCategoryObject.sub_category_id = "아웃도어"
+    subCategoryObject.sub_category_name = "아웃도어"    
     subCategoryArray.push(subCategoryObject);
+    
+//     subCategoryObject = new Object();
+//     subCategoryObject.main_category_id = "MEN";
+//     subCategoryObject.sub_category_id = "하이탑/부츠"
+//     subCategoryObject.sub_category_name = "하이탑/부츠"    
+//     subCategoryArray.push(subCategoryObject);
     
     //여성에 해당하는 sub category 리스트
     subCategoryObject = new Object();
     subCategoryObject.main_category_id = "WOMEN";
-    subCategoryObject.sub_category_id = "힐/펌프스"
-    subCategoryObject.sub_category_name = "힐/펌프스"    
+    subCategoryObject.sub_category_id = "구두/힐"
+    subCategoryObject.sub_category_name = "구두/힐"    
     subCategoryArray.push(subCategoryObject);
     
     subCategoryObject = new Object();
     subCategoryObject.main_category_id = "WOMEN";
-    subCategoryObject.sub_category_id = "플랫슈즈/로퍼"
-    subCategoryObject.sub_category_name = "플랫슈즈/로퍼"    
+    subCategoryObject.sub_category_id = "스니커즈"
+    subCategoryObject.sub_category_name = "스니커즈"    
     subCategoryArray.push(subCategoryObject);
     
     subCategoryObject = new Object();
     subCategoryObject.main_category_id = "WOMEN";
-    subCategoryObject.sub_category_id = "스니커즈/슬립온"
-    subCategoryObject.sub_category_name = "스니커즈/슬립온"    
+    subCategoryObject.sub_category_id = "러닝화"
+    subCategoryObject.sub_category_name = "러닝화"    
     subCategoryArray.push(subCategoryObject);
     
     subCategoryObject = new Object();
     subCategoryObject.main_category_id = "WOMEN";
-    subCategoryObject.sub_category_id = "스포츠/아웃도어"
-    subCategoryObject.sub_category_name = "스포츠/아웃도어"    
+    subCategoryObject.sub_category_id = "아웃도어"
+    subCategoryObject.sub_category_name = "아웃도어"    
     subCategoryArray.push(subCategoryObject);
     
     //키즈에 해당하는 sub category 리스트
     subCategoryObject = new Object();
     subCategoryObject.main_category_id = "KIDS";
-    subCategoryObject.sub_category_id = "스포츠/아웃도어"
-    subCategoryObject.sub_category_name = "스포츠/아웃도어"    
-    subCategoryArray.push(subCategoryObject);
-    
-    subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "KIDS";
     subCategoryObject.sub_category_id = "스니커즈"
     subCategoryObject.sub_category_name = "스니커즈"    
     subCategoryArray.push(subCategoryObject);
     
     subCategoryObject = new Object();
     subCategoryObject.main_category_id = "KIDS";
-    subCategoryObject.sub_category_id = "플랫슈즈"
-    subCategoryObject.sub_category_name = "플랫슈즈"    
+    subCategoryObject.sub_category_id = "러닝화"
+    subCategoryObject.sub_category_name = "러닝화"    
+    subCategoryArray.push(subCategoryObject);
+    
+    subCategoryObject = new Object();
+    subCategoryObject.main_category_id = "KIDS";
+    subCategoryObject.sub_category_id = "구두"
+    subCategoryObject.sub_category_name = "구두"    
     subCategoryArray.push(subCategoryObject);
     
     //****************이부분은 DB로 셋팅하세요.

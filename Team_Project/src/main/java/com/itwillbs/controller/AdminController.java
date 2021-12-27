@@ -102,7 +102,13 @@ public class AdminController {
 
 	// 상품관리 - 상품 수정
 	@RequestMapping(value = "/admin/product_update", method = RequestMethod.GET)
-	   public String productUpdate() {
+	   public String productUpdate(@RequestParam("num") int p_num, Model model) throws Exception {
+			logger.info("get goods view");
+			
+			ProductDTO productDTO = adminService.productView(p_num);
+			
+			model.addAttribute("ProductDTO", productDTO);
+			
 	      // /WEB-INF/views/admin/product_update
 	      return "admin/product_update";
 	   }
@@ -122,7 +128,7 @@ public class AdminController {
 			
 			productDTO.setP_img(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
 			productDTO.setP_thumImg(File.separator + "imgUpload" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);
-			
+			productDTO.setP_num(productDTO.getP_num());
 			
 			adminService.updateProduct(productDTO);
 			
