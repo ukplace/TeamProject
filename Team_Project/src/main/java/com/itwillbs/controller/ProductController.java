@@ -1,11 +1,17 @@
 package com.itwillbs.controller;
 
+import java.util.List;
+
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.itwillbs.domain.PageDTO;
+import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.service.ProductService;
 
 @Controller
@@ -72,8 +78,26 @@ public class ProductController {
 		// /WEB-INF/views/foot/list_men
 		return "foot/list_women_lady";
 	}
+	
+	
+	// KIDS 리스트
 	@RequestMapping(value = "/foot/list_kids", method = RequestMethod.GET)
-	public String list_kids() {
+	public String list_kids(HttpServletRequest request, Model model) {
+		// 데이터 가져오기
+		PageDTO pageDTO = new PageDTO();
+		pageDTO.setPageSize(8); // pageSize(한 행에 보여줄 상품갯수)
+		
+		if(request.getParameter("pageNum") == null) { // 없으면 pageNum 1 로 세팅
+			pageDTO.setPageNum("1");
+		} else { // 있으면 pageNum 2 로 세팅
+			pageDTO.setPageNum(request.getParameter("pageNum"));
+		}
+		
+		List<ProductDTO> productKidsList = productService.getProductKidsList(pageDTO);
+		
+		model.addAttribute("productKidsList", productKidsList);
+		model.addAttribute("pageDTO", pageDTO);
+		
 		// /WEB-INF/views/foot/list_kids
 		return "foot/list_kids";
 	}
@@ -92,6 +116,9 @@ public class ProductController {
 		// /WEB-INF/views/foot/list_men
 		return "foot/list_kids_sneakers";
 	}
+	
+	
+	
 	// 주문정보
 	@RequestMapping(value = "/foot/order", method = RequestMethod.GET)
 	public String order() {
