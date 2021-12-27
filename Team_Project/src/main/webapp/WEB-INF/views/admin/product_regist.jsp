@@ -71,7 +71,11 @@
   	border-collapse: separate;
  	border-spacing: 20px 0;
  	margin: auto;
+ 	padding: 10px;
+ 	width:700px;
+ 	font-size: 20px;
  }
+
  td.space{
   border: 10px solid #fff;
   width : 3%
@@ -116,15 +120,15 @@
 <form action="${pageContext.request.contextPath }/admin/product_regist_pro" method="post" name="registForm" enctype="multipart/form-data">                     
    <table class="table-ca" width=60% tyletable-layout:fixed cellspacing=() cellpadding=1;>                 
        <tr >
-          <td width=30% id=td1 align="center"> 대 분 류 </td>
+          <td width=30% id=td1 align="center"> <h1>대 분 류</h1> </td>
           <td class="space"></td>
-          <td width=30% id=td2 align="center"> 소 분 류 </td>
+          <td width=30% id=td2 align="center"> <h1>소 분 류</h1> </td>
        </tr>
        <tr>
        <td>   
           <select name="mainCategory" size=10 style=width:100%  onchange="changeCa1(this.value)">
          </select>
-      </td>
+      </td>  
       	<td class="space"></td>
       <td>   
           <select name="subCategory"  size=10 style=width:100% value="${selectValue }" onchange="changeCa(this.value)">
