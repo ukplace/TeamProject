@@ -130,6 +130,10 @@
 	</table>
 	<br>
 	<!-- 페이징 버튼부분 -->
+<<<<<<< HEAD
+	
+</div> 
+=======
 		<div class="row">
 				<div class="col-md-12 text-center">
 						<div class="block-27">
@@ -164,6 +168,7 @@
 				</div>
 	</div>
 </div>
+>>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 </div>
 
 
