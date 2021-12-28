@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -101,36 +102,73 @@
 		<tr class = "ti">
 			<th style = "width : 70px;">번호</th>
 			<th style="width: 450px;">제목</th>
-			<th style = "width : 100px;">글쓴이</th>
+			<th style = "width : 100px;">질문</th>
 			<th style = "width : 100px;">작성일</th>
-			<th style = "width : 70px;">조회</th>
 		</tr>
 		</thead>
 		
 		<tbody>
+		<!-- 리스트 받아오는 부분 -->
+		<c:forEach var="faqDTO" items="${faqList }">
 			<tr>
-			<td>2</td>
-			<td>
-			<a href = "#" class = "tit">자주 묻는 질문2</a>
-			</td>
-			<td>관리자</td>
-			<td>날짜</td>
-			<td>111</td>
-		</tr>
-		<tr>
-			<td>1</td>
-			<td>
-			<a href = "#" class = "tit">자주 묻는 질문</a>
-			</td>
-			<td class = "garo_size2">관리자</td>
-			<td>날짜</td>
-			<td>111</td>
-		</tr>
+				<td><a href="#" class="tit">${faqDTO.faq_idx }</a></td>
+				<td><a href="${pageContext.request.contextPath}/center/faq_detail?faq_idx=${faqDTO.faq_idx}&page=${pageDTO.pageNum } "class="tit">${faqDTO.faq_subject}</a></td>
+				<td><a href="#" class="tit">${faqDTO.faq_question}</a></td>
+				<td><fmt:formatDate value="${faqDTO.faq_date}" pattern="yyyy-MM-dd"/></td>
+			</tr>
+		</c:forEach>
+<!-- 			<tr> -->
+<!-- 			<td>2</td> -->
+<!-- 			<td> -->
+<!-- 			<a href = "#" class = "tit">자주 묻는 질문2</a> -->
+<!-- 			</td> -->
+<!-- 			<td>관리자</td> -->
+<!-- 			<td>날짜</td> -->
+<!-- 			<td>111</td> -->
+<!-- 		</tr> -->
 		</tbody>
 	</table>
+	<br>
 	<!-- 페이징 버튼부분 -->
+<<<<<<< HEAD
 	
 </div> 
+=======
+		<div class="row">
+				<div class="col-md-12 text-center">
+						<div class="block-27">
+				               <ul>
+					              <li class="active">
+									<c:choose >	
+										<c:when test="${pageDTO.startPage > pageDTO.pageBlock }" >
+											<a href ="${pageContext.request.contextPath}/center/faq_list?pageNum=${pageDTO.startPage-pageDTO.pageBlock}"><i class="ion-ios-arrow-back">이전</i></a>
+										</c:when>
+										<c:otherwise>
+											<i class="ion-ios-arrow-back">이전</i>
+										</c:otherwise>
+									</c:choose></li>
+				               
+				                  <li class="active">
+									<c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1">
+										<a href="${pageContext.request.contextPath}/center/faq_list?pageNum=${i }"${1 }>${i }</a>
+									</c:forEach></li>
+				                  <li class="active">
+				                 <!-- end페이지 -->
+				                 	<c:choose>
+										<c:when test= "${pageDTO.endPage > pageDTO.pageCount }">
+											<a href = "${pageContext.request.contextPath}/center/faq_list?pageNum=${pageDTO.startPage+pageDTO.pageBlock}">다음<i class="ion-ios-arrow-forward"></i></a>
+										</c:when>
+										<c:otherwise>
+											다음<i class="ion-ios-arrow-forward"></i>
+										</c:otherwise>
+									</c:choose>
+								</li>
+				               </ul>
+				            </div>
+				</div>
+	</div>
+</div>
+>>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 </div>
 
 

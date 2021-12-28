@@ -18,7 +18,7 @@
 	</insert>
 	
 
-	<select id="getMaxNum" resultType="java.lang.Integer">
+	<select id="getMaxQna" resultType="java.lang.Integer">
 		select max(qna_idx) from qna
 	</select>
 	
@@ -30,13 +30,13 @@
 		select count(*) from qna
 	</select>
 	
-	<insert id="insertNotice">
-		insert into notice(notice_sbject, notice_content)
-		vales(#{notice_subject},#{notice_content},#{notice_readcount})
-	</insert>
+	<select id="getQnaDetail" resultType="com.itwillbs.domain.QnaDTO" >
+		select * from qna where qna_idx = ${qna_idx} 
+	</select>
+	
 	<select id="getIncrementNum" resultType="java.lang.Integer">
 		SELECT auto_increment FROM information_schema.tables 
-		WHERE table_name='shushu' AND table_schema=DATABASE();
+		WHERE table_name='qna' AND table_schema=DATABASE();
 	</select>
 	
 	<update id="setQna_re_seq">
@@ -50,10 +50,59 @@
 	</insert>
 	
 	
+	
 	<insert id="insertFaq">
-		INSERT into faq values (#{faq_subject},#{faq_question},#{faq_answer})
+		INSERT into faq(faq_subject,faq_question,faq_answer) values (#{faq_subject},#{faq_question},#{faq_answer}) 
 	</insert>
 	
+	<select id="getFaqList" resultType="com.itwillbs.domain.FaqDTO">
+		select * from faq order by faq_idx desc limit #{startRow},#{pageSize}
+	</select>
+	
+	<select id="getFaqCount" resultType="java.lang.Integer">
+		select count(*) from faq
+	</select>
+	
+	<select id="getFaqDetail" resultType="com.itwillbs.domain.FaqDTO" >
+		select * from faq where faq_idx = #{faq_idx} 
+	</select>
 	
 	
+	
+	<insert id="insertNotice">
+		insert into notice (notice_subject, notice_content)
+		values (#{notice_subject},#{notice_content})
+	</insert>
+	
+	<select id="getNoticeCount" resultType="java.lang.Integer">
+		select count(*) from notice
+	</select>
+	
+	<select id="getNoticeList" resultType="com.itwillbs.domain.NoticeDTO">
+		select * from notice order by notice_idx  DESC limit #{startRow},#{pageSize}
+	</select>
+	
+	<select id="getNoticeDetail" resultType="com.itwillbs.domain.NoticeDTO" >
+		select * from notice where notice_idx = ${notice_idx} 
+	</select>
+	
+	<update id="updateFaq">
+		update faq set faq_subject=#{faq_subject},faq_question=#{faq_question},faq_answer=#{faq_answer} where faq_idx=#{faq_idx}
+	</update>
+	
+	<update id="updateNotice">
+		update notice set notice_subject=#{notice_subject},notice_content=#{notice_content} where notice_idx=#{notice_idx}
+	</update>
+	
+	<delete id="deleteNotice">
+		delete from notice WHERE notice_idx = #{notice_idx}
+	</delete>
+	
+	<delete id="deleteFaq">
+		delete from faq WHERE faq_idx = #{faq_idx}
+	</delete>
+	
+	<delete id="deleteQna">
+		delete from qna WHERE qna_idx = #{qna_idx}
+	</delete>
 </mapper>

@@ -5,9 +5,24 @@
   
 <mapper namespace="com.itwillbs.mapper.ProductMapper">
 
-	<insert id="insertProduct">
-	insert into product( p_name, p_explain, p_category, p_small_category, p_img, p_size, p_color, p_price, p_stock, p_productImg)
-				values(#{p_name}, #{p_explain},#{p_category},#{p_small_category},#{p_img},#{p_size},#{p_color},#{p_price},#{p_stock},#{p_productImg})
-	</insert>
+
+	<select id="getProductKidsList" resultType="com.itwillbs.domain.ProductDTO">
+		select * from product where p_category='KIDS' limit #{startRow},#{pageSize}
+	</select>
+
+	
+<!-- 	<select id="ProwomenList" resultType="com.itwillbs.domain.productDTO">
+		select * from product where p_category = 'WOMEN'
+	</select> -->
+	<select id="getProductWomenList" resultType="com.itwillbs.domain.ProductDTO">
+		select * from product where p_category='WOMEN' limit #{startRow},#{pageSize}
+	</select>
+	
+	<select id="getProductMenList" resultType="com.itwillbs.domain.ProductDTO">
+		select * from product where p_category = 'MEN' limit #{startRow},#{pageSize}
+	</select>
+
+
+
 	
 </mapper>

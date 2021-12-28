@@ -125,7 +125,7 @@
 						<div class="col-sm-12">
 										<div class="form-group">
 											<label for="content">내용</label>
-											<textarea name="faq_content" id="content" cols="50" rows="10" class="form-control-9" placeholder="내용을 적어주세요"></textarea>
+											<textarea name="faq_answer" id="content" cols="50" rows="10" class="form-control-9" placeholder="내용을 적어주세요"></textarea>
 											
 										</div>
 									</div>

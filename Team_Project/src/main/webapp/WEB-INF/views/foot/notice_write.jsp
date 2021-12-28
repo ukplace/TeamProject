@@ -79,12 +79,12 @@
   										
   										<div class="form-group">
 										<label for="tel"><h4>공지사항 제목</h4></label>
-   										<input type="text" id="notice_subject" name="subject" class = "subject"/>      
+   										<input type="text" id="notice_subject" name="notice_subject" class = "subject"/>      
   										</div>
 			    
 										<div class="form-group">
 										<label for="notice_content"><h4>내용</h4></label>
-										<textarea rows="30" cols="100"></textarea>
+										<textarea rows="30" cols="100" name="notice_content"></textarea>
   										</div>
   										
   										

@@ -6,6 +6,17 @@
 <head>
 <meta charset="UTF-8">
 <title>메인페이지</title>
+<style type="text/css">
+.dropdown a {
+font-size: 13px;
+}
+.dropdown a:hover{
+text-decoration: underline;
+
+}
+
+</style>
+
 <div class="container">
 <ul>
 <c:choose>
@@ -49,15 +60,30 @@
 								<li class="has-dropdown">
 									<a href="${pageContext.request.contextPath}/foot/list_men">Men</a>
 									<ul class="dropdown">
-										<li><a href="${pageContext.request.contextPath}/foot/product_detail">Product Detail</a></li>
-										<li><a href="${pageContext.request.contextPath}/foot/cart">Shopping Cart</a></li>
-										<li><a href="${pageContext.request.contextPath}/foot/checkout">Checkout</a></li>
-										<li><a href="${pageContext.request.contextPath}/foot/order-complete">Order Complete</a></li>
-										<li><a href="${pageContext.request.contextPath}/foot/order">order</a></li>
+										<li><a href="${pageContext.request.contextPath}/foot/list_men_gentleman" >구두</a></li>
+<%-- 										<li><a href="${pageContext.request.contextPath}/foot/list_men"></a></li> --%>
+										<li><a href="${pageContext.request.contextPath}/foot/list_men_sneakers">스니커즈</a></li>
+										<li><a href="${pageContext.request.contextPath}/foot/list_men_outdoor">아웃도어</a></li>
+										<li><a href="${pageContext.request.contextPath}/foot/list_men_running">운동화</a></li>
 									</ul>
 								</li>
-								<li><a href="${pageContext.request.contextPath}/foot/list_women">Women</a></li>
-								<li><a href="${pageContext.request.contextPath}/foot/list_kids">Kids</a></li>
+								<li class="has-dropdown">
+								<a href="${pageContext.request.contextPath}/foot/list_women">Women</a>
+								<ul class="dropdown">
+										<li><a href="${pageContext.request.contextPath}/foot/list_women_lady">구두</a></li>
+										<li><a href="${pageContext.request.contextPath}/foot/list_women_sneakers">스니커즈</a></li>
+										<li><a href="${pageContext.request.contextPath}/foot/list_women_outdoor">아웃도어</a></li>
+										<li><a href="${pageContext.request.contextPath}/foot/list_women_running">운동화</a></li>
+										</ul>
+								</li>
+										<li class="has-dropdown">
+								<a href="${pageContext.request.contextPath}/foot/list_kids">Kids</a>
+								<ul class="dropdown">
+										<li><a href="${pageContext.request.contextPath}/foot/list_kids_kid">구두</a></li>
+										<li><a href="${pageContext.request.contextPath}/foot/list_kids_sneakers">스니커즈</a></li>
+										<li><a href="${pageContext.request.contextPath}/foot/list_kids_running">운동화</a></li>
+										</ul>
+								</li>
 								<li><a href="${pageContext.request.contextPath}/foot/contact">Contact</a></li>
 								
 								

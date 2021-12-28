@@ -76,6 +76,21 @@
 </style>
 
 
+<script type="text/javascript">
+
+$(documet).ready(function() {
+	
+	$('#qna_write').submit(function(){
+		if($('#qna_type').val() == ""){
+			alert("문의유형을 선택하세요")
+			$('#qna_type').focus();
+					return false;
+					
+		}
+
+})
+</script>
+
 
 </head>
 <body>
@@ -105,7 +120,7 @@
 
 		<div class="row" >
 			<div class="col-lg-8" style= "display: inline-block; margin: 0 auto;">
-				<form action="${pageContext.request.contextPath}/center/qna_write_pro" method="post" class="colorlib-form">
+				<form action="${pageContext.request.contextPath}/center/qna_write_pro" method="post" class="colorlib-form" id="qna_write">
 					<h2>문의를 남겨주세요!</h2>
 					<div class="row">
 						<div class="col-md-12">
@@ -114,8 +129,8 @@
 			                     <div class="form-field">
 			                     	<i class="icon icon-arrow-down3"></i>
 								<!-- 문의 유형 태그 -->
-								 <select name="qna_type">
-										<option value="0">카테고리 선택</option>
+								 <select name="qna_type" required="required" id=qna_type>
+										<option value="">카테고리 선택</option>
 										<option value="1">주문내역/배송현황</option>
 										<option value="2">주문상품 취소하기</option>
 										<option value="3">반품/교환/AS 신청하기</option>
@@ -133,21 +148,21 @@
 						<div class="col-md-6">
 							<div class="form-group">
 								<label for="name">작성자</label> <input type="text"
-									name="qna_name" id="name" class="form-control" placeholder="Enter Your user-name">
+									name="qna_name" id="name" class="form-control" placeholder="Enter Your user-name" required="required">
 							</div>
 						</div>
-
+						
 						<div class="col-md-7">
 							<div class="form-group">
 								<label for="subject">제목</label> <input type="text"
-									name="qna_subject" id="subject" class="form-control">
+									name="qna_subject" id="subject" class="form-control" required="required">
 							</div>
 						</div>
-					
+						
 						<div class="col-sm-12">
 										<div class="form-group">
 											<label for="content">문의내용</label>
-											<textarea name="qna_content" id="content" cols="50" rows="10" class="form-control-9" placeholder="문의 내용을 적어주세요"></textarea>
+											<textarea name="qna_content" id="content" cols="50" rows="10" class="form-control-9" placeholder="문의 내용을 적어주세요" required="required"></textarea>
 											
 										</div>
 									</div>
@@ -164,7 +179,7 @@
 					</div>
 					<div class="col-sm-12">
 										<div class="form-group" style="text-align: center;">
-											<input type="submit" value="등록" class="btn btn-primary">
+											<input type="submit" value="등록" class="btn btn-primary" id=btn>
 											<input type="button" value="목록" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/center/qna_list'">
 										</div>
 									</div>
