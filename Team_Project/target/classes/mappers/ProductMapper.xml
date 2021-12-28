@@ -17,6 +17,10 @@
 	<select id="getProductWomenList" resultType="com.itwillbs.domain.ProductDTO">
 		select * from product where p_category='WOMEN' limit #{startRow},#{pageSize}
 	</select>
+	
+	<select id="getProductMenList" resultType="com.itwillbs.domain.ProductDTO">
+		select * from product where p_category = 'MEN' limit #{startRow},#{pageSize}
+	</select>
 
 
 

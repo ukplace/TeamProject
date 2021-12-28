@@ -13,4 +13,6 @@ public interface ProductService {
 	// List<ProductDTO> productWomenList = productService.getProductWomenList(pageDTO);
 	public List<ProductDTO> getProductWomenList(PageDTO pageDTO);
 
+	public List<ProductDTO> getProducMentList(PageDTO pageDTO);
+
 }

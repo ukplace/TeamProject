@@ -30,6 +30,12 @@ public class ProductDAOImpl implements ProductDAO {
 		return sqlSession.selectList(namespace + ".getProductWomenList", pageDTO);
 	}
 
+	@Override
+	public List<ProductDTO> getProductMenList(PageDTO pageDTO) {
+		// TODO Auto-generated method stub
+		return sqlSession.selectList(namespace+".getProductMenList", pageDTO);
+	}
+
 	
 	
 	

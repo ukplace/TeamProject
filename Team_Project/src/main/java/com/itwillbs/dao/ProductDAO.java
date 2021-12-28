@@ -12,6 +12,8 @@ public interface ProductDAO {
 	
 	// List<ProductDTO> productWomenList = productService.getProductWomenList(pageDTO);
 	public List<ProductDTO> getProductWomenList(PageDTO pageDTO);
+
+	public List<ProductDTO> getProductMenList(PageDTO pageDTO);
 	
 
 }
