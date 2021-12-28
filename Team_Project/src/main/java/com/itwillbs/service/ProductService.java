@@ -15,4 +15,12 @@ public interface ProductService {
 
 	public List<ProductDTO> getProducMentList(PageDTO pageDTO);
 
+	public List<ProductDTO> getProductOutdoorList(PageDTO pageDTO);
+
+	public List<ProductDTO> getProductRunningList(PageDTO pageDTO);
+
+	public List<ProductDTO> getProducSneakersList(PageDTO pageDTO);
+
+	public List<ProductDTO> getProductGentlemanList(PageDTO pageDTO);
+
 }

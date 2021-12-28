@@ -32,8 +32,32 @@ public class ProductDAOImpl implements ProductDAO {
 
 	@Override
 	public List<ProductDTO> getProductMenList(PageDTO pageDTO) {
-		// TODO Auto-generated method stub
+		System.out.println("ProductDAOImpl.getProductMenList()");
 		return sqlSession.selectList(namespace+".getProductMenList", pageDTO);
+	}
+
+	@Override
+	public List<ProductDTO> getProductOutdoorList(PageDTO pageDTO) {
+		System.out.println("ProductDAOImpl.getProductOutdoorList()");
+		return sqlSession.selectList(namespace+".getProductOutdoorList", pageDTO);
+	}
+
+	@Override
+	public List<ProductDTO> getProductRunningList(PageDTO pageDTO) {
+		System.out.println("ProductDAOImpl.getProductRunningList()");
+		return sqlSession.selectList(namespace+".getProductRunningList", pageDTO);
+	}
+
+	@Override
+	public List<ProductDTO> getProductSneakersList(PageDTO pageDTO) {
+		System.out.println("ProductDAOImpl.getProductSneakersList()");
+		return sqlSession.selectList(namespace+"getProductSneakersList", pageDTO);
+	}
+
+	@Override
+	public List<ProductDTO> getProductGentlemanList(PageDTO pageDTO) {
+		System.out.println("ProductDAOImpl.getProductGentlemanList()");
+		return sqlSession.selectList(namespace+".getProductGentlemanList", pageDTO);
 	}
 
 	

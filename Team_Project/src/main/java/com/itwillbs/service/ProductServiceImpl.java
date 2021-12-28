@@ -33,6 +33,30 @@ public class ProductServiceImpl implements ProductService {
 		System.out.println("ProductServiceImpl.getProducMentList()");
 		return productDAO.getProductMenList(pageDTO);
 	}
+
+	@Override
+	public List<ProductDTO> getProductOutdoorList(PageDTO pageDTO) {
+		System.out.println("ProductServiceImpl.getProductOutdoorList()");
+		return productDAO.getProductOutdoorList(pageDTO);
+	}
+
+	@Override
+	public List<ProductDTO> getProductRunningList(PageDTO pageDTO) {
+		System.out.println("ProductServiceImpl.getProductRunningList()");
+		return productDAO.getProductRunningList(pageDTO);
+	}
+
+	@Override
+	public List<ProductDTO> getProducSneakersList(PageDTO pageDTO) {
+		System.out.println("ProductServiceImpl.getProducSneakersList()");
+		return productDAO.getProductSneakersList(pageDTO);
+	}
+
+	@Override
+	public List<ProductDTO> getProductGentlemanList(PageDTO pageDTO) {
+		System.out.println("ProductServiceImpl.getProductGentlemanList()");
+		return productDAO.getProductGentlemanList(pageDTO);
+	}
 	
 	
 
