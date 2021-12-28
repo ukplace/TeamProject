@@ -57,6 +57,48 @@ public class ProductServiceImpl implements ProductService {
 		System.out.println("ProductServiceImpl.getProductGentlemanList()");
 		return productDAO.getProductGentlemanList(pageDTO);
 	}
+
+	@Override
+	public List<ProductDTO> getProductLadyList(PageDTO pageDTO) {
+		System.out.println("ProductServiceImpl.getProductLadyList()");
+		return productDAO.getProductLadyList(pageDTO);
+	}
+
+	@Override
+	public List<ProductDTO> getProductW_SneakersList(PageDTO pageDTO) {
+		System.out.println("ProductServiceImpl.getProductW_SneakersList()");
+		return productDAO.getProductW_SneakersList(pageDTO);
+	}
+
+	@Override
+	public List<ProductDTO> getProductW_RunningList(PageDTO pageDTO) {
+		System.out.println("ProductServiceImpl.getProductW_RunningList()");
+		return productDAO.getProductW_RunningList(pageDTO);
+	}
+
+	@Override
+	public List<ProductDTO> getProductW_OutdoorList(PageDTO pageDTO) {
+		System.out.println("ProductServiceImpl.getProductW_OutdoorList()");
+		return productDAO.getProductW_OutdoorList(pageDTO);
+	}
+
+	@Override
+	public List<ProductDTO> getProductK_KidList(PageDTO pageDTO) {
+		System.out.println("ProductServiceImpl.getProductK_KidList()");
+		return productDAO.getProductK_KidList(pageDTO);
+	}
+
+	@Override
+	public List<ProductDTO> getProductK_RunningList(PageDTO pageDTO) {
+		System.out.println("ProductServiceImpl.getProductK_RunningList()");
+		return productDAO.getProductK_RunningList(pageDTO);
+	}
+
+	@Override
+	public List<ProductDTO> getProductK_SneakersList(PageDTO pageDTO) {
+		System.out.println("ProductServiceImpl.getProductK_SneakersList()");
+		return productDAO.getProductK_SneakersList(pageDTO);
+	}
 	
 	
 
