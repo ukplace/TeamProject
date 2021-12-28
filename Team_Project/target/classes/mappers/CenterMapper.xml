@@ -97,4 +97,12 @@
 	<delete id="deleteNotice">
 		delete from notice WHERE notice_idx = #{notice_idx}
 	</delete>
+	
+	<delete id="deleteFaq">
+		delete from faq WHERE faq_idx = #{faq_idx}
+	</delete>
+	
+	<delete id="deleteQna">
+		delete from qna WHERE qna_idx = #{qna_idx}
+	</delete>
 </mapper>

@@ -56,7 +56,14 @@ public class CenterDAOImpl implements CenterDAO {
 
 		return sqlSession.selectOne(namespace+".getIncrementNum");
 	}
-
+	
+	@Override
+	public void deleteQna(QnaDTO qnaDTO) {
+		
+		sqlSession.delete(namespace+".deleteQna", qnaDTO);
+		
+	}
+	
 	@Override
 	public void insertReplyAricle(QnaDTO qnaDTO) {
 		
@@ -94,12 +101,17 @@ public class CenterDAOImpl implements CenterDAO {
 
 	@Override
 	public void faq_update(FaqDTO faqDTO) {
-		System.out.println(faqDTO.getFaq_subject()+"디에이오");
 		sqlSession.update(namespace+".updateFaq", faqDTO);
 		
 	}
 
 
+	@Override
+	public void deleteFaq(FaqDTO faqDTO) {
+		sqlSession.delete(namespace+".deleteFaq",faqDTO);
+		
+	}
+	
 	//-------------------------------------notice-------------------------------
 	 
 	
@@ -139,7 +151,9 @@ public class CenterDAOImpl implements CenterDAO {
 
 		sqlSession.delete(namespace+".deleteNotice", noticeDTO);
 	}
+
 	
+
 
 	
 }
