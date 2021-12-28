@@ -38,6 +38,7 @@ public interface CenterDAO {
 
 	public void faq_update(FaqDTO faqDTO);
 
+	public void deleteFaq(FaqDTO faqDTO);
 	
 	//notice
 	public List<NoticeDTO> getNoticeList(PageDTO pageDTO);
@@ -49,6 +50,12 @@ public interface CenterDAO {
 	public NoticeDTO getNoticeDetail(NoticeDTO noticeDTO);
 
 	public void updateNotice(NoticeDTO noticeDTO);
+
+	public void deleteNotice(NoticeDTO noticeDTO);
+
+	public void deleteQna(QnaDTO qnaDTO);
+
+	
 	
 	//notice
 }

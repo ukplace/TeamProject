@@ -67,7 +67,12 @@ public class CenterServiceImpl implements CenterService {
 	}
 	
 	
-	
+	@Override
+	public void deleteQna(QnaDTO qnaDTO) {
+		
+		centerDAO.deleteQna(qnaDTO);
+		
+	}
 	
 	
 	
@@ -119,7 +124,13 @@ public class CenterServiceImpl implements CenterService {
 		centerDAO.faq_update(faqDTO);
 		
 	}
-
+	
+	@Override
+	public void deleteFaq(FaqDTO faqDTO) {
+		
+		centerDAO.deleteFaq(faqDTO);
+		
+	}
 	
 	
 	//-------------------------------------notice-------------------------------
@@ -161,6 +172,16 @@ public class CenterServiceImpl implements CenterService {
 	public void updateNotice(NoticeDTO noticeDTO) {
 		centerDAO.updateNotice(noticeDTO);
 	}
+
+	@Override
+	public void deleteNotice(NoticeDTO noticeDTO) {
+		centerDAO.deleteNotice(noticeDTO);
+		
+	}
+
+	
+
+	
 
 	
 }

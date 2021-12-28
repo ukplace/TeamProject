@@ -78,6 +78,30 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 
+	@Override
+	public List<MemberDTO> getMemberList(PageDTO pageDTO) {
+		pageDTO.setCurrentPage(Integer.parseInt(pageDTO.getPageNum())); // 페이지 번호 인트형으로
+		pageDTO.setStartRow((pageDTO.getCurrentPage()-1)*pageDTO.getPageSize()+1); //글 시작 번호 정의
+		pageDTO.setEndRow(pageDTO.getStartRow()+pageDTO.getPageSize()-1); // 끝페이지
+		// 매퍼대신
+		pageDTO.setStartRow(pageDTO.getStartRow()-1);
+		
+		return adminDAO.getMemberList(pageDTO);
+	}
+
+
+	@Override
+	public int getMemberCount() {
+		return adminDAO.getMemberCount();
+	}
+
+
+	@Override
+	public MemberDTO getMemberDetail(MemberDTO memberDTO) {
+		return adminDAO.getMemberDetail(memberDTO);
+	}
+
+
 
 
 }

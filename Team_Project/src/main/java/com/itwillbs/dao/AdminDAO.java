@@ -2,6 +2,7 @@ package com.itwillbs.dao;
 
 import java.util.List;
 
+import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
 
@@ -24,5 +25,10 @@ public interface AdminDAO {
 	// adminService.deleteMember(memberDTO);
 	public void deleteProduct(int p_num);
 	
+	public List<MemberDTO> getMemberList(PageDTO pageDTO);
+	
+	public int getMemberCount();
+	
+	public MemberDTO getMemberDetail(MemberDTO memberDTO);
 
 }

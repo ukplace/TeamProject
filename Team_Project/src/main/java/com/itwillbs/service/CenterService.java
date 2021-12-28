@@ -35,7 +35,7 @@ public interface CenterService {
 	public QnaDTO getQnaDetail(QnaDTO qnaDTO);
 
 	public List<FaqDTO> getFaqList(PageDTO pageDTO);
-
+	
 	public NoticeDTO getNoticeDetail(NoticeDTO noticeDTO);
 
 	
@@ -48,5 +48,11 @@ public interface CenterService {
 	public void faq_update(FaqDTO faqDTO);
 
 	public void updateNotice(NoticeDTO noticeDTO);
+
+	public void deleteNotice(NoticeDTO noticeDTO);
+
+	public void deleteFaq(FaqDTO faqDTO);
+
+	public void deleteQna(QnaDTO qnaDTO);
 	
 }
