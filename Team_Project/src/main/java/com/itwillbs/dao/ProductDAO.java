@@ -14,6 +14,14 @@ public interface ProductDAO {
 	public List<ProductDTO> getProductWomenList(PageDTO pageDTO);
 
 	public List<ProductDTO> getProductMenList(PageDTO pageDTO);
+
+	public List<ProductDTO> getProductOutdoorList(PageDTO pageDTO);
+
+	public List<ProductDTO> getProductRunningList(PageDTO pageDTO);
+
+	public List<ProductDTO> getProductSneakersList(PageDTO pageDTO);
+
+	public List<ProductDTO> getProductGentlemanList(PageDTO pageDTO);
 	
 
 }

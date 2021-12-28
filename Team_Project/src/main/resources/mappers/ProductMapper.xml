@@ -21,7 +21,18 @@
 	<select id="getProductMenList" resultType="com.itwillbs.domain.ProductDTO">
 		select * from product where p_category = 'MEN' limit #{startRow},#{pageSize}
 	</select>
-
+		<select id="getProductSneakersList" resultType="com.itwillbs.domain.ProductDTO">
+		select * from product where p_category = 'MEN' and p_small_category = '스니커즈' limit #{startRow},#{pageSize}
+	</select>
+		<select id="getProductGentlemanList" resultType="com.itwillbs.domain.ProductDTO">
+		select * from product where p_category = 'MEN' and p_small_category = '구두' limit #{startRow},#{pageSize}
+	</select>
+		<select id="getProductOutdoorList" resultType="com.itwillbs.domain.ProductDTO">
+		select * from product where p_category = 'MEN' and p_small_category = '아웃도어' limit #{startRow},#{pageSize}
+	</select>
+		<select id="getProductRunningList" resultType="com.itwillbs.domain.ProductDTO">
+		select * from product where p_category = 'MEN' and p_small_category = '러닝화' limit #{startRow},#{pageSize}
+	</select>
 
 
 	
