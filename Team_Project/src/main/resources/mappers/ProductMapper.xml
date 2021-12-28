@@ -5,26 +5,20 @@
   
 <mapper namespace="com.itwillbs.mapper.ProductMapper">
 
-<<<<<<< HEAD
-=======
 
->>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 	<select id="getProductKidsList" resultType="com.itwillbs.domain.ProductDTO">
 		select * from product where p_category='KIDS' limit #{startRow},#{pageSize}
 	</select>
 
-<<<<<<< HEAD
 	
 <!-- 	<select id="ProwomenList" resultType="com.itwillbs.domain.productDTO">
 		select * from product where p_category = 'WOMEN'
 	</select> -->
-=======
 	<select id="getProductWomenList" resultType="com.itwillbs.domain.ProductDTO">
 		select * from product where p_category='WOMEN' limit #{startRow},#{pageSize}
 	</select>
 
 
 
->>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 	
 </mapper>
