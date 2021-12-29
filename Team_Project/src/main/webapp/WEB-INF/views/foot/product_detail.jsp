@@ -42,8 +42,6 @@
 
 	</head>
 	<body>
-	<form method="post" name="detailForm" enctype="multipart/form-data">                     
-	<input type="hidden" name="n" value="${ProductDTO.p_num}" />		
 	<div class="colorlib-loader"></div>
 
 	<div id="page">
@@ -52,6 +50,8 @@
 		<jsp:include page="../inc/top.jsp"></jsp:include>
 		<!-- 헤더들어가는곳 -->
 	</nav>
+	<form method="post" name="detailForm" enctype="multipart/form-data">                     
+	<input type="hidden" name="n" value="${ProductDTO.p_num}" />		
 		<div class="breadcrumbs">
 			<div class="container">
 				<div class="row">
