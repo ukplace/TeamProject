@@ -88,20 +88,21 @@
                                             <!-- 회원리스트 받아오는 부분 -->
                                           <c:forEach var="memberDTO" items="${MemberList}"> 
  											<tr>
- 												<td>
+ 												<td class="text-center col-md-2">
  													<a href ="${pageContext.request.contextPath}/admin/member_detail?m_idx=${memberDTO.m_idx}&page=${pageDTO.pageNum }">${memberDTO.m_idx }</a>
  												</td>
- 												<td>
+ 												<td class="text-center">
  													<a href ="${pageContext.request.contextPath}/admin/member_detail?m_idx=${memberDTO.m_idx}&page=${pageDTO.pageNum }">${memberDTO.m_email }</a>
  												</td> 
-												<td>
+												<td class="text-center">
 													<a href ="${pageContext.request.contextPath}/admin/member_detail?m_idx=${memberDTO.m_idx}&page=${pageDTO.pageNum }">${memberDTO.m_tel }</a>
 												</td>
-												<td>
+												<td class="text-center">
 													<a href ="${pageContext.request.contextPath}/admin/member_detail?m_idx=${memberDTO.m_idx}&page=${pageDTO.pageNum }">${memberDTO.m_grade }</a>
 												</td>
-												<td>
-													<a href ="${pageContext.request.contextPath}/admin/member_detail?m_idx=${memberDTO.m_idx}&page=${pageDTO.pageNum }">${memberDTO.m_date }</a>
+												<td class="text-center">
+													<a href ="${pageContext.request.contextPath}/admin/member_detail?m_idx=${memberDTO.m_idx}&page=${pageDTO.pageNum }">
+													<fmt:formatDate value="${memberDTO.m_date}" pattern="yyyy-MM-dd" /></a>
 												</td>
 											</tr> 
 											</c:forEach>

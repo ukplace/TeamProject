@@ -45,4 +45,12 @@
 		select * from member WHERE m_idx = #{m_idx}
 	</select>
 	
+	<update id="updateMember">
+		update member set m_point=#{m_point}, m_grade=#{m_grade}
+	</update>
+	
+	<delete id="deleteMember" parameterType="int">
+		delete from member where m_idx = #{m_idx}
+	</delete>
+	
 </mapper>

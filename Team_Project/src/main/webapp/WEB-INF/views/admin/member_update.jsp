@@ -48,22 +48,23 @@
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
-                            <h1 class="page-header">회원관리</h1>
+                            <h1 class="page-header">회원정보수정</h1>
                         </div>
                         <!-- /.col-lg-12 -->
                     </div>
                     <!-- /.row -->
-                    <form method="post" name="memberDelete"> 
+                    <form action="${pageContext.request.contextPath}/admin/member_update_pro" method="post" name="memberUpdate"> 
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <h3>Member Detail</h3>
+                                    <h3>Member Update</h3>
                                     
                                     <div class="table-responsive row">
                                      <div class="col-sm-8">
                                         <table class="table table-bordered table table-striped w-auto">
                                             <thead>
+                                           
                                                 <tr>
                                                     <th class="text-center col-md-3">이메일</th>
                                                      <td>${memberDTO.m_email}</td>
@@ -99,19 +100,31 @@
                                                 </tr>
                                                 <tr  >
                                                     <th class="text-center">회원포인트</th>
-                                                    <td>${memberDTO.m_point}</td>
+                                                    <td><input type="text" name="m_point" value="${memberDTO.m_point}" required="required" size="10"></td>
                                                 </tr>
-                                                <tr  >
-                                                    <th class="text-center">회원등급</th>
-                                                    <td>${memberDTO.m_grade}</td>
-                                                </tr>
+									             <tr>
+													<th class="text-center">회원등급</th>
+														<td>
+															<input type="text" name="m_grade" value="${memberDTO.m_grade}" required="required" size="10">
+															<select name="selectGrade" onchange="changeGrade(this.value)">
+															<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입란에 표시 -->
+															<!-- this 주면 여기 이 태그가 날라간다!  -->
+															<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입력란에 표시 -->
+																<option value="">등급선택</option>	
+																<option value="브론즈">브론즈</option>
+																<option value="실버">실버</option>
+																<option value="골드">골드</option>
+															</select>
+														</td>
+													</tr>	
+													
                                                 <tr>
                                                     <th class="text-center">가입일자</th>
                                                     <td><fmt:formatDate value="${memberDTO.m_date}" pattern="yyyy-MM-dd" /></td>
                                                 </tr>
                                                  <tr>
                                                     <th class="text-center" style="line-height:300px;">비고</th>
-                                                    <td><textarea style="width:700px; height:300px"> </textarea></td>
+                                                    <td><textarea style="width:700px; height:300px"></textarea></td>
                                                 </tr>
                                                 
                                             </thead>
@@ -120,9 +133,10 @@
                                             </tbody>
                                         </table>
                                        <div class="text-center">
-                                       <a href="${pageContext.request.contextPath}/admin/member_update?m_idx=${memberDTO.m_idx}"> <button type="button" class="btn btn-primary">수정</button></a>
+                                      <input type="submit" class="btn btn-primary" value="등록" >
                                     <button type="button" class="btn btn-primary" id="deleteBtn">삭제</button>
-                                       <a href="${pageContext.request.contextPath}/admin/member_list?page=${pageDTO.pageNum}"> <button type="button" class="btn btn-primary">목록</button></a>
+                                       <a href="${pageContext.request.contextPath}/admin/member_list?page=${pageDTO.pageNum}"> 
+                                       <button type="button" class="btn btn-primary">목록</button></a>
                                    	 </div> 
                                    	 </div>
                                 </div>
@@ -133,13 +147,15 @@
                     <!-- /.row -->
                 </div>
                 <!-- /.container-fluid -->
-                                   	 </form>
+              </form>
             </div>
             <!-- /#page-wrapper -->
 
         </div>
         <!-- /#wrapper -->
 		</div>
+		
+		
 		
         <!-- jQuery -->
         <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
@@ -153,14 +169,20 @@
         <!-- Custom Theme JavaScript -->
         <script src="${pageContext.request.contextPath}/js/startmin.js"></script>
         
+        
+       
         <script type="text/javascript">
+        
+        function changeGrade(Grade){
+        	document.memberUpdate.m_grade.value = Grade;
+        }
         
       //상품삭제 버튼 클릭 이벤트
         $("#deleteBtn").click(function(){
         	// 상품 삭제 확인
         	if(confirm("상품을 삭제하시겠습니까?")){
-        		document.memberDelete.action="${pageContext.request.contextPath}/admin/member_delete?m_idx=${memberDTO.m_idx}"
-        		document.memberDelete.submit();
+        		document.memberUpdate.action="${pageContext.request.contextPath}/admin/member_delete?m_idx=${memberDTO.m_idx}"
+        		document.memberUpdate.submit();
         	}
         });
         

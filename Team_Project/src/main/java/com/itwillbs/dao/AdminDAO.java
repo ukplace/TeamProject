@@ -30,5 +30,8 @@ public interface AdminDAO {
 	public int getMemberCount();
 	
 	public MemberDTO getMemberDetail(MemberDTO memberDTO);
-
+	
+	public void updateMember(MemberDTO memberDTO);
+	
+	public void deleteMember(int m_idx);
 }

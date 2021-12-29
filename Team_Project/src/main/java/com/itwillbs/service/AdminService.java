@@ -26,13 +26,17 @@ public interface AdminService {
 	
 	public ProductDTO productView(int p_num);
 
+	
+	// -------회원정보관리-------------
 	public List<MemberDTO> getMemberList(PageDTO pageDTO);
 
 	public int getMemberCount();
 
 	public MemberDTO getMemberDetail(MemberDTO memberDTO);
 	
+	public void updateMember(MemberDTO memberDTO);
 	
+	public void deleteMember(int m_idx);
 	
 	
 }
