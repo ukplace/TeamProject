@@ -5,11 +5,8 @@ import java.util.List;
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
-<<<<<<< HEAD
 import com.itwillbs.domain.ProductQtyDTO;
-=======
 import com.itwillbs.domain.ReviewDTO;
->>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 
 public interface AdminService {
 
