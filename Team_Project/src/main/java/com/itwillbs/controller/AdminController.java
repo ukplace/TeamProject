@@ -1,6 +1,7 @@
 package com.itwillbs.controller;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -23,6 +24,7 @@ import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.NoticeDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
+import com.itwillbs.domain.ProductQtyDTO;
 import com.itwillbs.service.AdminService;
 import com.itwillbs.service.MemberService;
 import com.itwillbs.service.ProductService;
@@ -146,7 +148,9 @@ public class AdminController {
 			logger.info("get goods view");
 			
 			ProductDTO productDTO = adminService.productView(p_num);
+			List<ProductQtyDTO> qtyList = adminService.getqtyList(p_num);
 			
+			model.addAttribute("qtyList",qtyList);
 			model.addAttribute("ProductDTO", productDTO);
 			
 			return "admin/product_view";
@@ -238,6 +242,45 @@ public class AdminController {
 		 return "admin/member_detail";
      }
 
+	 // ============================================================================
+
+		// 상품관리 - 상품 수정
+		@RequestMapping(value = "/admin/product_qty_update", method = RequestMethod.GET)
+		   public String product_qty_update(HttpServletRequest request, Model model) {
+			ProductDTO productDTO = new ProductDTO();
+			productDTO.setP_num(Integer.parseInt(request.getParameter("num")));
+			int p_num = Integer.parseInt(request.getParameter("num"));
+			model.addAttribute("productDTO", productDTO);
+			adminService.Qtydelete(p_num);
+		      return "admin/product_qty_update";
+		   }
+		
+		@RequestMapping(value = "/admin/product_qty_insert", method = RequestMethod.GET)
+		   public String product_qty_insert(HttpServletRequest request, Model model) {
+			ProductDTO productDTO = new ProductDTO();
+			productDTO.setP_num(Integer.parseInt(request.getParameter("num")));
+			int p_num = Integer.parseInt(request.getParameter("num"));
+			model.addAttribute("productDTO", productDTO);
+		      return "admin/product_qty_update";
+		   }
+
+		@RequestMapping(value = "/admin/product_qty_updatePro", method = RequestMethod.POST)
+		   public String product_qty_updatePro(ProductQtyDTO dto) {
+			
+			adminService.updateQty(dto);
+			
+			
+		      // /WEB-INF/views/admin/product_list
+		      return "redirect:/admin/product_list";
+		   }
+		
+	 
+	 
+	 
+	 
+	 
+	 
+	 // ============================================================================
 	 
 	 // 매출관리(매출 리스트)
 	 @RequestMapping(value = "/admin/sales_list", method = RequestMethod.GET)

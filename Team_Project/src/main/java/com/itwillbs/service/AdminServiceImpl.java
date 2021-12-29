@@ -11,6 +11,7 @@ import com.itwillbs.dao.MemberDAO;
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
+import com.itwillbs.domain.ProductQtyDTO;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -99,6 +100,27 @@ public class AdminServiceImpl implements AdminService {
 	@Override
 	public MemberDTO getMemberDetail(MemberDTO memberDTO) {
 		return adminDAO.getMemberDetail(memberDTO);
+	}
+
+
+	@Override
+	public void updateQty(ProductQtyDTO dto) {
+		
+		adminDAO.updateQty(dto);
+		
+	}
+
+
+	@Override
+	public List<ProductQtyDTO> getqtyList(int p_num) {
+
+		return adminDAO.getqtyList(p_num);
+	}
+
+
+	@Override
+	public void Qtydelete(int p_num) {
+		adminDAO.Qtydelete(p_num);
 	}
 
 

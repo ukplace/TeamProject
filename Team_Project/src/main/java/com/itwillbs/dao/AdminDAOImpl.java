@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
+import com.itwillbs.domain.ProductQtyDTO;
 
 @Repository
 public class AdminDAOImpl implements AdminDAO {
@@ -69,6 +70,29 @@ public class AdminDAOImpl implements AdminDAO {
 	@Override
 	public MemberDTO getMemberDetail(MemberDTO memberDTO) {
 		return sqlSession.selectOne(namespace+".getMemberDetail", memberDTO);
+	}
+
+	@Override
+	public void updateQty(ProductQtyDTO dto) {
+		for(int i = 0; i<dto.getList().size();i++) {
+			dto.setP_size(dto.getList().get(i).getP_size());
+			System.out.println(dto.getP_size());
+			dto.setP_stock(dto.getList().get(i).getP_stock());
+			System.out.println(dto.getP_stock());
+		
+			sqlSession.insert(namespace+".updateQty", dto);
+		}
+		
+	}
+
+	@Override
+	public List<ProductQtyDTO> getqtyList(int p_num) {
+		return sqlSession.selectList(namespace+".getqtyList", p_num);
+	}
+
+	@Override
+	public void Qtydelete(int p_num) {
+		sqlSession.delete(namespace+".Qtydelete", p_num);
 	}
 	
 	
