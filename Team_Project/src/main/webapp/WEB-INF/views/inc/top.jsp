@@ -87,15 +87,16 @@ text-decoration: underline;
 								<li><a href="${pageContext.request.contextPath}/foot/contact">Contact</a></li>
 								
 								
-								<div class="col-sm-5 col-md-3 " style="float: right;" >
-			            	<form action="#" class="search-wrap ">
-			               <div class="cart">
-			                  <input type="search" class="form-control search" placeholder="Search" >
-			                  <button class="btn btn-primary submit-search " type="submit"><i class="icon-search"></i></button>
-			                  </div>
-			                  </form>
+					<div class="col-sm-5 col-md-3 " style="float: right;">
+							<form action="#" class="search-wrap ">
+								<div class="cart">
+									<input type="search" class="form-control search" placeholder="Search" >
+									<button class="btn btn-primary submit-search " type="submit"><i class="icon-search"></i></button>
+								</div>
+							</form>
 			        </div>
-			         <li class="cart"><a href="${pageContext.request.contextPath}/foot/cart"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
+			        
+			         			<li class="cart"><a href="${pageContext.request.contextPath}/foot/cart"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
 								<li class="cart"><a href="${pageContext.request.contextPath}/foot/wishlist"><i class="icon-heart2"></i> Wish </a></li>
 								
 					

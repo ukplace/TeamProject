@@ -16,6 +16,14 @@ public class ProductServiceImpl implements ProductService {
 	@Inject
 	private ProductDAO productDAO;
 
+	
+
+	@Override
+	public List<ProductDTO> getProductList(PageDTO pageDTO) {
+		System.out.println("ProductServiceImpl - getProductList()");
+		return productDAO.getProductList(pageDTO);
+	}
+
 	@Override
 	public List<ProductDTO> getProductKidsList(PageDTO pageDTO) {
 		System.out.println("ProductServiceImpl - getProductKidsList()");
@@ -57,6 +65,7 @@ public class ProductServiceImpl implements ProductService {
 		System.out.println("ProductServiceImpl.getProductGentlemanList()");
 		return productDAO.getProductGentlemanList(pageDTO);
 	}
+
 	
 	
 

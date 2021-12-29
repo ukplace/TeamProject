@@ -20,4 +20,13 @@
 		select * from member where m_email=#{m_email}
 	</select>
 	
+	
+	<!-- 검색 -->
+	<select id="listSearch" resultType="com.itwillbs.domain.ProductDTO"
+	parameterType="com.itwillbs.domain.SearchDTO">
+		select p_num, p_name, p_price, p_date 
+		from ()
+		where 
+	</select>
+	
 </mapper>

@@ -18,6 +18,13 @@ public class ProductDAOImpl implements ProductDAO {
 	
 	private static final String namespace="com.itwillbs.mapper.ProductMapper";
 
+
+	@Override
+	public List<ProductDTO> getProductList(PageDTO pageDTO) {
+		System.out.println("ProductDAOImpl - getProductList()");
+		return sqlSession.selectList(namespace + ".getProductList", pageDTO);
+	}
+	
 	@Override
 	public List<ProductDTO> getProductKidsList(PageDTO pageDTO) {
 		System.out.println("ProductDAOImpl - getProductKidsList()");
@@ -59,6 +66,7 @@ public class ProductDAOImpl implements ProductDAO {
 		System.out.println("ProductDAOImpl.getProductGentlemanList()");
 		return sqlSession.selectList(namespace+".getProductGentlemanList", pageDTO);
 	}
+
 
 	
 	

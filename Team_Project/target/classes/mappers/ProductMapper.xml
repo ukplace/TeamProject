@@ -5,6 +5,9 @@
   
 <mapper namespace="com.itwillbs.mapper.ProductMapper">
 
+	<select id="getProductList" resultType="om.itwillbs.domain.ProductDTO">
+		select * from product limit #{startRow},#{pageSize}
+	</select>
 
 	<select id="getProductKidsList" resultType="com.itwillbs.domain.ProductDTO">
 		select * from product where p_category='KIDS' limit #{startRow},#{pageSize}

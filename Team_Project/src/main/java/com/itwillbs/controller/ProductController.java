@@ -20,6 +20,26 @@ public class ProductController {
 	@Inject
 	private ProductService productService;
 	
+	
+	// 상품전체리스트
+	@RequestMapping(value = "/foot/product_list", method = RequestMethod.GET)
+	public String product_list(HttpServletRequest request, Model model) {
+		PageDTO pageDTO = new PageDTO();
+		pageDTO.setPageSize(12);
+		
+		if(request.getParameter("pageNum") == null) {
+			pageDTO.setPageNum("1");
+		}else {
+			pageDTO.setPageNum(request.getParameter("pageNum"));
+		}
+		
+		List<ProductDTO> productList = productService.getProductList(pageDTO);
+		
+		model.addAttribute("productList", productList);
+		model.addAttribute("pageDTO", pageDTO);
+		// /WEB-INF/views/foot/product_list
+		return "foot/product_list";
+	}
 
 	// 상품정보
 	@RequestMapping(value = "/foot/product_detail", method = RequestMethod.GET)
@@ -206,6 +226,7 @@ public class ProductController {
 		// /WEB-INF/views/foot/list_men
 		return "foot/list_kids_sneakers";
 	}
+	
 	
 	
 	
