@@ -88,9 +88,9 @@ text-decoration: underline;
 								
 								
 					<div class="col-sm-5 col-md-3 " style="float: right;">
-							<form action="#" class="search-wrap ">
+							<form action="${pageContext.request.contextPath}/foot/search" class="search-wrap " method="get">
 								<div class="cart">
-									<input type="search" class="form-control search" placeholder="Search" >
+									<input type="search" name="keyword" class="form-control search" placeholder="Search" >
 									<button class="btn btn-primary submit-search " type="submit"><i class="icon-search"></i></button>
 								</div>
 							</form>

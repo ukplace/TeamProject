@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
+import com.itwillbs.domain.SearchDTO;
 
 @Repository
 public class ProductDAOImpl implements ProductDAO {
@@ -19,11 +20,21 @@ public class ProductDAOImpl implements ProductDAO {
 	private static final String namespace="com.itwillbs.mapper.ProductMapper";
 
 
+	/* 전체 상품 검색 */
 	@Override
-	public List<ProductDTO> getProductList(PageDTO pageDTO) {
+	public List<ProductDTO> getProductList(SearchDTO searchDTO) {
 		System.out.println("ProductDAOImpl - getProductList()");
-		return sqlSession.selectList(namespace + ".getProductList", pageDTO);
+		return sqlSession.selectList(namespace + ".getProductList", searchDTO);
 	}
+
+	/* 상품 총 갯수 */
+	@Override
+	public Integer getProductTotal(SearchDTO searchDTO) {
+		System.out.println("ProductDAOImpl - getProductTotal()");
+		return sqlSession.selectOne(namespace + ".getProductTotal", searchDTO);
+	}
+	
+	
 	
 	@Override
 	public List<ProductDTO> getProductKidsList(PageDTO pageDTO) {
@@ -113,6 +124,7 @@ public class ProductDAOImpl implements ProductDAO {
 	public ProductDTO productDetail(int p_num) {
 		return sqlSession.selectOne(namespace+".productDetail", p_num);
 	}
+
 
 	
 	

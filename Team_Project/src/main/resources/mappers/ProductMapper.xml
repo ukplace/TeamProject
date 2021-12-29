@@ -5,10 +5,28 @@
   
 <mapper namespace="com.itwillbs.mapper.ProductMapper">
 
+	<!-- searchDTO(검색조건) **** -->
+	<sql id="searchDTO">
+		<if test="keyword != null">
+			where (p_name like concat ('%', #{keyword}, '%'))
+		</if>
+	</sql>
+
+	<!-- 전체 상품 검색 -->
 	<select id="getProductList" resultType="com.itwillbs.domain.ProductDTO">
-		select * from product limit #{startRow},#{pageSize}
+		select * from product p left outer join product_qty  pq
+		on p.p_num = pq.p_num
+		<include refid="searchDTO"></include>
+		limit #{startRow},#{pageSize}
 	</select>
 
+	<!-- 상품 총 개수 -->
+	<select id="getProductTotal" resultType="java.lang.Integer">
+		select count(*) from product
+		<include refid="searchDTO"></include>
+	</select>
+	
+	
 	<select id="getProductKidsList" resultType="com.itwillbs.domain.ProductDTO">
 		select * from product where p_category='KIDS' limit #{startRow},#{pageSize}
 	</select>

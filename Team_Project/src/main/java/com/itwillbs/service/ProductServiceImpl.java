@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.itwillbs.dao.ProductDAO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
+import com.itwillbs.domain.SearchDTO;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -17,12 +18,21 @@ public class ProductServiceImpl implements ProductService {
 	private ProductDAO productDAO;
 
 	
-
+	/* 전체 상품 검색 */
 	@Override
-	public List<ProductDTO> getProductList(PageDTO pageDTO) {
+	public List<ProductDTO> getProductList(SearchDTO searchDTO) {
 		System.out.println("ProductServiceImpl - getProductList()");
-		return productDAO.getProductList(pageDTO);
+		return productDAO.getProductList(searchDTO);
 	}
+	
+	/* 상품 총 갯수 */
+	@Override
+	public Integer getProductTotal(SearchDTO searchDTO) {
+		System.out.println("ProductServiceImpl - getProductTotal()");
+		return productDAO.getProductTotal(searchDTO);
+	}
+	
+	
 
 	@Override
 	public List<ProductDTO> getProductKidsList(PageDTO pageDTO) {
@@ -112,6 +122,7 @@ public class ProductServiceImpl implements ProductService {
 	public ProductDTO productDetail(int p_num) {
 		return productDAO.productDetail(p_num);
 	}
+
 	
 	
 
