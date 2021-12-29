@@ -100,6 +100,24 @@
 	
 	.select_img img {margin:20px 0;}
 </style>
+<script type="text/javascript">
+
+function changeSize1(size){
+	//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
+	document.getElementById("size1").value = size;
+}
+function changeSize2(size){
+	//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
+	document.getElementById("size2").value = size;
+}
+function changeSize3(size){
+	//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
+	document.getElementById("size3").value = size;
+}	
+
+</script>
+
+
 </head>
 
 <body>
@@ -115,8 +133,12 @@
                         <div class="col-lg-12">
                             
 <!--                             **폼태그 맨끝 코드 일단 빼놓음 onsubmit="return checkForm()"  -->
-<form action="${pageContext.request.contextPath}/admin/product_qty_updatePro" method="post" name="updateForm" > 
+<form action="${pageContext.request.contextPath}/admin/product_qty_updatePro" method="post" name="updateForm2" id="updateForm2"> 
 
+<<<<<<< HEAD
+		<input type="hidden" name="p_num" value="${productDTO.p_num}" />
+=======
+>>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 	
 	<br>
 	<br>
@@ -129,8 +151,8 @@
 			<tr>
 				<th>사이즈</th>
 					<td>
-						<input type="text" name="list[0].p_size" required="required" size="10" value="">
-						<select name="selectSize" onchange="changeSize(this.value)">
+						<input type="text" name="list[0].p_size" id="size_1" required="required" size="10" >
+						<select name="selectSize" onchange="changeSize1(this.value)">
 						<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입란에 표시 -->
 						<!-- this 주면 여기 이 태그가 날라간다!  -->
 						<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입력란에 표시 -->
@@ -161,8 +183,8 @@
 				<tr>
 				<th>사이즈</th>
 					<td>
-						<input type="text" name="list[1].p_size" required="required" size="10" value="">
-						<select name="selectSize" onchange="changeSize(this.value)">
+						<input type="text" name="list[1].p_size" id="size_2" required="required" size="10">
+						<select name="selectSize" onchange="changeSize2(this.value)">
 						<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입란에 표시 -->
 						<!-- this 주면 여기 이 태그가 날라간다!  -->
 						<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입력란에 표시 -->
@@ -186,13 +208,13 @@
       	<tr>
       <th>재고</th>
       	<td>
-      	  <input type="text" name="list[1].p_stock" width = 40px padding= 6px  margin= 100px  placeholder="재고수량입력" value="">
+      	  <input type="text" name="list[1].p_stock" width = 40px padding= 6px  margin= 100px  placeholder="재고수량입력" >
       	</td>
       	</tr><tr>
 				<th>사이즈</th>
 					<td>
-						<input type="text" name="list[2].p_size" required="required" size="10" value="">
-						<select name="selectSize" onchange="changeSize(this.value)">
+						<input type="text" name="list[2].p_size" id="size_3" required="required" size="10" value="">
+						<select name="selectSize" onchange="changeSize3(this.value)">
 						<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입란에 표시 -->
 						<!-- this 주면 여기 이 태그가 날라간다!  -->
 						<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입력란에 표시 -->
@@ -219,9 +241,8 @@
       	  <input type="text" name="list[2].p_stock" width = 40px padding= 6px  margin= 100px  placeholder="재고수량입력" value="">
       	</td>
       	</tr>
-				
-				
-										
+
+								
 				
 					<tr>
 						<td colspan="2" align="center">
@@ -269,22 +290,6 @@
   
 <script type="text/javascript">
 
-// 상품리셋 버튼 클릭 이벤트
-$("#back_Btn").click(function(){
- 	//history.back();
- 	location.href = "${pageContext.request.contextPath}/admin/product_update?num=${ProductDTO.p_num}";
-});   
-
-// 상품삭제 버튼 클릭 이벤트
-$("#deleteBtn").click(function(){
-	// 상품 삭제 확인
-	if(confirm("상품을 삭제하시겠습니까?")){
-		document.updateForm.action="${pageContext.request.contextPath}/admin/delete?num=${ProductDTO.p_num}"
-		document.updateForm.submit();
-	}
-});
-
-
 $("#p_img").change(function(){
 	   if(this.files && this.files[0]) {
 		   var reader = new FileReader;
@@ -297,168 +302,9 @@ $("#p_img").change(function(){
  
 
 
-function changeColor(color){
-	//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
-	document.update.p_color.value = color;
-}
-
-function changeCa(ca){
-	//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
-	document.updateForm.p_small_category.value = ca;
-}
-function changeCa1(ca){
-	//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
-	document.updateForm.p_category.value = ca;
-}
-
-function changeSize(size){
-	//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
-	document.updateForm.p_size.value = size;
-}
-
 
 // ============================================================================================================================
  
-	
-$(document).ready(function() {
-    
-    //Main 카테고리를 선택 할때 마다 AJAX를 호출할 수 있지만 DB접속을 매번 해야 하기 때문에 main, sub카테고리 전체을 들고온다.
-    
-    //****************이부분은 DB로 셋팅하세요.
-    //Main 카테고리 셋팅 (DB에서 값을 가져와 셋팅 하세요.)
-    var mainCategoryArray = new Array();
-    var mainCategoryObject = new Object();
-    
-    mainCategoryObject = new Object();
-    mainCategoryObject.main_category_id = "MEN";
-    mainCategoryObject.main_category_name = "MEN";
-    mainCategoryArray.push(mainCategoryObject);
-    
-    mainCategoryObject = new Object();
-    mainCategoryObject.main_category_id = "WOMEN";
-    mainCategoryObject.main_category_name = "WOMAN";
-    mainCategoryArray.push(mainCategoryObject);
-    
-    mainCategoryObject = new Object();
-    mainCategoryObject.main_category_id = "KIDS";
-    mainCategoryObject.main_category_name = "KIDS";
-    mainCategoryArray.push(mainCategoryObject);
-    
-    //Sub 카테고리 셋팅 (DB에서 값을 가져와 셋팅 하세요.)
-    var subCategoryArray = new Array();
-    var subCategoryObject = new Object();
-    
-    //남성에 해당하는 sub category 리스트
-    subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "MEN";
-    subCategoryObject.sub_category_id = "구두"
-    subCategoryObject.sub_category_name = "구두"    
-    subCategoryArray.push(subCategoryObject);
-    
-    subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "MEN";
-    subCategoryObject.sub_category_id = "스니커즈"
-    subCategoryObject.sub_category_name = "스니커즈"    
-    subCategoryArray.push(subCategoryObject);
-    
-    subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "MEN";
-    subCategoryObject.sub_category_id = "러닝화"
-    subCategoryObject.sub_category_name = "러닝화"    
-    subCategoryArray.push(subCategoryObject);
-    
-    subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "MEN";
-    subCategoryObject.sub_category_id = "아웃도어"
-    subCategoryObject.sub_category_name = "아웃도어"    
-    subCategoryArray.push(subCategoryObject);
-    
-//     subCategoryObject = new Object();
-//     subCategoryObject.main_category_id = "MEN";
-//     subCategoryObject.sub_category_id = "하이탑/부츠"
-//     subCategoryObject.sub_category_name = "하이탑/부츠"    
-//     subCategoryArray.push(subCategoryObject);
-    
-    //여성에 해당하는 sub category 리스트
-    subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "WOMEN";
-    subCategoryObject.sub_category_id = "구두/힐"
-    subCategoryObject.sub_category_name = "구두/힐"    
-    subCategoryArray.push(subCategoryObject);
-    
-    subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "WOMEN";
-    subCategoryObject.sub_category_id = "스니커즈"
-    subCategoryObject.sub_category_name = "스니커즈"    
-    subCategoryArray.push(subCategoryObject);
-    
-    subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "WOMEN";
-    subCategoryObject.sub_category_id = "러닝화"
-    subCategoryObject.sub_category_name = "러닝화"    
-    subCategoryArray.push(subCategoryObject);
-    
-    subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "WOMEN";
-    subCategoryObject.sub_category_id = "아웃도어"
-    subCategoryObject.sub_category_name = "아웃도어"    
-    subCategoryArray.push(subCategoryObject);
-    
-    //키즈에 해당하는 sub category 리스트
-    subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "KIDS";
-    subCategoryObject.sub_category_id = "스니커즈"
-    subCategoryObject.sub_category_name = "스니커즈"    
-    subCategoryArray.push(subCategoryObject);
-    
-    subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "KIDS";
-    subCategoryObject.sub_category_id = "러닝화"
-    subCategoryObject.sub_category_name = "러닝화"    
-    subCategoryArray.push(subCategoryObject);
-    
-    subCategoryObject = new Object();
-    subCategoryObject.main_category_id = "KIDS";
-    subCategoryObject.sub_category_id = "구두"
-    subCategoryObject.sub_category_name = "구두"    
-    subCategoryArray.push(subCategoryObject);
-    
-    //****************이부분은 DB로 셋팅하세요.
-    
-    
-    //메인 카테고리 셋팅
-    var mainCategorySelectBox = $("select[name='mainCategory']");
-    
-    for(var i=0;i<mainCategoryArray.length;i++){
-        mainCategorySelectBox.append("<option value='"+mainCategoryArray[i].main_category_id+"'>"+mainCategoryArray[i].main_category_name+"</option>");
-    }
-    
-    //*********** 1depth카테고리 선택 후 2depth 생성 START ***********
-    $(document).on("change","select[name='mainCategory']",function(){
-        
-        //두번째 셀렉트 박스를 삭제 시킨다.
-        var subCategorySelectBox = $("select[name='subCategory']");
-        subCategorySelectBox.children().remove(); //기존 리스트 삭제
-        
-        //선택한 첫번째 박스의 값을 가져와 일치하는 값을 두번째 셀렉트 박스에 넣는다.
-        $("option:selected", this).each(function(){
-            var selectValue = $(this).val(); //main category 에서 선택한 값
-            subCategorySelectBox.append("<option value=''>전체</option>");
-            for(var i=0;i<subCategoryArray.length;i++){
-                if(selectValue == subCategoryArray[i].main_category_id){
-                    
-                    subCategorySelectBox.append("<option value='"+subCategoryArray[i].sub_category_id+"'>"+subCategoryArray[i].sub_category_name+"</option>");
-                    
-                }
-            }
-            
-            return selectValue
-        });
-        
-    });
-    //*********** 1depth카테고리 선택 후 2depth 생성 END ***********
-        
-});
 </script>
 
 </body>

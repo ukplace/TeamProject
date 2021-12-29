@@ -45,12 +45,25 @@
 		select * from member WHERE m_idx = #{m_idx}
 	</select>
 	
+<<<<<<< HEAD
 	<update id="updateMember">
 		update member set m_point=#{m_point}, m_grade=#{m_grade}
 	</update>
 	
 	<delete id="deleteMember" parameterType="int">
 		delete from member where m_idx = #{m_idx}
+=======
+	<insert id="updateQty">
+	  	insert into product_qty values (#{p_num},#{p_size},#{p_stock})
+	</insert>
+	
+	<select id="getqtyList" resultType="com.itwillbs.domain.ProductQtyDTO">
+		select * from product_qty WHERE p_num = #{p_num}
+	</select>
+	
+	<delete id="Qtydelete">
+		delete from product_qty WHERE p_num = #{p_num} 
+>>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 	</delete>
 	
 	<insert id="insertReview">

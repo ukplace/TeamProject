@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -169,7 +170,7 @@
 				${ProductDTO.p_color}
 			</td>
 		</tr>
-	
+	</table>
 <!-- 				<tr> -->
 <!-- 					<th>색상</th> -->
 <!-- 					<td> -->
@@ -189,31 +190,38 @@
 <!-- 						</select> -->
 <!-- 					</td> -->
 <!-- 				</tr> -->
+<table border="1">
 			<tr>
 				<th>사이즈</th>
+				<c:forEach  var="qtyDTO" items="${qtyList }">
 					<td>
-						${ProductDTO.p_size}
+						${qtyDTO.p_size }
 						
 						<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입란에 표시 -->
 						<!-- this 주면 여기 이 태그가 날라간다!  -->
 						<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입력란에 표시 -->
 						
 					</td>
+					</c:forEach>
 				</tr>	
 				
 				<!-- 재고 -->
 		      	<tr>
 		      		<th>재고</th>
+		      		<c:forEach  var="qtyDTO" items="${qtyList }">
 		      		<td>
-		      	 	 ${ProductDTO.p_stock}
-		      		</td>	
+		      	 		${qtyDTO.p_stock }
+		      		</td>
+		      		</c:forEach>	
 				</tr>
-				
-				
+</table>				
+		<table>		
 				<tr>
 				<td>
-				<button type="button" class="btn btn-default" onclick="location.href='${pageContext.request.contextPath}/admin/product_qty_update?num=${ProductDTO.p_num}'">수량 수정</button>
-				<button type="button" class="btn btn-warning">삭제</button>
+				<button type="button" class="btn btn-default" onclick="location.href='${pageContext.request.contextPath}/admin/product_qty_insert?num=${ProductDTO.p_num}'">수량 추가</button>
+				</td>
+				<td>
+				<button type="button" class="btn btn-default" onclick="location.href='${pageContext.request.contextPath}/admin/product_qty_update?num=${ProductDTO.p_num}'">수량 초기화 및 생성</button>
 				</td>
 				</tr>
 				
@@ -330,7 +338,7 @@ function changeCa1(ca){
 }
 
 function changeSize(size){
-	//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
+	
 	document.registForm.p_size.value = size;
 }
 

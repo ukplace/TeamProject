@@ -189,7 +189,7 @@ public class CenterController {
 
 	@RequestMapping(value = "/center/faq_write_pro", method = RequestMethod.POST)
 	public String faq_write_pro(FaqDTO faqDTO) {
-
+		
 		centerService.insertFaq(faqDTO);
 
 		return "redirect:/center/faq_list";

@@ -9,17 +9,6 @@ p_size varchar(45) not null default '0',
 p_stock int not null default 0
 );
 
-create table product_size (
-p_num int references product (p_num),
-'220' varchar(45),
-'230' varchar(45),
-'240' varchar(45),
-'250' varchar(45),
-'260' varchar(45),
-'270' varchar(45),
-'280' varchar(45)
-);
-
 
  */
 

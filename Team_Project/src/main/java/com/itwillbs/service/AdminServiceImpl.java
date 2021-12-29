@@ -11,7 +11,11 @@ import com.itwillbs.dao.MemberDAO;
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
+<<<<<<< HEAD
+import com.itwillbs.domain.ProductQtyDTO;
+=======
 import com.itwillbs.domain.ReviewDTO;
+>>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -116,8 +120,28 @@ public class AdminServiceImpl implements AdminService {
 
 
 	@Override
+<<<<<<< HEAD
+	public void updateQty(ProductQtyDTO dto) {
+		
+		adminDAO.updateQty(dto);
+		
+	}
+
+
+	@Override
+	public List<ProductQtyDTO> getqtyList(int p_num) {
+
+		return adminDAO.getqtyList(p_num);
+	}
+
+
+	@Override
+	public void Qtydelete(int p_num) {
+		adminDAO.Qtydelete(p_num);
+=======
 	public void insertReview(ReviewDTO reviewDTO) {
 		adminDAO.insertReview(reviewDTO);
+>>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 	}
 
 
