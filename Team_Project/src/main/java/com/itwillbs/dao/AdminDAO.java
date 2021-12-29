@@ -5,6 +5,7 @@ import java.util.List;
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
+import com.itwillbs.domain.ReviewDTO;
 
 public interface AdminDAO {
 	
@@ -30,5 +31,7 @@ public interface AdminDAO {
 	public int getMemberCount();
 	
 	public MemberDTO getMemberDetail(MemberDTO memberDTO);
+
+	public void insertReview(ReviewDTO reviewDTO);
 
 }
