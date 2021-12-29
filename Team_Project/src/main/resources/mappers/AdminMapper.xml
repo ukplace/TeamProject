@@ -57,4 +57,8 @@
 		delete from product_qty WHERE p_num = #{p_num} 
 	</delete>
 	
+	<insert id="insertReview">
+		insert into review(p_num,m_idx,review_content,review_score,review_date)
+		values (#{p_num},#{m_idx},#{review_content},#{review_score},#{review_date})
+	</insert>
 </mapper>

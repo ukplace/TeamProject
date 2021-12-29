@@ -135,7 +135,10 @@ function changeSize3(size){
 <!--                             **폼태그 맨끝 코드 일단 빼놓음 onsubmit="return checkForm()"  -->
 <form action="${pageContext.request.contextPath}/admin/product_qty_updatePro" method="post" name="updateForm2" id="updateForm2"> 
 
+<<<<<<< HEAD
 		<input type="hidden" name="p_num" value="${productDTO.p_num}" />
+=======
+>>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 	
 	<br>
 	<br>

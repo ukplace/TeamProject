@@ -25,6 +25,7 @@ import com.itwillbs.domain.NoticeDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductQtyDTO;
+import com.itwillbs.domain.ReviewDTO;
 import com.itwillbs.service.AdminService;
 import com.itwillbs.service.MemberService;
 import com.itwillbs.service.ProductService;
@@ -265,9 +266,14 @@ public class AdminController {
 		   }
 
 		@RequestMapping(value = "/admin/product_qty_updatePro", method = RequestMethod.POST)
-		   public String product_qty_updatePro(ProductQtyDTO dto) {
-			
-			adminService.updateQty(dto);
+		   public String product_qty_updatePro(HttpServletRequest request, ProductQtyDTO dto) {
+			System.out.println(dto.getList().get(0).getP_size());
+			System.out.println(dto.getList().get(0).getP_stock());
+			System.out.println(dto.getList().get(1).getP_size());
+			System.out.println(dto.getList().get(1).getP_stock());
+			System.out.println(dto.getList().get(2).getP_size());
+			dto.setP_num(Integer.parseInt(request.getParameter("num")));
+			System.out.println(dto.getP_num());
 			
 			
 		      // /WEB-INF/views/admin/product_list
@@ -323,14 +329,17 @@ public class AdminController {
 			// /WEB-INF/views/foot/review.jsp
 			return "foot/review";
 		}
+		
 		@RequestMapping(value = "/foot/review_write", method = RequestMethod.GET)
 		public String review_write() {
 			// /WEB-INF/views/foot/review_write.jsp
 			return "foot/review_write";
 		}
 		@RequestMapping(value = "/foot/review_write_pro", method = RequestMethod.POST)
-		public String review_write_pro() {
-			// /WEB-INF/views/foot/product-detail.jsp
+		public String review_write_pro(ReviewDTO reviewDTO) {
+			
+			adminService.insertReview(reviewDTO);
+			
 			return "redirect:/foot/product_detail";
 		}
 		@RequestMapping(value = "/foot/review_update", method = RequestMethod.GET)

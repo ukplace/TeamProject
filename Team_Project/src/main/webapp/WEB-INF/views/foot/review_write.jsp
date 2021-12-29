@@ -112,52 +112,45 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12">
+						<form action="${pageContext.request.contextPath}/foot/review_write_pro" method="post" class="contact-form">
 						<div class="contact-wrap">
 							<h3>리뷰 작성란</h3>
 							
-							<form action="${pageContext.request.contextPath}/foot/reviewPro" method="post" class="contact-form">
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
-											<label for="name">작성자</label>
-											<input type="text" id="name" class="form-control" placeholder="이름">
+											<label for="name">회원번호</label>
+											<input type="text" name="m_idx" id="name" class="form-control" readonly>
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label for="product">제품명</label>
-											<input type="text" id="product" class="form-control" placeholder="제품명" readonly>
+											<label for="product">제품번호</label>
+											<input type="text" name="p_num" id="product" class="form-control" placeholder="제품명" readonly>
 										</div>
 									</div>
 									<div class="w-100"></div>
 									<div class="col-sm-12">
 										<div class="form-group">
-											<label for="subject">제목</label>
-											<input type="text" id="subject" class="form-control" placeholder="리뷰 제목을 적어주세요">
-										</div>
-									</div>
-									<div class="w-100"></div>
-									<div class="col-sm-12">
-										<div class="form-group">
-											<label for="content">내용</label>
-											<textarea name="content" id="content" cols="30" rows="10" class="form-control" placeholder="리뷰 내용을 적어주세요"></textarea>
+											<label for="content">리뷰내용</label>
+											<textarea name="review_content" id="content" cols="30" rows="10" class="form-control" placeholder="리뷰 내용을 적어주세요"></textarea>
 										</div>
 									</div>
 									
 									<div class="w-100"></div>
-									
+									<br>
 									<div class="col-sm-4">
 					                  <div class="form-group">
-					                  	<label for="cost_score">상품 가격</label>
+					                  	<label for="cost_score">상품을 평가해주세요.</label>
 					                     <div class="form-field">
 					                     	<i class="icon icon-arrow-down3"></i>
-					                        <select name="cost_score" id="cost_score" class="form-control">
-					                        	<option value="0">평점을 선택해주세요</option>
-						                      	<option value="1">★★★★★</option>
-						                        <option value="2">★★★★</option>
-						                        <option value="3">★★★</option>
-						                        <option value="4">★★</option>
-						                        <option value="5">★</option>
+					                        <select name="review_score" id="cost_score" class="form-control">
+					                        	<option value="0">선택하세요</option>
+						                      	<option value="1">5점</option>
+						                        <option value="2">4점</option>
+						                        <option value="3">3점</option>
+						                        <option value="4">2점</option>
+						                        <option value="5">1점</option>
 					                        </select>
 					                     </div>
 										</div>
@@ -165,60 +158,57 @@
 									
 									<div class="w-100"></div>
 									
-									<div class="col-sm-4">
-					                  <div class="form-group">
-					                  	<label for="quality_score">상품 퀄리티</label>
-					                     <div class="form-field">
-					                     	<i class="icon icon-arrow-down3"></i>
-					                        <select name="quality_score" id="quality_score" class="form-control">
-					                        	<option value="0">평점을 선택해주세요</option>
-						                      	<option value="1">★★★★★</option>
-						                        <option value="2">★★★★</option>
-						                        <option value="3">★★★</option>
-						                        <option value="4">★★</option>
-						                        <option value="5">★</option>
-					                        </select>
-					                     </div>
-										</div>
-									</div>
+<!-- 									<div class="col-sm-4"> -->
+<!-- 					                  <div class="form-group"> -->
+<!-- 					                  	<label for="quality_score">상품 퀄리티</label> -->
+<!-- 					                     <div class="form-field"> -->
+<!-- 					                     	<i class="icon icon-arrow-down3"></i> -->
+<!-- 					                        <select name="quality_score" id="quality_score" class="form-control"> -->
+<!-- 					                        	<option value="0">평점을 선택해주세요</option> -->
+<!-- 						                      	<option value="1">★★★★★</option> -->
+<!-- 						                        <option value="2">★★★★</option> -->
+<!-- 						                        <option value="3">★★★</option> -->
+<!-- 						                        <option value="4">★★</option> -->
+<!-- 						                        <option value="5">★</option> -->
+<!-- 					                        </select> -->
+<!-- 					                     </div> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
 									
 									<div class="w-100"></div>
 									
-									<div class="col-sm-4">
-					                  <div class="form-group">
-					                  	<label for="design_score">상품 디자인</label>
-					                     <div class="form-field">
-					                     	<i class="icon icon-arrow-down3"></i>
-					                        <select name="design_score" id="design_score" class="form-control">
-					                        	<option value="0">평점을 선택해주세요</option>
-						                      	<option value="1">★★★★★</option>
-						                        <option value="2">★★★★</option>
-						                        <option value="3">★★★</option>
-						                        <option value="4">★★</option>
-						                        <option value="5">★</option>
-					                        </select>
-					                     </div>
-										</div>
-									</div>
-									<div class="w-100"></div>
-									<div class="col-sm-12">
-										<div class="form-group">
-										
-					               
-					               	
-											<p id="star"> <!-- 부모 -->
-												<a href="#" value="1">★</a> <!-- 자식들 -->
-												<a href="#" value="2">★</a>
-												<a href="#" value="3">★</a>
-												<a href="#" value="4">★</a>
-												<a href="#" value="5">★</a>
-											</p>
+<!-- 									<div class="col-sm-4"> -->
+<!-- 					                  <div class="form-group"> -->
+<!-- 					                  	<label for="design_score">상품 디자인</label> -->
+<!-- 					                     <div class="form-field"> -->
+<!-- 					                     	<i class="icon icon-arrow-down3"></i> -->
+<!-- 					                        <select name="design_score" id="design_score" class="form-control"> -->
+<!-- 					                        	<option value="0">평점을 선택해주세요</option> -->
+<!-- 						                      	<option value="1">★★★★★</option> -->
+<!-- 						                        <option value="2">★★★★</option> -->
+<!-- 						                        <option value="3">★★★</option> -->
+<!-- 						                        <option value="4">★★</option> -->
+<!-- 						                        <option value="5">★</option> -->
+<!-- 					                        </select> -->
+<!-- 					                     </div> -->
+<!-- 										</div> -->
+<!-- 									</div> -->
+<!-- 									<div class="w-100"></div> -->
+<!-- 									<div class="col-sm-12"> -->
+<!-- 										<div class="form-group"> -->
+<!-- 											<p id="star"> 부모 -->
+<!-- 												<a href="#" value="1">★</a> 자식들 -->
+<!-- 												<a href="#" value="2">★</a> -->
+<!-- 												<a href="#" value="3">★</a> -->
+<!-- 												<a href="#" value="4">★</a> -->
+<!-- 												<a href="#" value="5">★</a> -->
+<!-- 											</p> -->
 											
 									
-									
+											<div style="margin:0 auto;">
 											<a href="index"><button type="submit" class="btn btn-primary">리뷰 등록</button></a>
-<!-- 											<input type="submit" value="리뷰 등록" class="btn btn-primary"> -->
-										</div>
+											<!-- 	<input type="submit" value="리뷰 등록" class="btn btn-primary"> -->
+											</div>
 									</div>
 								</div>
 							</form>		
