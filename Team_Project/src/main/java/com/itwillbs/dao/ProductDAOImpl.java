@@ -51,13 +51,55 @@ public class ProductDAOImpl implements ProductDAO {
 	@Override
 	public List<ProductDTO> getProductSneakersList(PageDTO pageDTO) {
 		System.out.println("ProductDAOImpl.getProductSneakersList()");
-		return sqlSession.selectList(namespace+"getProductSneakersList", pageDTO);
+		return sqlSession.selectList(namespace+".getProductSneakersList", pageDTO);
 	}
 
 	@Override
 	public List<ProductDTO> getProductGentlemanList(PageDTO pageDTO) {
 		System.out.println("ProductDAOImpl.getProductGentlemanList()");
 		return sqlSession.selectList(namespace+".getProductGentlemanList", pageDTO);
+	}
+
+	@Override
+	public List<ProductDTO> getProductLadyList(PageDTO pageDTO) {
+		System.out.println("ProductDAOImpl.getProductLadyList()");
+		return sqlSession.selectList(namespace+".getProductW_LadyList", pageDTO);
+	}
+
+	@Override
+	public List<ProductDTO> getProductW_SneakersList(PageDTO pageDTO) {
+		System.out.println("ProductDAOImpl.getProductW_SneakersList()");
+		return sqlSession.selectList(namespace+".getProductW_SneakersList", pageDTO);
+	}
+
+	@Override
+	public List<ProductDTO> getProductW_RunningList(PageDTO pageDTO) {
+		System.out.println("ProductDAOImpl.getProductW_RunningList()");
+			return sqlSession.selectList(namespace+".getProductW_RunningList", pageDTO);
+	}
+
+	@Override
+	public List<ProductDTO> getProductW_OutdoorList(PageDTO pageDTO) {
+		System.out.println("ProductDAOImpl.getProductW_OutdoorList()");
+		return sqlSession.selectList(namespace+".getProductW_OutdoorList", pageDTO);
+	}
+
+	@Override
+	public List<ProductDTO> getProductK_KidList(PageDTO pageDTO) {
+		System.out.println("ProductDAOImpl.getProductK_KidList()");
+		return sqlSession.selectList(namespace+".getProductK_KidList", pageDTO);
+	}
+
+	@Override
+	public List<ProductDTO> getProductK_RunningList(PageDTO pageDTO) {
+		System.out.println("ProductDAOImpl.getProductK_RunningList()");
+		return sqlSession.selectList(namespace+".getProductK_RunningList", pageDTO);
+	}
+
+	@Override
+	public List<ProductDTO> getProductK_SneakersList(PageDTO pageDTO) {
+		System.out.println("ProductDAOImpl.getProductK_SneakersList()");
+		return sqlSession.selectList(namespace+".getProductK_SneakersList", pageDTO);
 	}
 
 	
