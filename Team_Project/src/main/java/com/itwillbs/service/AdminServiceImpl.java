@@ -11,6 +11,7 @@ import com.itwillbs.dao.MemberDAO;
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
+import com.itwillbs.domain.ReviewDTO;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -112,6 +113,12 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 
+
+
+	@Override
+	public void insertReview(ReviewDTO reviewDTO) {
+		adminDAO.insertReview(reviewDTO);
+	}
 
 
 

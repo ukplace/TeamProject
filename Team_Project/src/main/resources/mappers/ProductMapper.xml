@@ -5,11 +5,25 @@
   
 <mapper namespace="com.itwillbs.mapper.ProductMapper">
 
+	<select id="getProductList" resultType="com.itwillbs.domain.ProductDTO">
+		select * from product limit #{startRow},#{pageSize}
+	</select>
 
 	<select id="getProductKidsList" resultType="com.itwillbs.domain.ProductDTO">
 		select * from product where p_category='KIDS' limit #{startRow},#{pageSize}
 	</select>
 
+		<select id="getProductK_SneakersList" resultType="com.itwillbs.domain.ProductDTO">
+		select * from product where p_category = 'WOMEN' and p_small_category = '스니커즈' limit #{startRow},#{pageSize}
+		</select>
+		
+		<select id="getProductK_KidList" resultType="com.itwillbs.domain.ProductDTO">
+		select * from product where p_category = 'WOMEN' and p_small_category = '구두' limit #{startRow},#{pageSize}
+		</select>
+		
+		<select id="getProductK_RunningList" resultType="com.itwillbs.domain.ProductDTO">
+		select * from product where p_category = 'WOMEN' and p_small_category = '러닝화' limit #{startRow},#{pageSize}
+		</select>
 	
 <!-- 	<select id="ProwomenList" resultType="com.itwillbs.domain.productDTO">
 		select * from product where p_category = 'WOMEN'
@@ -17,23 +31,49 @@
 	<select id="getProductWomenList" resultType="com.itwillbs.domain.ProductDTO">
 		select * from product where p_category='WOMEN' limit #{startRow},#{pageSize}
 	</select>
+		
+		<select id="getProductW_LadyList" resultType="com.itwillbs.domain.ProductDTO">
+		select * from product where p_category = 'WOMEN' and p_small_category = '구두' limit #{startRow},#{pageSize}
+		</select>
+		
+		<select id="getProductW_RunningList" resultType="com.itwillbs.domain.ProductDTO">
+		select * from product where p_category = 'MEN' and p_small_category = '러닝화' limit #{startRow},#{pageSize}
+		</select>
+		
+		<select id="getProductW_SneakersList" resultType="com.itwillbs.domain.ProductDTO">
+		select * from product where p_category = 'MEN' and p_small_category = '스니커즈' limit #{startRow},#{pageSize}
+		</select>
+		
+		<select id="getProductW_OutdoorList" resultType="com.itwillbs.domain.ProductDTO">
+		select * from product where p_category = 'MEN' and p_small_category = '아웃도어' limit #{startRow},#{pageSize}
+		</select>
+	
+	
 	
 	<select id="getProductMenList" resultType="com.itwillbs.domain.ProductDTO">
 		select * from product where p_category = 'MEN' limit #{startRow},#{pageSize}
 	</select>
+	
 		<select id="getProductSneakersList" resultType="com.itwillbs.domain.ProductDTO">
 		select * from product where p_category = 'MEN' and p_small_category = '스니커즈' limit #{startRow},#{pageSize}
-	</select>
+		</select>
+	
 		<select id="getProductGentlemanList" resultType="com.itwillbs.domain.ProductDTO">
 		select * from product where p_category = 'MEN' and p_small_category = '구두' limit #{startRow},#{pageSize}
-	</select>
+		</select>
+		
 		<select id="getProductOutdoorList" resultType="com.itwillbs.domain.ProductDTO">
 		select * from product where p_category = 'MEN' and p_small_category = '아웃도어' limit #{startRow},#{pageSize}
-	</select>
+		</select>
+		
 		<select id="getProductRunningList" resultType="com.itwillbs.domain.ProductDTO">
 		select * from product where p_category = 'MEN' and p_small_category = '러닝화' limit #{startRow},#{pageSize}
-	</select>
-
+		</select>
+		
+		
+		
+		
+	
 
 	
 </mapper>

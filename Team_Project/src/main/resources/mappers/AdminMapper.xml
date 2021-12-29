@@ -53,4 +53,8 @@
 		delete from member where m_idx = #{m_idx}
 	</delete>
 	
+	<insert id="insertReview">
+		insert into review(p_num,m_idx,review_content,review_score,review_date)
+		values (#{p_num},#{m_idx},#{review_content},#{review_score},#{review_date})
+	</insert>
 </mapper>

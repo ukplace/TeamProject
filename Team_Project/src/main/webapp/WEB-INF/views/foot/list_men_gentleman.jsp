@@ -105,7 +105,6 @@
 					</div>
 				</div>
 			</div>
-		</div>
 
 		<div class="colorlib-product">
 			<div class="container">
@@ -168,7 +167,7 @@
 				</div>
 			</div>
 		</div>
-
+</div>
 		<div class="colorlib-partner">
 			<div class="container">
 				<div class="row">

@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
+import com.itwillbs.domain.ReviewDTO;
 
 @Repository
 public class AdminDAOImpl implements AdminDAO {
@@ -69,6 +70,12 @@ public class AdminDAOImpl implements AdminDAO {
 	@Override
 	public MemberDTO getMemberDetail(MemberDTO memberDTO) {
 		return sqlSession.selectOne(namespace+".getMemberDetail", memberDTO);
+	}
+
+	@Override
+	public void insertReview(ReviewDTO reviewDTO) {
+		
+		sqlSession.insert(namespace+".insertReview", reviewDTO);
 	}
 	
 	@Override

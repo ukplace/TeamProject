@@ -20,6 +20,26 @@ public class ProductController {
 	@Inject
 	private ProductService productService;
 	
+	
+	// 상품전체리스트
+	@RequestMapping(value = "/foot/product_list", method = RequestMethod.GET)
+	public String product_list(HttpServletRequest request, Model model) {
+		PageDTO pageDTO = new PageDTO();
+		pageDTO.setPageSize(12);
+		
+		if(request.getParameter("pageNum") == null) {
+			pageDTO.setPageNum("1");
+		}else {
+			pageDTO.setPageNum(request.getParameter("pageNum"));
+		}
+		
+		List<ProductDTO> productList = productService.getProductList(pageDTO);
+		
+		model.addAttribute("productList", productList);
+		model.addAttribute("pageDTO", pageDTO);
+		// /WEB-INF/views/foot/product_list
+		return "foot/product_list";
+	}
 
 	// 상품정보
 	@RequestMapping(value = "/foot/product_detail", method = RequestMethod.GET)
@@ -31,7 +51,7 @@ public class ProductController {
 	@RequestMapping(value = "/foot/list_men_outdoor", method = RequestMethod.GET)
 	public String list_men_outdoor(HttpServletRequest request, Model model) {
 		PageDTO pageDTO = new PageDTO();
-		pageDTO.setPageSize(6);
+		pageDTO.setPageSize(8);
 		
 		if(request.getParameter("pageNum") == null) {
 			pageDTO.setPageNum("1");
@@ -48,7 +68,7 @@ public class ProductController {
 	@RequestMapping(value = "/foot/list_men_running", method = RequestMethod.GET)
 	public String list_men_running(HttpServletRequest request, Model model) {
 		PageDTO pageDTO = new PageDTO();
-		pageDTO.setPageSize(6);
+		pageDTO.setPageSize(8);
 		
 		if(request.getParameter("pageNum") == null) {
 			pageDTO.setPageNum("1");
@@ -65,7 +85,7 @@ public class ProductController {
 	@RequestMapping(value = "/foot/list_men_sneakers", method = RequestMethod.GET)
 	public String list_men_sneakers(HttpServletRequest request, Model model) {
 		PageDTO pageDTO = new PageDTO();
-		pageDTO.setPageSize(6);
+		pageDTO.setPageSize(8);
 		
 		if(request.getParameter("pageNum") == null) {
 			pageDTO.setPageNum("1");
@@ -82,7 +102,7 @@ public class ProductController {
 	@RequestMapping(value = "/foot/list_men_gentleman", method = RequestMethod.GET)
 	public String list_men_gentleman(HttpServletRequest request, Model model) {
 		PageDTO pageDTO = new PageDTO();
-		pageDTO.setPageSize(6);
+		pageDTO.setPageSize(8);
 		
 		if(request.getParameter("pageNum") == null) {
 			pageDTO.setPageNum("1");
@@ -101,7 +121,7 @@ public class ProductController {
 	public String list_men(HttpServletRequest request, Model model) {
 
 		PageDTO pageDTO = new PageDTO();
-		pageDTO.setPageSize(6);
+		pageDTO.setPageSize(8);
 		
 		if(request.getParameter("pageNum") == null) {
 			pageDTO.setPageNum("1");
@@ -141,22 +161,71 @@ public class ProductController {
 		}
 		
 	@RequestMapping(value = "/foot/list_women_outdoor", method = RequestMethod.GET)
-	public String list_women_outdoor() {
+	public String list_women_outdoor(HttpServletRequest request, Model model) {
+		PageDTO pageDTO = new PageDTO();
+		pageDTO.setPageSize(8);
+		
+		if(request.getParameter("pageNum") == null) {
+			pageDTO.setPageNum("1");
+		}else {
+			pageDTO.setPageNum(request.getParameter("pageNum"));
+		}
+		List<ProductDTO> productW_OutdoorList = productService.getProductW_OutdoorList(pageDTO);
+		
+		model.addAttribute("productW_OutdoorList", productW_OutdoorList);
+		model.addAttribute("pageDTO", pageDTO);
 		// /WEB-INF/views/foot/list_men
 		return "foot/list_women_outdoor";
 	}
 	@RequestMapping(value = "/foot/list_women_running", method = RequestMethod.GET)
-	public String list_women_running() {
+	public String list_women_running(HttpServletRequest request, Model model) {
+		PageDTO pageDTO = new PageDTO();
+		pageDTO.setPageSize(8);
+		
+		if(request.getParameter("pageNum") == null) {
+			pageDTO.setPageNum("1");
+		}else {
+			pageDTO.setPageNum(request.getParameter("pageNum"));
+		}
+		List<ProductDTO> productW_RunningList = productService.getProductW_RunningList(pageDTO);
+		
+		model.addAttribute("productW_RunningList", productW_RunningList);
+		model.addAttribute("pageDTO", pageDTO);
 		// /WEB-INF/views/foot/list_men
 		return "foot/list_women_running";
 	}
 	@RequestMapping(value = "/foot/list_women_sneakers", method = RequestMethod.GET)
-	public String list_women_sneakers() {
+	public String list_women_sneakers(HttpServletRequest request, Model model) {
+		PageDTO pageDTO = new PageDTO();
+		pageDTO.setPageSize(8);
+		
+		if(request.getParameter("pageNum") == null) {
+			pageDTO.setPageNum("1");
+		}else {
+			pageDTO.setPageNum(request.getParameter("pageNum"));
+		}
+		List<ProductDTO> productW_SneakersList = productService.getProductW_SneakersList(pageDTO);
+		
+		model.addAttribute("productW_SneakersList", productW_SneakersList);
+		model.addAttribute("pageDTO", pageDTO);
 		// /WEB-INF/views/foot/list_men
 		return "foot/list_women_sneakers";
 	}
 	@RequestMapping(value = "/foot/list_women_lady", method = RequestMethod.GET)
-	public String list_women_lady() {
+	public String list_women_lady(HttpServletRequest request, Model model) {
+		PageDTO pageDTO = new PageDTO();
+		pageDTO.setPageSize(8);
+		
+		if(request.getParameter("pageNum") == null) {
+			pageDTO.setPageNum("1");
+		}else {
+			pageDTO.setPageNum(request.getParameter("pageNum"));
+		}
+		List<ProductDTO> productLadyList = productService.getProductLadyList(pageDTO);
+		
+		model.addAttribute("productLadyList", productLadyList);
+		model.addAttribute("pageDTO", pageDTO);
+		
 		// /WEB-INF/views/foot/list_men
 		return "foot/list_women_lady";
 	}
@@ -192,20 +261,57 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/foot/list_kids_kid", method = RequestMethod.GET)
-	public String list_kids_kid() {
+	public String list_kids_kid(HttpServletRequest request, Model model) {
+		PageDTO pageDTO = new PageDTO();
+		pageDTO.setPageSize(8);
+		
+		if(request.getParameter("pageNum") == null) {
+			pageDTO.setPageNum("1");
+		}else {
+			pageDTO.setPageNum(request.getParameter("pageNum"));
+		}
+		List<ProductDTO> productK_KidList = productService.getProductK_KidList(pageDTO);
+		
+		model.addAttribute("productK_KidList", productK_KidList);
+		model.addAttribute("pageDTO", pageDTO);
 		// /WEB-INF/views/foot/list_men
 		return "foot/list_kids_kid";
 	}
 	@RequestMapping(value = "/foot/list_kids_running", method = RequestMethod.GET)
-	public String list_kids_running() {
+	public String list_kids_running(HttpServletRequest request, Model model) {
+		PageDTO pageDTO = new PageDTO();
+		pageDTO.setPageSize(8);
+		
+		if(request.getParameter("pageNum") == null) {
+			pageDTO.setPageNum("1");
+		}else {
+			pageDTO.setPageNum(request.getParameter("pageNum"));
+		}
+		List<ProductDTO> productK_RunningList = productService.getProductK_RunningList(pageDTO);
+		
+		model.addAttribute("productK_RunningList", productK_RunningList);
+		model.addAttribute("pageDTO", pageDTO);
 		// /WEB-INF/views/foot/list_men
 		return "foot/list_kids_running";
 	}
 	@RequestMapping(value = "/foot/list_kids_sneakers", method = RequestMethod.GET)
-	public String list_kids_sneakers() {
+	public String list_kids_sneakers(HttpServletRequest request, Model model) {
+		PageDTO pageDTO = new PageDTO();
+		pageDTO.setPageSize(8);
+		
+		if(request.getParameter("pageNum") == null) {
+			pageDTO.setPageNum("1");
+		}else {
+			pageDTO.setPageNum(request.getParameter("pageNum"));
+		}
+		List<ProductDTO> productK_SneakersList = productService.getProductK_SneakersList(pageDTO);
+		
+		model.addAttribute("productK_SneakersList", productK_SneakersList);
+		model.addAttribute("pageDTO", pageDTO);
 		// /WEB-INF/views/foot/list_men
 		return "foot/list_kids_sneakers";
 	}
+	
 	
 	
 	
