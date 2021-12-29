@@ -1,21 +1,22 @@
 package com.itwillbs.domain;
 
 import java.sql.Timestamp;
-
-//create table qna (
-//qna_idx int auto_increment,
-//m_idx int, 
-//qna_name varchar(45) not null,  
-//qna_subject varchar(45) not null,
-//qna_content varchar(500) not null,
-//qna_type varchar(45) not null,
-//qna_re_ref int,
-//qna_re_lev int,
-//qna_re_seq int,
-//qna_date datetime default now() not null,
-//foreign key (m_idx) references member (m_idx),
-//constraint table_qna_pk primary key(qna_idx, qna_name)
-//);
+/*
+create table qna (
+qna_idx int auto_increment,
+m_idx int, 
+qna_name varchar(45) not null,  
+qna_subject varchar(45) not null,
+qna_content varchar(500) not null,
+qna_type varchar(45) not null,
+qna_re_ref int,
+qna_re_lev int,
+qna_re_seq int,
+qna_date datetime default now() not null,
+foreign key (m_idx) references member (m_idx),
+constraint table_qna_pk primary key(qna_idx, qna_name)
+);
+*/
 
 public class QnaDTO {
 	
