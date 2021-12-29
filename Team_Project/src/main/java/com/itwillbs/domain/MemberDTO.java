@@ -1,12 +1,15 @@
 package com.itwillbs.domain;
 
+import java.math.BigInteger;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.sql.Timestamp;
 
 /*
 create table member (
 m_idx int primary key auto_increment,
 m_email varchar(45) not null,
-m_pass varchar(45) not null,
+m_pass varchar(100) not null,
 m_name varchar(45) not null,
 m_tel varchar(45) not null,
 m_birth varchar(45) not null,
@@ -25,9 +28,6 @@ unique (m_email)
 
 
 public class MemberDTO {
-
-	
-	
 										//회원가입 사용x						//회원가입 사용할 것			
 	private int m_idx;
 	private String m_email;														//아이디값이랑 같이 사용
@@ -128,10 +128,6 @@ public class MemberDTO {
 	public void setM_auth_status(String m_auth_status) {
 		this.m_auth_status = m_auth_status;
 	}
-	
-	
-	
-	
 	
 	
 }

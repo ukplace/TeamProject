@@ -1,6 +1,7 @@
 package com.itwillbs.controller;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
@@ -8,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.itwillbs.domain.MemberDTO;
+import com.itwillbs.domain.UserSha256;
 import com.itwillbs.service.MemberService;
 
 @Controller
@@ -47,7 +49,12 @@ public class MemberController {
 	
 	@RequestMapping(value = "/foot/loginPro", method = RequestMethod.POST)
 	public String loginPro(MemberDTO memberDTO, HttpSession session) {
+		
+		String encryPassword = UserSha256.encrypt(memberDTO.getM_pass());
+		memberDTO.setM_pass(encryPassword);
+		
 		MemberDTO userCheck = memberService.userCheck(memberDTO);
+		
 		
 		if(userCheck != null) {
 			System.out.println(memberDTO.getM_email());
@@ -80,8 +87,11 @@ public class MemberController {
 	}
 	
 	@RequestMapping(value = "/foot/joinPro", method = RequestMethod.POST)
-	public String join(MemberDTO memberDTO) {
+	public String join(HttpServletRequest request, MemberDTO memberDTO) {
 		System.out.println("/foot/joinPro");
+		
+		String encryPassword = UserSha256.encrypt(memberDTO.getM_pass());
+		memberDTO.setM_pass(encryPassword);
 		
 		memberService.insertMember(memberDTO);
 		return "redirect:/foot/index";
