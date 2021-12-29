@@ -7,6 +7,9 @@ import com.itwillbs.domain.ProductDTO;
 
 public interface ProductService {
 	
+	// List<ProductDTO> productList = productService.getProductList(pageDTO);
+	public List<ProductDTO> getProductList(PageDTO pageDTO);
+	
 	// List<ProductDTO> productKidsList = productService.getProductKidsList(pageDTO);
 	public List<ProductDTO> getProductKidsList(PageDTO pageDTO);
 

@@ -252,11 +252,15 @@ public class AdminController {
 		   }
 
 		@RequestMapping(value = "/admin/product_qty_updatePro", method = RequestMethod.POST)
-		   public String product_qty_updatePro(ProductQtyDTO dto) {
-				
-			System.out.println(dto.getList().get(0));
-			System.out.println(dto.getList().get(1));
-			System.out.println(dto.getList().get(2));
+		   public String product_qty_updatePro(HttpServletRequest request, ProductQtyDTO dto) {
+			System.out.println(dto.getList().get(0).getP_size());
+			System.out.println(dto.getList().get(0).getP_stock());
+			System.out.println(dto.getList().get(1).getP_size());
+			System.out.println(dto.getList().get(1).getP_stock());
+			System.out.println(dto.getList().get(2).getP_size());
+			dto.setP_num(Integer.parseInt(request.getParameter("num")));
+			System.out.println(dto.getP_num());
+			
 			
 		      // /WEB-INF/views/admin/product_list
 		      return "redirect:/admin/product_list";

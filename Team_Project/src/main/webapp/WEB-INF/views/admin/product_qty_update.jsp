@@ -117,7 +117,6 @@
 <!--                             **폼태그 맨끝 코드 일단 빼놓음 onsubmit="return checkForm()"  -->
 <form action="${pageContext.request.contextPath}/admin/product_qty_updatePro" method="post" name="updateForm" > 
 
-<%-- 	<input type="hidden" name="p_num" value="${ProductDTO.p_num}" /> --%>
 	
 	<br>
 	<br>
