@@ -117,7 +117,7 @@
 										<table >
 			                    		<tr><td width="80%"><input type="email" id="m_email" name="m_email" placeholder="example@email.com" class="form-control"  ></td>
 			                    		<td>&nbsp&nbsp</td>
-			                    		<td><input type="button" value="중복확인" class ="btn btn-default btn-lg emaildu" id = "emaildup"></td></tr>
+			                    		<td><input type="button" value="중복확인" class ="btn btn-default btn-lg" id = "emaildup"></td></tr>
 			                    		</table>
 			                    		
 			               	 			</div>
@@ -278,17 +278,7 @@
         }).open();
     }
     
-	 $('#btn').click(function(){
-			if($('#m_email').val() == ""){
-						$('#btncheck').html('아이디를 입력하세요.');
-						$('#btncheck').css('color','red');
-						$('#m_email').focus();
-						return;
-						
-			}
-			
-		});
-		
+	
 		
     //---------------------
 	
@@ -296,9 +286,16 @@
 
 <script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
 <script type="text/javascript">
-//class="emaildup"
-	$('#emaildup').click(function(){
-//		alert("클릭")
+$(document).ready(function(){
+$('#emaildup').click(function(){
+	if($('#m_email').val() == ""){
+				alert("이메일을 입력하세요");
+				$('#m_email').focus();
+				return;
+	}
+	
+
+
 	$.ajax('${pageContext.request.contextPath}/member/emailCheck',{
 		data:{'m_email':$('#m_email').val()},
 		success:function(rdata){
@@ -307,10 +304,11 @@
 			}else{
 				rdata="이메일 중복";
 			}
-			// id="emaildupdiv" 출력
 			$('#btncheck').html(rdata);
 		}
 	});
+	
+});
 });
 
 </script>
