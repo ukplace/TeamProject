@@ -26,6 +26,7 @@ public interface AdminService {
 	
 	public void deleteProduct(int p_num);
 	
+	
 	public ProductDTO productView(int p_num);
 
 	

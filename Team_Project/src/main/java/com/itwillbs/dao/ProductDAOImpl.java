@@ -109,6 +109,11 @@ public class ProductDAOImpl implements ProductDAO {
 		return sqlSession.selectList(namespace+".getProductK_SneakersList", pageDTO);
 	}
 
+	@Override
+	public ProductDTO productDetail(int p_num) {
+		return sqlSession.selectOne(namespace+".productDetail", p_num);
+	}
+
 	
 	
 	

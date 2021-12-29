@@ -107,6 +107,11 @@ public class ProductServiceImpl implements ProductService {
 		System.out.println("ProductServiceImpl.getProductK_SneakersList()");
 		return productDAO.getProductK_SneakersList(pageDTO);
 	}
+
+	@Override
+	public ProductDTO productDetail(int p_num) {
+		return productDAO.productDetail(p_num);
+	}
 	
 	
 

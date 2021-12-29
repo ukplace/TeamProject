@@ -39,5 +39,7 @@ public interface ProductService {
 	public List<ProductDTO> getProductK_RunningList(PageDTO pageDTO);
 
 	public List<ProductDTO> getProductK_SneakersList(PageDTO pageDTO);
+	
+	public ProductDTO productDetail(int p_num);
 
 }

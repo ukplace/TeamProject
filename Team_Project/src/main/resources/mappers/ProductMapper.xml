@@ -70,6 +70,9 @@
 		select * from product where p_category = 'MEN' and p_small_category = '러닝화' limit #{startRow},#{pageSize}
 		</select>
 		
+		<select id="productDetail" resultType="com.itwillbs.domain.ProductDTO">
+		select * from product where p_num=#{p_num} 
+		</select>
 		
 		
 		

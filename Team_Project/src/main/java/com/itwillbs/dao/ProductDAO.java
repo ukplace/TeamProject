@@ -40,5 +40,6 @@ public interface ProductDAO {
 
 	public List<ProductDTO> getProductK_SneakersList(PageDTO pageDTO);
 	
+	public ProductDTO productDetail(int p_num);
 
 }

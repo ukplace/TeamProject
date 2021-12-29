@@ -9,9 +9,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
+import com.itwillbs.domain.ProductQtyDTO;
 import com.itwillbs.service.ProductService;
 
 @Controller
@@ -43,10 +45,17 @@ public class ProductController {
 
 	// 상품정보
 	@RequestMapping(value = "/foot/product_detail", method = RequestMethod.GET)
-	public String product_detail() {
-		// /WEB-INF/views/foot/product_detail
+	public String product_detail(@RequestParam("num") int p_num, Model model) throws Exception {
+		
+		ProductDTO productDTO = productService.productDetail(p_num);
+		
+		model.addAttribute("ProductDTO", productDTO);
+		
 		return "foot/product_detail";
 	}
+	
+	
+	
 	// MEN 상품정보
 	@RequestMapping(value = "/foot/list_men_outdoor", method = RequestMethod.GET)
 	public String list_men_outdoor(HttpServletRequest request, Model model) {

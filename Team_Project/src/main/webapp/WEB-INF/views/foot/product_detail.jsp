@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -40,7 +42,8 @@
 
 	</head>
 	<body>
-		
+	<form method="post" name="detailForm" enctype="multipart/form-data">                     
+	<input type="hidden" name="n" value="${ProductDTO.p_num}" />		
 	<div class="colorlib-loader"></div>
 
 	<div id="page">
@@ -63,58 +66,58 @@
 		<div class="colorlib-product">
 			<div class="container">
 				<div class="row row-pb-lg product-detail-wrap">
-					<div class="col-sm-8">
+					<div class="col-sm-6">
 						<div class="owl-carousel">
 							<div class="item">
 								<div class="product-entry border">
 									<a href="#" class="prod-img">
-										<img src="${pageContext.request.contextPath}/images/item-1.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+										<img alt="product_img" src="${pageContext.request.contextPath}${ProductDTO.p_thumImg}" class="img-fluid" alt="Free html5 bootstrap 4 template"/>
 									</a>
 								</div>
 							</div>
 							<div class="item">
 								<div class="product-entry border">
 									<a href="#" class="prod-img">
-										<img src="${pageContext.request.contextPath}/images/item-2.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+										<img alt="product_img" src="${pageContext.request.contextPath}${ProductDTO.p_thumImg}" class="img-fluid" alt="Free html5 bootstrap 4 template"/>
 									</a>
 								</div>
 							</div>
 							<div class="item">
 								<div class="product-entry border">
 									<a href="#" class="prod-img">
-										<img src="${pageContext.request.contextPath}/images/item-3.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+										<img alt="product_img" src="${pageContext.request.contextPath}${ProductDTO.p_thumImg}" class="img-fluid" alt="Free html5 bootstrap 4 template"/>
 									</a>
 								</div>
 							</div>
 							<div class="item">
 								<div class="product-entry border">
 									<a href="#" class="prod-img">
-										<img src="${pageContext.request.contextPath}/images/item-4.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+										<img alt="product_img" src="${pageContext.request.contextPath}${ProductDTO.p_thumImg}" class="img-fluid" alt="Free html5 bootstrap 4 template"/>
 									</a>
 								</div>
 							</div>
 						</div>
 					</div>
+					
+					&emsp;&emsp;&emsp;
+					
 					<div class="col-sm-4">
 						<div class="product-desc">
-							<h3>Women's Boots Shoes Maca</h3>
+							<h3>${ProductDTO.p_name}</h3>
 							<br>
 							<br>
 							<p class="price">
-								<span>$68.00</span> 
+								<span><fmt:formatNumber value="${ProductDTO.p_price}" pattern="#,###,###" />원
+								</span> 
 							</p>
 <!-- 							<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p> -->
 							
 							<p class="size-wrap">
-								<span>카테고리:</span> 
+								<span>카테고리:${ProductDTO.p_small_category}</span> 
 							</p>
 							
 							<p class="size-wrap">
 								<span>색상코드:</span> 
-							</p>
-							
-							<p class="size-wrap">
-								<span>배송비:</span> 
 							</p>
 							
 							
@@ -160,12 +163,12 @@
                      	</span>
                   	</div>
                   	
-                  	<!-- 총 결제금액 -->
                   	<hr>
-                  	<p class="price">
-						<span>총결제금액</span> 
+                  	<p class="size-wrap">
+						<span>기본배송비: 3000원 / 80,000원 이상 무료배송</span> 
 					</p>
-                  	
+							
+                  	<br>
                   	
                   	<!-- 쇼핑카트 -->
 				     <div class="input-group mb-4">          
