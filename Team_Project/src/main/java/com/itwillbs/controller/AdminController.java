@@ -158,16 +158,16 @@ public class AdminController {
 		}
 	
 	
+		// 상품 삭제
+		@RequestMapping(value = "/admin/delete", method = RequestMethod.POST)
+		public String delete(@RequestParam("num") int p_num) throws Exception{
+			adminService.deleteProduct(p_num);
+			
+			return "redirect:/admin/product_list";
+		}
 	
 	
 	
-	// 상품 삭제
-	@RequestMapping(value = "/admin/delete", method = RequestMethod.POST)
-	public String delete(@RequestParam("num") int p_num) throws Exception{
-		adminService.deleteProduct(p_num);
-		
-		return "redirect:/admin/product_list";
-	}
 
 	 
 	
@@ -184,6 +184,9 @@ public class AdminController {
         return "admin/order_detail";
      }
 	 
+	 
+	 
+	 //---------------------------회원관리------------------------------
 	 
 	 // 회원관리(회원 리스트/상세정보)
 	 @RequestMapping(value = "/admin/member_list", method = RequestMethod.GET)
@@ -242,6 +245,44 @@ public class AdminController {
 		 
 		 return "admin/member_detail";
      }
+	 
+	// 회원정보 수정
+			@RequestMapping(value = "/admin/member_update", method = RequestMethod.GET)
+			public String memberUpdate(@RequestParam("m_idx") int m_idx, Model model) throws Exception{
+				
+				MemberDTO memberDTO = new MemberDTO();
+				memberDTO.setM_idx(m_idx);
+				memberDTO = adminService.getMemberDetail(memberDTO); 
+				
+				model.addAttribute("memberDTO", memberDTO);
+				
+				return "admin/member_update";
+			}
+			
+			
+			@RequestMapping(value = "/admin/member_update_pro", method = RequestMethod.POST)
+			   public String memberUpdatePro(MemberDTO memberDTO) throws Exception {
+
+					
+					memberDTO.setM_idx(memberDTO.getM_idx());
+					
+					adminService.updateMember(memberDTO);
+					
+					return "redirect:/admin/member_list";
+			   }		
+			
+			
+			
+			
+			
+	 
+	// 회원정보 삭제
+		@RequestMapping(value = "/admin/member_delete", method = RequestMethod.POST)
+		public String memberDelete(@RequestParam("m_idx") int m_idx) throws Exception{
+			adminService.deleteMember(m_idx);
+			
+			return "redirect:/admin/member_list";
+		}
 
 	 // ============================================================================
 

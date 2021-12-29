@@ -32,6 +32,10 @@ public interface AdminDAO {
 	public int getMemberCount();
 	
 	public MemberDTO getMemberDetail(MemberDTO memberDTO);
+	
+	public void updateMember(MemberDTO memberDTO);
+	
+	public void deleteMember(int m_idx);
 
 	public void updateQty(ProductQtyDTO dto);
 	
@@ -40,4 +44,3 @@ public interface AdminDAO {
 	public void Qtydelete(int p_num);
 	public void insertReview(ReviewDTO reviewDTO);
 
-}

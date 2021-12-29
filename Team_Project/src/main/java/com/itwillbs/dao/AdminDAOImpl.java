@@ -102,6 +102,18 @@ public class AdminDAOImpl implements AdminDAO {
 		sqlSession.insert(namespace+".insertReview", reviewDTO);
 	}
 	
+	@Override
+	public void updateMember(MemberDTO memberDTO) {
+		sqlSession.selectOne(namespace+".updateMember", memberDTO);
+	}
+
+	@Override
+	public void deleteMember(int m_idx) {
+		 sqlSession.selectOne(namespace+".deleteMember", m_idx);
+	}
+
+
+	
 	
 
 }

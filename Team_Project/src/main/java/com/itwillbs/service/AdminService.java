@@ -28,6 +28,8 @@ public interface AdminService {
 	
 	public ProductDTO productView(int p_num);
 
+	
+	// -------회원정보관리-------------
 	public List<MemberDTO> getMemberList(PageDTO pageDTO);
 
 	public int getMemberCount();
@@ -40,9 +42,12 @@ public interface AdminService {
 
 	public void Qtydelete(int p_num);
 	
+	public void updateMember(MemberDTO memberDTO);
+
 	public void insertReview(ReviewDTO reviewDTO);
 	
 	
+	public void deleteMember(int m_idx);
 	
 	
 }

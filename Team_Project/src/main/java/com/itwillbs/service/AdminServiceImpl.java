@@ -103,6 +103,18 @@ public class AdminServiceImpl implements AdminService {
 		return adminDAO.getMemberDetail(memberDTO);
 	}
 
+	@Override
+	public void updateMember(MemberDTO memberDTO) {
+		adminDAO.updateMember(memberDTO);
+	}
+
+	@Override
+	public void deleteMember(int m_idx) {
+		adminDAO.deleteMember(m_idx);
+	}
+
+
+
 
 	@Override
 	public void updateQty(ProductQtyDTO dto) {
