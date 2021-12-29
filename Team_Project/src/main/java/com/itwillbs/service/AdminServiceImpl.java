@@ -136,6 +136,7 @@ public class AdminServiceImpl implements AdminService {
 		adminDAO.Qtydelete(p_num);
 	}
 	
+	@Override
 	public void insertReview(ReviewDTO reviewDTO) {
 		adminDAO.insertReview(reviewDTO);
 	}
