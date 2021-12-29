@@ -45,4 +45,10 @@ public class MemberDAOImpl implements MemberDAO {
 		
 	}
 
+	@Override
+	public MemberDTO getMemberEmail(String email) {
+		System.out.println("MemberDAOImpl.getMemberEmail()");
+		return sqlSession.selectOne(namespace+".getMemberEmail", email);
+	}
+
 }
