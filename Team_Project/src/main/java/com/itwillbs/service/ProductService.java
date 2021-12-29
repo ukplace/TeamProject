@@ -4,11 +4,16 @@ import java.util.List;
 
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
+import com.itwillbs.domain.SearchDTO;
 
 public interface ProductService {
 	
+	// 전체 상품 검색 **파라미터 값 수정
 	// List<ProductDTO> productList = productService.getProductList(pageDTO);
-	public List<ProductDTO> getProductList(PageDTO pageDTO);
+	public List<ProductDTO> getProductList(SearchDTO searchDTO);
+	
+	// 상품 총 개수  **파라미터 값 수정
+	public Integer getProductTotal(SearchDTO searchDTO);
 	
 	// List<ProductDTO> productKidsList = productService.getProductKidsList(pageDTO);
 	public List<ProductDTO> getProductKidsList(PageDTO pageDTO);

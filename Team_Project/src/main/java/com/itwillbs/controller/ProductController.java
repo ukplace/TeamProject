@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductQtyDTO;
+import com.itwillbs.domain.SearchDTO;
 import com.itwillbs.service.ProductService;
 
 @Controller
@@ -23,25 +24,44 @@ public class ProductController {
 	private ProductService productService;
 	
 	
-	// 상품전체리스트
-	@RequestMapping(value = "/foot/product_list", method = RequestMethod.GET)
-	public String product_list(HttpServletRequest request, Model model) {
-		PageDTO pageDTO = new PageDTO();
-		pageDTO.setPageSize(12);
+	/* 전체 상품 검색 */
+	@RequestMapping(value = "/foot/search", method = RequestMethod.GET)
+	public String productSearch(HttpServletRequest request, Model model
+			, @RequestParam(required = false, defaultValue = "1") int pageNum
+			, @RequestParam(required = false, defaultValue = "1") int pageSize
+			, @RequestParam(required = false, defaultValue = "title") String searchType
+			, @RequestParam(required = false) String keyword) throws Exception {
 		
+		SearchDTO searchDTO = new SearchDTO();
+		searchDTO.setSearchType(searchType);
+		searchDTO.setKeyword(keyword);
+		
+		// 전체 상품 개수
+		int pageCount = productService.getProductTotal(searchDTO);
+		
+		// 페이지 정보 세팅
+		// 1) 현재 페이지
 		if(request.getParameter("pageNum") == null) {
-			pageDTO.setPageNum("1");
+			searchDTO.setPageNum("1");
 		}else {
-			pageDTO.setPageNum(request.getParameter("pageNum"));
+			searchDTO.setPageNum(request.getParameter("pageNum"));
 		}
+		searchDTO.setPageSize(8); // 2) 현재 페이지 범위
+		searchDTO.setPageCount(4); // 3) 전체 게시물 개수
 		
-		List<ProductDTO> productList = productService.getProductList(pageDTO);
 		
+		List<ProductDTO> productList = productService.getProductList(searchDTO);
+		
+		
+		model.addAttribute("searchDTO", searchDTO);
 		model.addAttribute("productList", productList);
-		model.addAttribute("pageDTO", pageDTO);
 		// /WEB-INF/views/foot/product_list
 		return "foot/product_list";
 	}
+	
+	
+	
+	
 
 	// 상품정보
 	@RequestMapping(value = "/foot/product_detail", method = RequestMethod.GET)
