@@ -154,14 +154,8 @@
       		<th>제품명</th>
       		<td><input type="text" name="p_name" required="required" size="20"></td>
       	
-      	</tr>
-      <!-- 재고 -->
-      	<tr>
-      <th>재고</th>
-      	<td>
-      	  <input type="text" name="p_stock" width = 40px padding= 6px  margin= 100px  placeholder="재고수량입력">
-      	</td>
-      	</tr>
+      	 </tr>
+      	 
       <!-- 제품가격 -->
       <tr>
       <th>제품 가격</th>
@@ -169,6 +163,14 @@
       	<input type="text" name="p_price" width = 40px padding= 6px margin= 100px placeholder="제품가격입력">
 	 </td>
 	 </tr>	
+	 
+		<!-- 제품색상 -->
+		<tr>
+			<th>제품 색상</th>
+			<td>
+				<input type="text" name="p_color" width = 40px padding= 6px margin= 100px placeholder="제품색상입력">
+			</td>
+		</tr>	
 	
 <!-- 				<tr> -->
 <!-- 					<th>색상</th> -->
@@ -189,6 +191,8 @@
 <!-- 						</select> -->
 <!-- 					</td> -->
 <!-- 				</tr> -->
+
+			<!-- 사이즈 -->
 			<tr>
 				<th>사이즈</th>
 					<td>
@@ -212,7 +216,16 @@
 							
 						</select>
 					</td>
-				</tr>		
+				</tr>	
+				
+		      <!-- 재고 -->
+		      <tr>
+		      <th>재고</th>
+		      	<td>
+		      	  <input type="text" name="p_stock" width = 40px padding= 6px  margin= 100px  placeholder="재고수량입력">
+		      	</td>
+		      </tr>	
+				
 				
 				<tr>
 			      <th rowspan="2">대표 사진</th>

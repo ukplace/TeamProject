@@ -149,11 +149,16 @@
 		 </tr>
 		  <tr>
       		<th>제품명</th>
-      		<td>${ProductDTO.p_name}<td></td>
+      		<td>${ProductDTO.p_name}<td>
       	
       	</tr>
-      
-      	
+      <!-- 재고 -->
+      	<tr>
+      <th>재고</th>
+      	<td>
+      	  ${ProductDTO.p_stock}
+      	</td>
+      	</tr>
       <!-- 제품가격 -->
       <tr>
       <th>제품 가격</th>
@@ -161,14 +166,6 @@
       	${ProductDTO.p_price}
 	 </td>
 	 </tr>	
-	 
-		<!-- 제품가격 -->
-		<tr>
-			<th>제품 색상</th>
-			<td>
-				${ProductDTO.p_color}
-			</td>
-		</tr>
 	
 <!-- 				<tr> -->
 <!-- 					<th>색상</th> -->
@@ -199,24 +196,7 @@
 						<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입력란에 표시 -->
 						
 					</td>
-				</tr>	
-				
-				<!-- 재고 -->
-		      	<tr>
-		      		<th>재고</th>
-		      		<td>
-		      	 	 ${ProductDTO.p_stock}
-		      		</td>	
-				</tr>
-				
-				
-				<tr>
-				<td>
-				<button type="button" class="btn btn-default" onclick="location.href='${pageContext.request.contextPath}/admin/product_qty_update?num=${ProductDTO.p_num}'">수량 수정</button>
-				<button type="button" class="btn btn-warning">삭제</button>
-				</td>
-				</tr>
-				
+				</tr>		
 				
 				<tr>
 			      <th rowspan="2">대표 사진</th>
