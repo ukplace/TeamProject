@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+.product-img-div {
+	display: table-cell;
+	vertical-align: middle;
+}
+
+.product-img {
+	max-width: 310px;
+	max-height: 310px;
+}
