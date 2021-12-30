@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
-import com.itwillbs.domain.ProductDTO;
+import com.itwillbs.domain.ProductDTObefore;
 import com.itwillbs.domain.ProductQtyDTO;
 import com.itwillbs.domain.ReviewDTO;
 
@@ -23,13 +23,13 @@ public class AdminDAOImpl implements AdminDAO {
 	
 	
 	@Override
-	public void insertProduct(ProductDTO productDTO) {
+	public void insertProduct(ProductDTObefore productDTO) {
 		System.out.println("AdminDAOImpl - insertProduct()");
 		sqlSession.insert(namespace + ".insertProduct", productDTO);
 	}
 
 	@Override
-	public List<ProductDTO> getProductList(PageDTO pageDTO) {
+	public List<ProductDTObefore> getProductList(PageDTO pageDTO) {
 		System.out.println("AdminDAOImpl - getProductList()");
 		return sqlSession.selectList(namespace + ".getProductList", pageDTO);
 	}
@@ -41,7 +41,7 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 
 	@Override
-	public void updateProduct(ProductDTO productDTO) {
+	public void updateProduct(ProductDTObefore productDTO) {
 		System.out.println("AdminDAOImpl - updateProduct()");
 		sqlSession.update(namespace + ".updateProduct", productDTO);
 	}
@@ -52,7 +52,7 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 
 	@Override
-	public ProductDTO productView(int p_num) {
+	public ProductDTObefore productView(int p_num) {
 		
 		return sqlSession.selectOne(namespace + ".productView", p_num);
 	}

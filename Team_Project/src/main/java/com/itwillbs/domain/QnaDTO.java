@@ -12,10 +12,11 @@ qna_type varchar(45) not null,
 qna_re_ref int,
 qna_re_lev int,
 qna_re_seq int,
-qna_date datetime default now() not null,
+qna_date timestamp default now() not null,
 foreign key (m_idx) references member (m_idx),
-constraint table_qna_pk primary key(qna_idx, qna_name)
+constraint qna_iname_pk primary key(qna_idx, qna_name)
 );
+
 */
 
 public class QnaDTO {

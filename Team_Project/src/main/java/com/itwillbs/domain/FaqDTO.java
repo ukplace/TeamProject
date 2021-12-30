@@ -8,8 +8,9 @@ faq_idx int primary key auto_increment,
 faq_subject varchar(45) not null,
 faq_question varchar(500) not null,
 faq_answer varchar(500) not null,
-faq_date datetime default now() not null
+faq_date timestamp default now() not null
 );
+
  */
 
 public class FaqDTO {
