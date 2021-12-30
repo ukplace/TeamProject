@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.itwillbs.mapper.CenterMapper">
+
+	<!-- <insert id="insertQna">
+		insert into qna(m_idx,qna_name,qna_subject,qna_content,qna_type) 
+		values(#{m_idx},#{qna_name},#{qna_subject},#{qna_content},#{qna_type})
+	</insert> -->
+	
+	
+	
+	<insert id="insertQna">
+		insert into qna(m_idx,qna_name,qna_subject,qna_content,qna_type,qna_re_ref,qna_re_lev,qna_re_seq) 
+		values(#{m_idx},#{qna_name},#{qna_subject},#{qna_content},#{qna_type},#{qna_re_ref},#{qna_re_lev},#{qna_re_seq})
+	</insert>
+	
+
+	<select id="getMaxQna" resultType="java.lang.Integer">
+		select max(qna_idx) from qna
+	</select>
+	
+	<select id="getQnaList" resultType="com.itwillbs.domain.QnaDTO">
+		select * from qna order by qna_re_ref DESC, qna_re_seq ASC limit #{startRow},#{pageSize}
+	</select>
+	
+	<select id="getQnaCount" resultType="java.lang.Integer">
+		select count(*) from qna
+	</select>
+	
+	<select id="getQnaDetail" resultType="com.itwillbs.domain.QnaDTO" >
+		select * from qna where qna_idx = ${qna_idx} 
+	</select>
+	
+	<select id="getIncrementNum" resultType="java.lang.Integer">
+		SELECT auto_increment FROM information_schema.tables 
+		WHERE table_name='qna' AND table_schema=DATABASE();
+	</select>
+	
+	<update id="setQna_re_seq">
+		UPDATE qna SET qna_re_seq = qna_re_seq+1
+		WHERE qna_re_ref=#{qna_re_ref} AND qna_re_seq>#{qna_re_seq}
+	</update>
+	
+	<insert id="insertReplyAricle">
+		INSERT into qna(qna_name,qna_subject,qna_content,qna_type,qna_re_ref,_qna_re_lev,qna_re_seq) 
+		values(#{qna_name},#{qna_subject},#{qna_content},#{qna_type},#{qna_re_ref},#{re_lev},#{re_seq})
+	</insert>
+	
+	
+	
+	<insert id="insertFaq">
+		INSERT into faq(faq_subject,faq_question,faq_answer) values (#{faq_subject},#{faq_question},#{faq_answer}) 
+	</insert>
+	
+	<select id="getFaqList" resultType="com.itwillbs.domain.FaqDTO">
+		select * from faq order by faq_idx desc limit #{startRow},#{pageSize}
+	</select>
+	
+	<select id="getFaqCount" resultType="java.lang.Integer">
+		select count(*) from faq
+	</select>
+	
+	<select id="getFaqDetail" resultType="com.itwillbs.domain.FaqDTO" >
+		select * from faq where faq_idx = #{faq_idx} 
+	</select>
+	
+	
+	
+	<insert id="insertNotice">
+		insert into notice (notice_subject, notice_content)
+		values (#{notice_subject},#{notice_content})
+	</insert>
+	
+	<select id="getNoticeCount" resultType="java.lang.Integer">
+		select count(*) from notice
+	</select>
+	
+	<select id="getNoticeList" resultType="com.itwillbs.domain.NoticeDTO">
+		select * from notice order by notice_idx  DESC limit #{startRow},#{pageSize}
+	</select>
+	
+	<select id="getNoticeDetail" resultType="com.itwillbs.domain.NoticeDTO" >
+		select * from notice where notice_idx = ${notice_idx} 
+	</select>
+	
+	<update id="updateFaq">
+		update faq set faq_subject=#{faq_subject},faq_question=#{faq_question},faq_answer=#{faq_answer} where faq_idx=#{faq_idx}
+	</update>
+	
+	<update id="updateNotice">
+		update notice set notice_subject=#{notice_subject},notice_content=#{notice_content} where notice_idx=#{notice_idx}
+	</update>
+	
+	<delete id="deleteNotice">
+		delete from notice WHERE notice_idx = #{notice_idx}
+	</delete>
+	
+	<delete id="deleteFaq">
+		delete from faq WHERE faq_idx = #{faq_idx}
+	</delete>
+	
+	<delete id="deleteQna">
+		delete from qna WHERE qna_idx = #{qna_idx}
+	</delete>
+</mapper>
