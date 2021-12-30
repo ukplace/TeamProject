@@ -7,8 +7,9 @@ create table notice (
 notice_idx int primary key auto_increment,
 notice_subject varchar(500) not null,
 notice_content varchar(500) not null,
-notice_date datetime default now() not null
+notice_date timestamp default now() not null
 );
+
 */
 public class NoticeDTO {
 	
