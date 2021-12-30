@@ -31,6 +31,7 @@ public class AjaxController {
 			result="emaildup"; //이메일 있음  이메일 중복
 		}
 		
+		
 		ResponseEntity<String> entity=new ResponseEntity<String>(result,HttpStatus.OK);
 		return entity;
 	}
