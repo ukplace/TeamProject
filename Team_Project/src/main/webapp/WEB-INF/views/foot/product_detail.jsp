@@ -50,7 +50,7 @@
 		<jsp:include page="../inc/top.jsp"></jsp:include>
 		<!-- 헤더들어가는곳 -->
 	</nav>
-	<form method="post" name="detailForm" enctype="multipart/form-data">                     
+	<form action="${pageContext.request.contextPath}/foot/kakaoPay.cls" method="post" name="detailForm" enctype="multipart/form-data">                     
 	<input type="hidden" name="n" value="${ProductDTO.p_num}" />		
 		<div class="breadcrumbs">
 			<div class="container">
@@ -175,14 +175,14 @@
 				     <a href="${pageContext.request.contextPath}/foot/wishlist" class="btn btn-primary btn-addtocart"><i class="icon-heart2"></i>Wish</a>
 					 <a href="cart.html" class="btn btn-primary btn-addtocart"><i class="icon-shopping-cart"></i>Cart</a>
 				     <a href="${pageContext.request.contextPath}/foot/order_detail" class="btn btn-success btn-addtocart"><i class="icon-credit-card "></i>Buy</a>
-					 <button type="submit" style="padding:0; border:none; background:none; float: right;">
+					 <button type="submit" style="padding:0; border:none; background:none; float: right;" id="kakaoPay">
 					 <img src="${pageContext.request.contextPath}/resources/images/kakaoPay_s.png" alt="kakaoKay"></button>
 				     </div>             
 				               
-
 							
 						</div>
 					</div>
+							</form>
 				</div>
 
 				<div class="row">
@@ -393,6 +393,27 @@
 	<script src="${pageContext.request.contextPath}/js/jquery.stellar.min.js"></script>
 	<!-- Main -->
 	<script src="${pageContext.request.contextPath}/js/main.js"></script>
+
+<script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$('#kakaoPay').click(function open(){
+		$.ajax({
+			url:'${pageContext.request.contextPath}/foot/kakaoPay.cls',
+			dataType:'json',
+			success:function(data){
+				var win = window.open("")
+				var box = data.next_redirect_pc_url;
+				location.href = box;
+			},
+			error:function(error){
+				alert(error);
+			}
+		});
+	});
+});	
+</script>	
+
 
 
 	<script>
