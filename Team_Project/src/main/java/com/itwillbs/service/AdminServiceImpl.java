@@ -10,7 +10,7 @@ import com.itwillbs.dao.AdminDAO;
 import com.itwillbs.dao.MemberDAO;
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
-import com.itwillbs.domain.ProductDTO;
+import com.itwillbs.domain.ProductDTObefore;
 import com.itwillbs.domain.ProductQtyDTO;
 import com.itwillbs.domain.ReviewDTO;
 
@@ -32,13 +32,13 @@ public class AdminServiceImpl implements AdminService {
 
 
 	@Override
-	public void insertProduct(ProductDTO productDTO) {
+	public void insertProduct(ProductDTObefore productDTO) {
 		System.out.println("AdminServiceImpl - insertProduct()");
 		adminDAO.insertProduct(productDTO);
 	}
 
 	@Override
-	public List<ProductDTO> getProductList(PageDTO pageDTO) {
+	public List<ProductDTObefore> getProductList(PageDTO pageDTO) {
 		System.out.println("AdminServiceImpl - getProductList()");
 		// 계산된  것 => pageSize, pageNum
 		// 구해야할 것 => currentPage, startRow, endRow 계산!
@@ -59,7 +59,7 @@ public class AdminServiceImpl implements AdminService {
 
 
 	@Override
-	public void updateProduct(ProductDTO productDTO) {
+	public void updateProduct(ProductDTObefore productDTO) {
 		System.out.println("AdminServiceImpl - updateProduct()");
 		adminDAO.updateProduct(productDTO);
 	}
@@ -74,7 +74,7 @@ public class AdminServiceImpl implements AdminService {
 
 
 	@Override
-	public ProductDTO productView(int p_num) {
+	public ProductDTObefore productView(int p_num) {
 		
 		return adminDAO.productView(p_num);
 	}

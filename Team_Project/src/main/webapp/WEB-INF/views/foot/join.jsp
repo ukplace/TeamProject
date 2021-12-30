@@ -295,6 +295,7 @@ $('#emaildup').click(function(){
 	}
 	
 
+
 	$.ajax('${pageContext.request.contextPath}/member/emailCheck',{
 		data:{'m_email':$('#m_email').val()},
 		success:function(rdata){
@@ -304,10 +305,10 @@ $('#emaildup').click(function(){
 				rdata="이메일 중복";
 			}
 			$('#btncheck').html(rdata);
-			}
-		});
-		
+		}
 	});
+	
+});
 });
 
 </script>

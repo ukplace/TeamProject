@@ -6,8 +6,8 @@
 <mapper namespace="com.itwillbs.mapper.AdminMapper">
 
 	<insert id="insertProduct">
-		insert into product (p_name, p_explain, p_category, p_small_category, p_img, p_size, p_price, p_stock, p_thumImg)
-			values (#{p_name},#{p_explain},#{p_category},#{p_small_category},#{p_img},#{p_size},#{p_price},#{p_stock},#{p_thumImg})
+		insert into product (p_name, p_explain, p_category, p_small_category, p_img, p_price, p_thumImg)
+			values (#{p_name},#{p_explain},#{p_category},#{p_small_category},#{p_img},#{p_price}, #{p_thumImg})
 	</insert>
 
 	<select id="getProductList" resultType="com.itwillbs.domain.ProductDTO">
@@ -28,7 +28,7 @@
 	</delete>
 	
 	<select id="productView" resultType="com.itwillbs.domain.ProductDTO">
-		select p_num, p_name, p_explain, p_category, p_small_category, p_size, p_price, p_stock, p_thumImg
+		select p_num, p_name, p_explain, p_category, p_small_category, p_price, p_thumImg
 			from product
 			where p_num = #{p_num}
 	</select>

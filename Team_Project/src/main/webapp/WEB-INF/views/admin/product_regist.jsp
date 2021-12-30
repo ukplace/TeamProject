@@ -171,6 +171,8 @@
 				<input type="text" name="p_color" width = 40px padding= 6px margin= 100px placeholder="제품색상입력">
 			</td>
 		</tr>	
+		
+		<!-- 색상/사이즈 select 등록페이지에서 삭제 할 예정으로 알고있기에 주석처리함 -->
 	
 <!-- 				<tr> -->
 <!-- 					<th>색상</th> -->
@@ -193,30 +195,30 @@
 <!-- 				</tr> -->
 
 			<!-- 사이즈 -->
-			<tr>
-				<th>사이즈</th>
-					<td>
-						<input type="text" name="p_size" required="required" size="10">
-						<select name="selectSize" onchange="changeSize(this.value)">
-						<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입란에 표시 -->
-						<!-- this 주면 여기 이 태그가 날라간다!  -->
-						<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입력란에 표시 -->
-							<option value="">직접입력</option>	
-							<option value="220">220</option>
-							<option value="235">235</option>
-							<option value="240">240</option>
-							<option value="245">245</option>
-							<option value="250">250</option>
-							<option value="255">255</option>
-							<option value="260">260</option>
-							<option value="265">265</option>
-							<option value="270">270</option>
-							<option value="275">275</option>
-							<option value="280">280</option>
+<!-- 			<tr> -->
+<!-- 				<th>사이즈</th> -->
+<!-- 					<td> -->
+<!-- 						<input type="text" name="p_size" required="required" size="10"> -->
+<!-- 						<select name="selectSize" onchange="changeSize(this.value)"> -->
+<!-- 						셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입란에 표시 -->
+<!-- 						this 주면 여기 이 태그가 날라간다!  -->
+<!-- 						셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입력란에 표시 -->
+<!-- 							<option value="">직접입력</option>	 -->
+<!-- 							<option value="220">220</option> -->
+<!-- 							<option value="235">235</option> -->
+<!-- 							<option value="240">240</option> -->
+<!-- 							<option value="245">245</option> -->
+<!-- 							<option value="250">250</option> -->
+<!-- 							<option value="255">255</option> -->
+<!-- 							<option value="260">260</option> -->
+<!-- 							<option value="265">265</option> -->
+<!-- 							<option value="270">270</option> -->
+<!-- 							<option value="275">275</option> -->
+<!-- 							<option value="280">280</option> -->
 							
-						</select>
-					</td>
-				</tr>	
+<!-- 						</select> -->
+<!-- 					</td> -->
+<!-- 				</tr>	 -->
 				
 		      <!-- 재고 -->
 		      <tr>

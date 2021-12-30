@@ -4,9 +4,10 @@ import java.util.List;
 
 /*
 create table product_qty (
-p_num int references product (p_num),
+p_num int,
 p_size varchar(45) not null default '0',
-p_stock int not null default 0
+p_stock int not null default 0,
+foreign key (p_num) references product (p_num)
 );
 
 
