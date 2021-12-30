@@ -175,6 +175,8 @@
 				     <a href="${pageContext.request.contextPath}/foot/wishlist" class="btn btn-primary btn-addtocart"><i class="icon-heart2"></i>Wish</a>
 					 <a href="cart.html" class="btn btn-primary btn-addtocart"><i class="icon-shopping-cart"></i>Cart</a>
 				     <a href="${pageContext.request.contextPath}/foot/order_detail" class="btn btn-success btn-addtocart"><i class="icon-credit-card "></i>Buy</a>
+					 <button type="submit" style="padding:0; border:none; background:none; float: right;">
+					 <img src="${pageContext.request.contextPath}/resources/images/kakaoPay_s.png" alt="kakaoKay"></button>
 				     </div>             
 				               
 
