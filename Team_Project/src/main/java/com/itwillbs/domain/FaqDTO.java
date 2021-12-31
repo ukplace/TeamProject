@@ -11,6 +11,7 @@ faq_answer varchar(500) not null,
 faq_date timestamp default now() not null
 );
 
+
  */
 
 public class FaqDTO {
