@@ -176,7 +176,7 @@
 					 <a href="cart.html" class="btn btn-primary btn-addtocart"><i class="icon-shopping-cart"></i>Cart</a>
 				     <a href="${pageContext.request.contextPath}/foot/order_detail" class="btn btn-success btn-addtocart"><i class="icon-credit-card "></i>Buy</a>
 					 <button type="submit" style="padding:0; border:none; background:none; float: right;" id="kakaoPay">
-					 <img src="${pageContext.request.contextPath}/resources/images/kakaoPay_s.png" alt="kakaoKay"></button>
+					 <img src="${pageContext.request.contextPath}/resources/images/kakaoPay.png" alt="kakaoKay"></button>
 				     </div>             
 				               
 							

@@ -23,7 +23,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.NoticeDTO;
 import com.itwillbs.domain.PageDTO;
-import com.itwillbs.domain.ProductDTObefore;
+import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductQtyDTO;
 import com.itwillbs.domain.ReviewDTO;
 import com.itwillbs.service.AdminService;
@@ -53,7 +53,7 @@ public class AdminController {
 	   }
 	
 	@RequestMapping(value = "/admin/product_regist_pro", method = RequestMethod.POST)
-	   public String product_registPro(ProductDTObefore productDTO, MultipartFile file) throws Exception {
+	   public String product_registPro(ProductDTO productDTO, MultipartFile file) throws Exception {
 		
 		String imgUploadPath = uploadPath + File.separator + "imgUpload";
 		String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
@@ -87,7 +87,7 @@ public class AdminController {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
 		
-		List<ProductDTObefore> productList = adminService.getProductList(pageDTO);
+		List<ProductDTO> productList = adminService.getProductList(pageDTO);
 		
 		// 페이징처리 - 제품리스트 전체 글 개수
 		pageDTO.setCount(adminService.getProductCount());
@@ -111,7 +111,7 @@ public class AdminController {
 	   public String productUpdate(@RequestParam("num") int p_num, Model model) throws Exception {
 			logger.info("get goods view");
 			
-			ProductDTObefore productDTO = adminService.productView(p_num);
+			ProductDTO productDTO = adminService.productView(p_num);
 			
 			model.addAttribute("ProductDTO", productDTO);
 			
@@ -120,7 +120,7 @@ public class AdminController {
 	   }
 
 	@RequestMapping(value = "/admin/product_update_pro", method = RequestMethod.POST)
-	   public String productUpdatePro(ProductDTObefore productDTO, MultipartFile file) throws Exception {
+	   public String productUpdatePro(ProductDTO productDTO, MultipartFile file) throws Exception {
 
 			String imgUploadPath = uploadPath + File.separator + "imgUpload";
 			String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
@@ -148,7 +148,7 @@ public class AdminController {
 		public String productView(@RequestParam("num") int p_num, Model model) throws Exception {
 			logger.info("get goods view");
 			
-			ProductDTObefore productDTO = adminService.productView(p_num);
+			ProductDTO productDTO = adminService.productView(p_num);
 			List<ProductQtyDTO> qtyList = adminService.getqtyList(p_num);
 			
 			model.addAttribute("qtyList",qtyList);
@@ -289,7 +289,7 @@ public class AdminController {
 		// 상품관리 - 상품 수정
 		@RequestMapping(value = "/admin/product_qty_update", method = RequestMethod.GET)
 		   public String product_qty_update(HttpServletRequest request, Model model) {
-			ProductDTObefore productDTO = new ProductDTObefore();
+			ProductDTO productDTO = new ProductDTO();
 			productDTO.setP_num(Integer.parseInt(request.getParameter("num")));
 			int p_num = Integer.parseInt(request.getParameter("num"));
 			model.addAttribute("productDTO", productDTO);
@@ -299,7 +299,7 @@ public class AdminController {
 		
 		@RequestMapping(value = "/admin/product_qty_insert", method = RequestMethod.GET)
 		   public String product_qty_insert(HttpServletRequest request, Model model) {
-			ProductDTObefore productDTO = new ProductDTObefore();
+			ProductDTO productDTO = new ProductDTO();
 			productDTO.setP_num(Integer.parseInt(request.getParameter("num")));
 			int p_num = Integer.parseInt(request.getParameter("num"));
 			model.addAttribute("productDTO", productDTO);

@@ -58,11 +58,18 @@ public class AjaxController {
 				httpURLConnection.setRequestProperty("Authorization", "KakaoAK d7bd2af917e7ee54a17fefe75ce21cbc");
 				httpURLConnection.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
 				httpURLConnection.setDoOutput(true);
-				String str = "cid=TC0ONETIME&partner_order_id=partner_order_id&partner_user_id=partner_user_id&"
-						+ "item_name=초코파이&quantity=1&total_amount=2200&tax_free_amount=0&vat_amount=200&tax_free_amount=0&"
-						+ "approval_url=http://localhost:8080/success"
-						+ "&fail_url=https://localhost:8080/fail"
-						+ "&cancel_url=https://localhost:8080/cancel";
+				String str = "cid=TC0ONETIME&"
+						+ "partner_order_id=partner_order_id&"
+						+ "partner_user_id=partner_user_id&"
+						+ "item_name=초코파이&"
+						+ "quantity=1&"
+						+ "total_amount=2200&"
+						+ "tax_free_amount=0&"
+						+ "vat_amount=200&"
+						+ "tax_free_amount=0&"
+						+ "approval_url=http://localhost:8080/success&"
+						+ "fail_url=https://localhost:8080/fail&"
+						+ "cancel_url=https://localhost:8080/cancel";
 				OutputStream outputStream = httpURLConnection.getOutputStream();
 				DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
 				dataOutputStream.writeBytes(str);

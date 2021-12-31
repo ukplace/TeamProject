@@ -8,7 +8,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.itwillbs.domain.PageDTO;
-import com.itwillbs.domain.ProductDTObefore;
+import com.itwillbs.domain.ProductDTO;
+import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.SearchDTO;
 
 @Repository
@@ -22,7 +23,7 @@ public class ProductDAOImpl implements ProductDAO {
 
 	/* 전체 상품 검색 */
 	@Override
-	public List<ProductDTObefore> getProductList(SearchDTO searchDTO) {
+	public List<ProductDTO> getProductList(SearchDTO searchDTO) {
 		System.out.println("ProductDAOImpl - getProductList()");
 		return sqlSession.selectList(namespace + ".getProductList", searchDTO);
 	}
@@ -37,93 +38,98 @@ public class ProductDAOImpl implements ProductDAO {
 	
 	
 	@Override
-	public List<ProductDTObefore> getProductKidsList(PageDTO pageDTO) {
+	public List<ProductDTO> getProductKidsList(PageDTO pageDTO) {
 		System.out.println("ProductDAOImpl - getProductKidsList()");
 		return sqlSession.selectList(namespace + ".getProductKidsList", pageDTO);
 	}
 
 	@Override
-	public List<ProductDTObefore> getProductWomenList(PageDTO pageDTO) {
+	public List<ProductDTO> getProductWomenList(PageDTO pageDTO) {
 		System.out.println("ProductDAOImpl - getProductWomenList()");
 		return sqlSession.selectList(namespace + ".getProductWomenList", pageDTO);
 	}
 
 	@Override
-	public List<ProductDTObefore> getProductMenList(PageDTO pageDTO) {
+	public List<ProductDTO> getProductMenList(PageDTO pageDTO) {
 		System.out.println("ProductDAOImpl.getProductMenList()");
 		return sqlSession.selectList(namespace+".getProductMenList", pageDTO);
 	}
 
 	@Override
-	public List<ProductDTObefore> getProductOutdoorList(PageDTO pageDTO) {
+	public List<ProductDTO> getProductOutdoorList(PageDTO pageDTO) {
 		System.out.println("ProductDAOImpl.getProductOutdoorList()");
 		return sqlSession.selectList(namespace+".getProductOutdoorList", pageDTO);
 	}
 
 	@Override
-	public List<ProductDTObefore> getProductRunningList(PageDTO pageDTO) {
+	public List<ProductDTO> getProductRunningList(PageDTO pageDTO) {
 		System.out.println("ProductDAOImpl.getProductRunningList()");
 		return sqlSession.selectList(namespace+".getProductRunningList", pageDTO);
 	}
 
 	@Override
-	public List<ProductDTObefore> getProductSneakersList(PageDTO pageDTO) {
+	public List<ProductDTO> getProductSneakersList(PageDTO pageDTO) {
 		System.out.println("ProductDAOImpl.getProductSneakersList()");
 		return sqlSession.selectList(namespace+".getProductSneakersList", pageDTO);
 	}
 
 	@Override
-	public List<ProductDTObefore> getProductGentlemanList(PageDTO pageDTO) {
+	public List<ProductDTO> getProductGentlemanList(PageDTO pageDTO) {
 		System.out.println("ProductDAOImpl.getProductGentlemanList()");
 		return sqlSession.selectList(namespace+".getProductGentlemanList", pageDTO);
 	}
 
 	@Override
-	public List<ProductDTObefore> getProductLadyList(PageDTO pageDTO) {
+	public List<ProductDTO> getProductLadyList(PageDTO pageDTO) {
 		System.out.println("ProductDAOImpl.getProductLadyList()");
 		return sqlSession.selectList(namespace+".getProductW_LadyList", pageDTO);
 	}
 
 	@Override
-	public List<ProductDTObefore> getProductW_SneakersList(PageDTO pageDTO) {
+	public List<ProductDTO> getProductW_SneakersList(PageDTO pageDTO) {
 		System.out.println("ProductDAOImpl.getProductW_SneakersList()");
 		return sqlSession.selectList(namespace+".getProductW_SneakersList", pageDTO);
 	}
 
 	@Override
-	public List<ProductDTObefore> getProductW_RunningList(PageDTO pageDTO) {
+	public List<ProductDTO> getProductW_RunningList(PageDTO pageDTO) {
 		System.out.println("ProductDAOImpl.getProductW_RunningList()");
 			return sqlSession.selectList(namespace+".getProductW_RunningList", pageDTO);
 	}
 
 	@Override
-	public List<ProductDTObefore> getProductW_OutdoorList(PageDTO pageDTO) {
+	public List<ProductDTO> getProductW_OutdoorList(PageDTO pageDTO) {
 		System.out.println("ProductDAOImpl.getProductW_OutdoorList()");
 		return sqlSession.selectList(namespace+".getProductW_OutdoorList", pageDTO);
 	}
 
 	@Override
-	public List<ProductDTObefore> getProductK_KidList(PageDTO pageDTO) {
+	public List<ProductDTO> getProductK_KidList(PageDTO pageDTO) {
 		System.out.println("ProductDAOImpl.getProductK_KidList()");
 		return sqlSession.selectList(namespace+".getProductK_KidList", pageDTO);
 	}
 
 	@Override
-	public List<ProductDTObefore> getProductK_RunningList(PageDTO pageDTO) {
+	public List<ProductDTO> getProductK_RunningList(PageDTO pageDTO) {
 		System.out.println("ProductDAOImpl.getProductK_RunningList()");
 		return sqlSession.selectList(namespace+".getProductK_RunningList", pageDTO);
 	}
 
 	@Override
-	public List<ProductDTObefore> getProductK_SneakersList(PageDTO pageDTO) {
+	public List<ProductDTO> getProductK_SneakersList(PageDTO pageDTO) {
 		System.out.println("ProductDAOImpl.getProductK_SneakersList()");
 		return sqlSession.selectList(namespace+".getProductK_SneakersList", pageDTO);
 	}
-
+	
 	@Override
-	public ProductDTObefore productDetail(int p_num) {
+	public ProductDTO productDetail(int p_num) {
 		return sqlSession.selectOne(namespace+".productDetail", p_num);
 	}
+
+//	@Override
+//	public ProductDTO productDetail(int p_num) {
+//		return sqlSession.selectOne(namespace+".productDetail", p_num);
+//	}
 
 
 	

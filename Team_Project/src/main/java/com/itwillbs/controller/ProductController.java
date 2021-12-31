@@ -12,7 +12,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.itwillbs.domain.PageDTO;
-import com.itwillbs.domain.ProductDTObefore;
+import com.itwillbs.domain.ProductDTO;
+import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductQtyDTO;
 import com.itwillbs.domain.SearchDTO;
 import com.itwillbs.service.ProductService;
@@ -50,7 +51,8 @@ public class ProductController {
 		searchDTO.setPageCount(4); // 3) 전체 게시물 개수
 		
 		
-		List<ProductDTObefore> productList = productService.getProductList(searchDTO);
+		
+		List<ProductDTO> productList = productService.getProductList(searchDTO);
 		
 		
 		model.addAttribute("searchDTO", searchDTO);
@@ -67,7 +69,8 @@ public class ProductController {
 	@RequestMapping(value = "/foot/product_detail", method = RequestMethod.GET)
 	public String product_detail(@RequestParam("num") int p_num, Model model) throws Exception {
 		
-		ProductDTObefore productDTO = productService.productDetail(p_num);
+		ProductDTO productDTO = productService.productDetail(p_num);
+//		ProductDTO productDTO = productService.productDetail(p_num);
 		
 		model.addAttribute("ProductDTO", productDTO);
 		
@@ -87,7 +90,7 @@ public class ProductController {
 		}else {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
-		List<ProductDTObefore> productOutdoorList = productService.getProductOutdoorList(pageDTO);
+		List<ProductDTO> productOutdoorList = productService.getProductOutdoorList(pageDTO);
 		
 		model.addAttribute("productOutdoorList", productOutdoorList);
 		model.addAttribute("pageDTO", pageDTO);
@@ -104,7 +107,7 @@ public class ProductController {
 		}else {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
-		List<ProductDTObefore> productRunningList = productService.getProductRunningList(pageDTO);
+		List<ProductDTO> productRunningList = productService.getProductRunningList(pageDTO);
 		
 		model.addAttribute("productRunningList", productRunningList);
 		model.addAttribute("pageDTO", pageDTO);
@@ -121,7 +124,7 @@ public class ProductController {
 		}else {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
-		List<ProductDTObefore> productSneakersList = productService.getProducSneakersList(pageDTO);
+		List<ProductDTO> productSneakersList = productService.getProducSneakersList(pageDTO);
 		
 		model.addAttribute("productSneakersList", productSneakersList);
 		model.addAttribute("pageDTO", pageDTO);
@@ -138,7 +141,7 @@ public class ProductController {
 		}else {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
-		List<ProductDTObefore> productGentlemanList = productService.getProductGentlemanList(pageDTO);
+		List<ProductDTO> productGentlemanList = productService.getProductGentlemanList(pageDTO);
 		
 		model.addAttribute("productGentlemanList", productGentlemanList);
 		model.addAttribute("pageDTO", pageDTO);
@@ -157,7 +160,7 @@ public class ProductController {
 		}else {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
-		List<ProductDTObefore> productMenList = productService.getProducMentList(pageDTO);
+		List<ProductDTO> productMenList = productService.getProducMentList(pageDTO);
 		
 		model.addAttribute("productMenList", productMenList);
 		model.addAttribute("pageDTO", pageDTO);
@@ -180,7 +183,7 @@ public class ProductController {
 				pageDTO.setPageNum(request.getParameter("pageNum"));
 			}
 			
-			List<ProductDTObefore> productWomenList = productService.getProductWomenList(pageDTO);
+			List<ProductDTO> productWomenList = productService.getProductWomenList(pageDTO);
 			
 			model.addAttribute("productWomenList", productWomenList);
 			model.addAttribute("pageDTO", pageDTO);
@@ -199,7 +202,7 @@ public class ProductController {
 		}else {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
-		List<ProductDTObefore> productW_OutdoorList = productService.getProductW_OutdoorList(pageDTO);
+		List<ProductDTO> productW_OutdoorList = productService.getProductW_OutdoorList(pageDTO);
 		
 		model.addAttribute("productW_OutdoorList", productW_OutdoorList);
 		model.addAttribute("pageDTO", pageDTO);
@@ -216,7 +219,7 @@ public class ProductController {
 		}else {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
-		List<ProductDTObefore> productW_RunningList = productService.getProductW_RunningList(pageDTO);
+		List<ProductDTO> productW_RunningList = productService.getProductW_RunningList(pageDTO);
 		
 		model.addAttribute("productW_RunningList", productW_RunningList);
 		model.addAttribute("pageDTO", pageDTO);
@@ -233,7 +236,7 @@ public class ProductController {
 		}else {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
-		List<ProductDTObefore> productW_SneakersList = productService.getProductW_SneakersList(pageDTO);
+		List<ProductDTO> productW_SneakersList = productService.getProductW_SneakersList(pageDTO);
 		
 		model.addAttribute("productW_SneakersList", productW_SneakersList);
 		model.addAttribute("pageDTO", pageDTO);
@@ -250,7 +253,7 @@ public class ProductController {
 		}else {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
-		List<ProductDTObefore> productLadyList = productService.getProductLadyList(pageDTO);
+		List<ProductDTO> productLadyList = productService.getProductLadyList(pageDTO);
 		
 		model.addAttribute("productLadyList", productLadyList);
 		model.addAttribute("pageDTO", pageDTO);
@@ -273,7 +276,7 @@ public class ProductController {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
 		
-		List<ProductDTObefore> productKidsList = productService.getProductKidsList(pageDTO);
+		List<ProductDTO> productKidsList = productService.getProductKidsList(pageDTO);
 		
 		model.addAttribute("productKidsList", productKidsList);
 		model.addAttribute("pageDTO", pageDTO);
@@ -299,7 +302,7 @@ public class ProductController {
 		}else {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
-		List<ProductDTObefore> productK_KidList = productService.getProductK_KidList(pageDTO);
+		List<ProductDTO> productK_KidList = productService.getProductK_KidList(pageDTO);
 		
 		model.addAttribute("productK_KidList", productK_KidList);
 		model.addAttribute("pageDTO", pageDTO);
@@ -316,7 +319,7 @@ public class ProductController {
 		}else {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
-		List<ProductDTObefore> productK_RunningList = productService.getProductK_RunningList(pageDTO);
+		List<ProductDTO> productK_RunningList = productService.getProductK_RunningList(pageDTO);
 		
 		model.addAttribute("productK_RunningList", productK_RunningList);
 		model.addAttribute("pageDTO", pageDTO);
@@ -333,7 +336,7 @@ public class ProductController {
 		}else {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
-		List<ProductDTObefore> productK_SneakersList = productService.getProductK_SneakersList(pageDTO);
+		List<ProductDTO> productK_SneakersList = productService.getProductK_SneakersList(pageDTO);
 		
 		model.addAttribute("productK_SneakersList", productK_SneakersList);
 		model.addAttribute("pageDTO", pageDTO);
