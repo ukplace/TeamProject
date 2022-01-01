@@ -277,7 +277,12 @@
 									<div class="form-group">
 										<div class="col-md-12">
 											<div class="radio">
-											   <label><input type="radio" name="optradio"> Direct Bank Tranfer</label>
+											   <form action="${pageContext.request.contextPath}/foot/kakaoPay.cls" method="post" >
+											   <label> 
+											   <button type="submit" style="padding:0; border:none; background:none; float: right;" id="kakaoPay">
+												 <img src="${pageContext.request.contextPath}/resources/images/kakaoPay.png" alt="kakaoKay"></button>
+												 </label>
+												 </form>
 											</div>
 										</div>
 									</div>
@@ -354,6 +359,27 @@
 	<script src="${pageContext.request.contextPath}/js/jquery.stellar.min.js"></script>
 	<!-- Main -->
 	<script src="${pageContext.request.contextPath}/js/main.js"></script>
+	
+	<script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('#kakaoPay').click(function open(){
+			$.ajax({
+				url:'${pageContext.request.contextPath}/foot/kakaoPay.cls',
+				dataType:'json',
+				success:function(data){
+					var box = data.next_redirect_pc_url;
+					location.href = box;
+				},
+				error:function(error){
+					alert(error);
+				}
+			});
+		});
+	});	
+	</script>	
+	
+	
 
 
 	</body>
