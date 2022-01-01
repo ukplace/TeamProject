@@ -366,6 +366,12 @@ public class ProductController {
 		return "foot/order_detail";
 	}
 	
+	@RequestMapping(value = "/foot/order_complete", method = RequestMethod.GET)
+	public String order_complete() {
+		// /WEB-INF/views/foot/orderDetail.jsp
+		return "foot/order_complete";
+	}
+	
 	// 위시리스트
 	@RequestMapping(value = "/foot/wishlist", method = RequestMethod.GET)
 	public String wishlist() {
