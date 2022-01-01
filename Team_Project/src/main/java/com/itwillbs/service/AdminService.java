@@ -37,11 +37,15 @@ public interface AdminService {
 
 	public MemberDTO getMemberDetail(MemberDTO memberDTO);
 
+	// ------ product_qty 값 추가 -------
+	public void insertQty(ProductQtyDTO dto);
+
+	public List<ProductQtyDTO> getQtyList(int p_num);
+	
 	public void updateQty(ProductQtyDTO dto);
 
-	public List<ProductQtyDTO> getqtyList(int p_num);
-
-	public void Qtydelete(int p_num);
+	public void deleteQty(int p_num);
+	
 	
 	public void updateMember(MemberDTO memberDTO);
 

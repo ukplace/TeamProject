@@ -37,11 +37,15 @@ public interface AdminDAO {
 	
 	public void deleteMember(int m_idx);
 
-	public void updateQty(ProductQtyDTO dto);
+	// ------ product_qty 값 추가 -------
+	public void insertQty(ProductQtyDTO dto);
 	
-	public List<ProductQtyDTO> getqtyList(int p_num);
+	public List<ProductQtyDTO> getQtyList(int p_num);
+	
+	public void updateQty(ProductQtyDTO dto);
 
-	public void Qtydelete(int p_num);
+	public void deleteQty(int p_num);
+	
 	
 	public void insertReview(ReviewDTO reviewDTO);
 

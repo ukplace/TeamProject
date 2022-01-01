@@ -113,28 +113,29 @@ public class AdminServiceImpl implements AdminService {
 		adminDAO.deleteMember(m_idx);
 	}
 
+	// product_qty 값 추가/삭제
+	@Override
+	public void insertQty(ProductQtyDTO dto) {
+		
+		adminDAO.insertQty(dto);
+	}
 
+	@Override
+	public List<ProductQtyDTO> getQtyList(int p_num) {
 
+		return adminDAO.getQtyList(p_num);
+	}
 
 	@Override
 	public void updateQty(ProductQtyDTO dto) {
-		
 		adminDAO.updateQty(dto);
-		
 	}
-
-
+	
 	@Override
-	public List<ProductQtyDTO> getqtyList(int p_num) {
-
-		return adminDAO.getqtyList(p_num);
+	public void deleteQty(int p_num) {
+		adminDAO.deleteQty(p_num);
 	}
-
-
-	@Override
-	public void Qtydelete(int p_num) {
-		adminDAO.Qtydelete(p_num);
-	}
+	
 	
 	@Override
 	public void insertReview(ReviewDTO reviewDTO) {
