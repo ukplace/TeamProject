@@ -2,6 +2,8 @@ package com.itwillbs.dao;
 
 import java.util.List;
 
+import com.itwillbs.domain.CartDTO;
+import com.itwillbs.domain.CartListDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductDTO;
@@ -48,5 +50,11 @@ public interface ProductDAO {
 	
 	public ProductDTO productDetail(int p_num);
 //	public ProductDTO productDetail(int p_num);
+
+	public void addCart(CartDTO cartDTO);
+
+	public CartDTO getCart(CartDTO cartDTO);
+
+	public List<CartListDTO> getCartList(CartListDTO cartListDTO);
 
 }

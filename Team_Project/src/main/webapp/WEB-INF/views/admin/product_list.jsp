@@ -83,7 +83,7 @@
                                                     <td class="text-center">${productDTO.p_num}</td>
                                                     <td align="center"><img alt="product_thumImg" src="${pageContext.request.contextPath}${productDTO.p_thumImg }" width="100" height="100"></td>
                                                     <td class="text-center">${productDTO.p_name}</td>
-                                                    <td class="text-center">${productDTO.p_stock}</td>
+                                                    <td class="text-center"></td>
                                                     <td class="text-center"><fmt:formatDate value="${productDTO.p_date}" pattern="yyyy-MM-dd" /> </td>
                                                 </tr>
 											</c:forEach>

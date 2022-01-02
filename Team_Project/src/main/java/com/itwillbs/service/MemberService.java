@@ -10,4 +10,6 @@ public interface MemberService {
 	
 	public MemberDTO getMemberEmail(String email);
 
+	public MemberDTO getMember(MemberDTO memberDTO);
+
 }

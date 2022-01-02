@@ -92,9 +92,26 @@
 		select * from product where p_num=#{p_num} 
 		</select>
 		
+		<insert id="addCart">
+			insert into cart(m_idx,p_num,cart_count) values(#{m_idx},#{p_num},#{cart_count})
+		</insert>
 		
+		<select id="cartCheck" resultType="com.itwillbs.domain.CartDTO">
+			select * from cart WHERE m_idx=#{m_idx} AND p_num=#{p_num}
+		</select>
 		
+		<update id="updateCart">
+			UPDATE cart SET cart_count = #{cart_count} WHERE cart_idx = #{cart_idx}
+		</update>
+		
+		<select id="getCart" resultType="com.itwillbs.domain.CartDTO">
+			select * from cart WHERE m_idx=#{m_idx}
+		</select>
 	
+		<select id="getCartList" resultType="com.itwillbs.domain.CartListDTO" >
+			select c.cart_idx, c.m_idx, c.p_num, c.cart_count, p.p_name, p.p_price, p_thumImg
+ 			from cart c join product p on c.p_num = p.p_num where c.m_idx = #{m_idx};
+		</select>
 
 	
 </mapper>

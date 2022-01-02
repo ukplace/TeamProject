@@ -76,12 +76,19 @@ public class AdminDAOImpl implements AdminDAO {
 	@Override
 	public void updateQty(ProductQtyDTO dto) {
 		for(int i = 0; i<dto.getList().size();i++) {
+			System.out.println(dto.getP_num()+" qty p_num");
+			
 			dto.setP_size(dto.getList().get(i).getP_size());
 			System.out.println(dto.getP_size());
 			dto.setP_stock(dto.getList().get(i).getP_stock());
 			System.out.println(dto.getP_stock());
-		
-			sqlSession.insert(namespace+".updateQty", dto);
+			ProductQtyDTO dto2=sqlSession.selectOne(namespace+".checkQty",dto);
+			if(dto2==null) {
+				sqlSession.insert(namespace+".updateQty", dto);
+			}else {
+				dto.setP_stock(dto.getP_stock()+dto2.getP_stock());
+				sqlSession.update(namespace, dto);
+			}
 		}
 		
 	}

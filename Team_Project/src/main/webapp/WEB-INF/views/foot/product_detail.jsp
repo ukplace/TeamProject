@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE HTML>
@@ -50,8 +51,8 @@
 		<jsp:include page="../inc/top.jsp"></jsp:include>
 		<!-- 헤더들어가는곳 -->
 	</nav>
-	<form name="detailForm" enctype="multipart/form-data">                     
-	<input type="hidden" name="n" value="${ProductDTO.p_num}" />		
+	<form name="detailForm" >                     
+	<input type="hidden" id="p_num" name="p_num" value="${ProductDTO.p_num}" />		
 		<div class="breadcrumbs">
 			<div class="container">
 				<div class="row">
@@ -173,7 +174,48 @@
                   	<!-- 쇼핑카트 -->
 				     <div class="input-group mb-4">          
 				     <a href="${pageContext.request.contextPath}/foot/wishlist" class="btn btn-primary btn-addtocart"><i class="icon-heart2"></i>Wish</a>
-					 <a href="cart.html" class="btn btn-primary btn-addtocart"><i class="icon-shopping-cart"></i>Cart</a>
+					 <p class="addToCart">
+						 <button type="button" class="addCart_btn">카트에 담기</button>
+						 <script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
+						 <script>
+						  $(".addCart_btn").click(function(){
+						   var p_num = $("#p_num").val();
+						   var cart_count = parseInt($("#quantity").val());
+						   
+						   var data = {
+								   p_num : p_num,
+								   cart_count : cart_count
+						     };
+						   
+						   $.ajax({
+						    url : "${pageContext.request.contextPath}/foot/addCart",
+						    type : "post",
+						    data : data,
+						    success : function(result){
+						    	/* alert("카트담기 성공");
+						    	var quantity = parseInt($('#quantity').val());
+						    	$("#quantity").val(1);
+						    }, */
+						    	if(result==1){
+						     alert("카트 담기 성공");
+						     $(".quantity").val(1);
+						    	}else{
+						    		alert("회원만 사용할 수 있습니다.")
+						    $(".quantity").val(1);		
+						    	}
+						    },
+						    error : function(result){
+						     alert("카트 담기 실패");
+						    }
+						   });
+						  });
+						 </script>
+</p>
+					 
+					 
+					 
+					 
+					 
 				     <a href="${pageContext.request.contextPath}/foot/order" class="btn btn-success btn-addtocart"><i class="icon-credit-card "></i>Buy</a>
 					
 				     </div>             

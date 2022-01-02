@@ -56,14 +56,19 @@ public class MemberController {
 		MemberDTO userCheck = memberService.userCheck(memberDTO);
 		
 		
+		
 		if(userCheck != null) {
 			System.out.println(memberDTO.getM_email());
 			
 			if(userCheck.getM_email().equals("admin@shushu.com")) {
 				session.setAttribute("id", memberDTO.getM_email());
+				session.setAttribute("m_idx",userCheck.getM_idx());
+				System.out.println("세션에 추가한 idx값 "+session.getAttribute("m_idx"));
 				return "redirect:/admin/index";
 			}else {
 				session.setAttribute("id", memberDTO.getM_email());
+				session.setAttribute("m_idx",userCheck.getM_idx());
+				System.out.println("세션에 추가한 idx값 "+session.getAttribute("m_idx"));
 				return "redirect:/foot/index";
 			}
 					

@@ -13,6 +13,7 @@ import java.net.URL;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,14 +22,19 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.itwillbs.domain.CartDTO;
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.service.MemberService;
+import com.itwillbs.service.ProductService;
 
 @RestController
 public class AjaxController {
 
 	@Inject
 	private MemberService memberService;
+
+	@Inject
+	private ProductService productService;
 	
 	@RequestMapping(value = "/member/emailCheck", method = RequestMethod.GET)
 	public ResponseEntity<String> emailCheck(HttpServletRequest request) {
@@ -101,7 +107,21 @@ public class AjaxController {
 		
 	}
 	
-	
+
+	@ResponseBody
+	@RequestMapping(value = "/foot/addCart", method = RequestMethod.POST)
+	public int addCart(CartDTO cart, HttpSession session) throws Exception {
+	int result = 0;
+		MemberDTO member = new MemberDTO();
+			 member.setM_idx((Integer)session.getAttribute("m_idx"));
+	if(member !=null) {
+		cart.setM_idx(member.getM_idx());
+		productService.addCart(cart);
+		result = 1;
+		System.out.println("아이디있는지확인 result : " + result);
+	}
+	 return result;
+	}
 	
 	
 	

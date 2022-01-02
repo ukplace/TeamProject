@@ -31,4 +31,9 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAO.getMemberEmail(email);
 	}
 
+	@Override
+	public MemberDTO getMember(MemberDTO memberDTO) {
+		return memberDAO.getMember(memberDTO);
+	}
+
 }

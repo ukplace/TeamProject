@@ -313,8 +313,9 @@ public class AdminController {
 			System.out.println(dto.getList().get(1).getP_size());
 			System.out.println(dto.getList().get(1).getP_stock());
 			System.out.println(dto.getList().get(2).getP_size());
-			dto.setP_num(Integer.parseInt(request.getParameter("num")));
 			System.out.println(dto.getP_num());
+			
+			adminService.updateQty(dto);
 			
 			
 		      // /WEB-INF/views/admin/product_list
