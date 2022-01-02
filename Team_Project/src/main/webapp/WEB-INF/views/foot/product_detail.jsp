@@ -39,8 +39,7 @@
 
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
-
-
+	
 	</head>
 	<body>
 	<div class="colorlib-loader"></div>
@@ -153,7 +152,7 @@
                   	
 					<!-- 개수 -->	
                      <div class="input-group mb-4">
-                     	<span class="input-group-btn">
+                     	<span class="input-group-btn ml" style="width:45px; margin:0;">
                         	<button type="button" class="quantity-left-minus btn"  data-type="minus" data-field="">
                            <i class="icon-minus2"></i>
                         	</button>
@@ -175,9 +174,9 @@
                   	
                   	<!-- 쇼핑카트 -->
 				     <div class="input-group mb-4">          
-				     <a href="${pageContext.request.contextPath}/foot/wishlist" class="btn btn-primary btn-addtocart"><i class="icon-heart2"></i>Wish</a>
-					 <p class="addToCart">
-						 <button type="button" class="addCart_btn">카트에 담기</button>
+				     <a href="${pageContext.request.contextPath}/foot/wishlist" class="btn btn-primary btn-addtocart" style="width:107px; height:39px"><i class="icon-heart2"></i>Wish</a>
+					 <p class="addToCart" style="height:39px">
+						 <button type="button" class="btn btn-primary btn-addtocart addCart_btn">Cart</button>
 						 
 						    <script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
                    <script>
@@ -221,7 +220,7 @@
 					 
 					 
 					 
-				     <a href="${pageContext.request.contextPath}/foot/order" class="btn btn-success btn-addtocart"><i class="icon-credit-card "></i>Buy</a>
+				     <a href="${pageContext.request.contextPath}/foot/order" class="btn btn-success btn-addtocart" style="height:39px"><i class="icon-credit-card "></i>Buy</a>
 					
 				     </div>             
 				               
