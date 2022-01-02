@@ -126,11 +126,11 @@
 <!-- 							<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p> -->
 							
 							<p class="size-wrap">
-								<span>카테고리:${ProductDTO.p_small_category}</span> 
+								<span>카테고리: ${ProductDTO.p_small_category}</span> 
 							</p>
 							
 							<p class="size-wrap">
-								<span>색상코드:</span> 
+								<span>색상코드: ${ProductDTO.p_color}</span> 
 							</p>
 							
 							
@@ -139,22 +139,24 @@
 							<div class="size-wrap">
 								<div class="block-26 mb-2">
 									<h4>Size</h4>
-				               <ul>
-				                  <li><a href="#">220</a></li>
-				                  <li><a href="#">225</a></li>
-				                  <li><a href="#">230</a></li>
-				                  <li><a href="#">235</a></li>
-				                  <li><a href="#">240</a></li>
-				                  <li><a href="#">245</a></li>
-				                  <li><a href="#">250</a></li>
-				                  <li><a href="#">255</a></li>
-				                  <li><a href="#">260</a></li>
-				                  <li><a href="#">265</a></li>
-				                  <li><a href="#">270</a></li>
-				                  <li><a href="#">275</a></li>
-				                  <li><a href="#">280</a></li>
-				                  <li><a href="#">285</a></li>
-				               
+				               <ul id="pd_size_list">
+								  <c:forEach var="qtyDTO" items="${qtyList }">				               
+				               	  <li value="${qtyDTO.p_size }"><a href="#"><c:out value="${qtyDTO.p_size }"></c:out></a></li>
+				               	  </c:forEach>	
+<!-- 				                  <li value="220" hidden=""><a href="#">220</a></li> -->
+<!-- 				                  <li value="225" hidden=""><a href="#">225</a></li> -->
+<!-- 				                  <li value="230" hidden=""><a href="#">230</a></li> -->
+<!-- 				                  <li value="235" hidden=""><a href="#">235</a></li> -->
+<!-- 				                  <li value="240" hidden=""><a href="#">240</a></li> -->
+<!-- 				                  <li value="245" hidden=""><a href="#">245</a></li> -->
+<!-- 				                  <li value="250" hidden=""><a href="#">250</a></li> -->
+<!-- 				                  <li value="255" hidden=""><a href="#">255</a></li> -->
+<!-- 				                  <li value="260" hidden=""><a href="#">260</a></li> -->
+<!-- 				                  <li value="265" hidden=""><a href="#">265</a></li> -->
+<!-- 				                  <li value="270" hidden=""><a href="#">270</a></li> -->
+<!-- 				                  <li value="275" hidden=""><a href="#">275</a></li> -->
+<!-- 				                  <li value="280" hidden=""><a href="#">280</a></li> -->
+<!-- 				                  <li value="285" hidden=""><a href="#">285</a></li> -->
 				               </ul>
 				            </div>
 							</div>
@@ -486,6 +488,31 @@
 		    });
 		    
 		});
+		
+
+		// 사이즈선택
+// 		$("#pd_size_list li").on("click", function(e) {
+// 			console.log("p_size li");
+// 		});
+		
+// 		$("#pd_size_list ul").children('li').off().on('click', function(e) {
+// 			console.log($(this).text());
+// 		})
+		
+// 		$("pd_size_list li").on('click', function(e) {
+// 			if($(this).parent("pd_size_list").length > 0) {
+// 				console.log("p_size li");
+// 			} else {
+// 				console.log($(this).text());
+// 			}
+// 		})
+
+		$('#pd_size_list').on('click', 'li', function() {
+			alert("사이즈 클릭됨");
+			var p_size = document.pd_size_list.li.value;
+			
+		});
+		
 	</script>
 
 
