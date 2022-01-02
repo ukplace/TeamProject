@@ -80,4 +80,7 @@
 		values (#{p_num},#{m_idx},#{review_content},#{review_score},#{review_date})
 	</insert>
 	
+	<select id="getReviewList" resultType="com.itwillbs.domain.ReviewDTO">
+		select * from review order by review_idx desc limit #{startRow},#{pageSize}
+	</select>
 </mapper>

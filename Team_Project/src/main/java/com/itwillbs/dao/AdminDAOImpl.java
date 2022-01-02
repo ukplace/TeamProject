@@ -139,6 +139,12 @@ public class AdminDAOImpl implements AdminDAO {
 		 sqlSession.selectOne(namespace+".deleteMember", m_idx);
 	}
 
+	@Override
+	public List<ReviewDTO> getReviewList(PageDTO pageDTO) {
+
+		return sqlSession.selectList(namespace+".getReviewList", pageDTO);
+	}
+
 
 	
 	

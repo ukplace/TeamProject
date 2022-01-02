@@ -54,6 +54,8 @@ public interface AdminService {
 	
 	public void deleteMember(int m_idx);
 
+	public List<ReviewDTO> getReviewList(PageDTO pageDTO);
+
 	
 	
 }

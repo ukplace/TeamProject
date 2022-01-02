@@ -144,6 +144,18 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 
+	@Override
+	public List<ReviewDTO> getReviewList(PageDTO pageDTO) {
+		pageDTO.setCurrentPage(Integer.parseInt(pageDTO.getPageNum()));
+		pageDTO.setStartRow((pageDTO.getCurrentPage()-1)*pageDTO.getPageSize()+1);
+		pageDTO.setEndRow(pageDTO.getStartRow()+pageDTO.getPageSize()-1);
+		//디비 startRow-1
+		pageDTO.setStartRow(pageDTO.getStartRow()-1);
+		
+		return adminDAO.getReviewList(pageDTO);
+	}
+
+
 
 
 

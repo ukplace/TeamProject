@@ -40,6 +40,23 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 	
+
+	<script type="text/javascript">
+	$(document).ready(function() {
+		// class="review"
+		$('.review').click(function(){
+			// 글 가지고 오고 싶을때
+			$.getJSON('${pageContext.request.contextPath}/foot/reviewList',function(rdata){
+				$.each(rdata,function(index,item){
+					$('table').append('<tr><td class="contxt"><a href="#">'+item.review_subject+'</a></td><td>'+item.review_date+'</td></tr>');
+					// 테이블 가져와서 출력
+				});
+			});
+			// 이벤트 멈춤
+			$(this).unbind();
+		});
+	});
+	</script>
 	</head>
 	<body>
 	<div class="colorlib-loader"></div>
@@ -244,7 +261,7 @@
 								      <a class="nav-link" id="pills-manufacturer-tab" data-toggle="pill" href="#pills-manufacturer" role="tab" aria-controls="pills-manufacturer" aria-expanded="true">Manufacturer</a>
 								    </li>
 								    <li class="nav-item">
-								      <a class="nav-link" id="pills-review-tab" data-toggle="pill" href="#pills-review" role="tab" aria-controls="pills-review" aria-expanded="true">리뷰</a>
+								      <p class="review"><a class="nav-link" id="pills-review-tab" data-toggle="pill" href="#pills-review" role="tab" aria-controls="pills-review" aria-expanded="true">리뷰</a></p>
 								    </li>
 								  </ul>
 
