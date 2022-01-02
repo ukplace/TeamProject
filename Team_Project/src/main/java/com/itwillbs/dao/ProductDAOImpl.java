@@ -11,6 +11,7 @@ import com.itwillbs.domain.CartDTO;
 import com.itwillbs.domain.CartListDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
+import com.itwillbs.domain.ProductQtyDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.SearchDTO;
 
@@ -127,6 +128,12 @@ public class ProductDAOImpl implements ProductDAO {
 	public ProductDTO productDetail(int p_num) {
 		return sqlSession.selectOne(namespace+".productDetail", p_num);
 	}
+	
+	@Override
+	public List<ProductQtyDTO> productQtyDetail(int p_num) {
+		return sqlSession.selectList(namespace+".productQtyDetail", p_num);
+	}
+	
 
 	@Override
 	public void addCart(CartDTO cartDTO) {

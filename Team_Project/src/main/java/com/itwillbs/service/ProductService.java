@@ -6,6 +6,7 @@ import com.itwillbs.domain.CartDTO;
 import com.itwillbs.domain.CartListDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
+import com.itwillbs.domain.ProductQtyDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.SearchDTO;
 
@@ -49,6 +50,9 @@ public interface ProductService {
 	public List<ProductDTO> getProductK_SneakersList(PageDTO pageDTO);
 	
 	public ProductDTO productDetail(int p_num);
+	
+	public List<ProductQtyDTO> productQtyDetail(int p_num);
+	
 	
 	public void addCart(CartDTO cartDTO);
 

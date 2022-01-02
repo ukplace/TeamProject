@@ -14,7 +14,7 @@
 
 	<!-- 전체 상품 검색 -->
 	<select id="getProductList" resultType="com.itwillbs.domain.ProductDTO">
-		select * from product p left outer join product_qty  pq
+		select * from product p left outer join product_qty pq
 		on p.p_num = pq.p_num
 		<include refid="searchDTO"></include>
 		limit #{startRow},#{pageSize}
@@ -91,6 +91,11 @@
 		<select id="productDetail" resultType="com.itwillbs.domain.ProductDTO">
 		select * from product where p_num=#{p_num} 
 		</select>
+		
+		<select id="productQtyDetail" resultType="com.itwillbs.domain.ProductQtyDTO">
+		select p_size from product_qty where p_num=#{p_num} 
+		</select>
+		
 		
 		<insert id="addCart">
 			insert into cart(m_idx,p_num,cart_count) values(#{m_idx},#{p_num},#{cart_count})
