@@ -102,6 +102,33 @@
     }
 </script>
 
+	<script language="javascript" type="text/javascript">
+	
+	var name = "";
+	var email = false;
+
+	// 배송지 정보에 복사된 정보 남기기
+	function initValue(frm){
+	    name = m_idx.o_name.value;
+	    email = m_idx.o_email.checked;
+	}
+
+	function shipToBill(m_idx) {
+	    if(m_idx.copy.checked) {
+	        initValue(m_idx); // 현재 텍스트박스와 체크박스 상태유지
+	        // 기본
+	        document.getElementById('rememberme').value = document.getElementById('o_name').value
+	        // 폼객체 활용
+	        m_idx.o_email.checked = o_email;
+	    } else {
+	        //document.getElementById('deliveryName') = "";
+	       m_idx.o_name.value = "";
+	       m_idx.o_name.checked = false;
+	    }
+	}
+	
+	
+	</script>
 
 
 	</head>
@@ -230,11 +257,11 @@
 		              	<div class="row">
 			               <div class="col-md-12">
 			                  <div class="form-group">
+			                          <form action="" method="post" name="order" id="order">
 			                  
-			                          <form action="checkout_finish.sh" method="post" name="payFinish" id="payFinish">
 						          <input type="hidden" id="order_idx" name="order_idx" value="">
 						          <input type="hidden" id="m_idx" name="m_idx" value="${memberDTO.m_idx}">
-<%-- 						          <input type="hidden" id="" name="m_idx" value="${cartList.p_num}"> --%>
+						          <input type="hidden" id="" name="m_idx" value="${cartListDTO.p_num}">
 						          <input type="hidden" id="payAmount" name="payAmount"  value="" >
 						          <input type="hidden" id="selectedCoupon_idx" name="selectedCoupon_idx" value="0" >
 								  <input type="hidden" id="selectedCoupon_name" name="selectedCoupon_name" value="0" >
@@ -264,17 +291,17 @@
                                                     <table class="table table-bordered ">
                                                       <tr>
                                                     <th style="background-color:#f5f5f5; line-height:50px;" class="col-md-3">이름</th>
-                                                    <td><input type="text" id="fname" class="form-control col-md-4" value="${memberDTO.m_name}"></td>
+                                                    <td><input type="text" id="m_name" class="form-control col-md-4" value="${memberDTO.m_name}"></td>
                                                 </tr>
                                                 <tr>
                                                    <th style="background-color:#f5f5f5; line-height:50px;" class="col-md-3">휴대폰번호</th>
-                                                    <td><input type="text" id="fname" class="form-control col-md-6" value="${memberDTO.m_tel}"></td>
+                                                    <td><input type="text" id="m_tel" class="form-control col-md-6" value="${memberDTO.m_tel}"></td>
                                                 </tr>
                                                     </table>
                                                     
                                                     <br>
                                        				<br>
-                                     배송지 정보
+                                     배송지 정보  &nbsp&nbsp&nbsp  <input type="checkbox" id="rememberme" onclick="shipToBill(this.form);"> 주문자와 동일<br><br>
                                                     <table class="table table-bordered ">
                                                       <tr>
                                                     <th style="background-color:#f5f5f5; line-height:50px;" class="col-md-3">배송지</th>
@@ -282,7 +309,7 @@
 							                     	<i class="icon icon-arrow-down3"></i>
 							                        <select name="people" id="people" class="form-control">
 								                      	<option value="#">배송지 선택하세요</option>
-								                        <option value="#">Alaska</option>
+								                        <option value="#"></option>
 								                        <option value="#">China</option>
 								                        <option value="#">Japan</option>
 								                        <option value="#">Korea</option>
@@ -293,19 +320,19 @@
                                                 
                                                 <tr>
                                                     <th style="background-color:#f5f5f5; line-height:50px;" class="col-md-3">이름</th>
-                                                    <td colspan="2"><input type="text" id="fname" class="form-control col-md-4" placeholder="이름" ></td>
+                                                    <td colspan="2"><input type="text" id="o_name" class="form-control col-md-4" ></td>
                                                 </tr>
                                                 <tr>
                                                     <th style="background-color:#f5f5f5; line-height:50px;" class="col-md-3">전화번호</th>
-                                                    <td><input type="text" id="fname" class="form-control col-md-6" placeholder="전화번호 입력하세요"></td>
+                                                    <td><input type="text" id="o_tel" class="form-control col-md-6" ></td>
                                                     
                                                 </tr>
                                                 <tr>
                                                     <th style="background-color:#f5f5f5; line-height:150px;" class="col-md-3">주소</th>
-                                                    <td><input type="text" id="fname" class="form-control col-md-4" placeholder="우편번호">
+                                                    <td><input type="text" id="o_zip" class="form-control col-md-4" value="${memberDTO.m_zip}">
 													&nbsp&nbsp&nbsp<input type="button" class="btn btn-primary" onClick="execDaumPostcode()" value="우편번호">
-                                                    <input type="text" id="fname" class="form-control" placeholder="주소">
-                                                    <input type="text" id="fname" class="form-control" placeholder="상세주소"></td>
+                                                    <input type="text" id="o_adress" class="form-control" value="${memberDTO.m_address}">
+                                                    <input type="text" id="o_detail_adress" class="form-control" value="${memberDTO.m_detail_address}"></td>
                                                 </tr>
                                                 <tr>
                                                     <th style="background-color:#f5f5f5; line-height:50px;" class="col-md-3">배송메모</th>
@@ -347,20 +374,32 @@
 							<div class="col-md-12">
 								<div class="cart-detail">
 									<h2>Cart Total</h2>
+									
 									<ul>
 										<li>
-											<span>총 상품금액</span> <span>${cartListDTO.p_price * cartListDTO.cart_count }</span>
+											<span>총 상품금액</span> <span><fmt:formatNumber pattern="###,###,###" value="${sum}" />원</span>
 											<ul>
-												<li><span>배송료</span> <span>3,000원</span></li>
+												<li><span>배송료</span> <span>
+											<c:set var="Delivery" value="0" />
+											<c:choose>
+												<c:when test="${sum >=80000}">
+												<fmt:formatNumber pattern="###,###,###" value="${Delivery }" />원
+												</c:when>
+												<c:otherwise>
+											<c:set var="Delivery" value="3000" />
+												<fmt:formatNumber pattern="###,###,###" value="${Delivery }" /> 원	
+												</c:otherwise>
+											</c:choose>
+											</span></p></li>
 												<li><span>쿠폰할인</span> <span>-0원</span></li>
 												<li><span>포인트사용</span> <span>-0원</span></li>
 											</ul>
 										</li>
-										<li style="font-weight:bold;"> <span>총 결제금액</span> <span>53,000원</span></li>
+										<li style="font-weight:bold;"> <span>총 결제금액</span> <span><fmt:formatNumber pattern="###,###,###" value="${Delivery+sum }" />원</span></li>
 									</ul>
 								</div>
 						   </div>
-
+							</div>
 						   <div class="w-100"></div>
 
 						   <div class="col-md-12">
