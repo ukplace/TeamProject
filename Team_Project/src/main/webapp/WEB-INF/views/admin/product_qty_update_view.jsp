@@ -133,7 +133,7 @@ function changeSize3(size){
                         <div class="col-lg-12">
                             
 <!--                             **폼태그 맨끝 코드 일단 빼놓음 onsubmit="return checkForm()"  -->
-<form action="${pageContext.request.contextPath}/admin/product_qty_insertPro" method="post" name="updateForm2" id="updateForm2"> 
+<form action="${pageContext.request.contextPath}/admin/product_qty_updatePro" method="post" name="updateForm2" id="updateForm2"> 
 
 		<input type="hidden" name="p_num" value="${productDTO.p_num}" />
 	
@@ -150,9 +150,9 @@ function changeSize3(size){
 					<td>
 						<input type="text" name="list[0].p_size" id="size_1" required="required" size="10" >
 						<select name="selectSize" onchange="changeSize1(this.value)">
-						<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입란에 표시 -->
-						<!-- this 주면 여기 이 태그가 날라간다!  -->
-						<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입력란에 표시 -->
+<!-- 						셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입란에 표시 -->
+<!-- 						this 주면 여기 이 태그가 날라간다!  -->
+<!-- 						셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입력란에 표시 -->
 							<option value="">직접입력</option>	
 							<option value="220">220</option>
 							<option value="235">235</option>
@@ -243,8 +243,8 @@ function changeSize3(size){
 				
 					<tr>
 						<td colspan="2" align="center">
-							<input type="submit" class="btn btn-default" value="등록" >
-							<button type="rese" id="back_Btn" class="btn btn-warning">취소</button>
+							<input type="submit" class="btn btn-default" value="수정" >
+							<button type="reset" id="back_Btn" class="btn btn-warning">취소</button>
    						</td>
    					</tr>
    					
