@@ -438,8 +438,8 @@ public class AdminController {
 			// /WEB-INF/views/foot/product-detail.jsp
 			return "redirect:/foot/product_detail";
 		}
-	 
-	 
+	
+		
 	 // =============================================================================
 	 
 	 @RequestMapping(value = "/admin/index", method = RequestMethod.GET)
