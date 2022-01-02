@@ -12,4 +12,9 @@ public interface MemberService {
 
 	public MemberDTO getMember(MemberDTO memberDTO);
 
+	public MemberDTO getMember(String m_email);
+
+	public void updateMember(MemberDTO memberDTO);
+
+	public void updatePass(MemberDTO memeberDTO);
 }
