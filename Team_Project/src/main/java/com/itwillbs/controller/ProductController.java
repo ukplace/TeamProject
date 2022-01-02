@@ -6,6 +6,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,7 @@ import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductQtyDTO;
+import com.itwillbs.domain.ReviewDTO;
 import com.itwillbs.domain.SearchDTO;
 import com.itwillbs.service.MemberService;
 import com.itwillbs.service.ProductService;
@@ -72,10 +74,8 @@ public class ProductController {
 	// 상품정보
 	@RequestMapping(value = "/foot/product_detail", method = RequestMethod.GET)
 	public String product_detail(@RequestParam("num") int p_num, Model model) throws Exception {
-		
 		ProductDTO productDTO = productService.productDetail(p_num);
 		List<ProductQtyDTO> qtyList = productService.productQtyDetail(p_num);
-		
 		
 		model.addAttribute("ProductDTO", productDTO);
 		model.addAttribute("qtyList", qtyList);

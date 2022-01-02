@@ -302,6 +302,124 @@ $("#p_img").change(function(){
 
  
 
+=======
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page session="false" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>제품수정 페이지</title>
+<meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Startmin - Bootstrap Admin Theme</title>
+
+        <!-- Bootstrap Core CSS -->
+        <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+
+        <!-- MetisMenu CSS -->
+        <link href="${pageContext.request.contextPath}/css/metisMenu.min.css" rel="stylesheet">
+
+        <!-- Custom CSS -->
+        <link href="${pageContext.request.contextPath}/css/startmin.css" rel="stylesheet">
+
+        <!-- Custom Fonts -->
+        <link href="${pageContext.request.contextPath}/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+        
+		<!-- review-img-div.css  -->
+		<link rel="stylesheet" href="${pageContext.request.contextPath}/css/product-img-div.css">
+	
+	
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        
+              
+      
+         
+
+       
+               <Title>Category</Title> 
+        <Meta Http-Equiv="Content-Type" Content="text/html; charset=utf-8">
+		<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+        
+ <style type="text/css">
+ .regist-button{
+ 	align: center;
+ 	
+ }
+ 
+ .table-regist{
+ 	margin : auto;
+ 	padding : 40px;
+ 	background: #f0f8ff;
+ 	width: 60%;
+ 	
+ 
+ }
+ 
+ 
+ .btn.btn-primary.btn-lg{
+ 	text-align: center;
+ }
+ 
+        
+ .table-ca{
+  	border-collapse: separate;
+ 	border-spacing: 20px 0;
+ 	margin: auto;
+ }
+ td.space{
+  border: 10px solid #fff;
+  width : 3%
+ }
+ .main{
+	margin : 50px;
+ 	width : 60%
+ 	align-content: center;
+ }
+ 	table {
+		margin: auto;
+		width: 480px;
+	}
+	th{
+			text-align : center;
+	}
+	tr {
+		height: 40px;
+	}
+	td {
+		margin : auto;
+		padding-left : 5px;
+	}
+	
+	.select_img img {margin:20px 0;}
+</style>
+<script type="text/javascript">
+
+function changeSize1(size){
+	//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
+	document.getElementById("size1").value = size;
+}
+function changeSize2(size){
+	//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
+	document.getElementById("size2").value = size;
+}
+function changeSize3(size){
+	//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
+	document.getElementById("size3").value = size;
+}	
+>>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 
 </script>
 </body>

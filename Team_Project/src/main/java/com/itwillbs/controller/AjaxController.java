@@ -10,6 +10,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -27,6 +28,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.itwillbs.domain.CartDTO;
 import com.itwillbs.domain.MemberDTO;
+import com.itwillbs.domain.PageDTO;
+import com.itwillbs.domain.ReviewDTO;
+import com.itwillbs.service.AdminService;
 import com.itwillbs.service.MemberService;
 import com.itwillbs.service.ProductService;
 
@@ -38,6 +42,9 @@ public class AjaxController {
 
 	@Inject
 	private ProductService productService;
+	
+	@Inject
+	private AdminService adminService;
 	
 	@RequestMapping(value = "/member/emailCheck", method = RequestMethod.GET)
 	public ResponseEntity<String> emailCheck(HttpServletRequest request) {
@@ -128,6 +135,18 @@ public class AjaxController {
 	
 
 	
+	@ResponseBody
+	@RequestMapping(value = "/foot/reviewList", method = RequestMethod.GET)
+	public ResponseEntity<List<ReviewDTO>> review() {
+			
+			PageDTO pageDTO =new PageDTO();
+			pageDTO.setPageSize(5);
+			pageDTO.setPageNum("1");
+			List<ReviewDTO> reviewList=adminService.getReviewList(pageDTO);
+			
+	ResponseEntity<List<ReviewDTO>> entity=new ResponseEntity<List<ReviewDTO>>(reviewList,HttpStatus.OK);
+			return entity;
+	}
 	
 	
 	
