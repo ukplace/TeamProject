@@ -135,6 +135,7 @@ public class AjaxController {
 	@ResponseBody
 	@RequestMapping(value = "/foot/reviewList", method = RequestMethod.GET)
 	public ResponseEntity<List<ReviewDTO>> review() {
+			System.out.println("Review 컨트롤러");
 			
 			PageDTO pageDTO =new PageDTO();
 			pageDTO.setPageSize(5);
