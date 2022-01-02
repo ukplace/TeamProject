@@ -59,11 +59,11 @@
 	</insert>
 	
 	<select id="getQtyList" resultType="com.itwillbs.domain.ProductQtyDTO">
-		select * from product_qty WHERE p_num = #{p_num}
+		select * from product_qty where p_num=#{p_num}
 	</select>
 	
 	<delete id="deleteQty">
-		delete from product_qty WHERE p_num = #{p_num} 
+		delete from product_qty where p_num=#{p_num} 
 	</delete>
 	
 	<update id="updateQty">
@@ -73,7 +73,7 @@
 	<select id="checkQty" resultType="java.lang.String">
 		select p_size from product_qty where p_num=#{p_num}
 	</select>
-	<!-- product_qty 값 추가/삭제 -->
+	<!-- product_qty 값 추가/삭제/수정 -->
 	
 	<insert id="insertReview">
 		insert into review(p_num,m_idx,review_content,review_score,review_date)
