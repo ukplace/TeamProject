@@ -412,12 +412,12 @@
 										</div>
 									</div>
 								</div>
-							</div>
-						</div>
 						<div class="row">
 							<div class="col-md-12 text-center">
 								<a href="#" class="btn btn-primary">결제하기</a>
 								<a href="#" class="btn btn-outline-secondary">취소</a>
+							</div>
+						</div>
 							</div>
 						</div>
 					</div>
