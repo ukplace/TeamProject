@@ -37,7 +37,6 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 	
-<<<<<<< HEAD
 <script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
@@ -64,7 +63,6 @@ $('#emaildup').click(function(){
 	
 });
 });
-=======
 	<script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function(){
@@ -91,7 +89,6 @@ $('#emaildup').click(function(){
 		
 	});
 	});
->>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 
 </script>
 	
@@ -343,10 +340,6 @@ $('#emaildup').click(function(){
 </script>
 
 
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 	</body>
 </html>
 

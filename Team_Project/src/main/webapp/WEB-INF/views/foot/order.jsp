@@ -400,10 +400,6 @@
 	<!-- Main -->
 	<script src="${pageContext.request.contextPath}/js/main.js"></script>
 	
-<<<<<<< HEAD
-=======
-	
->>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 	
 	
 	
