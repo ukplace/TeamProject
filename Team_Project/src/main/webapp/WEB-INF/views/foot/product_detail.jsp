@@ -40,6 +40,9 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 	
+<<<<<<< HEAD
+	<script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
+=======
 	
 	<script type="text/javascript">
     function buy(){ 
@@ -55,10 +58,11 @@
     }   
 	</script>
 
+>>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 	<script type="text/javascript">
 	$(document).ready(function() {
 		// class="review"
-		$('.review').click(function(){
+		$('#review').click(function(){
 			// 글 가지고 오고 싶을때
 			$.getJSON('${pageContext.request.contextPath}/foot/reviewList',function(rdata){
 				$.each(rdata,function(index,item){
@@ -277,7 +281,8 @@
 								      <a class="nav-link" id="pills-manufacturer-tab" data-toggle="pill" href="#pills-manufacturer" role="tab" aria-controls="pills-manufacturer" aria-expanded="true">Manufacturer</a>
 								    </li>
 								    <li class="nav-item">
-								      <p class="review"><a class="nav-link" id="pills-review-tab" data-toggle="pill" href="#pills-review" role="tab" aria-controls="pills-review" aria-expanded="true">리뷰</a></p>
+								      
+								      	<a class="nav-link" id="review" data-toggle="pill" href="#" role="tab" aria-controls="pills-review" aria-expanded="true">리뷰</a>
 								    </li>
 								  </ul>
 

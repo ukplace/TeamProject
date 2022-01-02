@@ -141,7 +141,7 @@ public class AdminDAOImpl implements AdminDAO {
 
 	@Override
 	public List<ReviewDTO> getReviewList(PageDTO pageDTO) {
-
+		System.out.println("리뷰-dao");
 		return sqlSession.selectList(namespace+".getReviewList", pageDTO);
 	}
 
