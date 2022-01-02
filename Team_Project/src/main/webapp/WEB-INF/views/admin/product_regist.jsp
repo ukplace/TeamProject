@@ -221,12 +221,12 @@
 <!-- 				</tr>	 -->
 				
 		      <!-- 재고 -->
-		      <tr>
-		      <th>재고</th>
-		      	<td>
-		      	  <input type="text" name="p_stock" width = 40px padding= 6px  margin= 100px  placeholder="재고수량입력">
-		      	</td>
-		      </tr>	
+<!-- 		      <tr> -->
+<!-- 		      <th>재고</th> -->
+<!-- 		      	<td> -->
+<!-- 		      	  <input type="text" name="p_stock" width = 40px padding= 6px  margin= 100px  placeholder="재고수량입력"> -->
+<!-- 		      	</td> -->
+<!-- 		      </tr>	 -->
 				
 				
 				<tr>

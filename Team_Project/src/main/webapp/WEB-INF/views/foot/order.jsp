@@ -363,9 +363,8 @@
 	<script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
 	<script type="text/javascript">
 	$(document).ready(function(){
-		$('#kakaoPay').click(function open(){
 			$.ajax({
-				url:'${pageContext.request.contextPath}/foot/kakaoPay.cls',
+				url:'${pageContext.request.contextPath}/',
 				dataType:'json',
 				success:function(data){
 					var box = data.next_redirect_pc_url;
@@ -377,7 +376,10 @@
 			});
 		});
 	});	
+	
 	</script>	
+	
+	
 	
 	
 

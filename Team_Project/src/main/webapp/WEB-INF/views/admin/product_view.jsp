@@ -163,13 +163,13 @@
 	 </td>
 	 </tr>	
 	 
-		<!-- 제품가격 -->
+		<!-- 제품색상 -->
 		<tr>
-			<th>제품 색상</th>
-			<td>
-				${ProductDTO.p_color}
-			</td>
-		</tr>
+	      <th>제품 색상</th>
+	      <td>
+	      	${ProductDTO.p_color}
+		 </td>
+		</tr>	
 	</table>
 <!-- 				<tr> -->
 <!-- 					<th>색상</th> -->
@@ -221,7 +221,10 @@
 				<button type="button" class="btn btn-default" onclick="location.href='${pageContext.request.contextPath}/admin/product_qty_insert?num=${ProductDTO.p_num}'">수량 추가</button>
 				</td>
 				<td>
-				<button type="button" class="btn btn-default" onclick="location.href='${pageContext.request.contextPath}/admin/product_qty_update?num=${ProductDTO.p_num}'">수량 초기화 및 생성</button>
+				<button type="button" class="btn btn-default" onclick="location.href='${pageContext.request.contextPath}/admin/product_qty_update?num=${ProductDTO.p_num}'">수량 수정</button>
+				</td>
+				<td>
+				<button type="button" class="btn btn-default" onclick="location.href='${pageContext.request.contextPath}/admin/product_qty_delete?num=${ProductDTO.p_num}'">수량 삭제</button>
 				</td>
 				</tr>
 				

@@ -73,10 +73,12 @@ public class AdminDAOImpl implements AdminDAO {
 		return sqlSession.selectOne(namespace+".getMemberDetail", memberDTO);
 	}
 
+	// product_qty 값 추가/삭제
 	@Override
-	public void updateQty(ProductQtyDTO dto) {
-		for(int i = 0; i<dto.getList().size();i++) {
-			System.out.println(dto.getP_num()+" qty p_num");
+	public void insertQty(ProductQtyDTO dto) {
+		
+		for(int i = 0; i < dto.getList().size(); i++) {
+			System.out.println(dto.getP_num() + " : qty p_num");
 			
 			dto.setP_size(dto.getList().get(i).getP_size());
 			System.out.println(dto.getP_size());
@@ -89,19 +91,43 @@ public class AdminDAOImpl implements AdminDAO {
 				dto.setP_stock(dto.getP_stock()+dto2.getP_stock());
 				sqlSession.update(namespace, dto);
 			}
+			
+//			String p_size = sqlSession.selectOne(namespace + ".checkQty", dto.getList().get(i).getP_num());
+			
+//			if(p_size == null) {
+				sqlSession.insert(namespace + ".insertQty", dto);
+//			} else if(p_size == dto.getList().get(i).getP_size()) {
+//				sqlSession.update(namespace + ".updateQty", dto);
+//			}
 		}
 		
 	}
 
 	@Override
-	public List<ProductQtyDTO> getqtyList(int p_num) {
-		return sqlSession.selectList(namespace+".getqtyList", p_num);
+	public List<ProductQtyDTO> getQtyList(int p_num) {
+		return sqlSession.selectList(namespace+".getQtyList", p_num);
+	}
+	
+	@Override
+	public void updateQty(ProductQtyDTO dto) {
+
+		for(int i = 0; i < dto.getList().size(); i++) {
+			System.out.println(dto.getP_num() + " : qty p_num");
+			
+			dto.setP_size(dto.getList().get(i).getP_size());
+			System.out.println(dto.getP_size());
+			dto.setP_stock(dto.getList().get(i).getP_stock());
+			System.out.println(dto.getP_stock());
+			
+		sqlSession.update(namespace + ".updateQty", dto);
+		}
 	}
 
 	@Override
-	public void Qtydelete(int p_num) {
-		sqlSession.delete(namespace+".Qtydelete", p_num);
+	public void deleteQty(int p_num) {
+		sqlSession.delete(namespace+".deleteQty", p_num);
 	}
+	
 	
 	@Override
 	public void insertReview(ReviewDTO reviewDTO) {
