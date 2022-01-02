@@ -69,16 +69,16 @@ public class ProductController {
 	
 	
 	
-	
-
 	// 상품정보
 	@RequestMapping(value = "/foot/product_detail", method = RequestMethod.GET)
 	public String product_detail(@RequestParam("num") int p_num, Model model) throws Exception {
 		
 		ProductDTO productDTO = productService.productDetail(p_num);
-//		ProductDTO productDTO = productService.productDetail(p_num);
+		List<ProductQtyDTO> qtyList = productService.productQtyDetail(p_num);
+		
 		
 		model.addAttribute("ProductDTO", productDTO);
+		model.addAttribute("qtyList", qtyList);
 		
 		return "foot/product_detail";
 	}
@@ -400,6 +400,8 @@ public class ProductController {
 		
 		return "foot/cart";
 	}
+	
+	
 	
 
 
