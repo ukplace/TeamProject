@@ -86,9 +86,9 @@
                     extraRoadAddr = ' (' + extraRoadAddr + ')';
                 }
                 // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('member_post').value = data.zonecode;
-                document.getElementById("member_address").value = roadAddr;
-                document.getElementById("member_extraAddress").value = data.jibunAddress;
+                document.getElementById('o_zip').value = data.zonecode;
+                document.getElementById("o_adress").value = roadAddr;
+                document.getElementById("o_detail_adress").value = data.jibunAddress;
                 
                 // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
                 if(roadAddr !== ''){
@@ -102,33 +102,6 @@
     }
 </script>
 
-	<script language="javascript" type="text/javascript">
-	
-	var name = "";
-	var email = false;
-
-	// 배송지 정보에 복사된 정보 남기기
-	function initValue(frm){
-	    name = m_idx.o_name.value;
-	    email = m_idx.o_email.checked;
-	}
-
-	function shipToBill(m_idx) {
-	    if(m_idx.copy.checked) {
-	        initValue(m_idx); // 현재 텍스트박스와 체크박스 상태유지
-	        // 기본
-	        document.getElementById('rememberme').value = document.getElementById('o_name').value
-	        // 폼객체 활용
-	        m_idx.o_email.checked = o_email;
-	    } else {
-	        //document.getElementById('deliveryName') = "";
-	       m_idx.o_name.value = "";
-	       m_idx.o_name.checked = false;
-	    }
-	}
-	
-	
-	</script>
 
 
 	</head>
@@ -301,7 +274,7 @@
                                                     
                                                     <br>
                                        				<br>
-                                     배송지 정보  &nbsp&nbsp&nbsp  <input type="checkbox" id="rememberme" onclick="shipToBill(this.form);"> 주문자와 동일<br><br>
+                                     배송지 정보  &nbsp&nbsp&nbsp  <button type="reset">다른배송지</button>
                                                     <table class="table table-bordered ">
                                                       <tr>
                                                     <th style="background-color:#f5f5f5; line-height:50px;" class="col-md-3">배송지</th>
@@ -320,11 +293,11 @@
                                                 
                                                 <tr>
                                                     <th style="background-color:#f5f5f5; line-height:50px;" class="col-md-3">이름</th>
-                                                    <td colspan="2"><input type="text" id="o_name" class="form-control col-md-4" ></td>
+                                                    <td colspan="2"><input type="text" id="o_name" class="form-control col-md-4" value="${memberDTO.m_name}"></td>
                                                 </tr>
                                                 <tr>
                                                     <th style="background-color:#f5f5f5; line-height:50px;" class="col-md-3">전화번호</th>
-                                                    <td><input type="text" id="o_tel" class="form-control col-md-6" ></td>
+                                                    <td><input type="text" id="o_tel" class="form-control col-md-6" value="${memberDTO.m_tel}" ></td>
                                                     
                                                 </tr>
                                                 <tr>
@@ -390,7 +363,7 @@
 												<fmt:formatNumber pattern="###,###,###" value="${Delivery }" /> 원	
 												</c:otherwise>
 											</c:choose>
-											</span></p></li>
+											</span></li>
 												<li><span>쿠폰할인</span> <span>-0원</span></li>
 												<li><span>포인트사용</span> <span>-0원</span></li>
 											</ul>
