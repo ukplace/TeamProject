@@ -316,6 +316,18 @@ public class AdminController {
 				return "admin/product_qty_update";
 		   }
 
+		@RequestMapping(value = "/admin/product_qty_updatePro", method = RequestMethod.POST)
+		   public String product_qty_updatePro(HttpServletRequest request, ProductQtyDTO dto) {
+			System.out.println(dto.getList().get(0).getP_size());
+			System.out.println(dto.getList().get(0).getP_stock());
+			System.out.println(dto.getList().get(1).getP_size());
+			System.out.println(dto.getList().get(1).getP_stock());
+			System.out.println(dto.getList().get(2).getP_size());
+			System.out.println(dto.getP_num());
+			adminService.updateQty(dto);
+			 return "redirect:/admin/product_list";
+		   }
+			
 		@RequestMapping(value = "/admin/product_qty_insertPro", method = RequestMethod.POST)
 		   public String product_qty_insertPro(HttpServletRequest request, ProductQtyDTO dto) {
 			System.out.println("0번 size : " + dto.getList().get(0).getP_size());
@@ -325,6 +337,8 @@ public class AdminController {
 			System.out.println("2번 size : " + dto.getList().get(2).getP_size());
 			System.out.println("2번 stock : " + dto.getList().get(2).getP_stock());
 			System.out.println("p_num = " + dto.getP_num());
+			
+			adminService.updateQty(dto);
 			
 			adminService.insertQty(dto);
 			
@@ -340,13 +354,6 @@ public class AdminController {
 //			int p_num = Integer.parseInt(request.getParameter("num"));
 			model.addAttribute("productDTO", productDTO);
 			return "admin/product_qty_update_view";
-		   }
-
-		@RequestMapping(value = "/admin/product_qty_updatePro", method = RequestMethod.POST)
-		   public String product_qty_updatePro(HttpServletRequest request, ProductQtyDTO dto) {
-			adminService.updateQty(dto);
-		      // /WEB-INF/views/admin/product_list
-		      return "redirect:/admin/product_list";
 		   }
 		
 		@RequestMapping(value = "/admin/product_qty_delete", method = RequestMethod.GET)

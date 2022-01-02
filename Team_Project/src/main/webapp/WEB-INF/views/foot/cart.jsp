@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -36,6 +38,13 @@
 
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+
+<style type="text/css">
+#ttp{
+	margin: auto;
+}
+
+</style>
 
 
 	</head>
@@ -100,27 +109,29 @@
 								<span>Remove</span>
 							</div>
 						</div>
+						<c:set var="sum" value="0"/>
+						<c:forEach var="cartListDTO" items="${cartList }">
 						<div class="product-cart d-flex">
 							<div class="one-forth">
-								<div class="product-img" style="background-image: url(${pageContext.request.contextPath}/images/item-6.jpg);">
+								<div class="product-img" style="background-image: url(${pageContext.request.contextPath}${cartListDTO.p_thumImg}">
 								</div>
 								<div class="display-tc">
-									<h3>Product Name</h3>
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<span class="price">$68.00</span>
+									<h3>${cartListDTO.p_name} </h3>
 								</div>
 							</div>
 							<div class="one-eight text-center">
 								<div class="display-tc">
-									<input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="1" min="1" max="100">
+									<span class="price">${cartListDTO.p_price }</span>
 								</div>
 							</div>
 							<div class="one-eight text-center">
 								<div class="display-tc">
-									<span class="price">$120.00</span>
+									<input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="${cartListDTO.cart_count }" min="1" max="100">
+								</div>
+							</div>
+							<div class="one-eight text-center">
+								<div class="display-tc">
+									<span class="price">${cartListDTO.p_price * cartListDTO.cart_count }</span>
 								</div>
 							</div>
 							<div class="one-eight text-center">
@@ -129,65 +140,11 @@
 								</div>
 							</div>
 						</div>
-						<div class="product-cart d-flex">
-							<div class="one-forth">
-								<div class="product-img" style="background-image: url(${pageContext.request.contextPath}/images/item-7.jpg);">
-								</div>
-								<div class="display-tc">
-									<h3>Product Name</h3>
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<span class="price">$68.00</span>
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<form action="#">
-										<input type="text" name="quantity" class="form-control input-number text-center" value="1" min="1" max="100">
-									</form>
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<span class="price">$120.00</span>
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<a href="#" class="closed"></a>
-								</div>
-							</div>
-						</div>
-						<div class="product-cart d-flex">
-							<div class="one-forth">
-								<div class="product-img" style="background-image: url(${pageContext.request.contextPath}/images/item-8.jpg);">
-								</div>
-								<div class="display-tc">
-									<h3>Product Name</h3>
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<span class="price">$68.00</span>
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="1" min="1" max="100">
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<span class="price">$120.00</span>
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<a href="#" class="closed"></a>
-								</div>
-							</div>
+						<c:set var="sum" value="${sum + (cartListDTO.p_price * cartListDTO.cart_count )}" />
+						</c:forEach>
+					<!-- 한덩어리  -->
+						
+						
 						</div>
 					</div>
 				</div>
@@ -195,27 +152,30 @@
 					<div class="col-md-12">
 						<div class="total-wrap">
 							<div class="row">
-								<div class="col-sm-8">
-									<form action="#">
-										<div class="row form-group">
-											<div class="col-sm-9">
-												<input type="text" name="quantity" class="form-control input-number" placeholder="Your Coupon Number...">
-											</div>
-											<div class="col-sm-3">
-												<input type="submit" value="Apply Coupon" class="btn btn-primary">
-											</div>
-										</div>
-									</form>
-								</div>
-								<div class="col-sm-4 text-center">
+								
+								<div class="col-sm-4 text-center" id="ttp">
 									<div class="total">
 										<div class="sub">
-											<p><span>Subtotal:</span> <span>$200.00</span></p>
-											<p><span>Delivery:</span> <span>$0.00</span></p>
-											<p><span>Discount:</span> <span>$45.00</span></p>
+											<p><span>Subtotal:</span> <span><fmt:formatNumber pattern="###,###,###" value="${sum}" />원</span></p>
+											<p><span>Delivery:</span>
+											<span>
+											<c:set var="Delivery" value="0" />
+											<c:choose>
+												<c:when test="${sum >=80000}">
+												<fmt:formatNumber pattern="###,###,###" value="${Delivery }" />원
+												</c:when>
+												<c:otherwise>
+											<c:set var="Delivery" value="3000" />
+												<fmt:formatNumber pattern="###,###,###" value="${Delivery }" /> 원	
+												</c:otherwise>
+											</c:choose>
+											</span></p>
 										</div>
 										<div class="grand-total">
-											<p><span><strong>Total:</strong></span> <span>$450.00</span></p>
+											<p><span><strong>Total:</strong></span> 
+											<span>
+											<fmt:formatNumber pattern="###,###,###" value="${Delivery+sum }" />원
+											</span></p>
 										</div>
 									</div>
 								</div>

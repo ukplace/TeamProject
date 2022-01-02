@@ -7,6 +7,8 @@ import javax.inject.Inject;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
+import com.itwillbs.domain.CartDTO;
+import com.itwillbs.domain.CartListDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductDTO;
@@ -126,10 +128,31 @@ public class ProductDAOImpl implements ProductDAO {
 		return sqlSession.selectOne(namespace+".productDetail", p_num);
 	}
 
-//	@Override
-//	public ProductDTO productDetail(int p_num) {
-//		return sqlSession.selectOne(namespace+".productDetail", p_num);
-//	}
+	@Override
+	public void addCart(CartDTO cartDTO) {
+		CartDTO cartDTO2 = new CartDTO();
+		cartDTO2 = sqlSession.selectOne(namespace+".cartCheck", cartDTO);
+		
+		if(cartDTO2 !=null) {
+			cartDTO2.setCart_count(cartDTO.getCart_count()+cartDTO2.getCart_count());
+			System.out.println(cartDTO2.getCart_idx());
+			sqlSession.update(namespace+".updateCart", cartDTO2);
+		}else {
+			sqlSession.insert(namespace+".addCart", cartDTO);			
+		}
+		
+		
+	}
+
+	@Override
+	public CartDTO getCart(CartDTO cartDTO) {
+		return sqlSession.selectOne(namespace+".getCart", cartDTO);
+	}
+
+	@Override
+	public List<CartListDTO> getCartList(CartListDTO cartListDTO) {
+		return sqlSession.selectList(namespace+".getCartList", cartListDTO);
+	}
 
 
 	

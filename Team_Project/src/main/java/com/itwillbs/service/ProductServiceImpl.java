@@ -7,6 +7,8 @@ import javax.inject.Inject;
 import org.springframework.stereotype.Service;
 
 import com.itwillbs.dao.ProductDAO;
+import com.itwillbs.domain.CartDTO;
+import com.itwillbs.domain.CartListDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductDTO;
@@ -122,6 +124,22 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public ProductDTO productDetail(int p_num) {
 		return productDAO.productDetail(p_num);
+	}
+
+	@Override
+	public void addCart(CartDTO cartDTO) {
+
+		productDAO.addCart(cartDTO);
+	}
+
+	@Override
+	public CartDTO getCart(CartDTO cartDTO) {
+		return productDAO.getCart(cartDTO);
+	}
+
+	@Override
+	public List<CartListDTO> getCartList(CartListDTO cartListDTO) {
+		return productDAO.getCartList(cartListDTO);
 	}
 
 	

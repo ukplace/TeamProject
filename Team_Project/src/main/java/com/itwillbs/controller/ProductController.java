@@ -4,18 +4,24 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.itwillbs.domain.CartDTO;
+import com.itwillbs.domain.CartListDTO;
+import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductQtyDTO;
 import com.itwillbs.domain.SearchDTO;
+import com.itwillbs.service.MemberService;
 import com.itwillbs.service.ProductService;
 
 @Controller
@@ -23,7 +29,7 @@ public class ProductController {
 	
 	@Inject
 	private ProductService productService;
-	
+	@Inject MemberService memberService;
 	
 	/* 전체 상품 검색 */
 	@RequestMapping(value = "/foot/search", method = RequestMethod.GET)
@@ -381,8 +387,17 @@ public class ProductController {
 	
 	// 장바구니
 	@RequestMapping(value = "/foot/cart", method = RequestMethod.GET)
-	public String cart() {
-		// /WEB-INF/views/board/writeForm.jsp
+	public String cart(HttpSession session, Model model ) {
+		//내 session객체를 이용해서 (m_idx) cartDTO검색 -> cartDTO의 p_num 이용해서 제품정보 가져오기! 
+		// 이렇게 하면하나만있을때 나오는건데..
+		// 만약에 cartDTO에서 getCart 에서 1개값이나닌 여러개 값이나오면 어떡해야하지?
+		CartListDTO cartListDTO = new CartListDTO();
+		
+		cartListDTO.setM_idx((Integer)session.getAttribute("m_idx"));
+		List<CartListDTO> cartList = productService.getCartList(cartListDTO);
+		
+		model.addAttribute("cartList", cartList);
+		
 		return "foot/cart";
 	}
 	
