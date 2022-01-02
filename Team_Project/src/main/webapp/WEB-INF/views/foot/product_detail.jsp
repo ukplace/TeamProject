@@ -39,7 +39,19 @@
 
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+	
+	<script>
+    function buy(){ 
+         var uid = '<%=(Integer)session.getAttribute("m_idx")%>';
 
+          if(uid=='null'){ 
+             alert("로그인이 필요한 항목입니다."); 
+          }
+          else{
+             location.href='${pageContext.request.contextPath}/foot/order';
+          }
+    }   
+</script>
 
 	</head>
 	<body>
@@ -216,11 +228,8 @@
 </p>
 					 
 					 
-					 
-					 
-					 
-				     <a href="${pageContext.request.contextPath}/foot/order" class="btn btn-success btn-addtocart"><i class="icon-credit-card "></i>Buy</a>
-					
+				  <a href="${pageContext.request.contextPath}/foot/order" class="btn btn-success btn-addtocart" id="buy" onClick="buy()"><i class="icon-credit-card "></i>Buy</a>
+				   
 				     </div>             
 				               
 							
