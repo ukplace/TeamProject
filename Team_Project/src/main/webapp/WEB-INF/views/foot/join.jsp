@@ -72,6 +72,37 @@
 </style>
 
 
+
+<script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+$('#emaildup').click(function(){
+	if($('#m_email').val() == ""){
+				alert("이메일을 입력하세요");
+				$('#m_email').focus();
+				return;
+	}
+	
+
+
+	$.ajax('${pageContext.request.contextPath}/member/emailCheck',{
+		data:{'m_email':$('#m_email').val()},
+		success:function(rdata){
+			if(rdata=='emailok'){
+				rdata="이메일 사용가능";
+			}else{
+				rdata="이메일 중복";
+			}
+			$('#btncheck').html(rdata);
+		}
+	});
+	
+});
+});
+
+</script>
+
+
 	</head>
 	<body>
 		
@@ -284,34 +315,6 @@
 	
 </script>
 
-<script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-$('#emaildup').click(function(){
-	if($('#m_email').val() == ""){
-				alert("이메일을 입력하세요");
-				$('#m_email').focus();
-				return;
-	}
-	
-
-
-	$.ajax('${pageContext.request.contextPath}/member/emailCheck',{
-		data:{'m_email':$('#m_email').val()},
-		success:function(rdata){
-			if(rdata=='emailok'){
-				rdata="이메일 사용가능";
-			}else{
-				rdata="이메일 중복";
-			}
-			$('#btncheck').html(rdata);
-		}
-	});
-	
-});
-});
-
-</script>
 
 	</body>
 </html>

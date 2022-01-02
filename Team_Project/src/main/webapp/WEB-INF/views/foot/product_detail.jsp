@@ -198,10 +198,10 @@
 						    }, */
 						    	if(result==1){
 						     alert("카트 담기 성공");
-						     $(".quantity").val(1);
+						     $("#quantity").val(1);
 						    	}else{
 						    		alert("회원만 사용할 수 있습니다.")
-						    $(".quantity").val(1);		
+						    $("#quantity").val(1);		
 						    	}
 						    },
 						    error : function(result){
