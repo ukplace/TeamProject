@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -57,26 +60,49 @@
 	});	
 	
 	</script>	
+	
+	  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script>
+    //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
+    function execDaumPostcode() {
+        new daum.Postcode({
+            oncomplete: function(data) {
+                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+                // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+                var roadAddr = data.roadAddress; // 도로명 주소 변수
+                var extraRoadAddr = ''; // 참고 항목 변수
+                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
+                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
+                    extraRoadAddr += data.bname;
+                }
+                // 건물명이 있고, 공동주택일 경우 추가한다.
+                if(data.buildingName !== '' && data.apartment === 'Y'){
+                   extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
+                }
+                // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+                if(extraRoadAddr !== ''){
+                    extraRoadAddr = ' (' + extraRoadAddr + ')';
+                }
+                // 우편번호와 주소 정보를 해당 필드에 넣는다.
+                document.getElementById('member_post').value = data.zonecode;
+                document.getElementById("member_address").value = roadAddr;
+                document.getElementById("member_extraAddress").value = data.jibunAddress;
+                
+                // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
+                if(roadAddr !== ''){
+                    document.getElementById("member_extraAddress2").value = extraRoadAddr;
+                } else {
+                    document.getElementById("member_extraAddress2").value = '';
+                }
+                
+            }
+        }).open();
+    }
+</script>
 
-	
-	<script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
-	<script type="text/javascript">
-	$(document).ready(function(){
-			$.ajax({
-				url:'${pageContext.request.contextPath}/',
-				dataType:'json',
-				success:function(data){
-					var box = data.next_redirect_pc_url;
-					location.href = box;
-				},
-				error:function(error){
-					alert(error);
-				}
-			});
-		});
-	});	
-	
-	</script>	
+
 
 	</head>
 	
@@ -139,34 +165,61 @@
                             <div class="panel panel-default">
                                 <div class="panel-body">
 				 <div class="panel-body">
+			            
                                     주문상세정보
                                     
-                                    <div class="table-responsive">
-                                        <table class="table table-bordered ">
-                                            <thead>
-                                                <tr  style=background-color:#f5f5f5;>
-                                                    <th >주문번호</th>
-                                                    <th >상품정보</th>
-                                                    <th >사이즈</th>
-                                                    <th >수량</th>
-                                                    <th >상품금액</th>
-                                                    <th >배송비</th>
-                                                    <th >진행상태</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                            
-                                            <!-- 주문내역 시작 -->
-                                                <tr >
-                                                    <td  style="line-height:100px;">20211220-1</td>
-                                                    <td ><img alt="shu1" src="${pageContext.request.contextPath}/images/item-6.jpg" width="150" height="100"> Deviate 나이트로 WTR 러닝화/Deviate</a></td>
-                                                    <td  style="line-height:100px;">240</td>
-                                                    <td  style="line-height:100px;">1</td>
-                                                    <td  style="line-height:100px;">50,000원</td>
-                                                    <td  style="line-height:100px;">3,000원</td>
-                                                    <td  style="line-height:100px;">결제완료</td>
-                                                </tr>
-                                                </table>
+                   			<div class="row row-pb-lg">
+					<div class="col-md-12">
+						<div class="product-name d-flex">
+							<div class="one-forth text-left px-4">
+								<span>Product Details</span>
+							</div>
+							<div class="one-eight text-center">
+								<span>Price</span>
+							</div>
+							<div class="one-eight text-center">
+								<span>Quantity</span>
+							</div>
+							<div class="one-eight text-center">
+								<span>Total</span>
+							</div>
+							<div class="one-eight text-center px-4">
+								<span>Remove</span>
+							</div>
+						</div>
+						<c:set var="sum" value="0"/>
+						<c:forEach var="cartListDTO" items="${cartList }">
+						<div class="product-cart d-flex">
+							<div class="one-forth">
+								<div class="product-img" style="background-image: url(${pageContext.request.contextPath}${cartListDTO.p_thumImg}">
+								</div>
+								<div class="display-tc">
+									<h3>${cartListDTO.p_name} </h3>
+								</div>
+							</div>
+							<div class="one-eight text-center">
+								<div class="display-tc">
+									<span class="price">${cartListDTO.p_price }</span>
+								</div>
+							</div>
+							<div class="one-eight text-center">
+								<div class="display-tc">
+									<input type="text" id="quantity" name="quantity" class="form-control input-number text-center" value="${cartListDTO.cart_count }" min="1" max="100">
+								</div>
+							</div>
+							<div class="one-eight text-center">
+								<div class="display-tc">
+									<span class="price">${cartListDTO.p_price * cartListDTO.cart_count }</span>
+								</div>
+							</div>
+							<div class="one-eight text-center">
+								<div class="display-tc">
+									<a href="#" class="closed"></a>
+								</div>
+							</div>
+						</div>
+						<c:set var="sum" value="${sum + (cartListDTO.p_price * cartListDTO.cart_count )}" />
+						</c:forEach>
 				
 				<div class="row">
 					<div class="col-lg-8">
@@ -177,6 +230,14 @@
 		              	<div class="row">
 			               <div class="col-md-12">
 			                  <div class="form-group">
+			                  
+			                          <form action="checkout_finish.sh" method="post" name="payFinish" id="payFinish">
+						          <input type="hidden" id="order_idx" name="order_idx" value="">
+						          <input type="hidden" id="m_idx" name="m_idx" value="${memberDTO.m_idx}">
+<%-- 						          <input type="hidden" id="" name="m_idx" value="${cartList.p_num}"> --%>
+						          <input type="hidden" id="payAmount" name="payAmount"  value="" >
+						          <input type="hidden" id="selectedCoupon_idx" name="selectedCoupon_idx" value="0" >
+								  <input type="hidden" id="selectedCoupon_name" name="selectedCoupon_name" value="0" >
 			                  
 			                  <!-- 할인혜택 시작 -->
 			                  
@@ -203,20 +264,11 @@
                                                     <table class="table table-bordered ">
                                                       <tr>
                                                     <th style="background-color:#f5f5f5; line-height:50px;" class="col-md-3">이름</th>
-                                                    <td><input type="text" id="fname" class="form-control col-md-4"  placeholder="이름" ></td>
-                                                </tr>
-                                                <tr>
-                                                    <th style="background-color:#f5f5f5; line-height:50px;" class="col-md-3">전화번호</th>
-                                                    <td><input type="text" id="fname" class="form-control col-md-6" placeholder="전화번호 입력하세요" ></td>
-                                                    
+                                                    <td><input type="text" id="fname" class="form-control col-md-4" value="${memberDTO.m_name}"></td>
                                                 </tr>
                                                 <tr>
                                                    <th style="background-color:#f5f5f5; line-height:50px;" class="col-md-3">휴대폰번호</th>
-                                                    <td><input type="text" id="fname" class="form-control col-md-6" placeholder="휴대폰번호 입력하세요"></td>
-                                                </tr>
-                                                <tr>
-                                                   <th style="background-color:#f5f5f5; line-height:50px;" class="col-md-3">이메일</th>
-                                                    <td><input type="text" id="fname" class="form-control col-md-8" placeholder="이메일 입력하세요"></td>
+                                                    <td><input type="text" id="fname" class="form-control col-md-6" value="${memberDTO.m_tel}"></td>
                                                 </tr>
                                                     </table>
                                                     
@@ -251,7 +303,7 @@
                                                 <tr>
                                                     <th style="background-color:#f5f5f5; line-height:150px;" class="col-md-3">주소</th>
                                                     <td><input type="text" id="fname" class="form-control col-md-4" placeholder="우편번호">
-													&nbsp&nbsp&nbsp<a href="#" class="btn btn-primary">우편번호</a>
+													&nbsp&nbsp&nbsp<input type="button" class="btn btn-primary" onClick="execDaumPostcode()" value="우편번호">
                                                     <input type="text" id="fname" class="form-control" placeholder="주소">
                                                     <input type="text" id="fname" class="form-control" placeholder="상세주소"></td>
                                                 </tr>
@@ -262,7 +314,7 @@
                                        
                                             
                                                     </table>
-                                                    
+                                                    </form>
                                                     
 <!-- 			                  	<label for="country">Select Country</label> -->
 			                     <div class="form-field">
@@ -297,7 +349,7 @@
 									<h2>Cart Total</h2>
 									<ul>
 										<li>
-											<span>총 상품금액</span> <span>50,000원</span>
+											<span>총 상품금액</span> <span>${cartListDTO.p_price * cartListDTO.cart_count }</span>
 											<ul>
 												<li><span>배송료</span> <span>3,000원</span></li>
 												<li><span>쿠폰할인</span> <span>-0원</span></li>

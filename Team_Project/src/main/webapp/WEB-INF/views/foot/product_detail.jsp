@@ -40,7 +40,25 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 	
+<<<<<<< HEAD
 	<script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
+=======
+	
+	<script type="text/javascript">
+    function buy(){ 
+         var uid = '<%=(Integer)session.getAttribute("m_idx")%>';
+
+          if(uid=='null'){ 
+             alert("로그인이 필요한 항목입니다."); 
+             location.href='${pageContext.request.contextPath}/foot/login';
+          }
+          else{
+             location.href='${pageContext.request.contextPath}/foot/order';
+          }
+    }   
+	</script>
+
+>>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 	<script type="text/javascript">
 	$(document).ready(function() {
 		// class="review"
@@ -234,6 +252,8 @@
 </p>
 					 
 					 
+				  <a href="#" class="btn btn-success btn-addtocart" id="buy" onClick="buy()"><i class="icon-credit-card "></i>Buy</a>
+				   
 					 
 					 
 					 

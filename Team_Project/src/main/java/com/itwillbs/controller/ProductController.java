@@ -353,12 +353,38 @@ public class ProductController {
 	
 	
 	
-	// 주문정보
-	@RequestMapping(value = "/foot/order", method = RequestMethod.GET)
-	public String order() {
-		// /WEB-INF/views/foot/order.jsp
+	
+	
+	@RequestMapping(value = "/foot/order", method = RequestMethod.POST)
+	public String order(HttpServletRequest request , Model model, HttpSession session) {
+		
+		MemberDTO member = new MemberDTO();
+		member.setM_idx((Integer)session.getAttribute("m_idx"));
+		MemberDTO memberDTO = memberService.getMember(member);
+		
+		CartListDTO cartListDTO = new CartListDTO();
+		
+		cartListDTO.setM_idx((Integer)session.getAttribute("m_idx"));
+		List<CartListDTO> cartList = productService.getCartList(cartListDTO);
+		
+		
+//		ArrayList<ProductBean> productList = new ArrayList<ProductBean>();
+//		
+//		ProductBean pb = new ProductBean();
+//		pb.setProduct_idx(product_idx);
+//		pb.setProduct_price(product_price);
+//		pb.setProduct_name(product_name);
+//		pb.setProduct_quantity(basket_quantity);
+//		
+//		productList.add(pb);
+		
+		model.addAttribute("memberDTO", memberDTO);
+		model.addAttribute("cartList", cartList);
+//		model.addAttribute("productList", productList);
+		
 		return "foot/order";
 	}
+
 	
 	@RequestMapping(value = "/foot/order_list", method = RequestMethod.GET)
 	public String order_list() {

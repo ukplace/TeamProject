@@ -14,6 +14,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.http.HttpStatus;
@@ -62,59 +63,59 @@ public class AjaxController {
 		return entity;
 	}
 	
-	@RequestMapping(value = "/foot/kakaoPay.cls") 
-	@ResponseBody
-	public String kakaoPay() {
-		
-			try {
-				URL url = new URL("https://kapi.kakao.com//v1/payment/ready");
-				HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-				conn.setRequestMethod("POST");
-				conn.setRequestProperty("Authorization", "KakaoAK d7bd2af917e7ee54a17fefe75ce21cbc");
-				conn.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
-				conn.setDoOutput(true);
-				String str = "cid=TC0ONETIME&"
-						+ "partner_order_id=partner_order_id&"
-						+ "partner_user_id=partner_user_id&"
-						+ "item_name=초코파이&"
-						+ "quantity=1&"
-						+ "total_amount=2200&"
-						+ "tax_free_amount=0&"
-						+ "vat_amount=200&"
-						+ "tax_free_amount=0&"
-						+ "approval_url=http://localhost:8080/success&"
-						+ "fail_url=https://localhost:8080/fail&"
-						+ "cancel_url=https://localhost:8080/cancel";
-				OutputStream outputStream = conn.getOutputStream();
-				DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
-				dataOutputStream.writeBytes(str);
-				dataOutputStream.close();
-				
-				int result = conn.getResponseCode();
-				
-				InputStream inputStream;
-				if(result == 200) {
-					inputStream = conn.getInputStream();
-				}else {
-					inputStream = conn.getErrorStream();
-				}
-				
-				InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
-				BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
-				return bufferedReader.readLine();
-			
-		} catch (MalformedURLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		return"{\"result\":\"NO\"}";
-				
-		
-	}
+//	@RequestMapping(value = "/foot/kakaoPay.cls") 
+//	@ResponseBody
+//	public String kakaoPay() {
+//		
+//			try {
+//				URL url = new URL("https://kapi.kakao.com//v1/payment/ready");
+//				HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+//				conn.setRequestMethod("POST");
+//				conn.setRequestProperty("Authorization", "KakaoAK d7bd2af917e7ee54a17fefe75ce21cbc");
+//				conn.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
+//				conn.setDoOutput(true);
+//				String str = "cid=TC0ONETIME&"
+//						+ "partner_order_id=partner_order_id&"
+//						+ "partner_user_id=partner_user_id&"
+//						+ "item_name=초코파이&"
+//						+ "quantity=1&"
+//						+ "total_amount=2200&"
+//						+ "tax_free_amount=0&"
+//						+ "vat_amount=200&"
+//						+ "tax_free_amount=0&"
+//						+ "approval_url=http://localhost:8080/success&"
+//						+ "fail_url=https://localhost:8080/fail&"
+//						+ "cancel_url=https://localhost:8080/cancel";
+//				OutputStream outputStream = conn.getOutputStream();
+//				DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
+//				dataOutputStream.writeBytes(str);
+//				dataOutputStream.close();
+//				
+//				int result = conn.getResponseCode();
+//				
+//				InputStream inputStream;
+//				if(result == 200) {
+//					inputStream = conn.getInputStream();
+//				}else {
+//					inputStream = conn.getErrorStream();
+//				}
+//				
+//				InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
+//				BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+//				return bufferedReader.readLine();
+//			
+//		} catch (MalformedURLException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		
+//		return"{\"result\":\"NO\"}";
+//				
+//		
+//	}
 	
 
 	@ResponseBody
@@ -131,6 +132,8 @@ public class AjaxController {
 	}
 	 return result;
 	}
+	
+
 	
 	@ResponseBody
 	@RequestMapping(value = "/foot/reviewList", method = RequestMethod.GET)
