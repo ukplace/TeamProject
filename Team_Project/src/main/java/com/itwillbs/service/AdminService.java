@@ -1,5 +1,6 @@
 package com.itwillbs.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.itwillbs.domain.MemberDTO;
@@ -52,6 +53,9 @@ public interface AdminService {
 	public void insertReview(ReviewDTO reviewDTO);
 	
 	public void deleteMember(int m_idx);
+
+	public List<ReviewDTO> getReviewList(PageDTO pageDTO);
+
 	
 	
 }

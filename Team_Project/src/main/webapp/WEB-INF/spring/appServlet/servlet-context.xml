@@ -27,6 +27,7 @@
 	
 		<!-- 업로드 패스 설정 --> 
 	<beans:bean class="java.lang.String" id="uploadPath">
+	
 	 <beans:constructor-arg value="/Users/son/git/TeamProject/Team_Project/src/main/webapp/resources" />
 	</beans:bean>
 	

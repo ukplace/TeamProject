@@ -1,5 +1,6 @@
 package com.itwillbs.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -141,6 +142,22 @@ public class AdminServiceImpl implements AdminService {
 	public void insertReview(ReviewDTO reviewDTO) {
 		adminDAO.insertReview(reviewDTO);
 	}
+
+
+	@Override
+	public List<ReviewDTO> getReviewList(PageDTO pageDTO) {
+		System.out.println("getReviewList 서비스");
+		
+		pageDTO.setCurrentPage(Integer.parseInt(pageDTO.getPageNum()));
+		pageDTO.setStartRow((pageDTO.getCurrentPage()-1)*pageDTO.getPageSize()+1);
+		pageDTO.setEndRow(pageDTO.getStartRow()+pageDTO.getPageSize()-1);
+		//디비 startRow-1
+		pageDTO.setStartRow(pageDTO.getStartRow()-1);
+		
+		return adminDAO.getReviewList(pageDTO);
+	}
+
+
 
 
 

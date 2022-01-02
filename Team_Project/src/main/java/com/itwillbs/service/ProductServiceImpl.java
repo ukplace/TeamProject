@@ -11,6 +11,7 @@ import com.itwillbs.domain.CartDTO;
 import com.itwillbs.domain.CartListDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
+import com.itwillbs.domain.ProductQtyDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.SearchDTO;
 
@@ -125,6 +126,12 @@ public class ProductServiceImpl implements ProductService {
 	public ProductDTO productDetail(int p_num) {
 		return productDAO.productDetail(p_num);
 	}
+	
+	@Override
+	public List<ProductQtyDTO> productQtyDetail(int p_num) {
+		return productDAO.productQtyDetail(p_num);
+	}
+	
 
 	@Override
 	public void addCart(CartDTO cartDTO) {

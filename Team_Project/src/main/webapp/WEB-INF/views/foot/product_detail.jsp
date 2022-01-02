@@ -39,8 +39,42 @@
 
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+	
+<<<<<<< HEAD
+	<script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
+=======
+	
+	<script type="text/javascript">
+    function buy(){ 
+         var uid = '<%=(Integer)session.getAttribute("m_idx")%>';
 
+          if(uid=='null'){ 
+             alert("로그인이 필요한 항목입니다."); 
+             location.href='${pageContext.request.contextPath}/foot/login';
+          }
+          else{
+             location.href='${pageContext.request.contextPath}/foot/order';
+          }
+    }   
+	</script>
 
+>>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
+	<script type="text/javascript">
+	$(document).ready(function() {
+		// class="review"
+		$('#review').click(function(){
+			// 글 가지고 오고 싶을때
+			$.getJSON('${pageContext.request.contextPath}/foot/reviewList',function(rdata){
+				$.each(rdata,function(index,item){
+					$('table').append('<tr><td class="contxt"><a href="#">'+item.review_subject+'</a></td><td>'+item.review_date+'</td></tr>');
+					// 테이블 가져와서 출력
+				});
+			});
+			// 이벤트 멈춤
+			$(this).unbind();
+		});
+	});
+	</script>
 	</head>
 	<body>
 	<div class="colorlib-loader"></div>
@@ -114,11 +148,11 @@
 <!-- 							<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p> -->
 							
 							<p class="size-wrap">
-								<span>카테고리:${ProductDTO.p_small_category}</span> 
+								<span>카테고리: ${ProductDTO.p_small_category}</span> 
 							</p>
 							
 							<p class="size-wrap">
-								<span>색상코드:</span> 
+								<span>색상코드: ${ProductDTO.p_color}</span> 
 							</p>
 							
 							
@@ -127,22 +161,24 @@
 							<div class="size-wrap">
 								<div class="block-26 mb-2">
 									<h4>Size</h4>
-				               <ul>
-				                  <li><a href="#">220</a></li>
-				                  <li><a href="#">225</a></li>
-				                  <li><a href="#">230</a></li>
-				                  <li><a href="#">235</a></li>
-				                  <li><a href="#">240</a></li>
-				                  <li><a href="#">245</a></li>
-				                  <li><a href="#">250</a></li>
-				                  <li><a href="#">255</a></li>
-				                  <li><a href="#">260</a></li>
-				                  <li><a href="#">265</a></li>
-				                  <li><a href="#">270</a></li>
-				                  <li><a href="#">275</a></li>
-				                  <li><a href="#">280</a></li>
-				                  <li><a href="#">285</a></li>
-				               
+				               <ul id="pd_size_list">
+								  <c:forEach var="qtyDTO" items="${qtyList }">				               
+				               	  <li value="${qtyDTO.p_size }"><a href="#"><c:out value="${qtyDTO.p_size }"></c:out></a></li>
+				               	  </c:forEach>	
+<!-- 				                  <li value="220" hidden=""><a href="#">220</a></li> -->
+<!-- 				                  <li value="225" hidden=""><a href="#">225</a></li> -->
+<!-- 				                  <li value="230" hidden=""><a href="#">230</a></li> -->
+<!-- 				                  <li value="235" hidden=""><a href="#">235</a></li> -->
+<!-- 				                  <li value="240" hidden=""><a href="#">240</a></li> -->
+<!-- 				                  <li value="245" hidden=""><a href="#">245</a></li> -->
+<!-- 				                  <li value="250" hidden=""><a href="#">250</a></li> -->
+<!-- 				                  <li value="255" hidden=""><a href="#">255</a></li> -->
+<!-- 				                  <li value="260" hidden=""><a href="#">260</a></li> -->
+<!-- 				                  <li value="265" hidden=""><a href="#">265</a></li> -->
+<!-- 				                  <li value="270" hidden=""><a href="#">270</a></li> -->
+<!-- 				                  <li value="275" hidden=""><a href="#">275</a></li> -->
+<!-- 				                  <li value="280" hidden=""><a href="#">280</a></li> -->
+<!-- 				                  <li value="285" hidden=""><a href="#">285</a></li> -->
 				               </ul>
 				            </div>
 							</div>
@@ -151,7 +187,7 @@
                   	
 					<!-- 개수 -->	
                      <div class="input-group mb-4">
-                     	<span class="input-group-btn">
+                     	<span class="input-group-btn ml" style="width:45px; margin:0;">
                         	<button type="button" class="quantity-left-minus btn"  data-type="minus" data-field="">
                            <i class="icon-minus2"></i>
                         	</button>
@@ -198,10 +234,10 @@
 						    }, */
 						    	if(result==1){
 						     alert("카트 담기 성공");
-						     $("#quantity").val(1);
+						     $("#quantity").val("1");
 						    	}else{
 						    		alert("회원만 사용할 수 있습니다.")
-						    $("#quantity").val(1);		
+						    $("#quantity").val("1");		
 						    	}
 						    },
 						    error : function(result){
@@ -210,13 +246,15 @@
 						   });
 						  });
 						 </script>
-</p>
+						</p>
+					 
+					 
+				  <a href="#" class="btn btn-success btn-addtocart" id="buy" onClick="buy()"><i class="icon-credit-card "></i>Buy</a>
+				   
 					 
 					 
 					 
-					 
-					 
-				     <a href="${pageContext.request.contextPath}/foot/order" class="btn btn-success btn-addtocart"><i class="icon-credit-card "></i>Buy</a>
+				     <a href="${pageContext.request.contextPath}/foot/order" class="btn btn-success btn-addtocart" style="height:39px"><i class="icon-credit-card "></i>Buy</a>
 					
 				     </div>             
 				               
@@ -240,7 +278,8 @@
 								      <a class="nav-link" id="pills-manufacturer-tab" data-toggle="pill" href="#pills-manufacturer" role="tab" aria-controls="pills-manufacturer" aria-expanded="true">Manufacturer</a>
 								    </li>
 								    <li class="nav-item">
-								      <a class="nav-link" id="pills-review-tab" data-toggle="pill" href="#pills-review" role="tab" aria-controls="pills-review" aria-expanded="true">리뷰</a>
+								      
+								      	<a class="nav-link" id="review" data-toggle="pill" href="#" role="tab" aria-controls="pills-review" aria-expanded="true">리뷰</a>
 								    </li>
 								  </ul>
 
@@ -436,7 +475,7 @@
 	<script src="${pageContext.request.contextPath}/js/main.js"></script>
 
 
-
+	
 
 
 	<script>
@@ -474,6 +513,31 @@
 		    });
 		    
 		});
+		
+
+		// 사이즈선택
+// 		$("#pd_size_list li").on("click", function(e) {
+// 			console.log("p_size li");
+// 		});
+		
+// 		$("#pd_size_list ul").children('li').off().on('click', function(e) {
+// 			console.log($(this).text());
+// 		})
+		
+// 		$("pd_size_list li").on('click', function(e) {
+// 			if($(this).parent("pd_size_list").length > 0) {
+// 				console.log("p_size li");
+// 			} else {
+// 				console.log($(this).text());
+// 			}
+// 		})
+
+		$('#pd_size_list').on('click', 'li', function() {
+			alert("사이즈 클릭됨");
+			var p_size = document.pd_size_list.li.value;
+			
+		});
+		
 	</script>
 
 

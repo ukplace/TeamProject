@@ -6,6 +6,7 @@ import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,6 +21,7 @@ import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductQtyDTO;
+import com.itwillbs.domain.ReviewDTO;
 import com.itwillbs.domain.SearchDTO;
 import com.itwillbs.service.MemberService;
 import com.itwillbs.service.ProductService;
@@ -69,16 +71,14 @@ public class ProductController {
 	
 	
 	
-	
-
 	// 상품정보
 	@RequestMapping(value = "/foot/product_detail", method = RequestMethod.GET)
 	public String product_detail(@RequestParam("num") int p_num, Model model) throws Exception {
-		
 		ProductDTO productDTO = productService.productDetail(p_num);
-//		ProductDTO productDTO = productService.productDetail(p_num);
+		List<ProductQtyDTO> qtyList = productService.productQtyDetail(p_num);
 		
 		model.addAttribute("ProductDTO", productDTO);
+		model.addAttribute("qtyList", qtyList);
 		
 		return "foot/product_detail";
 	}
@@ -353,12 +353,38 @@ public class ProductController {
 	
 	
 	
-	// 주문정보
-	@RequestMapping(value = "/foot/order", method = RequestMethod.GET)
-	public String order() {
-		// /WEB-INF/views/foot/order.jsp
+	
+	
+	@RequestMapping(value = "/foot/order", method = RequestMethod.POST)
+	public String order(HttpServletRequest request , Model model, HttpSession session) {
+		
+		MemberDTO member = new MemberDTO();
+		member.setM_idx((Integer)session.getAttribute("m_idx"));
+		MemberDTO memberDTO = memberService.getMember(member);
+		
+		CartListDTO cartListDTO = new CartListDTO();
+		
+		cartListDTO.setM_idx((Integer)session.getAttribute("m_idx"));
+		List<CartListDTO> cartList = productService.getCartList(cartListDTO);
+		
+		
+//		ArrayList<ProductBean> productList = new ArrayList<ProductBean>();
+//		
+//		ProductBean pb = new ProductBean();
+//		pb.setProduct_idx(product_idx);
+//		pb.setProduct_price(product_price);
+//		pb.setProduct_name(product_name);
+//		pb.setProduct_quantity(basket_quantity);
+//		
+//		productList.add(pb);
+		
+		model.addAttribute("memberDTO", memberDTO);
+		model.addAttribute("cartList", cartList);
+//		model.addAttribute("productList", productList);
+		
 		return "foot/order";
 	}
+
 	
 	@RequestMapping(value = "/foot/order_list", method = RequestMethod.GET)
 	public String order_list() {
@@ -400,6 +426,8 @@ public class ProductController {
 		
 		return "foot/cart";
 	}
+	
+	
 	
 
 

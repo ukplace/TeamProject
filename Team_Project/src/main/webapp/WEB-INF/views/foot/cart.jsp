@@ -58,7 +58,6 @@
 		<jsp:include page="../inc/top.jsp"></jsp:include>
 		<!-- 헤더들어가는곳 -->
 	</nav>
-
 		<div class="breadcrumbs">
 			<div class="container">
 				<div class="row">
@@ -90,6 +89,9 @@
 						</div>
 					</div>
 				</div>
+				
+ 				<form action="order" method="post" name="cart" id="cart">
+				
 				<div class="row row-pb-lg">
 					<div class="col-md-12">
 						<div class="product-name d-flex">
@@ -113,8 +115,9 @@
 						<c:forEach var="cartListDTO" items="${cartList }">
 						<div class="product-cart d-flex">
 							<div class="one-forth">
-								<div class="product-img" style="background-image: url(${pageContext.request.contextPath}${cartListDTO.p_thumImg}">
-								</div>
+<%-- 								<div class="product-img" style="background-image: url(${pageContext.request.contextPath}${cartListDTO.p_thumImg}"> --%>
+								<img alt="product_img" src="${pageContext.request.contextPath}${cartListDTO.p_thumImg}" class="img-fluid" alt="Free html5 bootstrap 4 template"/>
+<!-- 								</div> -->
 								<div class="display-tc">
 									<h3>${cartListDTO.p_name} </h3>
 								</div>
@@ -176,6 +179,7 @@
 											<span>
 											<fmt:formatNumber pattern="###,###,###" value="${Delivery+sum }" />원
 											</span></p>
+											<input type="submit" class="btn btn-primary" value="결제하기">
 										</div>
 									</div>
 								</div>
@@ -183,7 +187,9 @@
 						</div>
 					</div>
 				</div>
-
+				
+				</form>
+				
 				<div class="row">
 					<div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
 						<h2>Related Products</h2>

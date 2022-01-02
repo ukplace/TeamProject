@@ -49,4 +49,6 @@ public interface AdminDAO {
 	
 	public void insertReview(ReviewDTO reviewDTO);
 
+	public List<ReviewDTO> getReviewList(PageDTO pageDTO);
+
 }

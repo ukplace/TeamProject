@@ -91,7 +91,7 @@
                                          <br>
                                          
                                          <input type = "submit" class="btn btn-default" value = " 로그인" >&nbsp; &nbsp;
-                                         <input type="submit" class="btn btn-default" value="회원가입">
+                                         <input type="button" class="btn btn-default" value="회원가입" onclick="location.href='${pageContext.request.contextPath}/foot/join'">
                                         
                                    		 </div>
   										
