@@ -40,9 +40,7 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 	
-<<<<<<< HEAD
 	<script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
-=======
 	
 	<script type="text/javascript">
     function buy(){ 
@@ -58,7 +56,6 @@
     }   
 	</script>
 
->>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 	<script type="text/javascript">
 	$(document).ready(function() {
 		// class="review"
