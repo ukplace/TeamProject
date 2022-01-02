@@ -36,6 +36,27 @@
 
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+	
+	<script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
+	<script type="text/javascript">
+	
+	$(document).ready(function(){
+		$('#kakaoPay').click(function(){
+			$.ajax({
+				url:'${pageContext.request.contextPath}/foot/kakaoPay.cls',
+				dataType:'json',
+				success:function(data){
+					var box = data.next_redirect_pc_url;
+					location.href = box;
+				},
+				error:function(error){
+					alert(error);
+				}
+			});
+		});
+	});	
+	
+	</script>	
 
 
 	</head>
@@ -360,24 +381,7 @@
 	<!-- Main -->
 	<script src="${pageContext.request.contextPath}/js/main.js"></script>
 	
-	<script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
-	<script type="text/javascript">
-	$(document).ready(function(){
-			$.ajax({
-				url:'${pageContext.request.contextPath}/',
-				dataType:'json',
-				success:function(data){
-					var box = data.next_redirect_pc_url;
-					location.href = box;
-				},
-				error:function(error){
-					alert(error);
-				}
-			});
-		});
-	});	
 	
-	</script>	
 	
 	
 	
