@@ -178,40 +178,43 @@
 				     <a href="${pageContext.request.contextPath}/foot/wishlist" class="btn btn-primary btn-addtocart"><i class="icon-heart2"></i>Wish</a>
 					 <p class="addToCart">
 						 <button type="button" class="addCart_btn">카트에 담기</button>
-						 <script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
-						 <script>
-						  $(".addCart_btn").click(function(){
-						   var p_num = $("#p_num").val();
-						   var cart_count = parseInt($("#quantity").val());
-						   
-						   var data = {
-								   p_num : p_num,
-								   cart_count : cart_count
-						     };
-						   
-						   $.ajax({
-						    url : "${pageContext.request.contextPath}/foot/addCart",
-						    type : "post",
-						    data : data,
-						    success : function(result){
-						    	/* alert("카트담기 성공");
-						    	var quantity = parseInt($('#quantity').val());
-						    	$("#quantity").val(1);
-						    }, */
-						    	if(result==1){
-						     alert("카트 담기 성공");
-						     $(".quantity").val(1);
-						    	}else{
-						    		alert("회원만 사용할 수 있습니다.")
-						    $(".quantity").val(1);		
-						    	}
-						    },
-						    error : function(result){
-						     alert("카트 담기 실패");
-						    }
-						   });
-						  });
-						 </script>
+						 
+						    <script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
+                   <script>
+                    $(".addCart_btn").click(function(){
+                     var p_num = $("#p_num").val();
+                     var cart_count = parseInt($("#quantity").val());
+                     
+                     var data = {
+                           p_num : p_num,
+                           cart_count : cart_count
+                       };
+                     
+                     $.ajax({
+                      url : "${pageContext.request.contextPath}/foot/addCart",
+                      type : "post",
+                      data : data,
+                      success : function(result){
+                         /* alert("카트담기 성공");
+                         var quantity = parseInt($('#quantity').val());
+                         $("#quantity").val(1);
+                      }, */
+                         if(result==1){
+                       alert("카트 담기 성공");
+                       $(".quantity").val(1);
+                         }else{
+                            alert("회원만 사용할 수 있습니다.")
+                      $(".quantity").val(1);      
+                         }
+                      },
+                      error : function(result){
+                       alert("카트 담기 실패");
+                      }
+                     });
+                    });
+                   </script>
+						 
+						
 </p>
 					 
 					 
@@ -438,7 +441,7 @@
 	<script src="${pageContext.request.contextPath}/js/main.js"></script>
 
 
-
+	
 
 
 	<script>
