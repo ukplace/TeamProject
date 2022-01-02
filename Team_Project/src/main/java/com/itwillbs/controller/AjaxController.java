@@ -16,8 +16,10 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -53,11 +55,11 @@ public class AjaxController {
 		
 			try {
 				URL url = new URL("https://kapi.kakao.com//v1/payment/ready");
-				HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
-				httpURLConnection.setRequestMethod("POST");
-				httpURLConnection.setRequestProperty("Authorization", "KakaoAK d7bd2af917e7ee54a17fefe75ce21cbc");
-				httpURLConnection.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
-				httpURLConnection.setDoOutput(true);
+				HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+				conn.setRequestMethod("POST");
+				conn.setRequestProperty("Authorization", "KakaoAK d7bd2af917e7ee54a17fefe75ce21cbc");
+				conn.setRequestProperty("Content-type", "application/x-www-form-urlencoded;charset=utf-8");
+				conn.setDoOutput(true);
 				String str = "cid=TC0ONETIME&"
 						+ "partner_order_id=partner_order_id&"
 						+ "partner_user_id=partner_user_id&"
@@ -70,18 +72,18 @@ public class AjaxController {
 						+ "approval_url=http://localhost:8080/success&"
 						+ "fail_url=https://localhost:8080/fail&"
 						+ "cancel_url=https://localhost:8080/cancel";
-				OutputStream outputStream = httpURLConnection.getOutputStream();
+				OutputStream outputStream = conn.getOutputStream();
 				DataOutputStream dataOutputStream = new DataOutputStream(outputStream);
 				dataOutputStream.writeBytes(str);
 				dataOutputStream.close();
 				
-				int result = httpURLConnection.getResponseCode();
+				int result = conn.getResponseCode();
 				
 				InputStream inputStream;
 				if(result == 200) {
-					inputStream = httpURLConnection.getInputStream();
+					inputStream = conn.getInputStream();
 				}else {
-					inputStream = httpURLConnection.getErrorStream();
+					inputStream = conn.getErrorStream();
 				}
 				
 				InputStreamReader inputStreamReader = new InputStreamReader(inputStream);
@@ -100,6 +102,9 @@ public class AjaxController {
 				
 		
 	}
+	
+	
+	
 	
 	
 	
