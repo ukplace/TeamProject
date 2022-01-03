@@ -50,4 +50,9 @@ public class MemberServiceImpl implements MemberService {
 		memberDAO.updatePass(memberDTO);
 		
 	}
+	@Override
+	public void withdrawal(MemberDTO member) {
+		 memberDAO.withdrawal(member);
+	}
+
 }

@@ -18,4 +18,5 @@ public interface MemberService {
 
 	public void updatePass(MemberDTO memeberDTO);
 	
+	public void withdrawal(MemberDTO member);
 }
