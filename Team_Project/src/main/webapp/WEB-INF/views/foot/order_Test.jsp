@@ -10,7 +10,7 @@
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
 	<script type="text/javascript">
 	var IMP = window.IMP; // 생략 가능
-	IMP.init("imp56698025"); // 예: imp00000000
+	IMP.init("imp92591746"); // 예: imp00000000
 
    function requestPay() {
      // IMP.request_pay(param, callback) 결제창 호출
@@ -30,7 +30,7 @@
 //        
              // 결제 성공 시 로직, 주소줄로 데이터 값을 가져감. => 컨트롤러에서 리퀘스트로 가져올 수 있음.
          } else {
-       	  location.href="${pageContext.request.contextPath}/foot/order_Ok";
+//        	  location.href="${pageContext.request.contextPath}/foot/order_Ok";
 //        		location.href="${pageContext.request.contextPath}/foot/order_No;
 			// 테스트용으로 취소시, 결제 완료되게 해놓음.
        	  

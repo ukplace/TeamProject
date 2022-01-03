@@ -134,14 +134,14 @@ public class AjaxController {
 	 return result;
 	}
 	
-
-	
 	@ResponseBody
 	@RequestMapping(value = "/foot/reviewList", method = RequestMethod.GET)
-	public ResponseEntity<List<ReviewDTO>> review() {
+	public ResponseEntity<List<ReviewDTO>> review(HttpServletRequest request) {
 			System.out.println("Review 컨트롤러");
+			int p_num =Integer.parseInt(request.getParameter("p_num"));
 			
 			PageDTO pageDTO =new PageDTO();
+			pageDTO.setP_num(p_num);
 			pageDTO.setPageSize(5);
 			pageDTO.setPageNum("1");
 			List<ReviewDTO> reviewList=adminService.getReviewList(pageDTO);

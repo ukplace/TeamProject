@@ -117,7 +117,7 @@
 					</div>
 				</div>
 				
- 				<form action="order" method="post" name="cart" id="cart">
+ 				<form action="${pageContext.request.contextPath}/foot/Cart_order" method="post" name="cart" id="cart">
 				
 				<div class="row row-pb-lg">
 					<div class="col-md-12">

@@ -55,23 +55,29 @@
           }
     }   
 	</script>
-
-	<script type="text/javascript">
+	<script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
+	<script >
 	$(document).ready(function() {
 		// class="review"
 		$('#review').click(function(){
 			// 글 가지고 오고 싶을때
-			$.getJSON('${pageContext.request.contextPath}/foot/reviewList',function(rdata){
-				$.each(rdata,function(index,item){
-					$('table').append('<tr><td class="contxt"><a href="#">'+item.review_subject+'</a></td><td>'+item.review_date+'</td></tr>');
-					// 테이블 가져와서 출력
-				});
+			$.ajax({
+				url:'${pageContext.request.contextPath}/foot/reviewList',
+				dataType:"JSON",
+				data: {p_num:$('#p_num').val()},
+				success:function(rdata){
+					$.each(rdata,function(index,item){
+						$('table').append('<tr><td class="contxt"><a href="#">'+item.review_subject+'</a></td><td>'+item.review_date+'</td></tr>');
+						// 테이블 가져와서 출력
+					});
+				}
 			});
 			// 이벤트 멈춤
 			$(this).unbind();
 		});
 	});
 	</script>
+	
 	</head>
 	<body>
 	<div class="colorlib-loader"></div>
@@ -82,14 +88,15 @@
 		<jsp:include page="../inc/top.jsp"></jsp:include>
 		<!-- 헤더들어가는곳 -->
 	</nav>
-<<<<<<< HEAD
 	<form method= "post" name="detailForm" >                     
-=======
 
+<!-- 주문 form -->
+<!--method="post" class="colorlib-form" name="Direct_order" action="${pageContext.request.contextPath}/foot/Direct_order"  -->	
+<form action="${pageContext.request.contextPath}/foot/Direct_order" method="post" class="order_form" name="Direct_order" >                     
 <!-- 주문 form -->	
-<form action="${pageContext.request.contextPath}/foot/order/${member.m_idx}" method="get" class="order_form" name="detailForm" >                     
->>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 	<input type="hidden" id="p_num" name="p_num" value="${ProductDTO.p_num}" />		
+	
+<!-- 	private int cart_count; -->
 
 		<div class="breadcrumbs">
 			<div class="container">
@@ -139,9 +146,10 @@
 					</div>
 					
 					&emsp;&emsp;&emsp;
-					
 					<div class="col-sm-4">
 						<div class="product-desc">
+						 
+					
 							<h3>${ProductDTO.p_name}</h3>
 							<br>
 							<br>
@@ -196,7 +204,7 @@
                            <i class="icon-minus2"></i>
                         	</button>
                     		</span>
-                     	<input type="text" id="quantity" name="quantity" class="form-control input-number" value="1" min="1" max="100">
+                     	<input type="text" id="quantity" name="cart_count" class="form-control input-number" value="1" min="1" max="100">
                      	<span class="input-group-btn ml-1">
                         	<button type="button" class="quantity-right-plus btn" data-type="plus" data-field="">
                              <i class="icon-plus2"></i>
@@ -252,14 +260,11 @@
 						 </script>
 						</p>
 					 
-					 
-				  <a href="#" class="btn btn-success btn-addtocart" id="buy" onClick="buy()"><i class="icon-credit-card "></i>Buy</a>
-				   
-					 
-					 
-					 
-				     <a href="${pageContext.request.contextPath}/foot/order" class="btn btn-success btn-addtocart" style="height:39px"><i class="icon-credit-card "></i>Buy</a>
-					
+<%-- 					 ${pageContext.request.contextPath}/foot/Direct_order" class="btn btn-success btn-addtocart" style="height:39px" --%>
+						
+					 <input type="submit" class="btn btn-success btn-addtocart" style="height:39px" value="Buy">
+<!-- 				     <i class="icon-credit-card "></i>Buy</a> -->
+		</form>
 				     </div>             
 				               
 							
@@ -282,9 +287,17 @@
 								      <a class="nav-link" id="pills-manufacturer-tab" data-toggle="pill" href="#pills-manufacturer" role="tab" aria-controls="pills-manufacturer" aria-expanded="true">Manufacturer</a>
 								    </li>
 								    <li class="nav-item">
-								      
 								      	<a class="nav-link" id="review" data-toggle="pill" href="#" role="tab" aria-controls="pills-review" aria-expanded="true">리뷰</a>
 								    </li>
+								    
+								     <div class="table">
+										<table>
+										<tr>
+											<td></td><td></td>
+										</tr>
+										</table>
+								    </div>
+								    
 								  </ul>
 
 								  <div class="tab-content" id="pills-tabContent">
