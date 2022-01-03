@@ -368,19 +368,8 @@ public class ProductController {
 		List<CartListDTO> cartList = productService.getCartList(cartListDTO);
 		
 		
-//		ArrayList<ProductBean> productList = new ArrayList<ProductBean>();
-//		
-//		ProductBean pb = new ProductBean();
-//		pb.setProduct_idx(product_idx);
-//		pb.setProduct_price(product_price);
-//		pb.setProduct_name(product_name);
-//		pb.setProduct_quantity(basket_quantity);
-//		
-//		productList.add(pb);
-		
 		model.addAttribute("memberDTO", memberDTO);
 		model.addAttribute("cartList", cartList);
-//		model.addAttribute("productList", productList);
 		
 		return "foot/order";
 	}

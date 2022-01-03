@@ -36,4 +36,18 @@ public class MemberServiceImpl implements MemberService {
 		return memberDAO.getMember(memberDTO);
 	}
 
+	public MemberDTO getMember(String m_email) {
+		System.out.println("MemberServiceImpl.getMember()");
+		 return memberDAO.getMember(m_email);
+	}
+	
+	public void updateMember(MemberDTO memberDTO){
+		System.out.println("MemberServiceImpl.updateMember()");
+		memberDAO.updateMember(memberDTO);
+	}
+	
+	public void updatePass(MemberDTO memberDTO) {
+		memberDAO.updatePass(memberDTO);
+		
+	}
 }

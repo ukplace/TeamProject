@@ -1,3 +1,5 @@
+<%@page import="com.itwillbs.dao.MemberDAO"%>
+<%@page import="com.itwillbs.dao.MemberDAOImpl"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="com.itwillbs.dao.*"%>
@@ -80,26 +82,11 @@
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/css/style.css">
 
-<script language="JavaScript">
-
-function actionA(){
-	  document.info.action="${pageContext.request.contextPath}/foot/updateMember";
-	  document.info.submit();
-	 }
-	 function actionB(){
-	  document.info.action="${pageContext.request.contextPath}/foot/updatePass";
-	  document.info.submit();
-	 }
-
-
-
-
-</script>
-
 
 
 </head>
 <body>
+
 
 	<div class="colorlib-loader"></div>
 
@@ -132,21 +119,31 @@ function actionA(){
 
 
 
-
-
 		<!-- form태그 시작 -->
-		<form method="post" class="colorlib-form" name="info"
-			action="${pageContext.request.contextPath}/foot/updateMember" 
+		<form action="${pageContext.request.contextPath}/foot/updateMemberPro" method="post" class="colorlib-form"
 			style="width: 850px; height: 1050px; margin-left: 380px; margin-top: 100px;">
 			<div class="container">
 
 				<br>
 
+				<!-- 회색배경 안 틀 여백 시작-->
+				<!-- 				<div class="row row-pb-lg"> -->
+				<!-- <!-- 					<div class="col-sm-10 offset-md-1"> -->
+				<!-- 						<div class="process-wrap"></div> -->
+				<!-- 					</div> -->
+				<!-- 				</div> -->
+				<!-- 회색배경 안 틀 여백 끝-->
+
+
+
+
+
+
 				<div class="row">
-					<div class="col-lg-7">
+					<div class="col-lg-8">
 						
 							
-							<h2>마이페이지</h2>
+							<h2>마이페이지 수정</h2>
 							<div class="row">
 								<div class="col-md-12">
 									<div class="form-group"></div>
@@ -154,74 +151,63 @@ function actionA(){
 
 								<div class="col-md-7">
 									<div class="form-group">
-										<label for="email">이메일</label><br> ${memberDTO.m_email}
-
+										<label for="email" >이메일</label> <br> 
+										<input type="text" name="id" class="id" value="${memberDTO.m_email }" readonly>
 									</div>
 								</div>
 
 
 								<div class="col-md-7">
 									<div class="form-group">
-										<label for="name">이름</label><br> ${memberDTO.m_name}
+										<label for="name" >이름</label><br> 
+										<input type="text" name="name" value="${memberDTO.m_name }" readonly>
 									</div>
 								</div>
 
 								<div class="col-md-7">
 									<div class="form-group">
 										<label for="password">비밀번호</label> <input type="password"
-											id="m_pass" name="m_pass"  class="form-control"
-											placeholder="비밀번호를 입력해주세요" required="required" >
+											id="passwoard"name="m_pass" class="form-control"
+											placeholder="비밀번호를 입력해주세요" required="required">
 									</div>
 								</div>
 
-							
+					
 
 								<div class="col-md-7">
 									<div class="form-group">
-										<label for="tel">전화번호</label> ${memberDTO.m_tel}
+										<label for="tel">전화번호</label> 
+										<input type="text" id="tel" name="m_tel"placeholder="전화번호를 입력해주세요" class="form-control" required="required" value="${memberDTO.m_tel}"/>
 									</div>
 								</div>
-
 
 								<div class="col-md-12">
 									<div class="form-group">
 										<label><h4>주소</h4></label>
-										<table>
-											<tr>
-												<td width="80%">${memberDTO.m_zip}</td>
-												<td>&nbsp&nbsp</td>
-												<td></td>
-											</tr>
+										<table >
+			                    		<tr><td width="80%"><input type="text" name= "m_zip" id="sample4_postcode" placeholder="우편번호" readonly class="form-control" required="required" ></td>
+			                    		<td>&nbsp&nbsp</td>
+			                    		<td><input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" class ="btn btn-default btn-lg"></td></tr>
 											<tr height="10px"></tr>
-											<tr>
-												<td colspan="3">${memberDTO.m_address}</td>
-											</tr>
+											<tr><td colspan="3"><input type="text" class="form-control" name="m_address" id="sample4_roadAddress" placeholder="도로명주소" readonly value="<%%>"></td></tr>
 											<tr height="10px"></tr>
-											<tr>
-												<td colspan="3">${memberDTO.m_detail_address}</td>
-											</tr>
-											<tr height="1px">
-												<td><input type="hidden" id="sample4_extraAddress"
-													placeholder="참고항목"></td>
-												<td><span id="guide" style="color: #999; display: none"></span>
-												</td>
-											</tr>
-										</table>
-									</div>
+											<tr><td colspan="3"><input type="text" class="form-control" name="m_detail_address" id="sample4_roadAddress" placeholder="상세주소" value="${memberDTO.m_detail_address}" ></td></tr>
+											<tr height="1px"><td><input type="hidden" id="sample4_extraAddress" placeholder="참고항목"></td><td>
+												<span id="guide" style="color:#999;display:none"></span>
+											</td></tr>
+			                    		</table>
+										</div>
+  										
 
 
 
 									<!-- 버튼 -->
 									<div class="row" style="margin-left: 5px; margin-top: 30px;">
 										<div class="col-md-12 text-center">
+<!-- 										<input type="button" class="btn btn-primary" value="취소" onclick="history.back()"> -->
+											<input type="submit" class="btn btn-primary" value="수정하기">
 											
-											
-											<input type="button" class="btn btn-primary"  value ="비밀번호변경" onclick="actionB()">
-											<input type="button" class="btn btn-primary" value="정보수정" onclick="actionA()"> 
-											
-											
-											
-										</div>
+									</div>
 									</div>
 									<!-- 버튼 -->
 
@@ -282,10 +268,9 @@ function actionA(){
 	<script src="${pageContext.request.contextPath}/js/main.js"></script>
 
 
-	<!--주소 찾기  -->
-	<script
-		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-	<script>
+<!--주소 찾기  -->
+<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script>
     //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
     function sample4_execDaumPostcode() {
         new daum.Postcode({
@@ -344,12 +329,8 @@ function actionA(){
     }
     
 	
-			
-		});
-		
-
+	
 </script>
 
-</body>
+	</body>
 </html>
-

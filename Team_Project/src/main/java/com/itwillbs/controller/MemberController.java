@@ -5,6 +5,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -102,13 +103,6 @@ public class MemberController {
 		return "redirect:/foot/index";
 	}
 	
-	// 회원정보
-	@RequestMapping(value = "/foot/member_info", method = RequestMethod.GET)
-	public String member_info() {
-		// /WEB-INF/views/foot/memberInfo.jsp
-		return "foot/member_info";
-	}
-	
 	// 회원탈퇴
 	@RequestMapping(value = "/foot/withdrawal", method = RequestMethod.GET)
 	public String withdrawal() {
@@ -116,6 +110,83 @@ public class MemberController {
 		return "foot/withdrawal";
 	}
 	
+	// 회원정보
+		@RequestMapping(value = "/foot/member_info", method = RequestMethod.GET)
+		
+		public String member_info(HttpSession session, Model model) {
+			
+			
+			
+			String id = (String)session.getAttribute("id");
+			
+			MemberDTO memberDTO = memberService.getMember(id);
+			
+			
+			model.addAttribute("memberDTO", memberDTO);
+			
+			
+			return "foot/member_info";
+		}
+		
+		
+		// 회원정보수정
+		@RequestMapping(value = "/foot/updateMember", method = RequestMethod.POST)
+		
+
+		public String updateMember(HttpSession session, Model model,MemberDTO memberDTO) {
+			
+			System.out.println("MemberController.updateMember()");
+			
+			String id = (String)session.getAttribute("id");
+			
+			MemberDTO memberDTO2 = memberService.getMember(id);
+			String encryPassword = UserSha256.encrypt(memberDTO.getM_pass());
+			
+			if(memberDTO2.getM_pass().equals(encryPassword)) {
+				model.addAttribute("memberDTO", memberDTO2);
+				
+				return "foot/updateMember";
+			}else {
+				return "foot/msg";
+			}
+			
+			}
+
+
+		
+		@RequestMapping(value = "/foot/updateMemberPro", method = RequestMethod.POST)
+		public String updateMemberPro(MemberDTO memberDTO , Model model, HttpSession session ) {
+				
+				memberService.updateMember(memberDTO);
+			
+			return "foot/member_info";
+		}
+		
+		@RequestMapping(value = "/foot/updatePass", method = RequestMethod.POST)
+		public String passChange(HttpSession session, Model model,MemberDTO memberDTO) {
+			
+			
+			String id = (String)session.getAttribute("id");
+			
+			MemberDTO memberDTO2 = memberService.getMember(id);
+			String encryPassword = UserSha256.encrypt(memberDTO.getM_pass());
+			if(memberDTO2.getM_pass().equals(encryPassword)) {
+				model.addAttribute("memberDTO", memberService.getMember((String)session.getAttribute("id")));
+				
+				return "/foot/updatePass";
+			}else {
+				return "foot/msg";
+			}
+			
+		}
+		
+		@RequestMapping(value = "/foot/updatePassPro", method = RequestMethod.POST)
+		public String passChangPro(HttpSession session, MemberDTO memberDTO,Model model) {
+			String encryPassword = UserSha256.encrypt(memberDTO.getM_pass());
+			memberDTO.setM_pass(encryPassword);
+			memberService.updatePass(memberDTO);
+			return "/foot/index";
+		}
 	
 
 }
