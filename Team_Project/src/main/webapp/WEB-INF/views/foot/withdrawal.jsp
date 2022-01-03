@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -50,10 +51,6 @@
 		<!-- 헤더들어가는곳 -->
 	</nav>
 
-<%
-//세션내장객체에 저장된 "id"=값 을 가져오기 
-String id=(String)session.getAttribute("id");
-%>
 
 
 		<div class="breadcrumbs">
@@ -74,7 +71,7 @@ String id=(String)session.getAttribute("id");
 				</div>
 				<div class="row">
 					<div class="col-lg-8" >
-						<form method="post" class="colorlib-form">
+						<form action="${pageContext.request.contextPath}/foot/withdrawalPro" method="post" class="colorlib-form">
 							<h2>회원탈퇴</h2>
 		              		<div class="row">
 								<div class="col-md-12">
@@ -84,29 +81,32 @@ String id=(String)session.getAttribute("id");
 									<div class="col-md-7">
 									
 
-									<form action="${pageContext.request.contextPath}/foot/deletePro" method="post">
   									<div class="form-group">
-                                         <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                         <input class="form-control" placeholder="E-mail" name="m_email" id="m_email" autofocus>
                                     	 </div>
                                    		 <div class="form-group">
-                                         <input class="form-control" placeholder="Password" name="password" type="password" value="">
-                                   		 </div>
-                                   		<br>
+                                         <input type="password" class="form-control" placeholder="Password" name="m_pass" id="m_pass" value="">
+		  									<c:if test="${msg == false }">
+												 <p>
+												 입력한 비밀번호가 잘 못 되었습니다.
+												 </p>
+												</c:if>		
+		                                   		 </div>
                                          <input type="submit" class="btn btn-primary" value="회원탈퇴">
                                    		 </div>
+  											</div>
+										
                                         </form>	
+                                        
 			              
   										
-  										
-										
 			
 			
 			</div>
 		    </div>
-		    </form>
 		   </div>
 		   </div>
-		   </div>
+		   
 					
 			<footer id="colorlib-footer" role="contentinfo">
 			<!-- 푸터들어가는곳 -->

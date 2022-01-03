@@ -76,4 +76,10 @@ public class MemberDAOImpl implements MemberDAO {
 		sqlSession.update(namespace+".updatePass",memberDTO);
 	}
 
+	@Override
+	public void withdrawal(MemberDTO member) {
+		sqlSession.delete(namespace+".withdrawal",member);
+	}
+
+
 }

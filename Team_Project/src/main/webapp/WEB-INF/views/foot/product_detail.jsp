@@ -82,17 +82,15 @@
 		<jsp:include page="../inc/top.jsp"></jsp:include>
 		<!-- 헤더들어가는곳 -->
 	</nav>
+	<form method= "post" name="detailForm" >                     
 
 <!-- 주문 form -->
 <!--method="post" class="colorlib-form" name="Direct_order" action="${pageContext.request.contextPath}/foot/Direct_order"  -->	
 <form action="${pageContext.request.contextPath}/foot/Direct_order" method="post" class="order_form" name="Direct_order" >                     
+<!-- 주문 form -->	
 	<input type="hidden" id="p_num" name="p_num" value="${ProductDTO.p_num}" />		
 	
 <!-- 	private int cart_count; -->
-	
-	
-	<input type="hidden" name="orders[0].p_num" value="${ProductDTO.p_num}">
-	<input type="hidden" name="orders[0].o_count" value="">
 
 		<div class="breadcrumbs">
 			<div class="container">

@@ -17,5 +17,8 @@ public interface MemberDAO {
 	public MemberDTO getMember(String m_email);
 
 	public void updatePass(MemberDTO memberDTO);
+	
+	public void withdrawal(MemberDTO member);
 
+	
 }

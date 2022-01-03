@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.itwillbs.dao.ProductDAO;
 import com.itwillbs.domain.CartDTO;
 import com.itwillbs.domain.CartListDTO;
+import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductQtyDTO;
@@ -147,6 +148,11 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<CartListDTO> getCartList(CartListDTO cartListDTO) {
 		return productDAO.getCartList(cartListDTO);
+	}
+
+	@Override
+	public void withdrawal(MemberDTO memberDTO) {
+		productDAO.withdrawal(memberDTO);
 	}
 
 	
