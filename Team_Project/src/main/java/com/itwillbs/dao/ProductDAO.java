@@ -65,4 +65,6 @@ public interface ProductDAO {
 
 	public int cartDelete(int cart_idx);
 
+	public void deleteCart(int m_idx);
+
 }

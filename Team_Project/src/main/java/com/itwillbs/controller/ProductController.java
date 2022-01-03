@@ -409,7 +409,14 @@ public class ProductController {
 	}
 	
 	@RequestMapping(value = "/foot/order_Ok", method = RequestMethod.GET)
-	public String order_Ok() {
+	public String order_Ok(HttpSession session) {
+		System.out.println("ProductController.order_Ok()");
+		// m_idx 세션값 받아오기
+		MemberDTO memberDTO = new MemberDTO();
+		 memberDTO.setM_idx((Integer)session.getAttribute("m_idx"));
+		 int m_idx = memberDTO.getM_idx();
+		 // 받아온 m_idx 값으로 productService - deleteCart(m_idx) 호출
+		productService.deleteCart(m_idx);
 		// /WEB-INF/views/foot/orderList.jsp
 		// 여기서 order 작업해주면 될듯! 
 		return "foot/order_Ok";

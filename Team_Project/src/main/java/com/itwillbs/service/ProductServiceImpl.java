@@ -161,6 +161,12 @@ public class ProductServiceImpl implements ProductService {
 		return productDAO.cartDelete(cart_idx);
 	}
 
+	@Override
+	public void deleteCart(int m_idx) {
+		System.out.println("ProductServiceImpl.deleteCart()");
+		productDAO.deleteCart(m_idx);
+	}
+
 	
 	
 
