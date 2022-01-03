@@ -20,6 +20,9 @@ public class CartListDTO {
 	private String p_name;
 	private int p_price;
 	private String p_thumImg;
+	
+	private String p_size;
+	
 	public int getCart_idx() {
 		return cart_idx;
 	}
@@ -62,6 +65,15 @@ public class CartListDTO {
 	public void setP_thumImg(String p_thumImg) {
 		this.p_thumImg = p_thumImg;
 	}
+	
+	public String getP_size() {
+		return p_size;
+	}
+	public void setP_size(String p_size) {
+		this.p_size = p_size;
+	}
+	
+	
 	
 	
 }
