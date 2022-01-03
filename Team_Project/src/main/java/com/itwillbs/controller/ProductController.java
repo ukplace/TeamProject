@@ -1,5 +1,6 @@
 package com.itwillbs.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -355,7 +356,7 @@ public class ProductController {
 	
 	
 	
-	@RequestMapping(value = "/foot/order", method = RequestMethod.POST)
+	@RequestMapping(value = "/foot/Cart_order", method = RequestMethod.POST)
 	public String order(HttpServletRequest request , Model model, HttpSession session) {
 		
 		MemberDTO member = new MemberDTO();
@@ -374,9 +375,43 @@ public class ProductController {
 		return "foot/order";
 	}
 	
+	@RequestMapping(value = "/foot/Direct_order", method = RequestMethod.POST)
+	public String Direct_order(CartListDTO cartListDTO, HttpSession session,Model model) throws Exception {
+		
+		MemberDTO member = new MemberDTO();
+		member.setM_idx((Integer)session.getAttribute("m_idx"));
+		MemberDTO memberDTO = memberService.getMember(member);
+		
+		ProductDTO productDTO = new ProductDTO();
+		int p_num = cartListDTO.getP_num();
+		productDTO=productService.productDetail(p_num);
+		
+		cartListDTO.setM_idx(memberDTO.getM_idx());
+		cartListDTO.setP_name(productDTO.getP_name());
+		cartListDTO.setP_price(productDTO.getP_price());
+		cartListDTO.setP_thumImg(productDTO.getP_thumImg());
+		
+		System.out.println(cartListDTO.getCart_count());
+		System.out.println(cartListDTO.getCart_idx());
+		System.out.println(cartListDTO.getM_idx());
+		System.out.println(cartListDTO.getP_name());
+		System.out.println(cartListDTO.getP_num());
+		System.out.println(cartListDTO.getP_price());
+		System.out.println(cartListDTO.getP_thumImg());
+		List<CartListDTO> cartList = new ArrayList<CartListDTO>();
+		cartList.add(0,cartListDTO);
+		
+		
+		model.addAttribute("memberDTO", memberDTO);
+		model.addAttribute("cartList", cartList);
+		
+		return "foot/order";
+	}
+	
 	@RequestMapping(value = "/foot/order_Ok", method = RequestMethod.GET)
 	public String order_Ok() {
 		// /WEB-INF/views/foot/orderList.jsp
+		// 여기서 order 작업해주면 될듯! 
 		return "foot/order_Ok";
 	}
 	
