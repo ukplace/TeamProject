@@ -63,4 +63,6 @@ public interface ProductDAO {
 
 	public void withdrawal(MemberDTO memberDTO);
 
+	public int cartDelete(int cart_idx);
+
 }

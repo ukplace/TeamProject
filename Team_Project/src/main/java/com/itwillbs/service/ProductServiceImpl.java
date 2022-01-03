@@ -155,6 +155,12 @@ public class ProductServiceImpl implements ProductService {
 		productDAO.withdrawal(memberDTO);
 	}
 
+	@Override
+	public int cartDelete(int cart_idx) {
+		System.out.println("ProductServiceImpl - cartDelete()");
+		return productDAO.cartDelete(cart_idx);
+	}
+
 	
 	
 

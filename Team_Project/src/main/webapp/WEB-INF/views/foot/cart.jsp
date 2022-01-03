@@ -38,13 +38,40 @@
 
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+	
+	
+<script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
+ <script type="text/javascript">
+ 	$(document).ready(function(){
+ 		$('#closed').click(function(){
+// 			var check = $(this).attr("name");
+// 			alert(check);
+		if(confirm("정말 삭제하시겠습니까?")) {
+			$.ajax({
+				url: '${pageContext.request.contextPath}/foot/cartDelete',
+				data: {cart_idx : $(this).attr("name")},
+// 					 p_num : $('#p_num').val(),
+				success:function(data){
+					if(data == "deletedSuccess") {
+						history.go(0);	
+					}
+				}
+			}); // end ajax
+		}
+ 		});
+ 	});
+ 	
+</script>
+	
 
+	
 <style type="text/css">
 #ttp{
 	margin: auto;
 }
 
 </style>
+
 
 
 	</head>
@@ -111,13 +138,13 @@
 								<span>Remove</span>
 							</div>
 						</div>
-						<c:set var="sum" value="0"/>
+						
+					<c:set var="sum" value="0"/>
 						<c:forEach var="cartListDTO" items="${cartList }">
 						<div class="product-cart d-flex">
 							<div class="one-forth">
-<%-- 								<div class="product-img" style="background-image: url(${pageContext.request.contextPath}${cartListDTO.p_thumImg}"> --%>
-								<img alt="product_img" src="${pageContext.request.contextPath}${cartListDTO.p_thumImg}" class="img-fluid" alt="Free html5 bootstrap 4 template"/>
-<!-- 								</div> -->
+								<div class="product-img" style="background-image: url(${pageContext.request.contextPath}${cartListDTO.p_thumImg}">
+								</div>
 								<div class="display-tc">
 									<h3>${cartListDTO.p_name} </h3>
 								</div>
@@ -139,7 +166,7 @@
 							</div>
 							<div class="one-eight text-center">
 								<div class="display-tc">
-									<a href="#" class="closed"></a>
+								<input type="button" class="closed" id="closed" name="${cartListDTO.cart_idx}" >
 								</div>
 							</div>
 						</div>

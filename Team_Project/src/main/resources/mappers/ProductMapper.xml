@@ -122,6 +122,12 @@
 			delete from cart where m_idx=#{m_idx} 
 		</delete>
 		
+		<delete id="cartDelete">
+			delete from cart where cart_idx=#{cart_idx} 
+		</delete>
+		
+		
+		
 
 	
 </mapper>
