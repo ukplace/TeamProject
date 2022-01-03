@@ -441,9 +441,9 @@
 									   function requestPay() {
 									     // IMP.request_pay(param, callback) 결제창 호출
 									     IMP.request_pay({ // param
-									         pg: "html5_inicis",
-									         pay_method: "card",
-									         merchant_uid: "2",
+									         pg: "html5_inicis", // 이건 그냥고정 
+									         pay_method: "card", // 결제방법 
+									         merchant_uid: "2", //주문 번호 
 									         name: "shushu", // 상품명
 									         amount: "${totalSum}", // 가격
 									         buyer_email: "${memberDTO.m_email}",
@@ -457,11 +457,7 @@
 									             // 결제 성공 시 로직, 주소줄로 데이터 값을 가져감. => 컨트롤러에서 리퀘스트로 가져올 수 있음.
 									         } else {
 									       	  location.href="${pageContext.request.contextPath}/foot/order_Ok";
-												// 테스트용으로 취소시, 결제 완료되게 해놓음.
-									//        		location.href="${pageContext.request.contextPath}/foot/order_No;
-									       	  
-									       	  // location.href="${pageContext.request.contextPath}/sub/payFail";
-									             // 결제 실패 시 로직,
+											
 									         }
 									     });
 									}
