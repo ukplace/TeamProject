@@ -82,8 +82,14 @@
 		<jsp:include page="../inc/top.jsp"></jsp:include>
 		<!-- 헤더들어가는곳 -->
 	</nav>
-	<form name="detailForm" >                     
+
+<!-- 주문 form -->	
+<form action="${pageContext.request.contextPath}/foot/order/${member.m_idx}" method="get" class="order_form" name="detailForm" >                     
 	<input type="hidden" id="p_num" name="p_num" value="${ProductDTO.p_num}" />		
+	
+	<input type="hidden" name="orders[0].p_num" value="${ProductDTO.p_num}">
+	<input type="hidden" name="orders[0].o_count" value="">
+
 		<div class="breadcrumbs">
 			<div class="container">
 				<div class="row">

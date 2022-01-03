@@ -17,4 +17,5 @@ public interface MemberService {
 	public void updateMember(MemberDTO memberDTO);
 
 	public void updatePass(MemberDTO memeberDTO);
+	
 }
