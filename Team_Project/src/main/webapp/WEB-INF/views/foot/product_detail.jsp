@@ -82,7 +82,7 @@
 		<jsp:include page="../inc/top.jsp"></jsp:include>
 		<!-- 헤더들어가는곳 -->
 	</nav>
-	<form name="detailForm" >                     
+	<form method= "post" name="detailForm" >                     
 	<input type="hidden" id="p_num" name="p_num" value="${ProductDTO.p_num}" />		
 		<div class="breadcrumbs">
 			<div class="container">
