@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.itwillbs.domain.CartDTO;
 import com.itwillbs.domain.CartListDTO;
 import com.itwillbs.domain.MemberDTO;
+import com.itwillbs.domain.Order_memberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductQtyDTO;
@@ -174,6 +175,11 @@ public class ProductDAOImpl implements ProductDAO {
 		System.out.println("ProductDAOImpl.cartDelete()");
 		 return sqlSession.delete(namespace+".cartDelete", cart_idx);
 		
+	}
+
+	@Override
+	public void insertO_member(Order_memberDTO o_memberDTO) {
+		sqlSession.insert(namespace+".insertO_member", o_memberDTO);
 	}
 
 

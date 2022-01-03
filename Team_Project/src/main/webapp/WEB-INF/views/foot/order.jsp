@@ -241,11 +241,8 @@
 			                  
 						          <input type="hidden" id="order_idx" name="order_idx" value="">
 						          <input type="hidden" id="m_idx" name="m_idx" value="${memberDTO.m_idx}">
-						          <input type="hidden" id="" name="m_idx" value="${cartListDTO.p_num}">
-						          <input type="hidden" id="payAmount" name="payAmount"  value="" >
-						          <input type="hidden" id="selectedCoupon_idx" name="selectedCoupon_idx" value="0" >
-								  <input type="hidden" id="selectedCoupon_name" name="selectedCoupon_name" value="0" >
-			                  
+						          <input type="hidden" id="p_num" name="p_num" value="${cartListDTO.p_num}">
+			                  		
 			                  <!-- 할인혜택 시작 -->
 			                  
 			                    					할인/혜택
@@ -300,23 +297,23 @@
                                                 
                                                 <tr>
                                                     <th style="background-color:#f5f5f5; line-height:50px;" class="col-md-3">이름</th>
-                                                    <td colspan="2"><input type="text" id="o_name" class="form-control col-md-4" value="${memberDTO.m_name}"></td>
+                                                    <td colspan="2"><input type="text" id="o_name" name="o_name" class="form-control col-md-4" name="o_name" value="${memberDTO.m_name}"></td>
                                                 </tr>
                                                 <tr>
                                                     <th style="background-color:#f5f5f5; line-height:50px;" class="col-md-3">전화번호</th>
-                                                    <td><input type="text" id="o_tel" class="form-control col-md-6" value="${memberDTO.m_tel}" ></td>
+                                                    <td><input type="text" id="o_tel" class="form-control col-md-6" name="o_tel" value="${memberDTO.m_tel}" ></td>
                                                     
                                                 </tr>
                                                 <tr>
                                                     <th style="background-color:#f5f5f5; line-height:150px;" class="col-md-3">주소</th>
-                                                    <td><input type="text" id="o_zip" class="form-control col-md-4" value="${memberDTO.m_zip}">
+                                                    <td><input type="text" id="o_zip" name="o_zip" class="form-control col-md-4" value="${memberDTO.m_zip}">
 													&nbsp&nbsp&nbsp<input type="button" class="btn btn-primary" onClick="execDaumPostcode()" value="우편번호">
-                                                    <input type="text" id="o_adress" class="form-control" value="${memberDTO.m_address}">
-                                                    <input type="text" id="o_detail_adress" class="form-control" value="${memberDTO.m_detail_address}"></td>
+                                                    <input type="text" id="o_address" name="o_adress" class="form-control" value="${memberDTO.m_address}">
+                                                    <input type="text" id="o_detail_address" name="o_detail_adress" class="form-control" value="${memberDTO.m_detail_address}"></td>
                                                 </tr>
                                                 <tr>
                                                     <th style="background-color:#f5f5f5; line-height:50px;" class="col-md-3">배송메모</th>
-                                                    <td><input type="text" id="fname" class="form-control" placeholder="배송메모"></td>
+                                                    <td><input type="text" id="fname" class="form-control" id="o_memo" name="o_memo" placeholder="배송메모" value=""></td>
                                                 </tr>
                                        
                                             
@@ -435,6 +432,14 @@
 								<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 								<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
 									<script >
+									var m_idx = $('#m_idx').val(); 
+									var o_name = $('#o_name').val(); 
+									var o_tel = $('#o_tel').val(); 
+									var o_zip = $('#o_zip').val(); 
+									var o_address = $('#o_address').val(); 
+									var o_detail_address = $('#o_detail_address').val(); 
+									var o_memo = $('#memo').val();
+
 									var IMP = window.IMP; // 생략 가능
 									IMP.init("imp92591746"); // 예: imp00000000
 									
@@ -456,7 +461,7 @@
 									//        
 									             // 결제 성공 시 로직, 주소줄로 데이터 값을 가져감. => 컨트롤러에서 리퀘스트로 가져올 수 있음.
 									         } else {
-									       	  location.href="${pageContext.request.contextPath}/foot/order_Ok";
+									       	  location.href="${pageContext.request.contextPath}/foot/order_Ok?m_idx="+ m_idx +"&o_name="+ o_name +"&o_tel="+ o_tel +"&o_zip="+ o_zip +"&o_address="+ o_address +"&o_detail_address="+ o_detail_address+"&o_memo="+ o_memo;
 											
 									         }
 									     });

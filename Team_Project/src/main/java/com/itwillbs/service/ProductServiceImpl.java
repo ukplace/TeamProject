@@ -10,6 +10,7 @@ import com.itwillbs.dao.ProductDAO;
 import com.itwillbs.domain.CartDTO;
 import com.itwillbs.domain.CartListDTO;
 import com.itwillbs.domain.MemberDTO;
+import com.itwillbs.domain.Order_memberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductQtyDTO;
@@ -159,6 +160,12 @@ public class ProductServiceImpl implements ProductService {
 	public int cartDelete(int cart_idx) {
 		System.out.println("ProductServiceImpl - cartDelete()");
 		return productDAO.cartDelete(cart_idx);
+	}
+
+	@Override
+	public void insertO_member(Order_memberDTO o_memberDTO) {
+		productDAO.insertO_member(o_memberDTO);
+		
 	}
 
 	
