@@ -82,8 +82,15 @@
 		<jsp:include page="../inc/top.jsp"></jsp:include>
 		<!-- 헤더들어가는곳 -->
 	</nav>
+<<<<<<< HEAD
 	<form method= "post" name="detailForm" >                     
+=======
+
+<!-- 주문 form -->	
+<form action="${pageContext.request.contextPath}/foot/order/${member.m_idx}" method="get" class="order_form" name="detailForm" >                     
+>>>>>>> branch 'main' of https://github.com/ukplace/TeamProject.git
 	<input type="hidden" id="p_num" name="p_num" value="${ProductDTO.p_num}" />		
+
 		<div class="breadcrumbs">
 			<div class="container">
 				<div class="row">

@@ -104,6 +104,7 @@
 
 
 
+
 	</head>
 	
 	
@@ -112,6 +113,12 @@
 	
 	
 	<body>
+	<div>
+		${orderList }
+	</div>
+	<div>
+		${memberInfo }
+	</div>
 		
 	<div class="colorlib-loader"></div>
 
@@ -375,7 +382,8 @@
 										<li style="font-weight:bold;"> 
 										<span>총 결제금액</span> 
 										<span>
-										<fmt:formatNumber pattern="###,###,###" value="${sum + Delivery }" /> 원 
+										<c:set var="totalSum" value="${sum + Delivery }" />
+										<fmt:formatNumber pattern="###,###,###" value="${totalSum }" /> 원 
 										</span></li>
 									</ul>
 								</div>
@@ -422,7 +430,43 @@
 								</div>
 						<div class="row">
 							<div class="col-md-12 text-center">
-								<a href="#" class="btn btn-primary">결제하기</a>
+								<button type="button" class="btn btn-primary" onclick="requestPay()">결제하기</button>
+								
+								<script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
+								<script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.8.js"></script>
+									<script >
+									var IMP = window.IMP; // 생략 가능
+									IMP.init("imp56698025"); // 예: imp00000000
+									
+									   function requestPay() {
+									     // IMP.request_pay(param, callback) 결제창 호출
+									     IMP.request_pay({ // param
+									         pg: "html5_inicis",
+									         pay_method: "card",
+									         merchant_uid: "2",
+									         name: "shushu", // 상품명
+									         amount: "${totalSum}", // 가격
+									         buyer_email: "${memberDTO.m_email}",
+									         buyer_name: "${memberDTO.m_name}",
+									         buyer_tel: "${memberDTO.m_tel}",
+									         buyer_addr: "부산시 부산진구 부전동",
+									         buyer_postcode: "01181"
+									     }, function (rsp) { // callback
+									         if (rsp.success) {
+									//        
+									             // 결제 성공 시 로직, 주소줄로 데이터 값을 가져감. => 컨트롤러에서 리퀘스트로 가져올 수 있음.
+									         } else {
+									       	  location.href="${pageContext.request.contextPath}/foot/order_Ok";
+												// 테스트용으로 취소시, 결제 완료되게 해놓음.
+									//        		location.href="${pageContext.request.contextPath}/foot/order_No;
+									       	  
+									       	  // location.href="${pageContext.request.contextPath}/sub/payFail";
+									             // 결제 실패 시 로직,
+									         }
+									     });
+									}
+								     </script>
+								
 								<a href="#" class="btn btn-outline-secondary">취소</a>
 							</div>
 						</div>
