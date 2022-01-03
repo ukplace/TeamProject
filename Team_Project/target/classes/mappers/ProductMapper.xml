@@ -113,9 +113,16 @@
 			select * from cart WHERE m_idx=#{m_idx}
 		</select>
 	
-		<select id="getCartList" resultType="com.itwillbs.domain.CartListDTO" >
-			select c.cart_idx, c.m_idx, c.p_num, c.cart_count, p.p_name, p.p_price, p_thumImg
- 			from cart c join product p on c.p_num = p.p_num where c.m_idx = #{m_idx};
+<!-- 		<select id="getCartList" resultType="com.itwillbs.domain.CartListDTO" > -->
+<!-- 			select c.cart_idx, c.m_idx, c.p_num, c.cart_count, p.p_name, p.p_price, p_thumImg -->
+<!--  			from cart c join product p on c.p_num = p.p_num where c.m_idx = #{m_idx}; -->
+<!-- 		</select> -->
+
+		<select id="getCartList" resultType="com.itwillbs.domain.CartListDTO">
+			select c.cart_idx, c.m_idx, c.p_num, c.cart_count, p.p_name, p.p_price, p_thumImg, pq.p_size
+			from cart c join product p on c.p_num = p.p_num 
+			join product_qty pq on p.p_num = pq.p_num
+			where c.m_idx=#{m_idx}
 		</select>
 		
 		<delete id="withdrawal">
