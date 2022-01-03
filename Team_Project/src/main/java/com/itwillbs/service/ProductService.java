@@ -63,4 +63,6 @@ public interface ProductService {
 
 	public void withdrawal(MemberDTO memberDTO);
 
+	public int cartDelete(int cart_idx);
+
 }

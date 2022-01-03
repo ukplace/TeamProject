@@ -27,6 +27,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.itwillbs.domain.CartDTO;
+import com.itwillbs.domain.CartListDTO;
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ReviewDTO;
@@ -133,14 +134,14 @@ public class AjaxController {
 	 return result;
 	}
 	
-
-	
 	@ResponseBody
 	@RequestMapping(value = "/foot/reviewList", method = RequestMethod.GET)
-	public ResponseEntity<List<ReviewDTO>> review() {
+	public ResponseEntity<List<ReviewDTO>> review(HttpServletRequest request) {
 			System.out.println("Review 컨트롤러");
+			int p_num =Integer.parseInt(request.getParameter("p_num"));
 			
 			PageDTO pageDTO =new PageDTO();
+			pageDTO.setP_num(p_num);
 			pageDTO.setPageSize(5);
 			pageDTO.setPageNum("1");
 			List<ReviewDTO> reviewList=adminService.getReviewList(pageDTO);
@@ -149,9 +150,40 @@ public class AjaxController {
 			return entity;
 	}
 	
+			
 	
 	
+	@RequestMapping(value = "/foot/cartDelete", method = RequestMethod.GET)
+	public ResponseEntity<String> cartDelete(HttpServletRequest request) {
+		System.out.println("cartDelete 컨트롤러");
+		String result="";
+		ResponseEntity<String> entity = null;
+		
+		try {
+			CartListDTO cartListDTO = new CartListDTO();
+			cartListDTO.setCart_idx(Integer.parseInt(request.getParameter("cart_idx")));
+			int cart_idx = cartListDTO.getCart_idx();
+			System.out.println("컨트롤러에 넘어오는 값"+cart_idx);
+			
+			int deleteCount = productService.cartDelete(cart_idx);
+			
+			if(deleteCount!=0) {
+				result="deletedSuccess";
+			}else {
+				result="deleteFail"; 
+			}
+			entity = new ResponseEntity<String>(result,HttpStatus.OK);
+		} catch (Exception e) {
+			System.out.println("오류 발생 -" + e.getMessage());
+			entity = new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
+		}
+		
+		
+		return entity;
 
+
+}
+	
 }
 	
 

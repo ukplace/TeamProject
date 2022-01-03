@@ -169,6 +169,13 @@ public class ProductDAOImpl implements ProductDAO {
 		sqlSession.delete(namespace+".withdrawal", memberDTO);
 	}
 
+	@Override
+	public int cartDelete(int cart_idx) {
+		System.out.println("ProductDAOImpl.cartDelete()");
+		 return sqlSession.delete(namespace+".cartDelete", cart_idx);
+		
+	}
+
 
 	
 	
