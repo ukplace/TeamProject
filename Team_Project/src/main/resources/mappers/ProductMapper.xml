@@ -117,6 +117,11 @@
 			select c.cart_idx, c.m_idx, c.p_num, c.cart_count, p.p_name, p.p_price, p_thumImg
  			from cart c join product p on c.p_num = p.p_num where c.m_idx = #{m_idx};
 		</select>
+		
+		<delete id="withdrawal">
+			delete from cart where m_idx=#{m_idx} 
+		</delete>
+		
 
 	
 </mapper>

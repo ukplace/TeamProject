@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.itwillbs.domain.CartDTO;
 import com.itwillbs.domain.CartListDTO;
+import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductQtyDTO;
@@ -159,6 +160,13 @@ public class ProductDAOImpl implements ProductDAO {
 	@Override
 	public List<CartListDTO> getCartList(CartListDTO cartListDTO) {
 		return sqlSession.selectList(namespace+".getCartList", cartListDTO);
+	}
+
+	// 회원탈퇴 전 카드삭제 
+	@Override
+	public void withdrawal(MemberDTO memberDTO) {
+		System.out.println("idx값차트" + memberDTO.getM_idx());
+		sqlSession.delete(namespace+".withdrawal", memberDTO);
 	}
 
 

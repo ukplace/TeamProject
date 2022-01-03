@@ -55,5 +55,31 @@ public class MemberDAOImpl implements MemberDAO {
 	public MemberDTO getMember(MemberDTO memberDTO) {
 		return sqlSession.selectOne(namespace+".getMember", memberDTO);
 	}
+	
+	@Override
+	public MemberDTO getMember(String m_email) {
+		System.out.println("MemberDAOImpl.getMember()");
+		return sqlSession.selectOne(namespace+".getMember2",m_email);
+	}
+	
+	
+	
+	@Override
+	public void updateMember(MemberDTO memberDTO){
+		System.out.println("MemberDAOImpl.updateMember()");
+		
+		sqlSession.update(namespace+".updateMember", memberDTO);
+	}
+	
+	@Override
+	public void updatePass(MemberDTO memberDTO){
+		sqlSession.update(namespace+".updatePass",memberDTO);
+	}
+
+	@Override
+	public void withdrawal(MemberDTO member) {
+		sqlSession.delete(namespace+".withdrawal",member);
+	}
+
 
 }

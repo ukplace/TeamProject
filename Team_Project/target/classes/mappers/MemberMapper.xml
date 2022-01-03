@@ -24,6 +24,26 @@
 		select * from member where m_idx=#{m_idx}
 	</select>
 	
+	<select id="getMember2" resultType="com.itwillbs.domain.MemberDTO">
+		select * from member where m_email=#{m_email}
+	</select>
+	
+	<update id="updateMember">
+		update member 
+		set m_tel=#{m_tel},m_zip=#{m_zip},m_address=#{m_address},m_detail_address=#{m_detail_address} 
+		where m_pass=#{m_pass}
+	</update>
+	
+	<update id="updatePass">
+		update member 
+		set m_pass=#{m_pass} where m_email=#{m_email}
+	</update>
+	
+	<delete id="withdrawal">
+		delete from member
+		where m_email=#{m_email} and m_pass=#{m_pass}
+	</delete>
+	
 	
 	<!-- 검색 -->
 	<select id="listSearch" resultType="com.itwillbs.domain.ProductDTO"
@@ -32,5 +52,7 @@
 		from ()
 		where 
 	</select>
+	
+	
 	
 </mapper>

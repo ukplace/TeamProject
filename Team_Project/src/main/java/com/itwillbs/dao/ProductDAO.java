@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.itwillbs.domain.CartDTO;
 import com.itwillbs.domain.CartListDTO;
+import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductQtyDTO;
@@ -59,5 +60,7 @@ public interface ProductDAO {
 	public CartDTO getCart(CartDTO cartDTO);
 
 	public List<CartListDTO> getCartList(CartListDTO cartListDTO);
+
+	public void withdrawal(MemberDTO memberDTO);
 
 }

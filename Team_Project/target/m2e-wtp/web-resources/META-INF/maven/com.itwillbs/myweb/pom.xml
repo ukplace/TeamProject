@@ -92,6 +92,12 @@
     <version>2.5.4</version>
 </dependency>
 
+<dependency>
+    <groupId>org.codehaus.jackson</groupId>
+    <artifactId>jackson-mapper-asl</artifactId>
+    <version>1.9.13</version>
+</dependency>
+
 <!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
 <dependency>
     <groupId>commons-codec</groupId>
@@ -99,6 +105,11 @@
     <version>1.10</version>
 </dependency>
 
+<dependency>
+    <groupId>org.codehaus.jackson</groupId>
+    <artifactId>jackson-mapper-asl</artifactId>
+    <version>1.9.13</version>
+</dependency>
 
 				
 		<!-- AspectJ -->

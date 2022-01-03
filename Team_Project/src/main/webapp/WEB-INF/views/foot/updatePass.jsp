@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -37,6 +36,8 @@
 
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
+	
+	<link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
 
 
 	</head>
@@ -51,13 +52,11 @@
 		<!-- 헤더들어가는곳 -->
 	</nav>
 
-
-
 		<div class="breadcrumbs">
 			<div class="container">	
 				<div class="row">
 					<div class="col">
-					<p class="bread"><span><a href="${pageContext.request.contextPath}/foot/join/">Mypage</a></span> / <span>회원탈퇴</span></p>
+					<p class="bread"><span><a href="${pageContext.request.contextPath}/foot/index">Home</a></span> / <span>비밀번호변경</span></p>
 						</div>
 					</div>
 				</div>
@@ -71,42 +70,45 @@
 				</div>
 				<div class="row">
 					<div class="col-lg-8" >
-						<form action="${pageContext.request.contextPath}/foot/withdrawalPro" method="post" class="colorlib-form">
-							<h2>회원탈퇴</h2>
+				<form method="post" class="colorlib-form" action="${pageContext.request.contextPath}/foot/updatePassPro?member_m_email=${memberDTO.m_email}">
+							<h2>회원가입</h2>
 		              		<div class="row">
 								<div class="col-md-12">
 									<div class="form-group">
 									</div>
 									</div>
-									<div class="col-md-7">
+									<div class="col-md-9">
 									
-
-  									<div class="form-group">
-                                         <input class="form-control" placeholder="E-mail" name="m_email" id="m_email" autofocus>
-                                    	 </div>
-                                   		 <div class="form-group">
-                                         <input type="password" class="form-control" placeholder="Password" name="m_pass" id="m_pass" value="">
-		  									<c:if test="${msg == false }">
-												 <p>
-												 입력한 비밀번호가 잘 못 되었습니다.
-												 </p>
-												</c:if>		
-		                                   		 </div>
-                                         <input type="submit" class="btn btn-primary" value="회원탈퇴">
-                                   		 </div>
-  											</div>
+										<div class="form-group">
+										<div class="form-group">
+										<label for="email" >이메일</label> <br> 
+										<input type="text" name="m_email" class="id" value="${memberDTO.m_email }" readonly>
+										</div>
+			                    		
+			               	 			</div>
+			               	 			
+									     <div class="form-group">
+										 <label for="password">새로운 비밀번호</label>&nbsp;&nbsp;&nbsp;&nbsp;<span id = "passwordCheck"></span>
+  										 <input type="password" id="password" name="m_pass" placeholder="영문,숫자 포함 입력해주세요" class="form-control"  onkeyup="checkPasswd(this.value)" />      
+ 								 		 </div>
+ 								         
+ 								         <div class="form-group">
+										 <label for="password">비밀번호 확인</label>&nbsp;&nbsp;&nbsp;&nbsp;<span id = "passwordCheck2"></span>
+  										 <input type="password" id="password2" name="password2" placeholder="비밀번호를 확인해주세요" class="form-control"   onkeyup="checkConfirmPasswd(this.value)" />      
+ 								 		 </div>
+ 								 		 
+ 								 		
+ 								 		
+  										<input type="submit" class="btn btn-default" value="비밀번호변경">
+										<input type="button" class="btn btn-default" value="취소" onclick="history.back()">
 										
-                                        </form>	
-                                        
-			              
-  										
-			
-			
 			</div>
+			
 		    </div>
+		    </form>
 		   </div>
 		   </div>
-		   
+		   </div>
 					
 			<footer id="colorlib-footer" role="contentinfo">
 			<!-- 푸터들어가는곳 -->
@@ -142,7 +144,29 @@
 	<script src="${pageContext.request.contextPath}/js/jquery.stellar.min.js"></script>
 	<!-- Main -->
 	<script src="${pageContext.request.contextPath}/js/main.js"></script>
+	
+	<script src="${pageContext.request.contextPath}/js/passwordCheck.js"></script>
+	
 
+
+
+<!--주소 찾기  -->
+<script>
+ 
+    }    
+	 $('#btn').click(function(){
+			if($('#m_email').val() == ""){
+						$('#btncheck').html('아이디를 입력하세요.');
+						$('#btncheck').css('color','red');
+						$('#m_email').focus();
+						return;
+						
+			}
+			
+		});
+		
+		
+</script>
 
 	</body>
 </html>

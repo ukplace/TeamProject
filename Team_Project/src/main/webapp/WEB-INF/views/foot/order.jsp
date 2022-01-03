@@ -350,10 +350,14 @@
 									
 									<ul>
 										<li>
-											<span>총 상품금액</span> <span><fmt:formatNumber pattern="###,###,###" value="${sum}" />원</span>
+											<span>총 상품금액</span> 
+											<span>
+												<fmt:formatNumber pattern="###,###,###" value="${sum}" />원
+											</span>
 											<ul>
-												<li><span>배송료</span> <span>
-											<c:set var="Delivery" value="0" />
+												<li><span>배송료</span> 
+												<span>
+												<c:set var="Delivery" value="0" />
 											<c:choose>
 												<c:when test="${sum >=80000}">
 												<fmt:formatNumber pattern="###,###,###" value="${Delivery }" />원
@@ -363,12 +367,16 @@
 												<fmt:formatNumber pattern="###,###,###" value="${Delivery }" /> 원	
 												</c:otherwise>
 											</c:choose>
-											</span></li>
+												</span></li>
 												<li><span>쿠폰할인</span> <span>-0원</span></li>
 												<li><span>포인트사용</span> <span>-0원</span></li>
 											</ul>
 										</li>
-										<li style="font-weight:bold;"> <span>총 결제금액</span> <span><fmt:formatNumber pattern="###,###,###" value="${Delivery+sum }" />원</span></li>
+										<li style="font-weight:bold;"> 
+										<span>총 결제금액</span> 
+										<span>
+										<fmt:formatNumber pattern="###,###,###" value="${sum + Delivery }" /> 원 
+										</span></li>
 									</ul>
 								</div>
 						   </div>
