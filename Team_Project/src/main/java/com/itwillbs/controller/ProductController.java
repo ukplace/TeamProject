@@ -373,6 +373,24 @@ public class ProductController {
 		
 		return "foot/order";
 	}
+	
+	@RequestMapping(value = "/foot/order_Ok", method = RequestMethod.GET)
+	public String order_Ok() {
+		// /WEB-INF/views/foot/orderList.jsp
+		return "foot/order_Ok";
+	}
+	
+	@RequestMapping(value = "/foot/order_No", method = RequestMethod.GET)
+	public String order_No() {
+		// /WEB-INF/views/foot/orderList.jsp
+		return "foot/order_No";
+	}
+	
+	@RequestMapping(value = "/foot/order_Test", method = RequestMethod.GET)
+	public String order_Test() {
+		// /WEB-INF/views/foot/orderList.jsp
+		return "foot/order_Test";
+	}
 
 	
 	@RequestMapping(value = "/foot/order_list", method = RequestMethod.GET)
