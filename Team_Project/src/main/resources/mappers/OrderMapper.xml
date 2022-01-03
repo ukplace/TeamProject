@@ -10,5 +10,20 @@
 		select p_num, p_name, o_price, o_discount
 		from order_product where p_num=#{p_num}
 	</select>
+	
+	<!-- 주문자 정보 -->
+	<select id="getMemberInfo" resultType="com.itwillbs.domain.MemberDTO">
+		select m_idx, m_name, m_email, m_zip, m_address, m_detail_address
+		from member
+		where m_idx=#{m_idx}
+	</select>
+	
+	<!-- 주문 정보 -->
+	<!-- public List<OrderPageItemDTO> getOrdersInfo(List<OrderPageItemDTO> orders); -->
+	<select id="getOrdersInfo" resultType="com.itwillbs.domain.OrderPageItemDTO">
+		select o_name, o_zip, o_address, o_detail_address, o_tel, o_state
+		from order_member
+		where m_idx=#{m_idx}
+	</select>
 
 </mapper>

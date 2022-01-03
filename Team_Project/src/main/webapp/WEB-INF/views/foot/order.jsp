@@ -112,6 +112,12 @@
 	
 	
 	<body>
+	<div>
+		${orderList }
+	</div>
+	<div>
+		${memberInfo }
+	</div>
 		
 	<div class="colorlib-loader"></div>
 
