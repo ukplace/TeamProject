@@ -146,7 +146,7 @@
 								<div class="product-img" style="background-image: url(${pageContext.request.contextPath}${cartListDTO.p_thumImg}">
 								</div>
 								<div class="display-tc">
-									<h3>${cartListDTO.p_name} </h3>
+									<h3>${cartListDTO.p_name}    (사이즈 : ${cartListDTO.p_size}) </h3>
 								</div>
 							</div>
 							<div class="one-eight text-center">
