@@ -40,26 +40,6 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 	
-	<script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
- <script type="text/javascript">
- 		function deleteCart(cart){
-// 			var check = $(this).attr("name");
-// 			alert(check);
-		if(confirm("정말 삭제하시겠습니까?")) {
-			$.ajax({
-				url: '${pageContext.request.contextPath}/foot/cartDelete?cart_idx='+cart.value,
-				
-				success:function(data){
-					if(data == "deletedSuccess") {
-						history.go(0);	
-					}
-				}
-			}); // end ajax
-		}
- 		};
-	
-	
-	</script>	
 	
 	  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
@@ -177,6 +157,8 @@
 							<div class="one-forth text-left px-4">
 								<span>Product Details</span>
 							</div>
+							<div class="one-eight text-center px-4">
+							</div>
 							<div class="one-eight text-center">
 								<span>Price</span>
 							</div>
@@ -185,9 +167,6 @@
 							</div>
 							<div class="one-eight text-center">
 								<span>Total</span>
-							</div>
-							<div class="one-eight text-center px-4">
-								<span>Remove</span>
 							</div>
 						</div>
 						<c:set var="sum" value="0"/>
@@ -198,6 +177,10 @@
 								</div>
 								<div class="display-tc">
 									<h3>${cartListDTO.p_name} </h3>
+								</div>
+							</div>
+							<div class="one-eight text-center">
+								<div class="display-tc">
 								</div>
 							</div>
 							<div class="one-eight text-center">
@@ -213,11 +196,6 @@
 							<div class="one-eight text-center">
 								<div class="display-tc">
 									<span class="price">${cartListDTO.p_price * cartListDTO.cart_count }</span>
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<a href="#" class="closed"></a>
 								</div>
 							</div>
 						</div>

@@ -116,28 +116,28 @@
 							<div class="item">
 								<div class="product-entry border">
 									<a href="#" class="prod-img">
-										<img alt="product_img" src="${pageContext.request.contextPath}${ProductDTO.p_thumImg}" class="img-fluid" alt="Free html5 bootstrap 4 template"/>
+										<img alt="product_img" src="${pageContext.request.contextPath}${ProductDTO.p_img}" class="img-fluid" alt="Free html5 bootstrap 4 template"/>
 									</a>
 								</div>
 							</div>
 							<div class="item">
 								<div class="product-entry border">
 									<a href="#" class="prod-img">
-										<img alt="product_img" src="${pageContext.request.contextPath}${ProductDTO.p_thumImg}" class="img-fluid" alt="Free html5 bootstrap 4 template"/>
+										<img alt="product_img" src="${pageContext.request.contextPath}${ProductDTO.p_img}" class="img-fluid" alt="Free html5 bootstrap 4 template"/>
 									</a>
 								</div>
 							</div>
 							<div class="item">
 								<div class="product-entry border">
 									<a href="#" class="prod-img">
-										<img alt="product_img" src="${pageContext.request.contextPath}${ProductDTO.p_thumImg}" class="img-fluid" alt="Free html5 bootstrap 4 template"/>
+										<img alt="product_img" src="${pageContext.request.contextPath}${ProductDTO.p_img}" class="img-fluid" alt="Free html5 bootstrap 4 template"/>
 									</a>
 								</div>
 							</div>
 							<div class="item">
 								<div class="product-entry border">
 									<a href="#" class="prod-img">
-										<img alt="product_img" src="${pageContext.request.contextPath}${ProductDTO.p_thumImg}" class="img-fluid" alt="Free html5 bootstrap 4 template"/>
+										<img alt="product_img" src="${pageContext.request.contextPath}${ProductDTO.p_img}" class="img-fluid" alt="Free html5 bootstrap 4 template"/>
 									</a>
 								</div>
 							</div>
