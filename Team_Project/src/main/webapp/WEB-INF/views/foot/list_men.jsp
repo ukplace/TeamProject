@@ -65,18 +65,21 @@
 			<div class="container">
 				<div class="row">
 					<div class="col">
-						<div class="breadcrumbs-img" style="background-image: url(${pageContext.request.contextPath}/images/cover-img-1.jpg);">
+						<div class="breadcrumbs-img" style="background-image: url(${pageContext.request.contextPath}/images/menmain.jpg);">
 							<h2>Men's</h2>
 						</div>
-						<div class="menu text-center">
-							<p><a href="#">New Arrivals</a> <a href="#">Best Sellers</a> <a href="#">Extended Widths</a> <a href="#">Sale</a></p>
+						<div class="menu text-left">
+							<p><a href="${pageContext.request.contextPath}/foot/list_men_gentleman">구두</a> &nbsp; &nbsp; &nbsp; &nbsp; 
+							<a href="${pageContext.request.contextPath}/foot/list_men_sneakers">스니커즈</a> &nbsp; &nbsp; &nbsp; &nbsp; 
+							<a href="${pageContext.request.contextPath}/foot/list_men_outdoor">아웃도어</a> &nbsp; &nbsp; &nbsp; &nbsp; 
+							<a href="${pageContext.request.contextPath}/foot/list_men_running">운동화</a></p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="colorlib-featured">
+		<%-- <div class="colorlib-featured">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-4 text-center">
@@ -105,7 +108,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div> --%>
 
 		<div class="colorlib-product">
 			<div class="container">

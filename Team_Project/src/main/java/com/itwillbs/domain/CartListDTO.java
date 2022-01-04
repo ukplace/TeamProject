@@ -22,6 +22,7 @@ public class CartListDTO {
 	private int p_price;
 	private String p_thumImg;
 	
+	// p_size 변수 추가
 	private String p_size;
 	
 	public int getCart_idx() {
@@ -67,6 +68,7 @@ public class CartListDTO {
 		this.p_thumImg = p_thumImg;
 	}
 	
+	// p_size Getter/Setter 추가
 	public String getP_size() {
 		return p_size;
 	}

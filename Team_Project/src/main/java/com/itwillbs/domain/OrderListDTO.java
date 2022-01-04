@@ -3,24 +3,26 @@ package com.itwillbs.domain;
 import java.sql.Timestamp;
 
 public class OrderListDTO {
-	
-	private int o_idx;
+//	, , o., o./, o. , o./,  , o. , o. , o./, d./, d./, p./, p./, p./
+	private int o_idx;//
 	private int m_idx;
-	private String o_name;
-	private String o_tel;
-	private String o_zip;
-	private String o_address;
-	private String o_detail_address;
-	private int totalSum;
-	private Timestamp o_date;
+	private String o_name;//
+	private String o_tel;//
+	private String o_zip;//
+	private String o_address;//
+	private String o_detail_address;//
+	private int totalSum;//
+	private Timestamp o_date;//
+	private String o_size;//
+	private String o_memo;//
+	private String o_state;
 	
-	private int od_idx;
-	private int p_num;
-	private int cart_count;
+	private int p_num;//
+	private int cart_count;//
 	
-	private String p_name;
-	private String p_thumImg;
-	private int p_price;
+	private String p_name;//
+	private String p_thumImg;//
+	private int p_price;//
 	
 	public int getO_idx() {
 		return o_idx;
@@ -70,12 +72,7 @@ public class OrderListDTO {
 	public void setTotalSum(int totalSum) {
 		this.totalSum = totalSum;
 	}
-	public int getOd_idx() {
-		return od_idx;
-	}
-	public void setOd_idx(int od_idx) {
-		this.od_idx = od_idx;
-	}
+	
 	public int getP_num() {
 		return p_num;
 	}
@@ -111,6 +108,24 @@ public class OrderListDTO {
 	}
 	public void setO_date(Timestamp o_date) {
 		this.o_date = o_date;
+	}
+	public String getO_size() {
+		return o_size;
+	}
+	public void setO_size(String o_size) {
+		this.o_size = o_size;
+	}
+	public String getO_memo() {
+		return o_memo;
+	}
+	public void setO_memo(String o_memo) {
+		this.o_memo = o_memo;
+	}
+	public String getO_state() {
+		return o_state;
+	}
+	public void setO_state(String o_state) {
+		this.o_state = o_state;
 	}
 	
 	

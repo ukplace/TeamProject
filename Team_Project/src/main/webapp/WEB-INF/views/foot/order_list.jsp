@@ -93,28 +93,29 @@
 							<div class="product-cart d-flex">
 								<div class="one-eight text-center">
 								<div class="display-tc">
-								 	<a href=""><span>${orderDTO.o_idx }</span></a>
+								 	<a href="${pageContext.request.contextPath}/foot/order_detail?o_idx=${orderDTO.o_idx }"><span>${orderDTO.o_idx }</span></a>
 								</div>
 							</div>
 								<div class="one-eight text-center">
 								<div class="display-tc">
-								 	<a href=""><span>${orderDTO.o_name }</span></a>
+								 	<a href="${pageContext.request.contextPath}/foot/order_detail?o_idx=${orderDTO.o_idx }"><span>${orderDTO.o_name }</span></a>
 								 	</div>
 								</div>
 							
 							<div class="one-forth text-left px-4 text-center">
 								<div class="display-tc">
-									<span class="price" >${orderDTO.o_zip}${orderDTO.o_address}${orderDTO.o_detail_address}</span>
+									<a href="${pageContext.request.contextPath}/foot/order_detail?o_idx=${orderDTO.o_idx }"><span class="price" >${orderDTO.o_zip}${orderDTO.o_address}${orderDTO.o_detail_address}</span></a>
 								</div>
 							</div>
 							<div class="one-eight text-center" >
 									<div class="display-tc">
-									<span class="price" >${orderDTO.totalSum }</span>
+									<a href="${pageContext.request.contextPath}/foot/order_detail?o_idx=${orderDTO.o_idx }"><span class="price" >${orderDTO.totalSum }</span></a>
 									</div>
 							</div>
 							
 							<div class="one-eight text-center">
 								<div class="display-tc">
+								<a href="${pageContext.request.contextPath}/foot/order_detail?o_idx=${orderDTO.o_idx }">
 							 	<span>
 							<c:choose>
 								<c:when test="${orderDTO.o_state eq 0 }">
@@ -134,6 +135,7 @@
 								</c:otherwise>
 							</c:choose>	 	
 							 	</span>
+							 	</a>
 							</div>
 						</div>
 					</div>

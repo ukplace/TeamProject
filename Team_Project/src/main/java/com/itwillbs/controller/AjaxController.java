@@ -71,8 +71,12 @@ public class AjaxController {
 	@RequestMapping(value = "/foot/addCart", method = RequestMethod.POST)
 	public int addCart(CartDTO cart, HttpSession session) throws Exception {
 	int result = 0;
+	
 		MemberDTO member = new MemberDTO();
-			 member.setM_idx((Integer)session.getAttribute("m_idx"));
+		member.setM_idx((Integer)session.getAttribute("m_idx"));
+		
+		System.out.println("p_size값 넘어오나? : " + cart.getP_size());
+			 
 	if(member !=null) {
 		cart.setM_idx(member.getM_idx());
 		productService.addCart(cart);
