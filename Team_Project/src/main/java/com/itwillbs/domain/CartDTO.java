@@ -6,6 +6,7 @@ cart_idx int primary key auto_increment,
 m_idx int,
 p_num int,
 cart_count int,
+p_size varchar(45),
 foreign key (m_idx) references member (m_idx),
 foreign key (p_num) references product (p_num)
 );

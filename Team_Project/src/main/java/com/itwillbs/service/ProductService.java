@@ -74,5 +74,7 @@ public interface ProductService {
 	public void insertO_detail(Order_memberDTO order_memberDTO);
 	
 	public void deleteCart(int m_idx);
+	
+	public List<Order_memberDTO> OneOrderList(Order_memberDTO o_memberDTO);
 
 }

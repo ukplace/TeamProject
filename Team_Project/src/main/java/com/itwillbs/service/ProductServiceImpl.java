@@ -186,6 +186,11 @@ public class ProductServiceImpl implements ProductService {
 		productDAO.deleteCart(m_idx);
 	}
 
+	@Override
+	public List<Order_memberDTO> OneOrderList(Order_memberDTO o_memberDTO) {
+		return productDAO.OneOrderList(o_memberDTO);
+	}
+
 	
 	
 

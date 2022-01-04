@@ -74,4 +74,6 @@ public interface ProductDAO {
 	public void insertO_detail(Order_memberDTO Order_memberDTO);
 	public void deleteCart(int m_idx);
 
+	public List<Order_memberDTO> OneOrderList(Order_memberDTO o_memberDTO);
+
 }

@@ -423,6 +423,7 @@
 									var o_address = $('#o_address').val(); 
 									var o_detail_address = $('#o_detail_address').val(); 
 									var o_memo = $('#memo').val();
+									
 
 									var IMP = window.IMP; // 생략 가능
 									IMP.init("imp92591746"); // 예: imp00000000
@@ -432,7 +433,7 @@
 									     IMP.request_pay({ // param
 									         pg: "html5_inicis", // 이건 그냥고정 
 									         pay_method: "card", // 결제방법 
-									         merchant_uid: "2", //주문 번호 
+									         merchant_uid: "3"+  new Date().getTime(), //주문 번호 
 									         name: "shushu", // 상품명
 									         amount: "${totalSum}", // 가격
 									         buyer_email: "${memberDTO.m_email}",
@@ -445,7 +446,7 @@
 									//        
 									             // 결제 성공 시 로직, 주소줄로 데이터 값을 가져감. => 컨트롤러에서 리퀘스트로 가져올 수 있음.
 									         } else {
-									       	  location.href="${pageContext.request.contextPath}/foot/order_Ok?m_idx="+ m_idx +"&o_name="+ o_name +"&o_tel="+ o_tel +"&o_zip="+ o_zip +"&o_address="+ o_address +"&o_detail_address="+ o_detail_address+"&o_memo="+ o_memo;
+									       	  location.href="${pageContext.request.contextPath}/foot/order_Ok?m_idx="+ m_idx +"&o_name="+ o_name +"&o_tel="+ o_tel +"&o_zip="+ o_zip +"&o_address="+ o_address +"&o_detail_address="+ o_detail_address+"&o_memo="+ o_memo+"&totalSum="+${totalSum};
 											
 									         }
 									     });

@@ -94,6 +94,7 @@ public class OrderController {
 	public String order_Ok(HttpServletRequest request, HttpSession session) {
 		Order_memberDTO o_memberDTO = new Order_memberDTO();
 		
+		o_memberDTO.setTotalSum(Integer.parseInt(request.getParameter("totalSum")));
 		o_memberDTO.setM_idx(Integer.parseInt(request.getParameter("m_idx")));
 		o_memberDTO.setO_name(request.getParameter("o_name"));
 		o_memberDTO.setO_tel(request.getParameter("o_tel"));
@@ -101,7 +102,7 @@ public class OrderController {
 		o_memberDTO.setO_address(request.getParameter("o_address"));
 		o_memberDTO.setO_detail_address(request.getParameter("o_detail_address"));
 		o_memberDTO.setO_memo(request.getParameter("o_memo"));
-		
+		System.out.println(o_memberDTO.getTotalSum()+"토탈썸");
 		productService.insertO_member(o_memberDTO);
 		List<Order_memberDTO> o_memberDTO2 = new ArrayList<Order_memberDTO>();
 		o_memberDTO2=productService.getO_idx(o_memberDTO);
@@ -136,8 +137,13 @@ public class OrderController {
 
 	
 	@RequestMapping(value = "/foot/order_list", method = RequestMethod.GET)
-	public String order_list() {
-		// /WEB-INF/views/foot/orderList.jsp
+	public String order_list(HttpSession session, Model model) {
+		Order_memberDTO o_memberDTO = new Order_memberDTO();
+		o_memberDTO.setM_idx((Integer)session.getAttribute("m_idx"));
+		System.out.println(o_memberDTO.getM_idx());
+		List<Order_memberDTO> orderList = productService.OneOrderList(o_memberDTO);
+		System.out.println(orderList.get(0).getTotalSum());
+		model.addAttribute("orderList", orderList);
 		return "foot/order_list";
 	}
 	
@@ -152,6 +158,7 @@ public class OrderController {
 		// /WEB-INF/views/foot/orderDetail.jsp
 		return "foot/order_complete";
 	}
+	
 	
 	
 	

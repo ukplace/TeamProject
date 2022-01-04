@@ -201,6 +201,11 @@ public class ProductDAOImpl implements ProductDAO {
 		
 	}
 
+	@Override
+	public List<Order_memberDTO> OneOrderList(Order_memberDTO o_memberDTO) {
+		return sqlSession.selectList(namespace+".OneOrderList", o_memberDTO);
+	}
+
 
 	
 	

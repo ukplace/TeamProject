@@ -134,8 +134,8 @@
 		</delete>
 		
 		<insert id="insertO_member">
-			insert into order_member (m_idx,o_name,o_tel,o_zip,o_address,o_detail_address,o_memo)
-			values(#{m_idx},#{o_name},#{o_tel},#{o_zip},#{o_address},#{o_detail_address},#{o_memo})
+			insert into order_member (m_idx,o_name,o_tel,o_zip,o_address,o_detail_address,o_memo,totalSum)
+			values(#{m_idx},#{o_name},#{o_tel},#{o_zip},#{o_address},#{o_detail_address},#{o_memo},#{totalSum})
 		</insert>
 		
 		<insert id="insertO_detail">
@@ -149,6 +149,11 @@
 		
 		<select id="getO_idx" resultType="com.itwillbs.domain.Order_memberDTO">
 			select * from order_member where m_idx=#{m_idx} order by o_idx desc 
+		</select>
+		<!-- 특정 고객의 주문목록을 볼수 있는부분을 뽑아올 부분 -->
+		<select id="OneOrderList" resultType="com.itwillbs.domain.Order_memberDTO" >
+			select o_idx, m_idx, o_name,o_zip,o_address,o_detail_address,o_tel,totalSum,o_state
+			from order_member WHERE m_idx=${m_idx} order by o_idx desc
 		</select>
 	
 </mapper>

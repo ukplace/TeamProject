@@ -2,23 +2,8 @@ package com.itwillbs.domain;
 
 import java.sql.Timestamp;
 
-public class Order_memberDTO {
-/*
-create table order_member (
-o_idx int primary key auto_increment, 
-m_idx int,
-o_name varchar(45) not null,
-o_tel varchar(45) not null,
-o_zip varchar(45) not null,
-o_address varchar(45) not null,
-o_detail_address varchar(45) not null,
-o_memo varchar(45),
-totalSum int,
-o_state varchar(45) not null default 0,
-o_date timestamp default now() not null,
-foreign key (m_idx) references member (m_idx)
-);
- */
+public class OrderListDTO {
+	
 	private int o_idx;
 	private int m_idx;
 	private String o_name;
@@ -26,17 +11,16 @@ foreign key (m_idx) references member (m_idx)
 	private String o_zip;
 	private String o_address;
 	private String o_detail_address;
-	private String o_memo;
-	private String o_state;
 	private int totalSum;
 	private Timestamp o_date;
 	
-	public int getTotalSum() {
-		return totalSum;
-	}
-	public void setTotalSum(int totalSum) {
-		this.totalSum = totalSum;
-	}
+	private int od_idx;
+	private int p_num;
+	private int cart_count;
+	
+	private String p_name;
+	private String p_thumImg;
+	private int p_price;
 	
 	public int getO_idx() {
 		return o_idx;
@@ -80,17 +64,47 @@ foreign key (m_idx) references member (m_idx)
 	public void setO_detail_address(String o_detail_address) {
 		this.o_detail_address = o_detail_address;
 	}
-	public String getO_memo() {
-		return o_memo;
+	public int getTotalSum() {
+		return totalSum;
 	}
-	public void setO_memo(String o_memo) {
-		this.o_memo = o_memo;
+	public void setTotalSum(int totalSum) {
+		this.totalSum = totalSum;
 	}
-	public String getO_state() {
-		return o_state;
+	public int getOd_idx() {
+		return od_idx;
 	}
-	public void setO_state(String o_state) {
-		this.o_state = o_state;
+	public void setOd_idx(int od_idx) {
+		this.od_idx = od_idx;
+	}
+	public int getP_num() {
+		return p_num;
+	}
+	public void setP_num(int p_num) {
+		this.p_num = p_num;
+	}
+	public int getCart_count() {
+		return cart_count;
+	}
+	public void setCart_count(int cart_count) {
+		this.cart_count = cart_count;
+	}
+	public String getP_name() {
+		return p_name;
+	}
+	public void setP_name(String p_name) {
+		this.p_name = p_name;
+	}
+	public String getP_thumImg() {
+		return p_thumImg;
+	}
+	public void setP_thumImg(String p_thumImg) {
+		this.p_thumImg = p_thumImg;
+	}
+	public int getP_price() {
+		return p_price;
+	}
+	public void setP_price(int p_price) {
+		this.p_price = p_price;
 	}
 	public Timestamp getO_date() {
 		return o_date;
