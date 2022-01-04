@@ -135,16 +135,20 @@ public class ProductServiceImpl implements ProductService {
 		return productDAO.productQtyDetail(p_num);
 	}
 	
-
+	/* 장바구니 */
 	@Override
 	public void addCart(CartDTO cartDTO) {
 
 		productDAO.addCart(cartDTO);
 	}
 
+//	@Override
+//	public CartDTO getCart(CartDTO cartDTO) {
+//		return productDAO.getCart(cartDTO);
+//	}
 	@Override
-	public CartDTO getCart(CartDTO cartDTO) {
-		return productDAO.getCart(cartDTO);
+	public List<CartDTO> getCart(int m_idx) {
+		return productDAO.getCart(m_idx);
 	}
 
 	@Override

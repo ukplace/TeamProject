@@ -53,13 +53,14 @@ public interface ProductDAO {
 	public List<ProductDTO> getProductK_SneakersList(PageDTO pageDTO);
 	
 	public ProductDTO productDetail(int p_num);
-//	public ProductDTO productDetail(int p_num);
 	
 	public List<ProductQtyDTO> productQtyDetail(int p_num);
 
+	/* 장바구니 */
 	public void addCart(CartDTO cartDTO);
 
-	public CartDTO getCart(CartDTO cartDTO);
+//	public CartDTO getCart(CartDTO cartDTO);
+	public List<CartDTO> getCart(int m_idx);
 
 	public List<CartListDTO> getCartList(CartListDTO cartListDTO);
 
