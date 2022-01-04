@@ -60,60 +60,55 @@
 				</div>
 			</div>
 		</div>
-
-		<div class="breadcrumbs-two">
+	<div class="breadcrumbs-two">
 			<div class="container">
 				<div class="row">
 					<div class="col">
-						<div class="breadcrumbs-img" style="background-image: url(${pageContext.request.contextPath}/images/cover-img-1.jpg);">
-							<h2>Men's</h2>
+						<div class="breadcrumbs-img" style="background-image: url(${pageContext.request.contextPath}/images/women1.jpg);">
+							<h2>WOMEN'S</h2>
 						</div>
-						<div class="menu text-center">
-							<p><a href="#">New Arrivals</a> <a href="#">Best Sellers</a> <a href="#">Extended Widths</a> <a href="#">Sale</a></p>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="colorlib-featured">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-4 text-center">
-						<div class="featured">
-							<div class="featured-img featured-img-2" style="background-image: url(${pageContext.request.contextPath}/images/men.jpg);">
-								<h2>Casuals</h2>
-								<p><a href="#" class="btn btn-primary btn-lg">Shop now</a></p>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-4 text-center">
-						<div class="featured">
-							<div class="featured-img featured-img-2" style="background-image: url(${pageContext.request.contextPath}/images/women.jpg);">
-								<h2>Dress</h2>
-								<p><a href="#" class="btn btn-primary btn-lg">Shop now</a></p>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-4 text-center">
-						<div class="featured">
-							<div class="featured-img featured-img-2" style="background-image: url(${pageContext.request.contextPath}/images/item-11.jpg);">
-								<h2>Sports</h2>
-								<p><a href="#" class="btn btn-primary btn-lg">Shop now</a></p>
-							</div>
+						<div class="menu text-left">
+							<p><a href="${pageContext.request.contextPath}/foot/list_women_lady">구두</a>  &nbsp; &nbsp; &nbsp; &nbsp;
+							   <a href="${pageContext.request.contextPath}/foot/list_women_sneakers">스니커즈</a>  &nbsp; &nbsp; &nbsp; &nbsp;
+							   <a href="${pageContext.request.contextPath}/foot/list_women_outdoor">아웃도어</a>  &nbsp; &nbsp; &nbsp; &nbsp;
+							   <a href="${pageContext.request.contextPath}/foot/list_women_running">운동화</a></p>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="colorlib-product">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
-						<h2>View All Products</h2>
-					</div>
-				</div>
+<!-- 		<div class="colorlib-featured"> -->
+<!-- 			<div class="container"> -->
+<!-- 				<div class="row"> -->
+<!-- 					<div class="col-sm-4 text-center"> -->
+<!-- 						<div class="featured"> -->
+<%-- 							<div class="featured-img featured-img-2" style="background-image: url(${pageContext.request.contextPath}/images/men.jpg);"> --%>
+<!-- 								<h2>Casuals</h2> -->
+<!-- 								<p><a href="#" class="btn btn-primary btn-lg">Shop now</a></p> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 					<div class="col-sm-4 text-center"> -->
+<!-- 						<div class="featured"> -->
+<%-- 							<div class="featured-img featured-img-2" style="background-image: url(${pageContext.request.contextPath}/images/women.jpg);"> --%>
+<!-- 								<h2>Dress</h2> -->
+<!-- 								<p><a href="#" class="btn btn-primary btn-lg">Shop now</a></p> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 					<div class="col-sm-4 text-center"> -->
+<!-- 						<div class="featured"> -->
+<%-- 							<div class="featured-img featured-img-2" style="background-image: url(${pageContext.request.contextPath}/images/item-11.jpg);"> --%>
+<!-- 								<h2>Sports</h2> -->
+<!-- 								<p><a href="#" class="btn btn-primary btn-lg">Shop now</a></p> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
+<!-- 		</div> -->
+
 				<div class="colorlib-product">
 			<div class="container">
 				<div class="row">
