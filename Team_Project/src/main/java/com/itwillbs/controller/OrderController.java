@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.itwillbs.domain.CartDTO;
 import com.itwillbs.domain.CartListDTO;
 import com.itwillbs.domain.MemberDTO;
+import com.itwillbs.domain.Order_detailDTO;
 import com.itwillbs.domain.Order_memberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
@@ -102,7 +103,14 @@ public class OrderController {
 		o_memberDTO.setO_memo(request.getParameter("o_memo"));
 		
 		productService.insertO_member(o_memberDTO);
+		List<Order_memberDTO> o_memberDTO2 = new ArrayList<Order_memberDTO>();
+		o_memberDTO2=productService.getO_idx(o_memberDTO);
 		
+		o_memberDTO = new Order_memberDTO();
+		Order_detailDTO o_detailDTO = new Order_detailDTO();
+		o_memberDTO.setO_idx(o_memberDTO2.get(0).getO_idx());
+		o_memberDTO.setM_idx(Integer.parseInt(request.getParameter("m_idx")));
+		productService.insertO_detail(o_memberDTO);
 		return "foot/order_Ok";
 	}
 	

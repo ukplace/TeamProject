@@ -10,6 +10,7 @@ import com.itwillbs.dao.ProductDAO;
 import com.itwillbs.domain.CartDTO;
 import com.itwillbs.domain.CartListDTO;
 import com.itwillbs.domain.MemberDTO;
+import com.itwillbs.domain.Order_detailDTO;
 import com.itwillbs.domain.Order_memberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
@@ -166,6 +167,18 @@ public class ProductServiceImpl implements ProductService {
 	public void insertO_member(Order_memberDTO o_memberDTO) {
 		productDAO.insertO_member(o_memberDTO);
 		
+	}
+
+	@Override
+	public List<Order_memberDTO> getO_idx(Order_memberDTO o_memberDTO) {
+		
+		return productDAO.getO_idx(o_memberDTO);
+	}
+
+	@Override
+	public void insertO_detail(Order_memberDTO order_memberDTO) {
+		
+		productDAO.insertO_detail(order_memberDTO);
 	}
 
 	

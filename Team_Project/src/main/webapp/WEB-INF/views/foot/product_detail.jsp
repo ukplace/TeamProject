@@ -88,7 +88,6 @@
 		<jsp:include page="../inc/top.jsp"></jsp:include>
 		<!-- 헤더들어가는곳 -->
 	</nav>
-	<form method= "post" name="detailForm" >                     
 
 <!-- 주문 form -->
 <!--method="post" class="colorlib-form" name="Direct_order" action="${pageContext.request.contextPath}/foot/Direct_order"  -->	
@@ -273,7 +272,6 @@
 							
 						</div>
 					</div>
-							</form>
 				</div>
 
 				<div class="row">

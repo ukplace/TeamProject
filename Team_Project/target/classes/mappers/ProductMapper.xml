@@ -140,9 +140,12 @@
 		
 		<insert id="insertO_detail">
 			insert into order_detail (o_idx,p_num,cart_count)
-			select #{o_idx},p_num,cart_count
-			from cart WHERE m_idx=#{m_idx}
+			select #{o_idx},p_num,cart_count from cart WHERE m_idx=#{m_idx}
+			
 		</insert>		
-
+		
+		<select id="getO_idx" resultType="com.itwillbs.domain.Order_memberDTO">
+			select * from order_member where m_idx=#{m_idx} order by o_idx desc 
+		</select>
 	
 </mapper>
