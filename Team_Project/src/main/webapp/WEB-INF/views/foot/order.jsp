@@ -41,23 +41,23 @@
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 	
 	<script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
-	<script type="text/javascript">
-	
-	$(document).ready(function(){
-		$('#kakaoPay').click(function(){
+ <script type="text/javascript">
+ 		function deleteCart(cart){
+// 			var check = $(this).attr("name");
+// 			alert(check);
+		if(confirm("정말 삭제하시겠습니까?")) {
 			$.ajax({
-				url:'${pageContext.request.contextPath}/foot/kakaoPay.cls',
-				dataType:'json',
+				url: '${pageContext.request.contextPath}/foot/cartDelete?cart_idx='+cart.value,
+				
 				success:function(data){
-					var box = data.next_redirect_pc_url;
-					location.href = box;
-				},
-				error:function(error){
-					alert(error);
+					if(data == "deletedSuccess") {
+						history.go(0);	
+					}
 				}
-			});
-		});
-	});	
+			}); // end ajax
+		}
+ 		};
+	
 	
 	</script>	
 	
@@ -106,10 +106,6 @@
 
 
 	</head>
-	
-	
-	
-	
 	
 	
 	<body>
@@ -391,18 +387,6 @@
 						   <div class="col-md-12">
 								<div class="cart-detail">
 									<h2>Payment Method</h2>
-									<div class="form-group">
-										<div class="col-md-12">
-											<div class="radio">
-											   <form action="${pageContext.request.contextPath}/foot/kakaoPay.cls" method="post" >
-											   <label> 
-											   <button type="submit" style="padding:0; border:none; background:none; float: right;" id="kakaoPay">
-												 <img src="${pageContext.request.contextPath}/resources/images/kakaoPay.png" alt="kakaoKay"></button>
-												 </label>
-												 </form>
-											</div>
-										</div>
-									</div>
 									<div class="form-group">
 										<div class="col-md-12">
 											<div class="radio">

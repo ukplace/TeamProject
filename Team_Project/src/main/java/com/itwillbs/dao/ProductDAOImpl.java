@@ -193,6 +193,13 @@ public class ProductDAOImpl implements ProductDAO {
 	public void insertO_detail(Order_memberDTO order_memberDTO) {
 		sqlSession.insert(namespace+".insertO_detail", order_memberDTO);
 	}
+	
+	@Override	
+	public void deleteCart(int m_idx) {
+		System.out.println("ProductDAOImpl.deleteCart()");
+		sqlSession.delete(namespace+".deleteCart1", m_idx);
+		
+	}
 
 
 	

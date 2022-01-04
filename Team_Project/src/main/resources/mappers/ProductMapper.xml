@@ -143,6 +143,9 @@
 			select #{o_idx},p_num,cart_count from cart WHERE m_idx=#{m_idx}
 			
 		</insert>		
+		<delete id="deleteCart1">
+			delete from cart where m_idx=#{m_idx}
+		</delete>
 		
 		<select id="getO_idx" resultType="com.itwillbs.domain.Order_memberDTO">
 			select * from order_member where m_idx=#{m_idx} order by o_idx desc 

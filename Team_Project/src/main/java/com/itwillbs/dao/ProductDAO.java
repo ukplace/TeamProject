@@ -72,5 +72,6 @@ public interface ProductDAO {
 	public List<Order_memberDTO> getO_idx(Order_memberDTO o_memberDTO);
 
 	public void insertO_detail(Order_memberDTO Order_memberDTO);
+	public void deleteCart(int m_idx);
 
 }

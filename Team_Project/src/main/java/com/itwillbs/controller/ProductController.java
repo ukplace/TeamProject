@@ -351,6 +351,8 @@ public class ProductController {
 		return "foot/list_kids_sneakers";
 	}
 	
+	
+	
 	// 위시리스트
 	@RequestMapping(value = "/foot/wishlist", method = RequestMethod.GET)
 	public String wishlist() {

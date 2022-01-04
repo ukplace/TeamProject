@@ -180,6 +180,11 @@ public class ProductServiceImpl implements ProductService {
 		
 		productDAO.insertO_detail(order_memberDTO);
 	}
+	@Override
+	public void deleteCart(int m_idx) {
+		System.out.println("ProductServiceImpl.deleteCart()");
+		productDAO.deleteCart(m_idx);
+	}
 
 	
 	

@@ -91,7 +91,7 @@ public class OrderController {
 	}
 	
 	@RequestMapping(value = "/foot/order_Ok", method = RequestMethod.GET)
-	public String order_Ok(HttpServletRequest request) {
+	public String order_Ok(HttpServletRequest request, HttpSession session) {
 		Order_memberDTO o_memberDTO = new Order_memberDTO();
 		
 		o_memberDTO.setM_idx(Integer.parseInt(request.getParameter("m_idx")));
@@ -111,6 +111,14 @@ public class OrderController {
 		o_memberDTO.setO_idx(o_memberDTO2.get(0).getO_idx());
 		o_memberDTO.setM_idx(Integer.parseInt(request.getParameter("m_idx")));
 		productService.insertO_detail(o_memberDTO);
+		
+		MemberDTO memberDTO = new MemberDTO();
+		 memberDTO.setM_idx((Integer)session.getAttribute("m_idx"));
+		 int m_idx = memberDTO.getM_idx();
+		 // 받아온 m_idx 값으로 productService - deleteCart(m_idx) 호출
+		productService.deleteCart(m_idx);
+		
+		
 		return "foot/order_Ok";
 	}
 	
