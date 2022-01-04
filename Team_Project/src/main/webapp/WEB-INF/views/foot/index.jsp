@@ -52,18 +52,17 @@
 		<aside id="colorlib-hero">
 			<div class="flexslider">
 				<ul class="slides">
-			   	<li style="background-image: url(${pageContext.request.contextPath}/images/img_bg_1.jpg);">
+			   	<li style="background-image: url(${pageContext.request.contextPath}/images/indexMain1.jpg);">
 			   		<div class="overlay"></div>
 			   		<div class="container-fluid">
 			   			<div class="row">
 				   			<div class="col-sm-6 offset-sm-3 text-center slider-text">
 				   				<div class="slider-text-inner">
 				   					<div class="desc">
-					   					<h1 class="head-1">Men's</h1>
+					   					<h1 class="head-1">Men'S</h1>
 					   					<h2 class="head-2">Shoes</h2>
 					   					<h2 class="head-3">Collection</h2>
-					   					<p class="category"><span>New trending shoes</span></p>
-					   					<p><a href="#" class="btn btn-primary">Shop Collection</a></p>
+					   					<p><a href="${pageContext.request.contextPath}/foot/list_men" class="btn btn-primary">Shop Collection</a></p>
 				   					</div>
 				   				</div>
 				   			</div>
@@ -77,29 +76,27 @@
 				   			<div class="col-sm-6 offset-sm-3 text-center slider-text">
 				   				<div class="slider-text-inner">
 				   					<div class="desc">
-					   					<h1 class="head-1">Huge</h1>
-					   					<h2 class="head-2">Sale</h2>
-					   					<h2 class="head-3"><strong class="font-weight-bold">50%</strong> Off</h2>
-					   					<p class="category"><span>Big sale sandals</span></p>
-					   					<p><a href="#" class="btn btn-primary">Shop Collection</a></p>
+					   					<h1 class="head-1">WOMEN'S</h1>
+					   					<h2 class="head-2">Shoes</h2>
+					   					<h2 class="head-3">Collection</h2>
+					   					<p><a href="${pageContext.request.contextPath}/foot/list_women" class="btn btn-primary">Shop Collection</a></p>
 				   					</div>
 				   				</div>
 				   			</div>
 				   		</div>
 			   		</div>
 			   	</li>
-			   	<li style="background-image: url(${pageContext.request.contextPath}/images/img_bg_3.jpg);">
+			   	<li style="background-image: url(${pageContext.request.contextPath}/images/indexMain2.jpg);">
 			   		<div class="overlay"></div>
 			   		<div class="container-fluid">
 			   			<div class="row">
 				   			<div class="col-sm-6 offset-sm-3 text-center slider-text">
 				   				<div class="slider-text-inner">
 				   					<div class="desc">
-					   					<h1 class="head-1">New</h1>
-					   					<h2 class="head-2">Arrival</h2>
-					   					<h2 class="head-3">up to <strong class="font-weight-bold">30%</strong> off</h2>
-					   					<p class="category"><span>New stylish shoes for men</span></p>
-					   					<p><a href="#" class="btn btn-primary">Shop Collection</a></p>
+					   					<h1 class="head-1">KID'S</h1>
+					   					<h2 class="head-2">Shoes</h2>
+					   					<h2 class="head-3">Collection</h2>
+					   					<p><a href="${pageContext.request.contextPath}/foot/list_kids" class="btn btn-primary">Shop Collection</a></p>
 				   					</div>
 				   				</div>
 				   			</div>
@@ -123,17 +120,17 @@
 				<div class="row">
 					<div class="col-sm-6 text-center">
 						<div class="featured">
-							<a href="#" class="featured-img" style="background-image: url(${pageContext.request.contextPath}/images/men.jpg);"></a>
+							<a href="${pageContext.request.contextPath}/foot/list_men" class="featured-img" style="background-image: url(${pageContext.request.contextPath}/images/men1.1.jpg);"></a>
 							<div class="desc">
-								<h2><a href="#">Shop Men's Collection</a></h2>
+								<h2><a href="${pageContext.request.contextPath}/foot/list_men">Shop Men's Collection</a></h2>
 							</div>
 						</div>
 					</div>
 					<div class="col-sm-6 text-center">
 						<div class="featured">
-							<a href="#" class="featured-img" style="background-image: url(${pageContext.request.contextPath}/images/women.jpg);"></a>
+							<a href="${pageContext.request.contextPath}/foot/list_women" class="featured-img" style="background-image: url(${pageContext.request.contextPath}/images/women.jpg);"></a>
 							<div class="desc">
-								<h2><a href="#">Shop Women's Collection</a></h2>
+								<h2><a href="${pageContext.request.contextPath}/foot/list_women">Shop Women's Collection</a></h2>
 							</div>
 						</div>
 					</div>

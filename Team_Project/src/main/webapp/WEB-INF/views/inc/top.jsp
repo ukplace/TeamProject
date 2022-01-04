@@ -114,12 +114,12 @@ text-decoration: underline;
 								<div class="owl-carousel2">
 									<div class="item">
 										<div class="col">
-											<h3><a href="#">25% off (Almost) Everything! Use Code: Summer Sale</a></h3>
+											<h3><a href="${pageContext.request.contextPath}/foot/join"> ▶ ▷ 회 원 가 입 하 고 &nbsp;  편 하 게 &nbsp; 쇼 핑 하 기 ◀ ◁</a></h3>
 										</div>
 									</div>
 									<div class="item">
 										<div class="col">
-											<h3><a href="#">Our biggest sale yet 50% off all summer shoes</a></h3>
+											<h3><a href="${pageContext.request.contextPath}/center/notice_list"> ✔ 교 환 &nbsp; ✔ 반 품 은 &nbsp; 고 객 센 터 &nbsp; 문 의 </a></h3>
 										</div>
 									</div>
 								</div>
