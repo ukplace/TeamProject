@@ -42,15 +42,13 @@
 	
 <script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
  <script type="text/javascript">
- 	$(document).ready(function(){
- 		$('#closed').click(function(){
+ 		function deleteCart(cart){
 // 			var check = $(this).attr("name");
 // 			alert(check);
 		if(confirm("정말 삭제하시겠습니까?")) {
 			$.ajax({
-				url: '${pageContext.request.contextPath}/foot/cartDelete',
-				data: {cart_idx : $(this).attr("name")},
-// 					 p_num : $('#p_num').val(),
+				url: '${pageContext.request.contextPath}/foot/cartDelete?cart_idx='+cart.value,
+				
 				success:function(data){
 					if(data == "deletedSuccess") {
 						history.go(0);	
@@ -58,9 +56,11 @@
 				}
 			}); // end ajax
 		}
- 		});
- 	});
+ 		};
  	
+ 	
+
+
 </script>
 	
 
@@ -140,13 +140,13 @@
 						</div>
 						
 					<c:set var="sum" value="0"/>
-						<c:forEach var="cartListDTO" items="${cartList }">
+						<c:forEach var="cartListDTO" items="${cartList }" varStatus="status">
 						<div class="product-cart d-flex">
 							<div class="one-forth">
 								<div class="product-img" style="background-image: url(${pageContext.request.contextPath}${cartListDTO.p_thumImg}">
 								</div>
 								<div class="display-tc">
-									<h3>${cartListDTO.p_name} </h3>
+									<h3>${cartListDTO.p_name}    (사이즈 : ${cartListDTO.p_size}) </h3>
 								</div>
 							</div>
 							<div class="one-eight text-center">
@@ -166,7 +166,8 @@
 							</div>
 							<div class="one-eight text-center">
 								<div class="display-tc">
-								<input type="button" class="closed" id="closed" name="${cartListDTO.cart_idx}" >
+								<input type="hidden" name=cart${status.index} value="${cartListDTO.cart_idx }">
+								<input type="button" class="closed" id="closed" onclick="deleteCart(cart${status.index})" >
 								</div>
 							</div>
 						</div>

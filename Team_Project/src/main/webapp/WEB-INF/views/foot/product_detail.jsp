@@ -173,10 +173,12 @@
 							<div class="size-wrap">
 								<div class="block-26 mb-2">
 									<h4>Size</h4>
-				               <ul id="pd_size_list">
-								  <c:forEach var="qtyDTO" items="${qtyList }">				               
-				               	  <li value="${qtyDTO.p_size }"><a href="#"><c:out value="${qtyDTO.p_size }"></c:out></a></li>
-				               	  </c:forEach>	
+				               <p>
+								<select name=p_size${status.index}>
+									<option value="">사이즈선택</option>
+									<c:forEach var="qtyDTO" items="${qtyList }" varStatus="status">		
+									<option value="${qtyList[status.index].p_size }">${qtyList[status.index].p_size }</option>		               
+									</c:forEach>	
 <!-- 				                  <li value="220" hidden=""><a href="#">220</a></li> -->
 <!-- 				                  <li value="225" hidden=""><a href="#">225</a></li> -->
 <!-- 				                  <li value="230" hidden=""><a href="#">230</a></li> -->
@@ -191,7 +193,8 @@
 <!-- 				                  <li value="275" hidden=""><a href="#">275</a></li> -->
 <!-- 				                  <li value="280" hidden=""><a href="#">280</a></li> -->
 <!-- 				                  <li value="285" hidden=""><a href="#">285</a></li> -->
-				               </ul>
+								</select>
+				               </p>
 				            </div>
 							</div>
 					<br>
