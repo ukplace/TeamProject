@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -55,20 +55,20 @@
 			<div class="container">
 				<div class="row">
 					<div class="col">
-						<p class="bread"><span><a href="/foot/index/">Home</a></span> / <span>Men</span></p>
+						<p class="bread"><span><a href="/foot/index/">Home</a></span> / <span>Men</span> 
 					</div>
 				</div>
 			</div>
 		</div>
-
+</div>
 		<div class="breadcrumbs-two">
 			<div class="container">
 				<div class="row">
 					<div class="col">
-						<div class="breadcrumbs-img" style="background-image: url(${pageContext.request.contextPath}/images/menmain.jpg);">
+						<div class="breadcrumbs-img" style="background-image: url(${pageContext.request.contextPath}/images/men11.jpg);">
 							<h2>Men's</h2>
 						</div>
-						<div class="menu text-left">
+						<div class="menu text-center">
 							<p><a href="${pageContext.request.contextPath}/foot/list_men_gentleman">구두</a> &nbsp; &nbsp; &nbsp; &nbsp; 
 							<a href="${pageContext.request.contextPath}/foot/list_men_sneakers">스니커즈</a> &nbsp; &nbsp; &nbsp; &nbsp; 
 							<a href="${pageContext.request.contextPath}/foot/list_men_outdoor">아웃도어</a> &nbsp; &nbsp; &nbsp; &nbsp; 
@@ -79,36 +79,35 @@
 			</div>
 		</div>
 
-		<%-- <div class="colorlib-featured">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-4 text-center">
-						<div class="featured">
-							<div class="featured-img featured-img-2" style="background-image: url(${pageContext.request.contextPath}/images/men.jpg);">
-								<h2>Casuals</h2>
-								<p><a href="#" class="btn btn-primary btn-lg">Shop now</a></p>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-4 text-center">
-						<div class="featured">
-							<div class="featured-img featured-img-2" style="background-image: url(${pageContext.request.contextPath}/images/women.jpg);">
-								<h2>Dress</h2>
-								<p><a href="#" class="btn btn-primary btn-lg">Shop now</a></p>
-							</div>
-						</div>
-					</div>
-					<div class="col-sm-4 text-center">
-						<div class="featured">
-							<div class="featured-img featured-img-2" style="background-image: url(${pageContext.request.contextPath}/images/item-11.jpg);">
-								<h2>Sports</h2>
-								<p><a href="#" class="btn btn-primary btn-lg">Shop now</a></p>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div> --%>
+<!-- 		<div class="colorlib-featured"> -->
+<!-- 			<div class="container"> -->
+<!-- 				<div class="row"> -->
+<!-- 					<div class="col-sm-4 text-center"> -->
+<!-- 						<div class="featured"> -->
+<%-- 							<div class="featured-img featured-img-2" style="background-image: url(${pageContext.request.contextPath}/images/men.jpg);"> --%>
+<!-- 								<h2>Casuals</h2> -->
+<!-- 								<p><a href="#" class="btn btn-primary btn-lg">Shop now</a></p> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 					<div class="col-sm-4 text-center"> -->
+<!-- 						<div class="featured"> -->
+<%-- 							<div class="featured-img featured-img-2" style="background-image: url(${pageContext.request.contextPath}/images/women.jpg);"> --%>
+<!-- 								<h2>Dress</h2> -->
+<!-- 								<p><a href="#" class="btn btn-primary btn-lg">Shop now</a></p> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 					<div class="col-sm-4 text-center"> -->
+<!-- 						<div class="featured"> -->
+<%-- 							<div class="featured-img featured-img-2" style="background-image: url(${pageContext.request.contextPath}/images/item-11.jpg);"> --%>
+<!-- 								<h2>Sports</h2> -->
+<!-- 								<p><a href="#" class="btn btn-primary btn-lg">Shop now</a></p> -->
+<!-- 							</div> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+<!-- 			</div> -->
 
 		<div class="colorlib-product">
 			<div class="container">
@@ -117,7 +116,14 @@
 						<h2>View All Products</h2>
 					</div>
 				</div>
-					<!-- Men 제품리스트 받아오는 부분 -->
+			<div class="colorlib-product">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
+						<h2>View All Products</h2>
+					</div>
+				</div>
+									<!-- Men 제품리스트 받아오는 부분 -->
 					<c:forEach var="productDTO" items="${productMenList}">
 					<div class="col-md-3 col-lg-3 mb-4 text-center" >
 						<div class="product-entry border" >
@@ -164,6 +170,7 @@
 				</div>
 			</div>
 		</div>
+</div>
 		<div class="colorlib-partner">
 			<div class="container">
 				<div class="row">
@@ -196,6 +203,7 @@
 			<jsp:include page="../inc/bottom.jsp"></jsp:include>
 			<!-- 푸터들어가는곳 -->
 		</footer>
+	</div>
 
 	<div class="gototop js-top">
 		<a href="#" class="js-gotop"><i class="ion-ios-arrow-up"></i></a>

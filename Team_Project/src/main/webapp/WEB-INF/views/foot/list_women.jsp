@@ -65,10 +65,10 @@
 			<div class="container">
 				<div class="row">
 					<div class="col">
-						<div class="breadcrumbs-img" style="background-image: url(${pageContext.request.contextPath}/images/women3.jpg);">
+						<div class="breadcrumbs-img" style="background-image: url(${pageContext.request.contextPath}/images/women8.jpg);">
 							<h2>WOMEN'S</h2>
 						</div>
-						<div class="menu text-left">
+						<div class="menu text-center">
 							<p><a href="${pageContext.request.contextPath}/foot/list_women_lady">구두</a>  &nbsp; &nbsp; &nbsp; &nbsp;
 							   <a href="${pageContext.request.contextPath}/foot/list_women_sneakers">스니커즈</a>  &nbsp; &nbsp; &nbsp; &nbsp;
 							   <a href="${pageContext.request.contextPath}/foot/list_women_outdoor">아웃도어</a>  &nbsp; &nbsp; &nbsp; &nbsp;

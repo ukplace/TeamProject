@@ -14,8 +14,7 @@
 
 	<!-- 전체 상품 검색 -->
 	<select id="getProductList" resultType="com.itwillbs.domain.ProductDTO">
-		select * from product p left outer join product_qty pq
-		on p.p_num = pq.p_num
+		select * from product 
 		<include refid="searchDTO"></include>
 		limit #{startRow},#{pageSize}
 	</select>
