@@ -6,6 +6,7 @@ cart_idx int primary key auto_increment,
 m_idx int,
 p_num int,
 cart_count int,
+p_size varchar(45),
 foreign key (m_idx) references member (m_idx),
 foreign key (p_num) references product (p_num)
 );
@@ -17,6 +18,10 @@ public class CartDTO {
 	private int m_idx;
 	private int p_num;
 	private int cart_count;
+	
+	// cart 테이블에 p_size 컬럼 추가
+	private String p_size;
+	
 	public int getCart_idx() {
 		return cart_idx;
 	}
@@ -42,7 +47,13 @@ public class CartDTO {
 		this.cart_count = cart_count;
 	}
 	
-	
+	// p_size Getter/Setter 추가
+	public String getP_size() {
+		return p_size;
+	}
+	public void setP_size(String p_size) {
+		this.p_size = p_size;
+	}
 	
 	
 	

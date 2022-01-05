@@ -40,26 +40,6 @@
 	<!-- Theme style  -->
 	<link rel="stylesheet" href="${pageContext.request.contextPath}/css/style.css">
 	
-	<script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
- <script type="text/javascript">
- 		function deleteCart(cart){
-// 			var check = $(this).attr("name");
-// 			alert(check);
-		if(confirm("정말 삭제하시겠습니까?")) {
-			$.ajax({
-				url: '${pageContext.request.contextPath}/foot/cartDelete?cart_idx='+cart.value,
-				
-				success:function(data){
-					if(data == "deletedSuccess") {
-						history.go(0);	
-					}
-				}
-			}); // end ajax
-		}
- 		};
-	
-	
-	</script>	
 	
 	  <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 	<script>
@@ -177,6 +157,8 @@
 							<div class="one-forth text-left px-4">
 								<span>Product Details</span>
 							</div>
+							<div class="one-eight text-center px-4">
+							</div>
 							<div class="one-eight text-center">
 								<span>Price</span>
 							</div>
@@ -186,9 +168,6 @@
 							<div class="one-eight text-center">
 								<span>Total</span>
 							</div>
-							<div class="one-eight text-center px-4">
-								<span>Remove</span>
-							</div>
 						</div>
 						<c:set var="sum" value="0"/>
 						<c:forEach var="cartListDTO" items="${cartList }">
@@ -197,7 +176,11 @@
 								<div class="product-img" style="background-image: url(${pageContext.request.contextPath}${cartListDTO.p_thumImg}">
 								</div>
 								<div class="display-tc">
-									<h3>${cartListDTO.p_name} </h3>
+									<h3>${cartListDTO.p_name}  (사이즈 : ${cartListDTO.p_size}) </h3>
+								</div>
+							</div>
+							<div class="one-eight text-center">
+								<div class="display-tc">
 								</div>
 							</div>
 							<div class="one-eight text-center">
@@ -213,11 +196,6 @@
 							<div class="one-eight text-center">
 								<div class="display-tc">
 									<span class="price">${cartListDTO.p_price * cartListDTO.cart_count }</span>
-								</div>
-							</div>
-							<div class="one-eight text-center">
-								<div class="display-tc">
-									<a href="#" class="closed"></a>
 								</div>
 							</div>
 						</div>
@@ -238,7 +216,7 @@
 						          <input type="hidden" id="order_idx" name="order_idx" value="">
 						          <input type="hidden" id="m_idx" name="m_idx" value="${memberDTO.m_idx}">
 						          <input type="hidden" id="p_num" name="p_num" value="${cartListDTO.p_num}">
-			                  		
+		                  		  <input type="hidden" id="o_size" name="o_size" value="${cartListDTO.p_size}">
 			                  <!-- 할인혜택 시작 -->
 			                  
 			                    					할인/혜택
@@ -423,6 +401,8 @@
 									var o_address = $('#o_address').val(); 
 									var o_detail_address = $('#o_detail_address').val(); 
 									var o_memo = $('#memo').val();
+									var o_size = $('#o_size').val();
+									
 
 									var IMP = window.IMP; // 생략 가능
 									IMP.init("imp92591746"); // 예: imp00000000
@@ -432,7 +412,7 @@
 									     IMP.request_pay({ // param
 									         pg: "html5_inicis", // 이건 그냥고정 
 									         pay_method: "card", // 결제방법 
-									         merchant_uid: "2", //주문 번호 
+									         merchant_uid: "3"+  new Date().getTime(), //주문 번호 
 									         name: "shushu", // 상품명
 									         amount: "${totalSum}", // 가격
 									         buyer_email: "${memberDTO.m_email}",
@@ -445,7 +425,7 @@
 									//        
 									             // 결제 성공 시 로직, 주소줄로 데이터 값을 가져감. => 컨트롤러에서 리퀘스트로 가져올 수 있음.
 									         } else {
-									       	  location.href="${pageContext.request.contextPath}/foot/order_Ok?m_idx="+ m_idx +"&o_name="+ o_name +"&o_tel="+ o_tel +"&o_zip="+ o_zip +"&o_address="+ o_address +"&o_detail_address="+ o_detail_address+"&o_memo="+ o_memo;
+									       	  location.href="${pageContext.request.contextPath}/foot/order_Ok?m_idx="+ m_idx +"&o_name="+ o_name +"&o_tel="+ o_tel +"&o_zip="+ o_zip +"&o_address="+ o_address +"&o_detail_address="+ o_detail_address+"&o_memo="+ o_memo+"&totalSum="+${totalSum}+"&o_size="+o_size;
 											
 									         }
 									     });

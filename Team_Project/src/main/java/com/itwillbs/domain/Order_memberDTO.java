@@ -13,6 +13,7 @@ o_zip varchar(45) not null,
 o_address varchar(45) not null,
 o_detail_address varchar(45) not null,
 o_memo varchar(45),
+totalSum int,
 o_state varchar(45) not null default 0,
 o_date timestamp default now() not null,
 foreign key (m_idx) references member (m_idx)
@@ -27,8 +28,15 @@ foreign key (m_idx) references member (m_idx)
 	private String o_detail_address;
 	private String o_memo;
 	private String o_state;
+	private int totalSum;
 	private Timestamp o_date;
 	
+	public int getTotalSum() {
+		return totalSum;
+	}
+	public void setTotalSum(int totalSum) {
+		this.totalSum = totalSum;
+	}
 	
 	public int getO_idx() {
 		return o_idx;

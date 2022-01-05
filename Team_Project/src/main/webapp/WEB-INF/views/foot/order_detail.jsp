@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>    
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -93,23 +95,49 @@
                                                     <th class="text-center">사이즈</th>
                                                     <th class="text-center">수량</th>
                                                     <th class="text-center">상품금액</th>
-                                                    <th class="text-center">배송비</th>
+                                                    <th class="text-center">주문날짜</th>
                                                     <th class="text-center">진행상태</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                             
                                             <!-- 주문내역 시작 -->
+                                            <c:set var="sum" value="0"/>
+                                            <c:forEach var="orderDTO" items="${orderList }">
                                                 <tr >
-                                                    <td class="text-center" style="line-height:100px;">20211220-1</td>
-                                                    <td class="text-center"><img alt="shu1" src="${pageContext.request.contextPath}/images/item-6.jpg" width="150" height="100"> Deviate 나이트로 WTR 러닝화/Deviate</a></td>
-                                                    <td class="text-center" style="line-height:100px;">240</td>
-                                                    <td class="text-center" style="line-height:100px;">1</td>
-                                                    <td class="text-center" style="line-height:100px;">50,000원</td>
-                                                    <td class="text-center" style="line-height:100px;">3,000원</td>
-                                                    <td class="text-center" style="line-height:100px;">결제완료</td>
+                                                    <td class="text-center" style="line-height:100px;">${orderDTO.o_idx }</td>
+                                                    <td class="text-center"><img alt="shu1" src="${pageContext.request.contextPath}${orderDTO.p_thumImg}" width="150" height="100">
+                                                    <a href="">${orderDTO.p_name }</a></td>
+                                                    <td class="text-center" style="line-height:100px;">${orderDTO.o_size }</td>
+                                                    <td class="text-center" style="line-height:100px;">${orderDTO.cart_count }</td>
+                                                    <td class="text-center" style="line-height:100px;">${orderDTO.p_price }</td>
+                                                    <td class="text-center" style="line-height:100px;">
+                                                    <fmt:formatDate value="${orderDTO.o_date}" pattern="yyyy-MM-dd"/>
+                                                    </td>
+                                                    <td class="text-center" style="line-height:100px;">
+                                                    <c:choose>
+														<c:when test="${orderDTO.o_state eq 0 }">
+															<a href="#" class="tit">결제 완료</a>
+														</c:when>
+														<c:when test="${orderDTO.o_state eq 1 }">
+															<a href="#" class="tit">상품 준비중</a>
+														</c:when>
+														<c:when test="${orderDTO.o_state eq 2 }">
+															<a href="#" class="tit">배송중</a>
+														</c:when>
+														<c:when test="${orderDTO.o_state eq 3 }">
+															<a href="#" class="tit">수령완료</a>
+														</c:when>
+														<c:otherwise>
+															<a href="#" class="tit">없음.</a>
+														</c:otherwise>
+													</c:choose>
+                                                    </td>
                                                 </tr>
+                                                <c:set var="sum" value="${sum + (orderDTO.p_price * orderDTO.cart_count )}" />
+                                              </c:forEach>
                                                 </table>
+                                                
                                               <!-- 주문내역 끝 -->    
                                               
                                                 
@@ -117,22 +145,33 @@
                                               <table class="table table-bordered ">
                                                       <tr>
                                                     <th class="col-md-3">총 상품 가격</th>
-                                                    <td>50,000원</td>
+                                                    <td>${sum }</td>
                                                     <th style=background-color:#f5f5f5;>총 결제금액</th>
                                                 </tr>
                                                 <tr>
                                                     <th>쿠폰할인</th>
-                                                    <td>-0원<br></td>
-                                                    <th rowspan="4" style="color:teal;">53,000원</td>
+                                                    <td>0원<br></td>
+                                                    <th rowspan="4" style="color:teal;"><fmt:formatNumber pattern="###,###,###" value="${orderList[0].totalSum }" />원</th>
                                                     
                                                 </tr>
                                                 <tr>
                                                     <th>포인트사용</th>
-                                                    <td>-0원</td>
+                                                    <td>0원</td>
                                                 </tr>
                                                 <tr>
                                                     <th>배송비</th>
-                                                    <td >+3,000원</td>
+                                                    <td >
+                                                    <c:set var="Delivery" value="0" />
+											<c:choose>
+												<c:when test="${sum >=80000}">
+												<fmt:formatNumber pattern="###,###,###" value="${Delivery }" />원
+												</c:when>
+												<c:otherwise>
+											<c:set var="Delivery" value="3000" />
+												<fmt:formatNumber pattern="###,###,###" value="${Delivery }" /> 원	
+												</c:otherwise>
+											</c:choose>
+                                                    </td>
                                                 </tr>
                                        
                                             
@@ -148,22 +187,31 @@
                                                     <table class="table table-bordered ">
                                                       <tr>
                                                     <th class="text-center"  style=background-color:#f5f5f5;>배송주소</th>
-                                                    <td colspan="4">경상남도 창원시 마산합포구 장군천로38<br></td>
+                                                    <td colspan="4">${orderList[0].o_zip }${orderList[0].o_address }${orderList[0].o_detail_address }<br></td>
                                                     <th style=background-color:#f5f5f5;>주문자정보</th>
                                                 </tr>
                                                 <tr>
-                                                    <th class="text-center"  style=background-color:#f5f5f5;>받는사람</th>
-                                                    <td colspan="4">발성형<br></td>
-                                                    <td rowspan="4"><p>손성형</p><p>010-1234-5678</p><p>son123@naver.com</p></td>
+                                                    <th class="text-center"  style=background-color:#f5f5f5;>수령인</th>
+                                                    <td colspan="4">${orderList[0].o_name }<br></td>
+                                                    <td rowspan="4"><p>${memberDTO.m_name }</p><p>${memberDTO.m_tel }</p><p>${memberDTO.m_email }</p></td>
                                                     
                                                 </tr>
                                                 <tr>
                                                     <th class="text-center"  style=background-color:#f5f5f5;>연락처</th>
-                                                    <td colspan="4">010-1234-5678<br></td>
+                                                    <td colspan="4">${orderList[0].o_tel }<br></td>
                                                 </tr>
                                                 <tr>
                                                     <th class="text-center"  style=background-color:#f5f5f5;>비고</th>
-                                                    <td colspan="4">부재시 연락바랍니다.<br></td>
+                                                    <td colspan="4">
+                                                    <c:choose>
+                                                   	 <c:when test="${orderList[0].o_memo eq 'undefined' }">
+															<a href="#" class="tit">메모없음 </a>
+														</c:when>
+														<c:otherwise>
+															<a href="#" class="tit">${orderList[0].o_memo}</a>
+														</c:otherwise>
+													</c:choose>
+                                                    <br></td>
                                                 </tr>
                                        
                                             

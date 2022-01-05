@@ -10,6 +10,7 @@ import org.springframework.stereotype.Repository;
 import com.itwillbs.domain.CartDTO;
 import com.itwillbs.domain.CartListDTO;
 import com.itwillbs.domain.MemberDTO;
+import com.itwillbs.domain.OrderListDTO;
 import com.itwillbs.domain.Order_detailDTO;
 import com.itwillbs.domain.Order_memberDTO;
 import com.itwillbs.domain.PageDTO;
@@ -17,6 +18,7 @@ import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductQtyDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.SearchDTO;
+import com.itwillbs.domain.StockDTO;
 
 @Repository
 public class ProductDAOImpl implements ProductDAO {
@@ -137,7 +139,7 @@ public class ProductDAOImpl implements ProductDAO {
 		return sqlSession.selectList(namespace+".productQtyDetail", p_num);
 	}
 	
-
+	/* 장바구니 */
 	@Override
 	public void addCart(CartDTO cartDTO) {
 		CartDTO cartDTO2 = new CartDTO();
@@ -145,7 +147,9 @@ public class ProductDAOImpl implements ProductDAO {
 		
 		if(cartDTO2 !=null) {
 			cartDTO2.setCart_count(cartDTO.getCart_count()+cartDTO2.getCart_count());
-			System.out.println(cartDTO2.getCart_idx());
+			cartDTO2.setP_size(cartDTO.getP_size());
+			System.out.println("ProductDAOImpl updateCart 위한 cart_idx값 : " + cartDTO2.getCart_idx());
+			System.out.println("ProductDAOImpl updateCart 위한 p_size값 : " + cartDTO2.getP_size());
 			sqlSession.update(namespace+".updateCart", cartDTO2);
 		}else {
 			sqlSession.insert(namespace+".addCart", cartDTO);			
@@ -154,9 +158,13 @@ public class ProductDAOImpl implements ProductDAO {
 		
 	}
 
+//	@Override
+//	public CartDTO getCart(CartDTO cartDTO) {
+//		return sqlSession.selectOne(namespace+".getCart", cartDTO);
+//	}
 	@Override
-	public CartDTO getCart(CartDTO cartDTO) {
-		return sqlSession.selectOne(namespace+".getCart", cartDTO);
+	public List<CartDTO> getCart(int m_idx) {
+		return sqlSession.selectList(namespace + ".getCart", m_idx);
 	}
 
 	@Override
@@ -199,6 +207,26 @@ public class ProductDAOImpl implements ProductDAO {
 		System.out.println("ProductDAOImpl.deleteCart()");
 		sqlSession.delete(namespace+".deleteCart1", m_idx);
 		
+	}
+
+	@Override
+	public List<Order_memberDTO> OneOrderList(Order_memberDTO o_memberDTO) {
+		return sqlSession.selectList(namespace+".OneOrderList", o_memberDTO);
+	}
+
+	@Override
+	public List<OrderListDTO> getOrderList(OrderListDTO orderListDTO) {
+		return sqlSession.selectList(namespace+".getOrderList",orderListDTO);
+	}
+
+	@Override
+	public StockDTO getInformation(StockDTO stockDTO) {
+		return sqlSession.selectOne(namespace+".getInformation", stockDTO);
+	}
+
+	@Override
+	public void changeStock(StockDTO stockDTO) {
+		sqlSession.update(namespace+".changeStock", stockDTO);
 	}
 
 

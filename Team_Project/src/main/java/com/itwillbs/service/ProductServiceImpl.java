@@ -10,6 +10,7 @@ import com.itwillbs.dao.ProductDAO;
 import com.itwillbs.domain.CartDTO;
 import com.itwillbs.domain.CartListDTO;
 import com.itwillbs.domain.MemberDTO;
+import com.itwillbs.domain.OrderListDTO;
 import com.itwillbs.domain.Order_detailDTO;
 import com.itwillbs.domain.Order_memberDTO;
 import com.itwillbs.domain.PageDTO;
@@ -17,6 +18,7 @@ import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductQtyDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.SearchDTO;
+import com.itwillbs.domain.StockDTO;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -135,16 +137,20 @@ public class ProductServiceImpl implements ProductService {
 		return productDAO.productQtyDetail(p_num);
 	}
 	
-
+	/* 장바구니 */
 	@Override
 	public void addCart(CartDTO cartDTO) {
 
 		productDAO.addCart(cartDTO);
 	}
 
+//	@Override
+//	public CartDTO getCart(CartDTO cartDTO) {
+//		return productDAO.getCart(cartDTO);
+//	}
 	@Override
-	public CartDTO getCart(CartDTO cartDTO) {
-		return productDAO.getCart(cartDTO);
+	public List<CartDTO> getCart(int m_idx) {
+		return productDAO.getCart(m_idx);
 	}
 
 	@Override
@@ -184,6 +190,26 @@ public class ProductServiceImpl implements ProductService {
 	public void deleteCart(int m_idx) {
 		System.out.println("ProductServiceImpl.deleteCart()");
 		productDAO.deleteCart(m_idx);
+	}
+
+	@Override
+	public List<Order_memberDTO> OneOrderList(Order_memberDTO o_memberDTO) {
+		return productDAO.OneOrderList(o_memberDTO);
+	}
+
+	@Override
+	public List<OrderListDTO> getOrderList(OrderListDTO orderListDTO) {
+		return productDAO.getOrderList(orderListDTO);
+	}
+
+	@Override
+	public StockDTO getInformation(StockDTO stockDTO) {
+		return productDAO.getInformation(stockDTO);
+	}
+
+	@Override
+	public void changeStock(StockDTO stockDTO) {
+		productDAO.changeStock(stockDTO);
 	}
 
 	
