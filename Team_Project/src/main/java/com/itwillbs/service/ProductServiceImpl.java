@@ -18,6 +18,7 @@ import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductQtyDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.SearchDTO;
+import com.itwillbs.domain.StockDTO;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -257,8 +258,15 @@ public class ProductServiceImpl implements ProductService {
 		return productDAO.getOrderList(orderListDTO);
 	}
 
-	// MEN 카운트
-	
+	@Override
+	public StockDTO getInformation(StockDTO stockDTO) {
+		return productDAO.getInformation(stockDTO);
+	}
+
+	@Override
+	public void changeStock(StockDTO stockDTO) {
+		productDAO.changeStock(stockDTO);
+	}	
 	@Override
 	public Integer getProductGentlemanCount() {
 		// TODO Auto-generated method stub
@@ -358,6 +366,12 @@ public class ProductServiceImpl implements ProductService {
 		System.out.println("ProductServiceImpl - changeOrderState()");
 		productDAO.changeOrderState(o_memberDTO);
 	}
+	
+	@Override
+	public int getAllProduct(int p_num) {
+		return productDAO.getAllProduct(p_num);
+	}
+
 	
 	
 

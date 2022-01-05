@@ -60,14 +60,14 @@
                                             <i class="fa fa-comments fa-5x"></i>
                                         </div>
                                         <div class="col-xs-9 text-right">
-                                            <div class="huge">26</div>
-                                            <div>New Comments!</div>
+                                            <div class="huge">${total}</div>
+                                            <div>등록상품개수</div>
                                         </div>
                                     </div>
                                 </div>
                                 <a href="#">
                                     <div class="panel-footer">
-                                        <span class="pull-left">View Details</span>
+                                        <span class="pull-left"><a href="${pageContext.request.contextPath}/admin/product_list">View Details</a></span>
                                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
                                         <div class="clearfix"></div>
@@ -83,14 +83,14 @@
                                             <i class="fa fa-tasks fa-5x"></i>
                                         </div>
                                         <div class="col-xs-9 text-right">
-                                            <div class="huge">12</div>
-                                            <div>New Tasks!</div>
+                                            <div class="huge">${newOrder}</div>
+                                            <div>신규주문</div>
                                         </div>
                                     </div>
                                 </div>
                                 <a href="#">
                                     <div class="panel-footer">
-                                        <span class="pull-left">View Details</span>
+                                        <span class="pull-left"><a href="${pageContext.request.contextPath}/admin/order_list">View Details</a></span>
                                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
                                         <div class="clearfix"></div>
@@ -106,14 +106,14 @@
                                             <i class="fa fa-shopping-cart fa-5x"></i>
                                         </div>
                                         <div class="col-xs-9 text-right">
-                                            <div class="huge">124</div>
-                                            <div>New Orders!</div>
+                                            <div class="huge">${delivery}</div>
+                                            <div>배송중</div>
                                         </div>
                                     </div>
                                 </div>
                                 <a href="#">
                                     <div class="panel-footer">
-                                        <span class="pull-left">View Details</span>
+                                        <span class="pull-left"><a href="${pageContext.request.contextPath}/admin/order_list">View Details</a></span>
                                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
                                         <div class="clearfix"></div>
@@ -129,14 +129,14 @@
                                             <i class="fa fa-support fa-5x"></i>
                                         </div>
                                         <div class="col-xs-9 text-right">
-                                            <div class="huge">13</div>
-                                            <div>Support Tickets!</div>
+                                            <div class="huge">${done}</div>
+                                            <div>배송완료</div>
                                         </div>
                                     </div>
                                 </div>
                                 <a href="#">
                                     <div class="panel-footer">
-                                        <span class="pull-left">View Details</span>
+                                        <span class="pull-left"><a href="${pageContext.request.contextPath}/admin/order_list">View Details</a></span>
                                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
                                         <div class="clearfix"></div>

@@ -511,10 +511,31 @@ public class AdminController {
 	 // =============================================================================
 	 
 	 @RequestMapping(value = "/admin/index", method = RequestMethod.GET)
-	   public String index() {
-	      // /WEB-INF/views/admin/index.jsp
+	   public String index(ProductDTO productDTO, Order_memberDTO order_memberDTO, Model model) {
+		 
+		 int p_num = productDTO.getP_num();
+		 int o_idx = order_memberDTO.getO_idx();
+		 
+		 int total =  productService.getAllProduct(p_num);
+		 int newOrder = adminService.getNewOrder(o_idx);
+		 int delivery = adminService.getDelivery(o_idx);
+		 int done = adminService.getDone(o_idx);
+		 
+		 
+		 model.addAttribute("total",total); 
+		 model.addAttribute("newOrder", newOrder);
+		 model.addAttribute("delivery", delivery);
+		 model.addAttribute("done", done);
+		 
+		 
+		 
+		 
 	      return "admin/index";
 	   }
+	 
+	 
+	 
+	 
 	 
 	 @RequestMapping(value = "/admin/blank", method = RequestMethod.GET)
 	   public String blank() {
@@ -587,5 +608,11 @@ public class AdminController {
 	      // /WEB-INF/views/admin/qna_list.jsp
 	      return "admin/gongji_insert";
 	   }
+	 
+	 
+	 
+	 
+	 
+	 
 	 
 }

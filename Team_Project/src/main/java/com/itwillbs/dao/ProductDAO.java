@@ -13,6 +13,7 @@ import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductQtyDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.SearchDTO;
+import com.itwillbs.domain.StockDTO;
 
 public interface ProductDAO {
 
@@ -121,5 +122,10 @@ public interface ProductDAO {
 	// 관리자페이지 주문상태 변경
 	public void changeOrderState(Order_memberDTO o_memberDTO);
 	
+	public int getAllProduct(int p_num);
+	
+	public StockDTO getInformation(StockDTO stockDTO);
+
+	public void changeStock(StockDTO stockDTO);
 
 }
