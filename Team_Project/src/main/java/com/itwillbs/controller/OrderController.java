@@ -77,13 +77,7 @@ public class OrderController {
 		cartListDTO.setP_price(productDTO.getP_price());
 		cartListDTO.setP_thumImg(productDTO.getP_thumImg());
 		
-		System.out.println(cartListDTO.getCart_count());
-		System.out.println(cartListDTO.getCart_idx());
-		System.out.println(cartListDTO.getM_idx());
-		System.out.println(cartListDTO.getP_name());
-		System.out.println(cartListDTO.getP_num());
-		System.out.println(cartListDTO.getP_price());
-		System.out.println(cartListDTO.getP_thumImg());
+		
 		List<CartListDTO> cartList = new ArrayList<CartListDTO>();
 		cartList.add(0,cartListDTO);
 		
@@ -111,9 +105,9 @@ public class OrderController {
 		List<Order_memberDTO> o_memberDTO2 = new ArrayList<Order_memberDTO>();
 		o_memberDTO2=productService.getO_idx(o_memberDTO);
 		
-		o_memberDTO = new Order_memberDTO();
 		o_memberDTO.setO_idx(o_memberDTO2.get(0).getO_idx());
 		o_memberDTO.setM_idx(Integer.parseInt(request.getParameter("m_idx")));
+		System.out.println(o_memberDTO.toString());
 		productService.insertO_detail(o_memberDTO);
 		
 		MemberDTO memberDTO = new MemberDTO();

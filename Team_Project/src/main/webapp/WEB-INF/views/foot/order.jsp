@@ -400,7 +400,7 @@
 									var o_zip = $('#o_zip').val(); 
 									var o_address = $('#o_address').val(); 
 									var o_detail_address = $('#o_detail_address').val(); 
-									var o_memo = $('#memo').val();
+									var o_memo = $('#o_memo').val();
 									var o_size = $('#o_size').val();
 									
 
