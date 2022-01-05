@@ -96,18 +96,22 @@
 		select p_size from product_qty where p_num=#{p_num} 
 		</select>
 		
-		
+		<!-- 장바구니 -->
 		<insert id="addCart">
-			insert into cart(m_idx,p_num,cart_count) values(#{m_idx},#{p_num},#{cart_count})
+			insert into cart(m_idx,p_num,cart_count,p_size) values(#{m_idx},#{p_num},#{cart_count},#{p_size})
 		</insert>
 		
 		<select id="cartCheck" resultType="com.itwillbs.domain.CartDTO">
-			select * from cart WHERE m_idx=#{m_idx} AND p_num=#{p_num}
+			select * from cart WHERE m_idx=#{m_idx} AND p_num=#{p_num} AND p_size=#{p_size}
 		</select>
 		
 		<update id="updateCart">
-			UPDATE cart SET cart_count = #{cart_count} WHERE cart_idx = #{cart_idx}
+			UPDATE cart SET cart_count = #{cart_count} WHERE cart_idx = #{cart_idx} and p_size = #{p_size}
 		</update>
+		
+<!-- 		<select id="getCart" resultType="com.itwillbs.domain.CartDTO"> -->
+<!-- 			select * from cart WHERE m_idx=#{m_idx} and p_size = #{p_size} -->
+<!-- 		</select> -->
 		
 		<select id="getCart" resultType="com.itwillbs.domain.CartDTO">
 			select * from cart WHERE m_idx=#{m_idx}
@@ -119,11 +123,11 @@
 <!-- 		</select> -->
 
 		<select id="getCartList" resultType="com.itwillbs.domain.CartListDTO">
-			select c.cart_idx, c.m_idx, c.p_num, c.cart_count, p.p_name, p.p_price, p_thumImg, pq.p_size
+			select c.cart_idx, c.m_idx, c.p_num, c.cart_count, p.p_name, p.p_price, p_thumImg, c.p_size
 			from cart c join product p on c.p_num = p.p_num 
-			join product_qty pq on p.p_num = pq.p_num
 			where c.m_idx=#{m_idx}
 		</select>
+		<!-- 장바구니 -->
 		
 		<delete id="withdrawal">
 			delete from cart where m_idx=#{m_idx} 
