@@ -158,6 +158,15 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 
+	@Override
+	public List<ReviewDTO> getPnum(int p_num) {
+		
+		return adminDAO.getPnum(p_num);
+	}
+
+
+
+
 
 
 

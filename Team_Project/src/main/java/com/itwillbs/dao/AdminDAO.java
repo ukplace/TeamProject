@@ -53,4 +53,7 @@ public interface AdminDAO {
 
 	public List<ReviewDTO> getReviewList(PageDTO pageDTO);
 
+	public List<ReviewDTO> getPnum(int p_num);
+
+
 }

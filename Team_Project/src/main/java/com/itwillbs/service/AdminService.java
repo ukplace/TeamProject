@@ -55,6 +55,8 @@ public interface AdminService {
 
 	public List<ReviewDTO> getReviewList(PageDTO pageDTO);
 
+	public List<ReviewDTO> getPnum(int p_num);
+
 	
 	
 }

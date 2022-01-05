@@ -83,4 +83,8 @@
 	<select id="getReviewList" resultType="com.itwillbs.domain.ReviewDTO">
 		select * from review order by review_idx desc
 	</select>
+	
+	<select id="getPnum" resultType="com.itwillbs.domain.ReviewDTO">
+		select * from review where p_num=#{p_num} 
+	</select>
 </mapper>
