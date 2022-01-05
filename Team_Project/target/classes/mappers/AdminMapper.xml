@@ -81,6 +81,6 @@
 	</insert>
 	
 	<select id="getReviewList" resultType="com.itwillbs.domain.ReviewDTO">
-		select * from review order by review_idx desc where p_num=#{p_num}
+		select * from review order by review_idx desc
 	</select>
 </mapper>
