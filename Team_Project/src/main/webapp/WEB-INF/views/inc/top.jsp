@@ -105,6 +105,8 @@ text-decoration: underline;
 					</div>
 				</div>
 				<br>
+				
+				
 			
 			<div class="sale">
 				<div class="container">
@@ -112,14 +114,34 @@ text-decoration: underline;
 						<div class="col-sm-8 offset-sm-2 text-center">
 							<div class="row">
 								<div class="owl-carousel2">
-									<div class="item">
+								<c:choose>
+										<c:when test="${empty sessionScope.id }">
+										<div class="item">
 										<div class="col">
-											<h3><a href="${pageContext.request.contextPath}/foot/join"> ▶ ▷ 회 원 가 입 하 고 &nbsp;  편 하 게 &nbsp; 쇼 핑 하 기 ◀ ◁</a></h3>
+										
+											<h3><a href="${pageContext.request.contextPath}/foot/join"> ▶ ▷ &nbsp; 회 원 가 입 &nbsp;하 고 &nbsp; 편 하 게 &nbsp; 쇼 핑 하 기&nbsp; ◀ ◁</a></h3>
 										</div>
 									</div>
 									<div class="item">
 										<div class="col">
 											<h3><a href="${pageContext.request.contextPath}/center/notice_list"> ✔ 교 환 &nbsp; ✔ 반 품 은 &nbsp; 고 객 센 터 &nbsp; 문 의 </a></h3>
+											</div>
+											</div>
+										</c:when>
+										<c:otherwise>
+									<div class="item">
+										<div class="col">
+										
+											<h3><a href="${pageContext.request.contextPath}/foot/cart"> ▶ ▷ OPEN&nbsp; EVENT&nbsp; 5만원&nbsp; 이상 &nbsp;구매시&nbsp; 랜덤박스 &nbsp;증정&nbsp; ◀ ◁</a></h3>
+										</div>
+									</div>
+									<div class="item">
+										<div class="col">
+											<h3><a href="${pageContext.request.contextPath}/center/notice_list"> ✔ 교 환 &nbsp; ✔ 반 품 은 &nbsp; 고 객 센 터 &nbsp; 문 의 </a></h3>
+											</div>
+											</div>
+											</c:otherwise>
+								</c:choose>
 										</div>
 									</div>
 								</div>

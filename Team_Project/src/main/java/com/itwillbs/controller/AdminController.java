@@ -463,12 +463,18 @@ public class AdminController {
 		
 		@RequestMapping(value = "/foot/review_write", method = RequestMethod.GET)
 		public String review_write() {
+			
 			// /WEB-INF/views/foot/review_write.jsp
 			return "foot/review_write";
 		}
+		
 		@RequestMapping(value = "/foot/review_write_pro", method = RequestMethod.POST)
-		public String review_write_pro(ReviewDTO reviewDTO) {
+		public String review_write_pro(HttpServletRequest request,ReviewDTO reviewDTO,Model model) {
 			
+			int p_num = Integer.parseInt(request.getParameter("p_num"));
+			System.out.println(p_num);
+			model.addAttribute("p_num", p_num);
+
 			adminService.insertReview(reviewDTO);
 			
 			return "redirect:/foot/product_detail";
