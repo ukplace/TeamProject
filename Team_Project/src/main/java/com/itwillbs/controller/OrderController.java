@@ -30,6 +30,7 @@ import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductQtyDTO;
 import com.itwillbs.domain.ReviewDTO;
 import com.itwillbs.domain.SearchDTO;
+import com.itwillbs.domain.StockDTO;
 import com.itwillbs.service.MemberService;
 import com.itwillbs.service.ProductService;
 
@@ -113,11 +114,31 @@ public class OrderController {
 		productService.insertO_detail(o_memberDTO);
 		
 		MemberDTO memberDTO = new MemberDTO();
-		 memberDTO.setM_idx((Integer)session.getAttribute("m_idx"));
+		memberDTO.setM_idx((Integer)session.getAttribute("m_idx"));
 		 int m_idx = memberDTO.getM_idx();
-		 // 받아온 m_idx 값으로 productService - deleteCart(m_idx) 호출
-		productService.deleteCart(m_idx);
+		// 재고수량 바꿀자리
 		
+		 CartListDTO cartListDTO = new CartListDTO();
+		 cartListDTO.setM_idx(m_idx);
+		 
+		StockDTO stockDTO = new StockDTO();
+		stockDTO.setM_idx((Integer)session.getAttribute("m_idx"));
+		List<CartListDTO> cartList = productService.getCartList(cartListDTO);	// cart 정보 받아오기
+		
+		for(int i = 0; i < cartList.size(); i++) {
+		stockDTO.setP_size(cartList.get(i).getP_size());
+		stockDTO.setP_num(cartList.get(i).getP_num());
+		stockDTO.setCart_count(cartList.get(i).getCart_count());
+		//재고 수량 확인 
+		StockDTO stock = productService.getInformation(stockDTO);	//재고값 찾기
+		stockDTO.setP_stock(stock.getP_stock());
+		
+		productService.changeStock(stockDTO);
+		}
+		
+		 
+
+		productService.deleteCart(m_idx);
 		
 		return "foot/order_Ok";
 	}

@@ -18,6 +18,7 @@ import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductQtyDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.SearchDTO;
+import com.itwillbs.domain.StockDTO;
 
 @Repository
 public class ProductDAOImpl implements ProductDAO {
@@ -218,7 +219,15 @@ public class ProductDAOImpl implements ProductDAO {
 		return sqlSession.selectList(namespace+".getOrderList",orderListDTO);
 	}
 
-	//MEN 카운트
+	@Override
+	public StockDTO getInformation(StockDTO stockDTO) {
+		return sqlSession.selectOne(namespace+".getInformation", stockDTO);
+	}
+
+	@Override
+	public void changeStock(StockDTO stockDTO) {
+		sqlSession.update(namespace+".changeStock", stockDTO);
+	}
 	@Override
 	public Integer getProductGentlemanCount() {
 		return sqlSession.selectOne(namespace+".getProductGentlemanCount");
@@ -307,9 +316,15 @@ public class ProductDAOImpl implements ProductDAO {
 		return sqlSession.selectList(namespace + ".getOrderDetailList", m_idx & o_idx);
 	}
 
+	
+	public void changeOrderState(Order_memberDTO o_memberDTO) {
+		// 관리자페이지 주문상태 변경
+		System.out.println("ProductDAOImpl - changeOrderState()");
+		sqlSession.update(namespace + ".changeOrderState", o_memberDTO);
+	}
+	
 	@Override
 	public int getAllProduct() {
-		System.out.println("ProductDAOImpl - getAllProduct()");
 		return sqlSession.selectOne(namespace + ".getAllProduct");
 	}
 

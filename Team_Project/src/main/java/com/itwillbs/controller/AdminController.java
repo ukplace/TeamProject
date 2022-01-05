@@ -195,7 +195,6 @@ public class AdminController {
 			
 			List<Order_memberDTO> orderList = productService.AllOrderList(pageDTO);
 			
-			
 			// 페이징처리 - 제품리스트 전체 글 개수
 			pageDTO.setCount(adminService.getProductCount());
 			
@@ -228,7 +227,7 @@ public class AdminController {
         // /WEB-INF/views/admin/order_detail
         return "admin/order_detail";
      }
-	 
+
 	 
 	 
 	 //---------------------------회원관리------------------------------
