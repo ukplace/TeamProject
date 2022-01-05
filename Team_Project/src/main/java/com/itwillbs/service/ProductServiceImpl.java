@@ -352,6 +352,16 @@ public class ProductServiceImpl implements ProductService {
 		return productDAO.getOrderDetailList(m_idx, o_idx);
 	}
 
+	@Override
+	public int getAllProduct() {
+		return productDAO.getAllProduct();
+	}
+
+	@Override
+	public List<ProductQtyDTO> qtyCheck(ProductQtyDTO qty) {
+		return productDAO.qtyCheck(qty);
+	}
+
 	
 	
 

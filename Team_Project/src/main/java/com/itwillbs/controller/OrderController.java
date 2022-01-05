@@ -65,8 +65,6 @@ public class OrderController {
 	public String Direct_order(CartListDTO cartListDTO, HttpSession session,Model model, HttpServletResponse response) throws Exception {
 		
 		
-	
-		
 		MemberDTO member = new MemberDTO();
 		member.setM_idx((Integer)session.getAttribute("m_idx"));
 		MemberDTO memberDTO = memberService.getMember(member);
@@ -104,6 +102,7 @@ public class OrderController {
 		o_memberDTO.setO_detail_address(request.getParameter("o_detail_address"));
 		o_memberDTO.setO_memo(request.getParameter("o_memo"));
 		System.out.println(o_memberDTO.getTotalSum()+"토탈썸");
+		System.out.println(o_memberDTO.getO_memo()+"메모입력된애");
 		productService.insertO_member(o_memberDTO);
 		List<Order_memberDTO> o_memberDTO2 = new ArrayList<Order_memberDTO>();
 		o_memberDTO2=productService.getO_idx(o_memberDTO);
@@ -139,7 +138,9 @@ public class OrderController {
 	@RequestMapping(value = "/foot/order_list", method = RequestMethod.GET)
 	public String order_list(HttpSession session, Model model,HttpServletResponse response) throws Exception {
 		Order_memberDTO o_memberDTO = new Order_memberDTO();
+		OrderListDTO orderListDTO = new OrderListDTO();
 		o_memberDTO.setM_idx((Integer)session.getAttribute("m_idx"));
+		orderListDTO.setM_idx((Integer)session.getAttribute("m_idx"));
 		System.out.println(o_memberDTO.getM_idx());
 		List<Order_memberDTO> orderList = productService.OneOrderList(o_memberDTO);
 		
@@ -169,6 +170,7 @@ public class OrderController {
 		orderListDTO.setM_idx((Integer)session.getAttribute("m_idx"));
 		orderListDTO.setO_idx(Integer.parseInt(request.getParameter("o_idx")));
 		List<OrderListDTO> orderList= productService.getOrderList(orderListDTO);
+		System.out.println(orderList.get(0).getP_num());
 		
 		model.addAttribute("orderList", orderList);
 		model.addAttribute("memberDTO", memberDTO);
@@ -181,6 +183,8 @@ public class OrderController {
 		// /WEB-INF/views/foot/orderDetail.jsp
 		return "foot/order_complete";
 	}
+	
+	
 	
 	
 	

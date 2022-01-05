@@ -188,12 +188,33 @@ public class ProductController {
 		}else {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
-		List<ProductDTO> productMenList = productService.getProducMentList(pageDTO);
-		
-		// 페이징처리 - 제품리스트 전체 글 개수
 		pageDTO.setCount(productService.getProducMenCount());
 		
-		model.addAttribute("productMenList", productMenList);
+		//고객창에서 qty 설정 안하면 안보이게 하는구문 
+		List<ProductDTO> productMenList = productService.getProducMentList(pageDTO);
+		
+		// Qty 채크해서 있으면 담아주는 OkQtyMenList객체 생성 
+		List<ProductDTO> OkQtyMenList = new ArrayList<ProductDTO>();
+		
+		// 일단 모든 맨리스트를 뽑았기 때문에 productMenList 크기만큼 반복한다.
+		for(int i = 0; i<productMenList.size();i++) {
+			ProductQtyDTO qty = new ProductQtyDTO();
+			
+			// qty에 p_num i번째 p_num 을 가져와서  
+			qty.setP_num(productMenList.get(i).getP_num());
+			
+			// qty check가 있는지 확인을 한다.
+			List<ProductQtyDTO> checkqty = productService.qtyCheck(qty);
+			
+			// 이후 확인한 checkqty 가 하나라도 있으면 OkQty에 더해 준다.
+			if(checkqty.size()!=0) {
+				OkQtyMenList.add(productMenList.get(i));
+			}
+		}
+		
+		// 페이징처리 - 제품리스트 전체 글 개수
+		
+		model.addAttribute("productMenList", OkQtyMenList);
 		model.addAttribute("pageDTO", pageDTO);
 		
 		
@@ -213,13 +234,27 @@ public class ProductController {
 			} else { // 있으면 pageNum 2 로 세팅
 				pageDTO.setPageNum(request.getParameter("pageNum"));
 			}
+			pageDTO.setCount(productService.getProductWomenCount());
 			
 			List<ProductDTO> productWomenList = productService.getProductWomenList(pageDTO);
 			
-			// 페이징처리 - 제품리스트 전체 글 개수
-			pageDTO.setCount(productService.getProductWomenCount());
+			List<ProductDTO> OkQtyWomenList = new ArrayList<ProductDTO>();
 			
-			model.addAttribute("productWomenList", productWomenList);
+			for(int i = 0; i<productWomenList.size();i++) {
+				ProductQtyDTO qty = new ProductQtyDTO();
+				
+				qty.setP_num(productWomenList.get(i).getP_num());
+				
+				List<ProductQtyDTO> checkqty = productService.qtyCheck(qty);
+				
+				if(checkqty.size()!=0) {
+					OkQtyWomenList.add(productWomenList.get(i));
+				}
+			}
+			
+			// 페이징처리 - 제품리스트 전체 글 개수
+			
+			model.addAttribute("productWomenList", OkQtyWomenList);
 			model.addAttribute("pageDTO", pageDTO);
 			
 			// /WEB-INF/views/foot/list_kids
@@ -236,12 +271,25 @@ public class ProductController {
 		}else {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
+		pageDTO.setCount(productService.getProductW_OutdoorCount());
 		List<ProductDTO> productW_OutdoorList = productService.getProductW_OutdoorList(pageDTO);
 		
-		// 페이징처리 - 제품리스트 전체 글 개수
-		pageDTO.setCount(productService.getProductW_OutdoorCount());
+		List<ProductDTO> OkQtyW_OutdoorList = new ArrayList<ProductDTO>();
 		
-		model.addAttribute("productW_OutdoorList", productW_OutdoorList);
+		for(int i = 0; i<productW_OutdoorList.size();i++) {
+			ProductQtyDTO qty = new ProductQtyDTO();
+			
+			qty.setP_num(productW_OutdoorList.get(i).getP_num());
+			
+			List<ProductQtyDTO> checkqty = productService.qtyCheck(qty);
+			
+			if(checkqty.size()!=0) {
+				OkQtyW_OutdoorList.add(productW_OutdoorList.get(i));
+			}
+		}
+		// 페이징처리 - 제품리스트 전체 글 개수
+		
+		model.addAttribute("productW_OutdoorList", OkQtyW_OutdoorList);
 		model.addAttribute("pageDTO", pageDTO);
 		// /WEB-INF/views/foot/list_men
 		return "foot/list_women_outdoor";
@@ -257,12 +305,26 @@ public class ProductController {
 		}else {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
+		pageDTO.setCount(productService.getProductW_RunningCount());
 		List<ProductDTO> productW_RunningList = productService.getProductW_RunningList(pageDTO);
 		
-		// 페이징처리 - 제품리스트 전체 글 개수
-		pageDTO.setCount(productService.getProductW_RunningCount());
+		List<ProductDTO> OkQtyW_RunningList = new ArrayList<ProductDTO>();
 		
-		model.addAttribute("productW_RunningList", productW_RunningList);
+		for(int i = 0; i<productW_RunningList.size();i++) {
+			ProductQtyDTO qty = new ProductQtyDTO();
+			
+			qty.setP_num(productW_RunningList.get(i).getP_num());
+			
+			List<ProductQtyDTO> checkqty = productService.qtyCheck(qty);
+			
+			if(checkqty.size()!=0) {
+				OkQtyW_RunningList.add(productW_RunningList.get(i));
+			}
+		}
+		
+		// 페이징처리 - 제품리스트 전체 글 개수
+		
+		model.addAttribute("productW_RunningList", OkQtyW_RunningList);
 		model.addAttribute("pageDTO", pageDTO);
 		// /WEB-INF/views/foot/list_men
 		return "foot/list_women_running";
@@ -278,12 +340,24 @@ public class ProductController {
 		}else {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
-		List<ProductDTO> productW_SneakersList = productService.getProductW_SneakersList(pageDTO);
-		
-		// 페이징처리 - 제품리스트 전체 글 개수
 		pageDTO.setCount(productService.getProductW_SneakersCount());
+		List<ProductDTO> productW_SneakersList = productService.getProductW_SneakersList(pageDTO);
+		List<ProductDTO> OkQtyW_SneakersList = new ArrayList<ProductDTO>();
 		
-		model.addAttribute("productW_SneakersList", productW_SneakersList);
+		for(int i = 0; i<productW_SneakersList.size();i++) {
+			ProductQtyDTO qty = new ProductQtyDTO();
+			
+			qty.setP_num(productW_SneakersList.get(i).getP_num());
+			
+			List<ProductQtyDTO> checkqty = productService.qtyCheck(qty);
+			
+			if(checkqty.size()!=0) {
+				OkQtyW_SneakersList.add(productW_SneakersList.get(i));
+			}
+		}
+		// 페이징처리 - 제품리스트 전체 글 개수
+		
+		model.addAttribute("productW_SneakersList", OkQtyW_SneakersList);
 		model.addAttribute("pageDTO", pageDTO);
 		// /WEB-INF/views/foot/list_men
 		return "foot/list_women_sneakers";
@@ -299,12 +373,24 @@ public class ProductController {
 		}else {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
-		List<ProductDTO> productLadyList = productService.getProductLadyList(pageDTO);
-		
-		// 페이징처리 - 제품리스트 전체 글 개수
 		pageDTO.setCount(productService.getProductLadyCount());
+		List<ProductDTO> productLadyList = productService.getProductLadyList(pageDTO);
+		List<ProductDTO> OkQtyLadyList = new ArrayList<ProductDTO>();
 		
-		model.addAttribute("productLadyList", productLadyList);
+		for(int i = 0; i<productLadyList.size();i++) {
+			ProductQtyDTO qty = new ProductQtyDTO();
+			
+			qty.setP_num(productLadyList.get(i).getP_num());
+			
+			List<ProductQtyDTO> checkqty = productService.qtyCheck(qty);
+			
+			if(checkqty.size()!=0) {
+				OkQtyLadyList.add(productLadyList.get(i));
+			}
+		}
+		// 페이징처리 - 제품리스트 전체 글 개수
+		
+		model.addAttribute("productLadyList", OkQtyLadyList);
 		model.addAttribute("pageDTO", pageDTO);
 		
 		// /WEB-INF/views/foot/list_men
@@ -324,13 +410,26 @@ public class ProductController {
 		} else { // 있으면 pageNum 2 로 세팅
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
+		pageDTO.setCount(productService.getProductKidsCount());
 		
 		List<ProductDTO> productKidsList = productService.getProductKidsList(pageDTO);
 		
-		// 페이징처리 - 제품리스트 전체 글 개수
-		pageDTO.setCount(productService.getProductKidsCount());
+		List<ProductDTO> OkQtyKidsList = new ArrayList<ProductDTO>();
 		
-		model.addAttribute("productKidsList", productKidsList);
+		for(int i = 0; i<productKidsList.size();i++) {
+			ProductQtyDTO qty = new ProductQtyDTO();
+			
+			qty.setP_num(productKidsList.get(i).getP_num());
+			
+			List<ProductQtyDTO> checkqty = productService.qtyCheck(qty);
+			
+			if(checkqty.size()!=0) {
+				OkQtyKidsList.add(productKidsList.get(i));
+			}
+		}
+		// 페이징처리 - 제품리스트 전체 글 개수
+		
+		model.addAttribute("productKidsList", OkQtyKidsList);
 		model.addAttribute("pageDTO", pageDTO);
 		
 		// /WEB-INF/views/foot/list_kids
@@ -348,12 +447,25 @@ public class ProductController {
 		}else {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
+		pageDTO.setCount(productService.getProductK_KidCount());
 		List<ProductDTO> productK_KidList = productService.getProductK_KidList(pageDTO);
 		
-		// 페이징처리 - 제품리스트 전체 글 개수
-		pageDTO.setCount(productService.getProductK_KidCount());
+		List<ProductDTO> OkQtyK_KidList = new ArrayList<ProductDTO>();
 		
-		model.addAttribute("productK_KidList", productK_KidList);
+		for(int i = 0; i<productK_KidList.size();i++) {
+			ProductQtyDTO qty = new ProductQtyDTO();
+			
+			qty.setP_num(productK_KidList.get(i).getP_num());
+			
+			List<ProductQtyDTO> checkqty = productService.qtyCheck(qty);
+			
+			if(checkqty.size()!=0) {
+				OkQtyK_KidList.add(productK_KidList.get(i));
+			}
+		}
+		// 페이징처리 - 제품리스트 전체 글 개수
+		
+		model.addAttribute("productK_KidList", OkQtyK_KidList);
 		model.addAttribute("pageDTO", pageDTO);
 		// /WEB-INF/views/foot/list_men
 		return "foot/list_kids_kid";
@@ -369,12 +481,24 @@ public class ProductController {
 		}else {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
-		List<ProductDTO> productK_RunningList = productService.getProductK_RunningList(pageDTO);
-		
-		// 페이징처리 - 제품리스트 전체 글 개수
 		pageDTO.setCount(productService.getProductK_RunningCount());
+		List<ProductDTO> productK_RunningList = productService.getProductK_RunningList(pageDTO);
+		List<ProductDTO> OkQtyK_RunningList = new ArrayList<ProductDTO>();
 		
-		model.addAttribute("productK_RunningList", productK_RunningList);
+		for(int i = 0; i<productK_RunningList.size();i++) {
+			ProductQtyDTO qty = new ProductQtyDTO();
+			
+			qty.setP_num(productK_RunningList.get(i).getP_num());
+			
+			List<ProductQtyDTO> checkqty = productService.qtyCheck(qty);
+			
+			if(checkqty.size()!=0) {
+				OkQtyK_RunningList.add(productK_RunningList.get(i));
+			}
+		}
+		// 페이징처리 - 제품리스트 전체 글 개수
+		
+		model.addAttribute("productK_RunningList", OkQtyK_RunningList);
 		model.addAttribute("pageDTO", pageDTO);
 		// /WEB-INF/views/foot/list_men
 		return "foot/list_kids_running";
@@ -389,12 +513,26 @@ public class ProductController {
 		}else {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
+		pageDTO.setCount(productService.getProductK_SneakersCount());
 		List<ProductDTO> productK_SneakersList = productService.getProductK_SneakersList(pageDTO);
 		
-		// 페이징처리 - 제품리스트 전체 글 개수
-		pageDTO.setCount(productService.getProductK_SneakersCount());
+		List<ProductDTO> OkQtyK_SneakersList = new ArrayList<ProductDTO>();
 		
-		model.addAttribute("productK_SneakersList", productK_SneakersList);
+		for(int i = 0; i<productK_SneakersList.size();i++) {
+			ProductQtyDTO qty = new ProductQtyDTO();
+			
+			qty.setP_num(productK_SneakersList.get(i).getP_num());
+			
+			List<ProductQtyDTO> checkqty = productService.qtyCheck(qty);
+			
+			if(checkqty.size()!=0) {
+				OkQtyK_SneakersList.add(productK_SneakersList.get(i));
+			}
+		}
+		
+		// 페이징처리 - 제품리스트 전체 글 개수
+		
+		model.addAttribute("productK_SneakersList", OkQtyK_SneakersList);
 		model.addAttribute("pageDTO", pageDTO);
 		// /WEB-INF/views/foot/list_men
 		return "foot/list_kids_sneakers";

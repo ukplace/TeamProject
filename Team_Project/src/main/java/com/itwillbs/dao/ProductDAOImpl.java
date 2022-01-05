@@ -307,6 +307,17 @@ public class ProductDAOImpl implements ProductDAO {
 		return sqlSession.selectList(namespace + ".getOrderDetailList", m_idx & o_idx);
 	}
 
+	@Override
+	public int getAllProduct() {
+		System.out.println("ProductDAOImpl - getAllProduct()");
+		return sqlSession.selectOne(namespace + ".getAllProduct");
+	}
+
+	@Override
+	public List<ProductQtyDTO> qtyCheck(ProductQtyDTO qty) {
+		return sqlSession.selectList(namespace+".qtyCheck", qty);
+	}
+
 
 	
 	

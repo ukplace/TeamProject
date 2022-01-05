@@ -287,7 +287,9 @@
                                                 </tr>
                                                 <tr>
                                                     <th style="background-color:#f5f5f5; line-height:50px;" class="col-md-3">배송메모</th>
-                                                    <td><input type="text" id="fname" class="form-control" id="o_memo" name="o_memo" placeholder="배송메모" value=""></td>
+                                                    <td><input type="text" id="o_memo" class="form-control"  name="o_memo" placeholder="메모를입력하세요" value="" >
+                                                    	
+                                                    </td>
                                                 </tr>
                                        
                                             
@@ -408,6 +410,7 @@
 									IMP.init("imp92591746"); // 예: imp00000000
 									
 									   function requestPay() {
+										
 									     // IMP.request_pay(param, callback) 결제창 호출
 									     IMP.request_pay({ // param
 									         pg: "html5_inicis", // 이건 그냥고정 

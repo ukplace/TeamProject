@@ -112,7 +112,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-12">
-						<form action="${pageContext.request.contextPath}/foot/review_write_pro" method="post" class="contact-form">
+						<form action="${pageContext.request.contextPath}/foot/review_write_pro?p_num=${productDTO.p_num}" method="post" class="contact-form">
 						<div class="contact-wrap">
 							<h3>리뷰 작성란</h3>
 							
@@ -120,13 +120,13 @@
 									<div class="col-md-6">
 										<div class="form-group">
 											<label for="name">작성자</label>
-											<input type="text" name="m_idx" id="name" class="form-control">
+											<input type="text" name="review_writer" id="name" class="form-control" readonly value="${memberDTO.m_name }">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
-											<label for="product">제품번호</label>
-											<input type="text" name="o_idx" id="product" class="form-control" readonly>
+											<label for="product">제품이름</label>
+											<input type="text" name="review_subject" id="product" class="form-control" readonly value="${productDTO.p_name } ">
 										</div>
 									</div>
 									<div class="w-100"></div>
@@ -144,8 +144,8 @@
 					                  	<label for="cost_score">상품을 평가해주세요.</label>
 					                     <div class="form-field">
 					                     	<i class="icon icon-arrow-down3"></i>
-					                        <select name="review_score" id="cost_score" class="form-control">
-					                        	<option value="0">선택하세요</option>
+					                        <select name="review_score" id="cost_score" class="form-control" required="required">
+					                        	<option value="">선택하세요</option>
 						                      	<option value="1">5점</option>
 						                        <option value="2">4점</option>
 						                        <option value="3">3점</option>

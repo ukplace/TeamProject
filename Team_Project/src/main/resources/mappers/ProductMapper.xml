@@ -240,5 +240,13 @@
 			order by o.o_idx desc
 		</select>
 		
+		
+		<select id="getAllProduct" resultType="java.lang.Integer">
+			select count(p_num) from product 
+		</select>
+		
+		<select id="qtyCheck" resultType="com.itwillbs.domain.ProductQtyDTO">
+			select * from product_qty WHERE p_num=#{p_num}
+		</select>
 	
 </mapper>

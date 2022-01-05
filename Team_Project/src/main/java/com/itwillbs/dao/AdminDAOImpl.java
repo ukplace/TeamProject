@@ -146,6 +146,21 @@ public class AdminDAOImpl implements AdminDAO {
 	}
 
 	@Override
+	public int getNewOrder() {
+		return sqlSession.selectOne(namespace+".getNewOrder");
+	}
+
+	@Override
+	public int getDelivery() {
+		return sqlSession.selectOne(namespace+".getDelivery");
+	}
+
+	@Override
+	public int getDone() {
+		return sqlSession.selectOne(namespace+".getDone");
+	}
+	
+	@Override
 	public List<ReviewDTO> getPnum(int p_num) {
 		
 		return sqlSession.selectList(namespace+".getPnum", p_num);
