@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -71,49 +73,73 @@
 					<div class="col-md-12">
 						<div class="product-name d-flex">
 							<div class="one-eight text-center">
-								<span>일자-주문번호</span>
+								<span>주문번호</span>
 							</div>
+							<div class="one-eight text-center" >
+								<span>수령하는사람</span>
+							</div>
+							
 							<div class="one-forth text-left px-4 text-center">
-								<span>상품내역</span>
+								<span>수령지</span>
 							</div>
-							<div class="one-eight text-center" style="width:200px;">
+							<div class="one-eight text-center">
 								<span>상품금액</span>
 							</div>
 							<div class="one-eight text-center">
 								<span>진행상황</span>
 							</div>
-						<div class="one-eight text-center px-4">
-								<span></span>
 							</div>
-							</div>
-						<div class="product-cart d-flex">
+							<c:forEach var="orderDTO" items="${orderList }">
+							<div class="product-cart d-flex">
 								<div class="one-eight text-center">
-								<div class="display-tc" style="width:200px;">
-								 	<a href=""><span>20211220-1</span></a>
-								</div>
-							</div>
-							<div class="one-forth">
-								<div class="product-img" style="background-image: url(${pageContext.request.contextPath}/images/item-6.jpg);">
-								</div>
 								<div class="display-tc">
-									<h3>Product Name</h3>
+								 	<a href="${pageContext.request.contextPath}/foot/order_detail?o_idx=${orderDTO.o_idx }"><span>${orderDTO.o_idx }</span></a>
 								</div>
 							</div>
-							<div class="one-eight text-center" style="width:200px;">
+								<div class="one-eight text-center">
 								<div class="display-tc">
-									<span class="price" >50,000</span>
+								 	<a href="${pageContext.request.contextPath}/foot/order_detail?o_idx=${orderDTO.o_idx }"><span>${orderDTO.o_name }</span></a>
+								 	</div>
+								</div>
+							
+							<div class="one-forth text-left px-4 text-center">
+								<div class="display-tc">
+									<a href="${pageContext.request.contextPath}/foot/order_detail?o_idx=${orderDTO.o_idx }"><span class="price" >${orderDTO.o_zip}${orderDTO.o_address}${orderDTO.o_detail_address}</span></a>
 								</div>
 							</div>
+							<div class="one-eight text-center" >
+									<div class="display-tc">
+									<a href="${pageContext.request.contextPath}/foot/order_detail?o_idx=${orderDTO.o_idx }"><span class="price" >${orderDTO.totalSum }</span></a>
+									</div>
+							</div>
+							
 							<div class="one-eight text-center">
-								<div class="display-tc" style="width:200px;">
-								 	<span>결제완료</span>
-								</div>
-							</div>
-							<div class="one-eight text-center">
 								<div class="display-tc">
-									<a href="#" class="closed"></a>
-								</div>
+								<a href="${pageContext.request.contextPath}/foot/order_detail?o_idx=${orderDTO.o_idx }">
+							 	<span>
+							<c:choose>
+								<c:when test="${orderDTO.o_state eq 0 }">
+									<td><a href="#" class="tit">결제 완료</a></td>
+								</c:when>
+								<c:when test="${orderDTO.o_state eq 1 }">
+									<td><a href="#" class="tit">상품 준비중</a></td>
+								</c:when>
+								<c:when test="${orderDTO.o_state eq 2 }">
+									<td><a href="#" class="tit">배송중</a></td>
+								</c:when>
+								<c:when test="${orderDTO.o_state eq 3 }">
+									<td><a href="#" class="tit">수령완료</a></td>
+								</c:when>
+								<c:otherwise>
+									<td><a href="#" class="tit">없음.</a></td>
+								</c:otherwise>
+							</c:choose>	 	
+							 	</span>
+							 	</a>
 							</div>
+						</div>
+					</div>
+							</c:forEach>
 						</div>
 
 				<div class="row row-pb-lg">

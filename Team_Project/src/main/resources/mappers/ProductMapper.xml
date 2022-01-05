@@ -14,8 +14,7 @@
 
 	<!-- 전체 상품 검색 -->
 	<select id="getProductList" resultType="com.itwillbs.domain.ProductDTO">
-		select * from product p left outer join product_qty pq
-		on p.p_num = pq.p_num
+		select * from product 
 		<include refid="searchDTO"></include>
 		limit #{startRow},#{pageSize}
 	</select>
@@ -96,18 +95,22 @@
 		select p_size from product_qty where p_num=#{p_num} 
 		</select>
 		
-		
+		<!-- 장바구니 -->
 		<insert id="addCart">
-			insert into cart(m_idx,p_num,cart_count) values(#{m_idx},#{p_num},#{cart_count})
+			insert into cart(m_idx,p_num,cart_count,p_size) values(#{m_idx},#{p_num},#{cart_count},#{p_size})
 		</insert>
 		
 		<select id="cartCheck" resultType="com.itwillbs.domain.CartDTO">
-			select * from cart WHERE m_idx=#{m_idx} AND p_num=#{p_num}
+			select * from cart WHERE m_idx=#{m_idx} AND p_num=#{p_num} AND p_size=#{p_size}
 		</select>
 		
 		<update id="updateCart">
-			UPDATE cart SET cart_count = #{cart_count} WHERE cart_idx = #{cart_idx}
+			UPDATE cart SET cart_count = #{cart_count} WHERE cart_idx = #{cart_idx} and p_size = #{p_size}
 		</update>
+		
+<!-- 		<select id="getCart" resultType="com.itwillbs.domain.CartDTO"> -->
+<!-- 			select * from cart WHERE m_idx=#{m_idx} and p_size = #{p_size} -->
+<!-- 		</select> -->
 		
 		<select id="getCart" resultType="com.itwillbs.domain.CartDTO">
 			select * from cart WHERE m_idx=#{m_idx}
@@ -119,11 +122,11 @@
 <!-- 		</select> -->
 
 		<select id="getCartList" resultType="com.itwillbs.domain.CartListDTO">
-			select c.cart_idx, c.m_idx, c.p_num, c.cart_count, p.p_name, p.p_price, p_thumImg, pq.p_size
+			select c.cart_idx, c.m_idx, c.p_num, c.cart_count, p.p_name, p.p_price, p_thumImg, c.p_size
 			from cart c join product p on c.p_num = p.p_num 
-			join product_qty pq on p.p_num = pq.p_num
 			where c.m_idx=#{m_idx}
 		</select>
+		<!-- 장바구니 -->
 		
 		<delete id="withdrawal">
 			delete from cart where m_idx=#{m_idx} 
@@ -134,13 +137,13 @@
 		</delete>
 		
 		<insert id="insertO_member">
-			insert into order_member (m_idx,o_name,o_tel,o_zip,o_address,o_detail_address,o_memo)
-			values(#{m_idx},#{o_name},#{o_tel},#{o_zip},#{o_address},#{o_detail_address},#{o_memo})
+			insert into order_member (m_idx,o_name,o_tel,o_zip,o_address,o_detail_address,o_memo,totalSum)
+			values(#{m_idx},#{o_name},#{o_tel},#{o_zip},#{o_address},#{o_detail_address},#{o_memo},#{totalSum})
 		</insert>
 		
 		<insert id="insertO_detail">
-			insert into order_detail (o_idx,p_num,cart_count)
-			select #{o_idx},p_num,cart_count from cart WHERE m_idx=#{m_idx}
+			insert into order_detail (o_idx,p_num,cart_count,o_size)
+			select #{o_idx},p_num,cart_count,p_size from cart WHERE m_idx=#{m_idx}
 			
 		</insert>		
 		<delete id="deleteCart1">
@@ -149,6 +152,17 @@
 		
 		<select id="getO_idx" resultType="com.itwillbs.domain.Order_memberDTO">
 			select * from order_member where m_idx=#{m_idx} order by o_idx desc 
+		</select>
+		<!-- 특정 고객의 주문목록을 볼수 있는부분을 뽑아올 부분 -->
+		<select id="OneOrderList" resultType="com.itwillbs.domain.Order_memberDTO" >
+			select o_idx, m_idx, o_name,o_zip,o_address,o_detail_address,o_tel,totalSum,o_state
+			from order_member WHERE m_idx=${m_idx} order by o_idx desc
+		</select>
+		
+		<select id="getOrderList" resultType="com.itwillbs.domain.OrderListDTO">
+			select o.o_idx, o.o_name, o.o_zip, o.o_address, o.o_detail_address, o.o_tel, o_size, o.totalSum, o.o_date, o.o_memo, o.o_state, d.p_num, d.cart_count, p.p_name, p.p_thumImg, p.p_price 
+				from order_member o, order_detail d,product p
+			WHERE o.o_idx = d.o_idx AND d.p_num = p.p_num AND o.m_idx= #{m_idx} AND o.o_idx = #{o_idx};
 		</select>
 	
 </mapper>

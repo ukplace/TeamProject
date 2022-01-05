@@ -5,6 +5,7 @@ import java.util.List;
 import com.itwillbs.domain.CartDTO;
 import com.itwillbs.domain.CartListDTO;
 import com.itwillbs.domain.MemberDTO;
+import com.itwillbs.domain.OrderListDTO;
 import com.itwillbs.domain.Order_detailDTO;
 import com.itwillbs.domain.Order_memberDTO;
 import com.itwillbs.domain.PageDTO;
@@ -53,13 +54,14 @@ public interface ProductDAO {
 	public List<ProductDTO> getProductK_SneakersList(PageDTO pageDTO);
 	
 	public ProductDTO productDetail(int p_num);
-//	public ProductDTO productDetail(int p_num);
 	
 	public List<ProductQtyDTO> productQtyDetail(int p_num);
 
+	/* 장바구니 */
 	public void addCart(CartDTO cartDTO);
 
-	public CartDTO getCart(CartDTO cartDTO);
+//	public CartDTO getCart(CartDTO cartDTO);
+	public List<CartDTO> getCart(int m_idx);
 
 	public List<CartListDTO> getCartList(CartListDTO cartListDTO);
 
@@ -73,5 +75,9 @@ public interface ProductDAO {
 
 	public void insertO_detail(Order_memberDTO Order_memberDTO);
 	public void deleteCart(int m_idx);
+
+	public List<Order_memberDTO> OneOrderList(Order_memberDTO o_memberDTO);
+
+	public List<OrderListDTO> getOrderList(OrderListDTO orderListDTO);
 
 }

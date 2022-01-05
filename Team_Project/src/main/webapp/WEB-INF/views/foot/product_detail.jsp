@@ -173,30 +173,35 @@
 								<div class="block-26 mb-2">
 									<h4>Size</h4>
 				               <p>
-								<select name=p_size${status.index}>
+									<input type="hidden" name="p_size" id="p_size">
+								<select name="selectBox" id="selectBox" onchange="selectSize(this.value)">
 									<option value="">사이즈선택</option>
 									<c:forEach var="qtyDTO" items="${qtyList }" varStatus="status">		
-									<option value="${qtyList[status.index].p_size }">${qtyList[status.index].p_size }</option>		               
+									<option value="${qtyDTO.p_size }">${qtyDTO.p_size }</option>		               
 									</c:forEach>	
-<!-- 				                  <li value="220" hidden=""><a href="#">220</a></li> -->
-<!-- 				                  <li value="225" hidden=""><a href="#">225</a></li> -->
-<!-- 				                  <li value="230" hidden=""><a href="#">230</a></li> -->
-<!-- 				                  <li value="235" hidden=""><a href="#">235</a></li> -->
-<!-- 				                  <li value="240" hidden=""><a href="#">240</a></li> -->
-<!-- 				                  <li value="245" hidden=""><a href="#">245</a></li> -->
-<!-- 				                  <li value="250" hidden=""><a href="#">250</a></li> -->
-<!-- 				                  <li value="255" hidden=""><a href="#">255</a></li> -->
-<!-- 				                  <li value="260" hidden=""><a href="#">260</a></li> -->
-<!-- 				                  <li value="265" hidden=""><a href="#">265</a></li> -->
-<!-- 				                  <li value="270" hidden=""><a href="#">270</a></li> -->
-<!-- 				                  <li value="275" hidden=""><a href="#">275</a></li> -->
-<!-- 				                  <li value="280" hidden=""><a href="#">280</a></li> -->
-<!-- 				                  <li value="285" hidden=""><a href="#">285</a></li> -->
 								</select>
 				               </p>
 				            </div>
-							</div>
+						</div>
 					<br>
+					
+					<script type="text/javascript">
+					// select값 input박스에 넣는 방법 2가지
+// 					1) select box 의 onchange 함수 사용
+// 						var selectSize = function(value){
+// 							alert("select값 : " + value);
+// 							$("#p_size").val(value);
+// 						}
+					
+// 					2) jquery.change() 함수 사용
+						$(document).ready(function(){
+							$('#selectBox').change(function(){
+								var selectValue = $(this).val();
+// 								alert("select값 : " + selectValue);
+								$('#p_size').val(selectValue);
+							});
+						});
+					</script>
                   	
                   	
 					<!-- 개수 -->	
@@ -231,10 +236,12 @@
 						  $(".addCart_btn").click(function(){
 						   var p_num = $("#p_num").val();
 						   var cart_count = parseInt($("#quantity").val());
-						   
+						   var p_size = $('#p_size').val();
+								alert('p_size 값 : ' + p_size);
 						   var data = {
 								   p_num : p_num,
-								   cart_count : cart_count
+								   cart_count : cart_count,
+								   p_size : p_size
 						     };
 						   
 						   $.ajax({
