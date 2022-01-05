@@ -13,6 +13,7 @@ public class PageDTO {
 	private int pageCount;
 	private int p_num;
 	
+	
 	public int getP_num() {
 		return p_num;
 	}
