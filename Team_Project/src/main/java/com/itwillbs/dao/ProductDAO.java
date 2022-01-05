@@ -113,5 +113,10 @@ public interface ProductDAO {
 		
 	public Integer getProductK_SneakersCount();
 	
+	public List<Order_memberDTO> AllOrderList(PageDTO pageDTO);
+
+	// List<OrderListDTO> orderDetailList = productService.getOrderDetailList(m_idx, o_idx);
+	public List<OrderListDTO> getOrderDetailList(int m_idx, int o_idx);
+	
 
 }

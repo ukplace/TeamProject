@@ -66,10 +66,10 @@
 			<div class="container">
 				<div class="row">
 					<div class="col">
-						<div class="breadcrumbs-img" style="background-image: url(${pageContext.request.contextPath}/images/men2.jpg);">
+						<div class="breadcrumbs-img" style="background-image: url(${pageContext.request.contextPath}/images/men9.jpg);">
 							<h2>Men's</h2>
 						</div>
-						<div class="menu text-left">
+						<div class="menu text-center">
 							<p><a href="${pageContext.request.contextPath}/foot/list_men_gentleman">구두</a> &nbsp; &nbsp; &nbsp; &nbsp; 
 							<a href="${pageContext.request.contextPath}/foot/list_men_sneakers">스니커즈</a> &nbsp; &nbsp; &nbsp; &nbsp; 
 							<a href="${pageContext.request.contextPath}/foot/list_men_outdoor">아웃도어</a> &nbsp; &nbsp; &nbsp; &nbsp; 

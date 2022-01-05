@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE HTML>
@@ -49,9 +50,12 @@
           if(uid=='null'){ 
              alert("로그인이 필요한 항목입니다."); 
              location.href='${pageContext.request.contextPath}/foot/login';
+             return false;
           }
           else{
+        	  
              location.href='${pageContext.request.contextPath}/foot/order';
+             
           }
     }   
 	</script>
@@ -67,7 +71,7 @@
 				data: {p_num:$('#p_num').val()},
 				success:function(rdata){
 					$.each(rdata,function(index,item){
-						$('table').append('<tr><td class="contxt"><a href="#">'+item.review_subject+'</a></td><td>'+item.review_date+'</td></tr>');
+						$('table').append('<tr><td class="contxt"><a href="#"><td>'+item.m_idx+'</a></td>'+item.review_subject+'</td><td>'+item.review_date+'</td></tr>');
 						// 테이블 가져와서 출력
 					});
 				}
@@ -76,7 +80,16 @@
 			$(this).unbind();
 		});
 	});
+	
 	</script>
+<%-- 	<c:choose> --%>
+<%-- 		<c:when test="${review>0 }"> --%>
+<!-- 			<tr><td class="contxt">item.m_idx</td><td>item.review_subject</td><td>item.review_date</td></tr> -->
+<%-- 		</c:when> --%>
+<%-- 		<c:otherwise> --%>
+<!-- 			<tr><td>등록된 리뷰가 없습니다.</td></tr> -->
+<%-- 		</c:otherwise> --%>
+<%-- 	</c:choose> --%>
 	
 	</head>
 	<body>
@@ -91,7 +104,7 @@
 
 <!-- 주문 form -->
 <!--method="post" class="colorlib-form" name="Direct_order" action="${pageContext.request.contextPath}/foot/Direct_order"  -->	
-<form action="${pageContext.request.contextPath}/foot/Direct_order" method="post" class="order_form" name="Direct_order" >                     
+<form action="${pageContext.request.contextPath}/foot/Direct_order" method="post" class="order_form" name="Direct_order" onsubmit="return buy()" >                     
 <!-- 주문 form -->	
 	<input type="hidden" id="p_num" name="p_num" value="${ProductDTO.p_num}" />		
 	

@@ -337,6 +337,20 @@ public class ProductServiceImpl implements ProductService {
 	public Integer getProductK_SneakersCount() {
 		return productDAO.getProductK_SneakersCount();
 	}
+	
+	@Override
+	public List<Order_memberDTO> AllOrderList(PageDTO pageDTO) {
+		// 관리자페이지에서 전체회원 주문목록 불러오기
+		System.out.println("ProductServiceImpl - AllOrderList()");
+		return productDAO.AllOrderList(pageDTO);
+	}
+
+	@Override
+	public List<OrderListDTO> getOrderDetailList(int m_idx, int o_idx) {
+		// 관리자페이지에서 주문목록 세부정보페이지 불러오기
+		System.out.println("ProductServiceImpl - getOrderDetailList()");
+		return productDAO.getOrderDetailList(m_idx, o_idx);
+	}
 
 	
 	

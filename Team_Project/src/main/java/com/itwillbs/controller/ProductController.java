@@ -1,10 +1,13 @@
 package com.itwillbs.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -87,6 +90,7 @@ public class ProductController {
 		
 		return "foot/product_detail";
 	}
+	
 	
 	
 	
@@ -413,7 +417,21 @@ public class ProductController {
 	
 	// 장바구니
 	@RequestMapping(value = "/foot/cart", method = RequestMethod.GET)
-	public String cart(HttpSession session, Model model) {
+	public String cart(HttpSession session, Model model, HttpServletResponse response) throws IOException {
+		
+		if(session.getAttribute("m_idx")==null) {
+			response.setContentType("text/html; charset=UTF-8");
+			//2. response 객체의 getWriter()메서드를 호출하여 출력스트림 객체(PrintWriter) 가져오기
+			PrintWriter out = response.getWriter();
+			//3. PrintWriter 객체의 println() 메서드를 호출하여 HTML 태그(자바스크립트) 문자열 생성
+			
+			out.println("<script>");
+			out.println("alert('로그인을 하세요!')"); 
+			out.println("location.href='./login'"); 
+			out.println("</script>");
+		}
+		
+		
 		//내 session객체를 이용해서 (m_idx) cartDTO검색 -> cartDTO의 p_num 이용해서 제품정보 가져오기! 
 		// 이렇게 하면하나만있을때 나오는건데..
 		// 만약에 cartDTO에서 getCart 에서 1개값이나닌 여러개 값이나오면 어떡해야하지?

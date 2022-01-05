@@ -195,7 +195,7 @@
 				<tr>
 			      <th rowspan="2">대표 사진</th>
 			      <td>
-			      	<input type="file" id="p_img" name="file" width = 40px value="사진등록" />
+			      	<input type="file" id="p_img" name="file" width = 40px value="사진등록" required="required"/>
 				 </td>
 				 </tr>
 				 

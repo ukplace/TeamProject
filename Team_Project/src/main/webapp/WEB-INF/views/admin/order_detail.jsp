@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -77,46 +78,48 @@
                                             
                                             <!-- 기본정보 시작 -->
                                                 <tr >
-                                                    <td class="text-center" style="line-height:50px;">20211217-1</td>
-                                                    <td class="text-center" >2021-12-17<br> 14:07:40</td>
-                                                    <td class="text-center" style="line-height:50px;">1,000,000원</td>
+                                                    <td class="text-center" style="line-height:50px;">${orderDetailList[0].o_idx }</td>
+                                                    <td class="text-center" >${orderDetailList[0].o_date }</td>
+                                                    <td class="text-center" style="line-height:50px;">${orderDetailList[0].totalSum }원</td>
                                                     <td class="text-center" style="line-height:50px;">3,000원</td>
-                                                    <td class="text-center" style="line-height:50px;">손성형</td>
-                                                    <td rowspan="6" class="text-center" style="line-height:260px;">
-                                                    <select class=”form-control” >
-                                                    <option value = "1">결제완료</option>
-                                                    <option value = "2">배송준비중</option>
-                                                    <option value = "3">배송중</option>
-                                                    <option value = "4">배송완료</option>
-                                                    </select></td>
+                                                    <td class="text-center" style="line-height:50px;">${memberDTO2.m_name }</td>
+                                                    <td rowspan="6" class="text-center" style="line-height:50px;">${orderDetailList[0].o_state }</td>
+<!--                                                     <td rowspan="6" class="text-center" style="line-height:260px;"> -->
+<!--                                                     <select class=”form-control” > -->
+<!-- 	                                                    <option value = "1">결제완료</option> -->
+<!-- 	                                                    <option value = "2">배송준비중</option> -->
+<!-- 	                                                    <option value = "3">배송중</option> -->
+<!-- 	                                                    <option value = "4">배송완료</option> -->
+<!--                                                     </select></td> -->
                                                 </tr>
                                               <!-- 기본정보 끝 -->    
                                                 
                                                 <!-- 배송정보 시작 -->
                                                 <tr>
                                                     <th class="text-center"  style=background-color:#f5f5f5;>배송주소</th>
-                                                    <td colspan="4">경상남도 창원시 마산합포구 장군천로38<br></td>
+                                                    <td colspan="4">${orderDetailList[0].o_zip }${orderDetailList[0].o_address } ${orderDetailList[0].o_detail_address }<br></td>
                                                 </tr>
                                                 <tr>
                                                     <th class="text-center"  style=background-color:#f5f5f5;>받는사람</th>
-                                                    <td colspan="4">발성형<br></td>
+                                                    <td colspan="4">${orderDetailList[0].o_name }<br></td>
                                                 </tr>
                                                 <tr>
                                                     <th class="text-center"  style=background-color:#f5f5f5;>연락처</th>
-                                                    <td colspan="4">010-1234-5678<br></td>
+                                                    <td colspan="4">${orderDetailList[0].o_tel }<br></td>
                                                 </tr>
                                                 <tr>
                                                     <th class="text-center"  style=background-color:#f5f5f5;>비고</th>
-                                                    <td colspan="4">부재시 연락바랍니다.<br></td>
+                                                    <td colspan="4">${orderDetailList[0].o_memo }<br></td>
                                                 </tr>
                                                 
                                                 <tr>
                                                     <th class="text-center"  style=background-color:#f5f5f5;>배송회사</th>
                                                     <td class="text-center" >
                                                     <select class=”form-control” >
-                                                    <option value = "1">CJ택배</option>
-                                                    <option value = "2">로젠택배</option>
-                                                    <option value = "3">한진택배</option>
+	                                                    <option value = "">선택안함</option>
+	                                                    <option value = "CJ택배">CJ택배</option>
+	                                                    <option value = "로젠택배">로젠택배</option>
+	                                                    <option value = "한진택배">한진택배</option>
                                                     </select>
                                                     </td>
                                                     
@@ -139,15 +142,15 @@
                                                     <th class="text-center col-md-2">합계</th>
                                                 </tr>
                                             </thead>
-                                            
+                                            <c:forEach var="orderDetailList" items="${orderDetailList }">
                                               <tr>
-                                                    <td class="text-center"><img alt="product" src="../resources/images/pdetail_img.jpg" width="200" height="150">Deviate 나이트로 WTR 러닝화/Deviate</td>
-                                                    <td class="text-center" style="line-height:1000%;">250</td>
-                                                    <td class="text-center" style="line-height:1000%;">10</td>
-                                                    <td class="text-center" style="line-height:1000%;">997,000</td>
-                                                    <td class="text-center" style="line-height:1000%;">1,000,000</td>
+                                                    <td class="text-center"><img alt="product" src="../resources/images/pdetail_img.jpg" width="200" height="150">${orderDetailList.p_name }</td>
+                                                    <td class="text-center" style="line-height:1000%;">한진택배</td>
+                                                    <td class="text-center" style="line-height:1000%;">${orderDetailList.cart_count }</td>
+                                                    <td class="text-center" style="line-height:1000%;">${orderDetailList.p_price }</td>
+                                                    <td class="text-center" style="line-height:1000%;">${orderDetailList.p_price }</td>
                                                 </tr>
-                                            
+                                            </c:forEach>
                                                     </table>
                                                     
                                                     
@@ -156,8 +159,8 @@
                                             
                                             </tbody>
                                         </table>
-                                       <div class="text-center">
-                                       <a href="order"> <button type="button" class="btn btn-primary">목록</button></a>
+                                     <div class="text-center">
+                                       <button type="button" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/admin/order_list'">목록</button>
                                    	 </div> 
                                 </div>
                             </div>

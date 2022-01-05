@@ -93,7 +93,6 @@ public class AjaxController {
 			int p_num =Integer.parseInt(request.getParameter("p_num"));
 			
 			PageDTO pageDTO =new PageDTO();
-			pageDTO.setP_num(p_num);
 			pageDTO.setPageSize(5);
 			pageDTO.setPageNum("1");
 			List<ReviewDTO> reviewList=adminService.getReviewList(pageDTO);
