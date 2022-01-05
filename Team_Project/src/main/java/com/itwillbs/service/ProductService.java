@@ -5,6 +5,7 @@ import java.util.List;
 import com.itwillbs.domain.CartDTO;
 import com.itwillbs.domain.CartListDTO;
 import com.itwillbs.domain.MemberDTO;
+import com.itwillbs.domain.OrderListDTO;
 import com.itwillbs.domain.Order_detailDTO;
 import com.itwillbs.domain.Order_memberDTO;
 import com.itwillbs.domain.PageDTO;
@@ -75,5 +76,9 @@ public interface ProductService {
 	public void insertO_detail(Order_memberDTO order_memberDTO);
 	
 	public void deleteCart(int m_idx);
+	
+	public List<Order_memberDTO> OneOrderList(Order_memberDTO o_memberDTO);
+
+	public List<OrderListDTO> getOrderList(OrderListDTO orderListDTO);
 
 }

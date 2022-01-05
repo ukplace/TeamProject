@@ -1,10 +1,13 @@
 package com.itwillbs.controller;
 
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import com.itwillbs.domain.CartDTO;
 import com.itwillbs.domain.CartListDTO;
 import com.itwillbs.domain.MemberDTO;
+import com.itwillbs.domain.OrderListDTO;
 import com.itwillbs.domain.Order_detailDTO;
 import com.itwillbs.domain.Order_memberDTO;
 import com.itwillbs.domain.PageDTO;
@@ -94,6 +98,7 @@ public class OrderController {
 	public String order_Ok(HttpServletRequest request, HttpSession session) {
 		Order_memberDTO o_memberDTO = new Order_memberDTO();
 		
+		o_memberDTO.setTotalSum(Integer.parseInt(request.getParameter("totalSum")));
 		o_memberDTO.setM_idx(Integer.parseInt(request.getParameter("m_idx")));
 		o_memberDTO.setO_name(request.getParameter("o_name"));
 		o_memberDTO.setO_tel(request.getParameter("o_tel"));
@@ -101,13 +106,12 @@ public class OrderController {
 		o_memberDTO.setO_address(request.getParameter("o_address"));
 		o_memberDTO.setO_detail_address(request.getParameter("o_detail_address"));
 		o_memberDTO.setO_memo(request.getParameter("o_memo"));
-		
+		System.out.println(o_memberDTO.getTotalSum()+"토탈썸");
 		productService.insertO_member(o_memberDTO);
 		List<Order_memberDTO> o_memberDTO2 = new ArrayList<Order_memberDTO>();
 		o_memberDTO2=productService.getO_idx(o_memberDTO);
 		
 		o_memberDTO = new Order_memberDTO();
-		Order_detailDTO o_detailDTO = new Order_detailDTO();
 		o_memberDTO.setO_idx(o_memberDTO2.get(0).getO_idx());
 		o_memberDTO.setM_idx(Integer.parseInt(request.getParameter("m_idx")));
 		productService.insertO_detail(o_memberDTO);
@@ -136,13 +140,41 @@ public class OrderController {
 
 	
 	@RequestMapping(value = "/foot/order_list", method = RequestMethod.GET)
-	public String order_list() {
-		// /WEB-INF/views/foot/orderList.jsp
+	public String order_list(HttpSession session, Model model,HttpServletResponse response) throws Exception {
+		Order_memberDTO o_memberDTO = new Order_memberDTO();
+		o_memberDTO.setM_idx((Integer)session.getAttribute("m_idx"));
+		System.out.println(o_memberDTO.getM_idx());
+		List<Order_memberDTO> orderList = productService.OneOrderList(o_memberDTO);
+		
+		if(orderList.size()==0) {
+			response.setContentType("text/html; charset=UTF-8");
+			//2. response 객체의 getWriter()메서드를 호출하여 출력스트림 객체(PrintWriter) 가져오기
+			PrintWriter out = response.getWriter();
+			//3. PrintWriter 객체의 println() 메서드를 호출하여 HTML 태그(자바스크립트) 문자열 생성
+			
+			out.println("<script>");
+			out.println("alert('주문 내역이 없습니다!')"); // 메세지 출력
+			out.println("history.back()"); // 이전페이지로 이동
+			out.println("</script>");
+		}
+		
+		System.out.println(orderList.get(0).getTotalSum());
+		model.addAttribute("orderList", orderList);
 		return "foot/order_list";
 	}
 	
 	@RequestMapping(value = "/foot/order_detail", method = RequestMethod.GET)
-	public String order_detail() {
+	public String order_detail(HttpServletRequest request, Model model,HttpSession session) {
+		OrderListDTO orderListDTO = new OrderListDTO();
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.setM_idx((Integer)session.getAttribute("m_idx"));
+		memberDTO = memberService.getMember(memberDTO);
+		orderListDTO.setM_idx((Integer)session.getAttribute("m_idx"));
+		orderListDTO.setO_idx(Integer.parseInt(request.getParameter("o_idx")));
+		List<OrderListDTO> orderList= productService.getOrderList(orderListDTO);
+		
+		model.addAttribute("orderList", orderList);
+		model.addAttribute("memberDTO", memberDTO);
 		// /WEB-INF/views/foot/orderDetail.jsp
 		return "foot/order_detail";
 	}
@@ -152,6 +184,7 @@ public class OrderController {
 		// /WEB-INF/views/foot/orderDetail.jsp
 		return "foot/order_complete";
 	}
+	
 	
 	
 	
