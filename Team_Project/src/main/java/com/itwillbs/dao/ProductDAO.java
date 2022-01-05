@@ -117,6 +117,8 @@ public interface ProductDAO {
 
 	// List<OrderListDTO> orderDetailList = productService.getOrderDetailList(m_idx, o_idx);
 	public List<OrderListDTO> getOrderDetailList(int m_idx, int o_idx);
+
+	public int getAllProduct(int p_num);
 	
 
 }

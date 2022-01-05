@@ -240,5 +240,10 @@
 			order by o.o_idx desc
 		</select>
 		
+		
+		<select id="getAllProduct" resultType="java.lang.Integer">
+			select count(p_num) from product 
+		</select>
+		
 	
 </mapper>

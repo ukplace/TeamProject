@@ -65,8 +65,6 @@ public class OrderController {
 	public String Direct_order(CartListDTO cartListDTO, HttpSession session,Model model, HttpServletResponse response) throws Exception {
 		
 		
-	
-		
 		MemberDTO member = new MemberDTO();
 		member.setM_idx((Integer)session.getAttribute("m_idx"));
 		MemberDTO memberDTO = memberService.getMember(member);
@@ -187,6 +185,8 @@ public class OrderController {
 		// /WEB-INF/views/foot/orderDetail.jsp
 		return "foot/order_complete";
 	}
+	
+	
 	
 	
 	

@@ -23,6 +23,8 @@ public interface ProductService {
 	// 상품 총 개수  **파라미터 값 수정
 	public Integer getProductTotal(SearchDTO searchDTO);
 	
+	public int getAllProduct(int p_num);
+	
 	// List<ProductDTO> productKidsList = productService.getProductKidsList(pageDTO);
 	public List<ProductDTO> getProductKidsList(PageDTO pageDTO);
 

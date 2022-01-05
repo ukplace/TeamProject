@@ -352,6 +352,11 @@ public class ProductServiceImpl implements ProductService {
 		return productDAO.getOrderDetailList(m_idx, o_idx);
 	}
 
+	@Override
+	public int getAllProduct(int p_num) {
+		return productDAO.getAllProduct(p_num);
+	}
+
 	
 	
 
