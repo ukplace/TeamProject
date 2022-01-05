@@ -145,6 +145,13 @@ public class AdminDAOImpl implements AdminDAO {
 		return sqlSession.selectList(namespace+".getReviewList", pageDTO);
 	}
 
+	@Override
+	public List<ReviewDTO> getPnum(int p_num) {
+		
+		return sqlSession.selectList(namespace+".getPnum", p_num);
+	}
+
+
 	
 
 	

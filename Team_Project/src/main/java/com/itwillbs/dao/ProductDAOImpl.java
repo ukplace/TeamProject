@@ -218,6 +218,81 @@ public class ProductDAOImpl implements ProductDAO {
 		return sqlSession.selectList(namespace+".getOrderList",orderListDTO);
 	}
 
+	//MEN 카운트
+	@Override
+	public Integer getProductGentlemanCount() {
+		return sqlSession.selectOne(namespace+".getProductGentlemanCount");
+	}
+
+	@Override
+	public Integer getProductOutdoorCount() {
+		return sqlSession.selectOne(namespace+".getProductOutdoorCount");
+	}
+
+	@Override
+	public Integer getProductRunningCount() {
+		return sqlSession.selectOne(namespace+".getProductRunningCount");
+	}
+
+	@Override
+	public Integer getProducSneakersCount() {
+		return sqlSession.selectOne(namespace+".getProducSneakersCount");
+	}
+
+	@Override
+	public Integer getProducMenCount() {
+		return sqlSession.selectOne(namespace+".getProducMenCount");
+	}
+
+	
+	//WOMEN 카운트
+	@Override
+	public Integer getProductWomenCount() {
+		return sqlSession.selectOne(namespace+".getProductWomenCount");
+	}
+
+	@Override
+	public Integer getProductW_OutdoorCount() {
+		return sqlSession.selectOne(namespace+".getProductW_OutdoorCount");
+	}
+
+	@Override
+	public Integer getProductW_RunningCount() {
+		return sqlSession.selectOne(namespace+".getProductW_RunningCount");
+	}
+
+	@Override
+	public Integer getProductW_SneakersCount() {
+		return sqlSession.selectOne(namespace+".getProductW_SneakersCount");
+	}
+
+	@Override
+	public Integer getProductLadyCount() {
+		return sqlSession.selectOne(namespace+".getProductLadyCount");
+	}
+
+	//KIDS 카운트
+	
+	@Override
+	public Integer getProductKidsCount() {
+		return sqlSession.selectOne(namespace+".getProductKidsCount");
+	}
+
+	@Override
+	public Integer getProductK_KidCount() {
+		return sqlSession.selectOne(namespace+".getProductK_KidCount");
+	}
+
+	@Override
+	public Integer getProductK_RunningCount() {
+		return sqlSession.selectOne(namespace+".getProductK_RunningCount");
+	}
+
+	@Override
+	public Integer getProductK_SneakersCount() {
+		return sqlSession.selectOne(namespace+".getProductK_SneakersCount");
+	}
+	
 	@Override
 	public List<Order_memberDTO> AllOrderList(PageDTO pageDTO) {
 		// 관리자페이지에서 전체회원 주문목록 불러오기

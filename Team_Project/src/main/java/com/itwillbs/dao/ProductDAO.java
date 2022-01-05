@@ -80,6 +80,39 @@ public interface ProductDAO {
 
 	public List<OrderListDTO> getOrderList(OrderListDTO orderListDTO);
 	
+	//MEN 카운트
+	public Integer getProductGentlemanCount();
+	
+	public Integer getProductOutdoorCount();
+	
+	public Integer getProductRunningCount();
+	
+	public Integer getProducSneakersCount();
+	
+	public Integer getProducMenCount();
+
+	//WOMEN 카운트
+	
+	public Integer getProductWomenCount();
+	
+	public Integer getProductW_OutdoorCount();
+	
+	public Integer getProductW_RunningCount();
+		
+	public Integer getProductW_SneakersCount();
+		
+	public Integer getProductLadyCount();
+	
+	//KIDS 카운트
+	
+	public Integer getProductKidsCount();
+		
+	public Integer getProductK_KidCount();
+		
+	public Integer getProductK_RunningCount();
+		
+	public Integer getProductK_SneakersCount();
+	
 	public List<Order_memberDTO> AllOrderList(PageDTO pageDTO);
 
 	// List<OrderListDTO> orderDetailList = productService.getOrderDetailList(m_idx, o_idx);
