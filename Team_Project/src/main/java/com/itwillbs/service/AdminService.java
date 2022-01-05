@@ -60,6 +60,8 @@ public interface AdminService {
 	public int getDelivery(int o_idx);
 
 	public int getDone(int o_idx);
+	
+	public List<ReviewDTO> getPnum(int p_num);
 
 	
 	

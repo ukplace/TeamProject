@@ -174,6 +174,14 @@ public class AdminServiceImpl implements AdminService {
 	public int getDone(int o_idx) {
 		return adminDAO.getDone(o_idx);
 	}
+	
+	@Override
+	public List<ReviewDTO> getPnum(int p_num) {
+		
+		return adminDAO.getPnum(p_num);
+	}
+
+
 
 
 

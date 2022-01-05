@@ -97,4 +97,8 @@
 	</select>
 	
 	
+	<select id="getPnum" resultType="com.itwillbs.domain.ReviewDTO">
+		select * from review where p_num=#{p_num} 
+	</select>
+	
 </mapper>
