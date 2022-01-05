@@ -52,7 +52,7 @@
 		<aside id="colorlib-hero">
 			<div class="flexslider">
 				<ul class="slides">
-			   	<li style="background-image: url(${pageContext.request.contextPath}/images/indexMain1.jpg);">
+			   	<li style="background-image: url(${pageContext.request.contextPath}/images/indexMain5.jpg);">
 			   		<div class="overlay"></div>
 			   		<div class="container-fluid">
 			   			<div class="row">

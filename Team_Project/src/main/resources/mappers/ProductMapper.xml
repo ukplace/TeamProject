@@ -14,8 +14,7 @@
 
 	<!-- 전체 상품 검색 -->
 	<select id="getProductList" resultType="com.itwillbs.domain.ProductDTO">
-		select * from product p left outer join product_qty pq
-		on p.p_num = pq.p_num
+		select * from product 
 		<include refid="searchDTO"></include>
 		limit #{startRow},#{pageSize}
 	</select>
@@ -32,15 +31,15 @@
 	</select>
 
 		<select id="getProductK_SneakersList" resultType="com.itwillbs.domain.ProductDTO">
-		select * from product where p_category = 'WOMEN' and p_small_category = '스니커즈' limit #{startRow},#{pageSize}
+		select * from product where p_category = 'KIDS' and p_small_category = '스니커즈' limit #{startRow},#{pageSize}
 		</select>
 		
 		<select id="getProductK_KidList" resultType="com.itwillbs.domain.ProductDTO">
-		select * from product where p_category = 'WOMEN' and p_small_category = '구두' limit #{startRow},#{pageSize}
+		select * from product where p_category = 'KIDS' and p_small_category = '구두' limit #{startRow},#{pageSize}
 		</select>
 		
 		<select id="getProductK_RunningList" resultType="com.itwillbs.domain.ProductDTO">
-		select * from product where p_category = 'WOMEN' and p_small_category = '러닝화' limit #{startRow},#{pageSize}
+		select * from product where p_category = 'KIDS' and p_small_category = '러닝화' limit #{startRow},#{pageSize}
 		</select>
 	
 <!-- 	<select id="ProwomenList" resultType="com.itwillbs.domain.productDTO">
@@ -55,15 +54,15 @@
 		</select>
 		
 		<select id="getProductW_RunningList" resultType="com.itwillbs.domain.ProductDTO">
-		select * from product where p_category = 'MEN' and p_small_category = '러닝화' limit #{startRow},#{pageSize}
+		select * from product where p_category = 'WOMEN' and p_small_category = '러닝화' limit #{startRow},#{pageSize}
 		</select>
 		
 		<select id="getProductW_SneakersList" resultType="com.itwillbs.domain.ProductDTO">
-		select * from product where p_category = 'MEN' and p_small_category = '스니커즈' limit #{startRow},#{pageSize}
+		select * from product where p_category = 'WOMEN' and p_small_category = '스니커즈' limit #{startRow},#{pageSize}
 		</select>
 		
 		<select id="getProductW_OutdoorList" resultType="com.itwillbs.domain.ProductDTO">
-		select * from product where p_category = 'MEN' and p_small_category = '아웃도어' limit #{startRow},#{pageSize}
+		select * from product where p_category = 'WOMEN' and p_small_category = '아웃도어' limit #{startRow},#{pageSize}
 		</select>
 	
 	
@@ -154,10 +153,11 @@
 		<select id="getO_idx" resultType="com.itwillbs.domain.Order_memberDTO">
 			select * from order_member where m_idx=#{m_idx} order by o_idx desc 
 		</select>
-		<!-- 특정 고객의 주문목록을 볼수 있는부분을 뽑아올 부분 -->
-		<select id="OneOrderList" resultType="com.itwillbs.domain.Order_memberDTO" >
-			select o_idx, m_idx, o_name,o_zip,o_address,o_detail_address,o_tel,totalSum,o_state
-			from order_member WHERE m_idx=${m_idx} order by o_idx desc
+		
+		
+		<!-- MEN 카운트 -->
+		<select id="getProductGentlemanCount" resultType="java.lang.Integer">
+			select count(*) from product where p_category = 'MEN' and p_small_category = '구두' 
 		</select>
 		
 		<select id="getOrderList" resultType="com.itwillbs.domain.OrderListDTO">
@@ -173,5 +173,90 @@
 		<update id="changeStock">
 			update product_qty set p_stock =#{p_stock} - #{cart_count} where p_num=#{p_num} and p_size=#{p_size}
 		</update>
+		<select id="getProductOutdoorCount" resultType="java.lang.Integer">
+			select count(*) from product where p_category = 'MEN' and p_small_category = '아웃도어'
+		</select>
+		
+		<select id="getProductRunningCount" resultType="java.lang.Integer">
+			select count(*) from product where p_category = 'MEN' and p_small_category = '러닝화'
+		</select>
+		
+		<select id="getProducSneakersCount" resultType="java.lang.Integer">
+			select count(*) from product where p_category = 'MEN' and p_small_category = '스니커즈'
+		</select>
+		
+		<select id="getProducMenCount" resultType="java.lang.Integer">
+			select count(*) from product where p_category = 'MEN'
+		</select>
+		
+		<!-- WOMEN 카운트 -->
+		
+		<select id="getProductWomenCount" resultType="java.lang.Integer">
+			select count(*) from product where p_category = 'WOMEN' 
+		</select>
+		
+		<select id="getProductW_OutdoorCount" resultType="java.lang.Integer">
+			select count(*) from product where p_category = 'WOMEN' and p_small_category = '아웃도어'
+		</select>
+		
+		<select id="getProductW_RunningCount" resultType="java.lang.Integer">
+			select count(*) from product where p_category = 'WOMEN' and p_small_category = '러닝화'
+		</select>
+		
+		<select id="getProductW_SneakersCount" resultType="java.lang.Integer">
+			select count(*) from product where p_category = 'WOMEN' and p_small_category = '스니커즈'
+		</select>
+		
+		<select id="getProductLadyCount" resultType="java.lang.Integer">
+			select count(*) from product where p_category = 'WOMEN' and p_small_category = '구두' 
+		</select>
+		
+		<!-- KIDS 카운트 -->
+		
+		<select id="getProductKidsCount" resultType="java.lang.Integer">
+			select count(*) from product where p_category = 'KIDS' 
+		</select>
+		
+		<select id="getProductK_KidCount" resultType="java.lang.Integer">
+			select count(*) from product where p_category = 'KIDS' and p_small_category = '구두'
+		</select>
+		
+		<select id="getProductK_RunningCount" resultType="java.lang.Integer">
+			select count(*) from product where p_category = 'KIDS' and p_small_category = '러닝화'
+		</select>
+		
+		<select id="getProductK_SneakersCount" resultType="java.lang.Integer">
+			select count(*) from product where p_category = 'KIDS' and p_small_category = '스니커즈'
+		</select>
+		
+		
+		
+      <!-- 특정 고객의 주문목록을 볼수 있는부분을 뽑아올 부분 -->
+      <select id="OneOrderList" resultType="com.itwillbs.domain.Order_memberDTO" >
+         select o_idx, m_idx, o_name,o_zip,o_address,o_detail_address,o_tel,totalSum,o_state
+         from order_member WHERE m_idx=${m_idx} order by o_idx desc
+      </select>
+      
+      <select id="getOrderList" resultType="com.itwillbs.domain.OrderListDTO">
+         select o.o_idx, o.o_name, o.o_zip, o.o_address, o.o_detail_address, o.o_tel, o_size, o.totalSum, o.o_date, o.o_memo, o.o_state, d.p_num, d.cart_count, p.p_name, p.p_thumImg, p.p_price 
+         from order_member o, order_detail d, product p
+         WHERE o.o_idx = d.o_idx AND d.p_num = p.p_num AND o.m_idx= #{m_idx} AND o.o_idx = #{o_idx}
+      </select>
+		
+		
+		<select id="AllOrderList" resultType="com.itwillbs.domain.Order_memberDTO" >
+			select o.o_idx, o.m_idx, o.o_name, o.o_zip, o.o_address, o.o_detail_address, o.o_tel, o.totalSum, o.o_state, p.p_name
+			from order_member o 
+			join order_detail d on d.o_idx = o.o_idx
+			join product p on p.p_num = d.p_num
+			group by o.o_idx
+			order by o.o_idx desc
+		</select>
+		
+		
+		<select id="getAllProduct" resultType="java.lang.Integer">
+			select count(p_num) from product 
+		</select>
+		
 	
 </mapper>

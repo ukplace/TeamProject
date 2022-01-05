@@ -30,6 +30,7 @@ import com.itwillbs.domain.CartDTO;
 import com.itwillbs.domain.CartListDTO;
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.PageDTO;
+import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ReviewDTO;
 import com.itwillbs.service.AdminService;
 import com.itwillbs.service.MemberService;
@@ -90,13 +91,14 @@ public class AjaxController {
 	@RequestMapping(value = "/foot/reviewList", method = RequestMethod.GET)
 	public ResponseEntity<List<ReviewDTO>> review(HttpServletRequest request) {
 			System.out.println("Review 컨트롤러");
-			int p_num =Integer.parseInt(request.getParameter("p_num"));
 			
-			PageDTO pageDTO =new PageDTO();
-			pageDTO.setP_num(p_num);
-			pageDTO.setPageSize(5);
-			pageDTO.setPageNum("1");
-			List<ReviewDTO> reviewList=adminService.getReviewList(pageDTO);
+			int p_num = Integer.parseInt(request.getParameter("p_num"));
+			
+//			PageDTO pageDTO =new PageDTO();
+//			pageDTO.setPageSize(5);
+//			pageDTO.setPageNum("1");
+//			List<ReviewDTO> reviewList=adminService.getReviewList(pageDTO);
+			List<ReviewDTO> reviewList = adminService.getPnum(p_num);
 			
 	ResponseEntity<List<ReviewDTO>> entity=new ResponseEntity<List<ReviewDTO>>(reviewList,HttpStatus.OK);
 			return entity;

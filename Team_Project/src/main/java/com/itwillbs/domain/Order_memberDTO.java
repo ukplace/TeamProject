@@ -31,6 +31,8 @@ foreign key (m_idx) references member (m_idx)
 	private int totalSum;
 	private Timestamp o_date;
 	
+	private String p_name;
+	
 	public int getTotalSum() {
 		return totalSum;
 	}
@@ -98,6 +100,17 @@ foreign key (m_idx) references member (m_idx)
 	public void setO_date(Timestamp o_date) {
 		this.o_date = o_date;
 	}
+	
+	public String getP_name() {
+		return p_name;
+	}
+	public void setP_name(String p_name) {
+		this.p_name = p_name;
+	}
+	
+	
+	
+	
 	
 	
 }

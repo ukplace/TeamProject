@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -65,13 +66,13 @@
 			<div class="container">
 				<div class="row">
 					<div class="col">
-						<div class="breadcrumbs-img" style="background-image: url(${pageContext.request.contextPath}/images/kids2.jpg);">
+						<div class="breadcrumbs-img" style="background-image: url(${pageContext.request.contextPath}/images/kids14.jpg);">
 							<h2>KID'S</h2>
 						</div>
-						<div class="menu text-left">
+						<div class="menu text-center">
 							<p><a href="${pageContext.request.contextPath}/foot/list_kids_kid">구두</a>  &nbsp; &nbsp; &nbsp; &nbsp; 
 							<a href="${pageContext.request.contextPath}/foot/list_kids_sneakers">스니커즈</a>  &nbsp; &nbsp; &nbsp; &nbsp; 
-							<a href="${pageContext.request.contextPath}/foot/list_kids_running">운동화</a>  &nbsp; &nbsp; &nbsp; &nbsp; </p>
+							<a href="${pageContext.request.contextPath}/foot/list_kids_running">러닝화</a>  &nbsp; &nbsp; &nbsp; &nbsp; </p>
 						</div>
 					</div>
 				</div>
@@ -109,13 +110,6 @@
 <!-- 			</div> -->
 <!-- 		</div> -->
 
-		<div class="colorlib-product">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
-						<h2>View All Products</h2>
-					</div>
-				</div>
 				<div class="colorlib-product">
 			<div class="container">
 				<div class="row">
@@ -132,42 +126,54 @@
 							</a>
 							<div class="desc">
 								<h2><a href="${pageContext.request.contextPath}/foot/product_detail?num=${productDTO.p_num}">${productDTO.p_name }</a></h2>
-								<span class="price">${productDTO.p_price }</span>
+								<span class="price"><span><fmt:formatNumber pattern="###,###,###" value="${productDTO.p_price }" /></span>
+</span>
 							</div>
 						</div>
 					</div>
 					</c:forEach>
-					<!-- Men 제품리스트 받아오는 부분 -->
-					
-					
-					
-					
 				</div>
-				<div class="row">
-					<div class="col-md-12 text-center">
+				
+				
+			         <!-- 페이징 -->
+	<div class="row">
+				<div class="col-md-12 text-center">
 						<div class="block-27">
-						
 				               <ul>
-<%-- 								<c:if test="${pageDTO.startPage > pageDTO.pageBlock }"> --%>
-					               <li><a href="${pageContext.request.contextPath}/admin/product_list?pageNum=${pageDTO.startPage - pageDTO.pageBlock}"><i class="ion-ios-arrow-back"></i></a></li>
-<%-- 					            </c:if> --%>
-					               
-								<c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1">
-				                  <li class="active" onclick="location.href='${pageContext.request.contextPath}/admin/product_list?pageNum=${i}"><span>${i}</span></li>
-				                </c:forEach>
-								
-<%-- 								<c:if test="${pageDTO.endPage < pageDTO.pageCount }">    --%>
-				                  <li><a href="${pageContext.request.contextPath}/admin/product_list?pageNum=${pageDTO.startPage + pageDTO.pageBlock}"><i class="ion-ios-arrow-forward"></i></a></li>
-<%-- 				                </c:if> --%>
-				                  
+					              <li class="active">
+									<c:choose >	
+										<c:when test="${pageDTO.startPage > pageDTO.pageBlock }" >
+											<a href ="${pageContext.request.contextPath}/foot/list_kids_running?pageNum=${pageDTO.startPage-pageDTO.pageBlock}"><i class="ion-ios-arrow-back">이전</i></a>
+										</c:when>
+										<c:otherwise>
+											<i class="ion-ios-arrow-back">이전</i>
+										</c:otherwise>
+									</c:choose></li>
+				               
+				                  <li class="active">
+									<c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1">
+										<a href="${pageContext.request.contextPath}/foot/list_kids_running?pageNum=${i }"${1 }>${i }</a>
+									</c:forEach>
+								  </li>
+								  
+				                  <li class="active">
+				                 <!-- end페이지가 count보다 더 클때 -->
+				                 	<c:choose>
+										<c:when test= "${pageDTO.endPage > pageDTO.pageCount }">
+											<a href = "${pageContext.request.contextPath}/foot/list_kids_running?pageNum=${pageDTO.startPage+pageDTO.pageBlock}">다음<i class="ion-ios-arrow-forward"></i></a>
+										</c:when>
+										<c:otherwise>
+											다음<i class="ion-ios-arrow-forward"></i>
+										</c:otherwise>
+									</c:choose>
+								</li>
 				               </ul>
-						
-						
-		               
-		               
-		            </div>
-					</div>
+				            </div>
 				</div>
+	</div>
+
+		      <!-- 페이징 끝-->      
+		             
 			</div>
 		</div>
 

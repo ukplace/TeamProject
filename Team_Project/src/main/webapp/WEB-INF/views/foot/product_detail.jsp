@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <!DOCTYPE HTML>
@@ -49,9 +50,12 @@
           if(uid=='null'){ 
              alert("로그인이 필요한 항목입니다."); 
              location.href='${pageContext.request.contextPath}/foot/login';
+             return false;
           }
           else{
+        	  
              location.href='${pageContext.request.contextPath}/foot/order';
+             
           }
     }   
 	</script>
@@ -61,22 +65,39 @@
 		// class="review"
 		$('#review').click(function(){
 			// 글 가지고 오고 싶을때
-			$.ajax({
-				url:'${pageContext.request.contextPath}/foot/reviewList',
-				dataType:"JSON",
-				data: {p_num:$('#p_num').val()},
-				success:function(rdata){
-					$.each(rdata,function(index,item){
-						$('table').append('<tr><td class="contxt"><a href="#">'+item.review_subject+'</a></td><td>'+item.review_date+'</td></tr>');
-						// 테이블 가져와서 출력
-					});
-				}
-			});
+// 				alert("2"+$('#p_num').val());
+				$.ajax({
+					url:'${pageContext.request.contextPath}/foot/reviewList',
+					dataType:"JSON",
+					data: {p_num:$('#p_num').val()},
+					success:function(rdata){
+						$.each(rdata,function(index,item){
+// 							if(rdata==""){
+// 							alert("등록된 리뷰가 없습니다.");
+// 								$('table').append('<tr><td colspan=3>등록된 리뷰가 없습니다.</td></tr>');
+// 							}
+// 							else{
+							$('table').append('<tr><td class="contxt"><a href="#"><td>'+item.m_idx+'</a></td><td>'+item.review_subject+'</td><td>'+item.review_date+'</td></tr>');
+							// 테이블 가져와서 출력
+// 							}
+						});
+					}
+				});
+			
 			// 이벤트 멈춤
 			$(this).unbind();
 		});
 	});
+	
 	</script>
+<%-- 	<c:choose> --%>
+<%-- 		<c:when test="${review>0 }"> --%>
+<!-- 			<tr><td class="contxt">item.m_idx</td><td>item.review_subject</td><td>item.review_date</td></tr> -->
+<%-- 		</c:when> --%>
+<%-- 		<c:otherwise> --%>
+<!-- 			<tr><td>등록된 리뷰가 없습니다.</td></tr> -->
+<%-- 		</c:otherwise> --%>
+<%-- 	</c:choose> --%>
 	
 	</head>
 	<body>
@@ -91,7 +112,7 @@
 
 <!-- 주문 form -->
 <!--method="post" class="colorlib-form" name="Direct_order" action="${pageContext.request.contextPath}/foot/Direct_order"  -->	
-<form action="${pageContext.request.contextPath}/foot/Direct_order" method="post" class="order_form" name="Direct_order" >                     
+<form action="${pageContext.request.contextPath}/foot/Direct_order" method="post" class="order_form" name="Direct_order" onsubmit="return buy()" >                     
 <!-- 주문 form -->	
 	<input type="hidden" id="p_num" name="p_num" value="${ProductDTO.p_num}" />		
 	
@@ -153,7 +174,7 @@
 							<br>
 							<br>
 							<p class="price">
-								<span><fmt:formatNumber value="${ProductDTO.p_price}" pattern="#,###,###" />원
+								<span><fmt:formatNumber value="${ProductDTO.p_price}" pattern="#,###,###" />
 								</span> 
 							</p>
 <!-- 							<p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p> -->
@@ -294,10 +315,19 @@
 								    <li class="nav-item">
 								      <a class="nav-link" id="pills-manufacturer-tab" data-toggle="pill" href="#pills-manufacturer" role="tab" aria-controls="pills-manufacturer" aria-expanded="true">Manufacturer</a>
 								    </li>
-								    <li class="nav-item">
+<%-- 								    <c:choose> --%>
+<%-- 								    	<c:when test="${reviewDTO.p_num =='' }"> --%>
+<!-- 								    		<li>등록된 리뷰가 없습니다.</li > -->
+<%-- 								    	</c:when> --%>
+<%-- 								    	<c:otherwise> --%>
+<!-- 								    <li class="nav-item"> -->
+<!-- 								      	<a class="nav-link" id="review" data-toggle="pill" href="#" role="tab" aria-controls="pills-review" aria-expanded="true">리뷰</a> -->
+<!-- 								    </li> -->
+<%-- 								    	</c:otherwise> --%>
+<%-- 								    </c:choose> --%>
+								       <li class="nav-item">
 								      	<a class="nav-link" id="review" data-toggle="pill" href="#" role="tab" aria-controls="pills-review" aria-expanded="true">리뷰</a>
 								    </li>
-								    
 								     <div class="table">
 										<table>
 										<tr>

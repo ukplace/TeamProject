@@ -13,6 +13,7 @@ public interface AdminService {
 
 	MemberDTO userCheck(MemberDTO memberDTO);
 	
+	// -------- 제품정보관리 --------
 	// adminService.insertProduct(productDTO);
 	public void insertProduct(ProductDTO productDTO);
 	
@@ -29,14 +30,17 @@ public interface AdminService {
 	
 	
 	public ProductDTO productView(int p_num);
-
 	
-	// -------회원정보관리-------------
+	// -------- 회원정보관리 --------
 	public List<MemberDTO> getMemberList(PageDTO pageDTO);
 
 	public int getMemberCount();
 
 	public MemberDTO getMemberDetail(MemberDTO memberDTO);
+	
+	public void updateMember(MemberDTO memberDTO);
+	
+	public void deleteMember(int m_idx);
 
 	// ------ product_qty 값 추가 -------
 	public void insertQty(ProductQtyDTO dto);
@@ -47,14 +51,17 @@ public interface AdminService {
 
 	public void deleteQty(int p_num);
 	
-	
-	public void updateMember(MemberDTO memberDTO);
-
 	public void insertReview(ReviewDTO reviewDTO);
-	
-	public void deleteMember(int m_idx);
 
 	public List<ReviewDTO> getReviewList(PageDTO pageDTO);
+
+	public int getNewOrder(int o_idx);
+
+	public int getDelivery(int o_idx);
+
+	public int getDone(int o_idx);
+	
+	public List<ReviewDTO> getPnum(int p_num);
 
 	
 	

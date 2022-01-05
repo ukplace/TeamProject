@@ -11,14 +11,10 @@ public class PageDTO {
 	private int startPage;
 	private int endPage;
 	private int pageCount;
-	private int p_num;
 	
-	public int getP_num() {
-		return p_num;
-	}
-	public void setP_num(int p_num) {
-		this.p_num = p_num;
-	}
+	
+	
+	
 	public int getPageSize() {
 		return pageSize;
 	}

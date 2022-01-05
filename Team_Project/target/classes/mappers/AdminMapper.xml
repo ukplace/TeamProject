@@ -20,7 +20,7 @@
 	
 	<update id="updateProduct">
 		update product set p_name=#{p_name},p_explain=#{p_explain},p_category=#{p_category},p_small_category=#{p_small_category},p_img=#{p_img},
-			p_size=#{p_size},p_price=#{p_price},p_stock=#{p_stock},p_thumImg=#{p_thumImg} where p_num=#{p_num}
+		p_price=#{p_price},p_thumImg=#{p_thumImg} where p_num=#{p_num}
 	</update>
 	
 	<delete id="deleteProduct" parameterType="int">
@@ -81,6 +81,24 @@
 	</insert>
 	
 	<select id="getReviewList" resultType="com.itwillbs.domain.ReviewDTO">
-		select * from review order by review_idx desc where p_num=#{p_num}
+		select * from review order by review_idx desc
 	</select>
+	
+	<select id="getNewOrder" resultType="java.lang.Integer">
+		select count(o_idx) from order_member where  o_state = '0'
+	</select>
+	
+	<select id="getDelivery" resultType="java.lang.Integer">
+		select count(o_idx) from order_member where  o_state = '2'
+	</select>
+	
+	<select id="getDone" resultType="java.lang.Integer">
+		select count(o_idx) from order_member where  o_state = '3'
+	</select>
+	
+	
+	<select id="getPnum" resultType="com.itwillbs.domain.ReviewDTO">
+		select * from review where p_num=#{p_num} 
+	</select>
+	
 </mapper>

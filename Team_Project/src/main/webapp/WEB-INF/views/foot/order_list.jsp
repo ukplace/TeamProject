@@ -129,6 +129,7 @@
 								</c:when>
 								<c:when test="${orderDTO.o_state eq 3 }">
 									<td><a href="#" class="tit">수령완료</a></td>
+									<a href="${pageContext.request.contextPath}/foot/review_write?p_num=" class="tit"> | 리뷰작성</a>
 								</c:when>
 								<c:otherwise>
 									<td><a href="#" class="tit">없음.</a></td>

@@ -73,15 +73,15 @@
 	</style>
 	
 	<script type="text/javascript">
-	$("#star").click(function() {
+// 	$("#star").click(function() {
 
-	     $(this).parent().children("a").removeClass("on");
+// 	     $(this).parent().children("a").removeClass("on");
 
-	     $(this).addClass("on").prevAll("a").addClass("on");
+// 	     $(this).addClass("on").prevAll("a").addClass("on");
 
-	     return false;
+// 	     return false;
 
-	});
+// 	});
 	</script>
 
 
@@ -119,14 +119,14 @@
 								<div class="row">
 									<div class="col-md-6">
 										<div class="form-group">
-											<label for="name">회원번호</label>
-											<input type="text" name="m_idx" id="name" class="form-control" readonly>
+											<label for="name">작성자</label>
+											<input type="text" name="m_idx" id="name" class="form-control">
 										</div>
 									</div>
 									<div class="col-md-6">
 										<div class="form-group">
 											<label for="product">제품번호</label>
-											<input type="text" name="p_num" id="product" class="form-control" placeholder="제품명" readonly>
+											<input type="text" name="o_idx" id="product" class="form-control" readonly>
 										</div>
 									</div>
 									<div class="w-100"></div>

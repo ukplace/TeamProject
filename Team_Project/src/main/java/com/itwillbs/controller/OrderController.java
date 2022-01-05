@@ -63,7 +63,8 @@ public class OrderController {
 	}
 	
 	@RequestMapping(value = "/foot/Direct_order", method = RequestMethod.POST)
-	public String Direct_order(CartListDTO cartListDTO, HttpSession session,Model model) throws Exception {
+	public String Direct_order(CartListDTO cartListDTO, HttpSession session,Model model, HttpServletResponse response) throws Exception {
+		
 		
 		MemberDTO member = new MemberDTO();
 		member.setM_idx((Integer)session.getAttribute("m_idx"));
@@ -205,6 +206,8 @@ public class OrderController {
 		// /WEB-INF/views/foot/orderDetail.jsp
 		return "foot/order_complete";
 	}
+	
+	
 	
 	
 	
