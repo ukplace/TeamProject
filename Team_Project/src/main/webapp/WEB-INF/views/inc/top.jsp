@@ -64,7 +64,7 @@ text-decoration: underline;
 <%-- 										<li><a href="${pageContext.request.contextPath}/foot/list_men"></a></li> --%>
 										<li><a href="${pageContext.request.contextPath}/foot/list_men_sneakers">스니커즈</a></li>
 										<li><a href="${pageContext.request.contextPath}/foot/list_men_outdoor">아웃도어</a></li>
-										<li><a href="${pageContext.request.contextPath}/foot/list_men_running">운동화</a></li>
+										<li><a href="${pageContext.request.contextPath}/foot/list_men_running">러닝화</a></li>
 									</ul>
 								</li>
 								<li class="has-dropdown">
@@ -73,7 +73,7 @@ text-decoration: underline;
 										<li><a href="${pageContext.request.contextPath}/foot/list_women_lady">구두</a></li>
 										<li><a href="${pageContext.request.contextPath}/foot/list_women_sneakers">스니커즈</a></li>
 										<li><a href="${pageContext.request.contextPath}/foot/list_women_outdoor">아웃도어</a></li>
-										<li><a href="${pageContext.request.contextPath}/foot/list_women_running">운동화</a></li>
+										<li><a href="${pageContext.request.contextPath}/foot/list_women_running">러닝화</a></li>
 										</ul>
 								</li>
 										<li class="has-dropdown">
@@ -81,7 +81,7 @@ text-decoration: underline;
 								<ul class="dropdown">
 										<li><a href="${pageContext.request.contextPath}/foot/list_kids_kid">구두</a></li>
 										<li><a href="${pageContext.request.contextPath}/foot/list_kids_sneakers">스니커즈</a></li>
-										<li><a href="${pageContext.request.contextPath}/foot/list_kids_running">운동화</a></li>
+										<li><a href="${pageContext.request.contextPath}/foot/list_kids_running">러닝화</a></li>
 										</ul>
 								</li>
 								<li><a href="${pageContext.request.contextPath}/foot/contact">Contact</a></li>

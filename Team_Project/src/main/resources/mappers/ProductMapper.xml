@@ -31,15 +31,15 @@
 	</select>
 
 		<select id="getProductK_SneakersList" resultType="com.itwillbs.domain.ProductDTO">
-		select * from product where p_category = 'WOMEN' and p_small_category = '스니커즈' limit #{startRow},#{pageSize}
+		select * from product where p_category = 'KIDS' and p_small_category = '스니커즈' limit #{startRow},#{pageSize}
 		</select>
 		
 		<select id="getProductK_KidList" resultType="com.itwillbs.domain.ProductDTO">
-		select * from product where p_category = 'WOMEN' and p_small_category = '구두' limit #{startRow},#{pageSize}
+		select * from product where p_category = 'KIDS' and p_small_category = '구두' limit #{startRow},#{pageSize}
 		</select>
 		
 		<select id="getProductK_RunningList" resultType="com.itwillbs.domain.ProductDTO">
-		select * from product where p_category = 'WOMEN' and p_small_category = '러닝화' limit #{startRow},#{pageSize}
+		select * from product where p_category = 'KIDS' and p_small_category = '러닝화' limit #{startRow},#{pageSize}
 		</select>
 	
 <!-- 	<select id="ProwomenList" resultType="com.itwillbs.domain.productDTO">
@@ -54,15 +54,15 @@
 		</select>
 		
 		<select id="getProductW_RunningList" resultType="com.itwillbs.domain.ProductDTO">
-		select * from product where p_category = 'MEN' and p_small_category = '러닝화' limit #{startRow},#{pageSize}
+		select * from product where p_category = 'WOMEN' and p_small_category = '러닝화' limit #{startRow},#{pageSize}
 		</select>
 		
 		<select id="getProductW_SneakersList" resultType="com.itwillbs.domain.ProductDTO">
-		select * from product where p_category = 'MEN' and p_small_category = '스니커즈' limit #{startRow},#{pageSize}
+		select * from product where p_category = 'WOMEN' and p_small_category = '스니커즈' limit #{startRow},#{pageSize}
 		</select>
 		
 		<select id="getProductW_OutdoorList" resultType="com.itwillbs.domain.ProductDTO">
-		select * from product where p_category = 'MEN' and p_small_category = '아웃도어' limit #{startRow},#{pageSize}
+		select * from product where p_category = 'WOMEN' and p_small_category = '아웃도어' limit #{startRow},#{pageSize}
 		</select>
 	
 	
@@ -164,5 +164,69 @@
 				from order_member o, order_detail d,product p
 			WHERE o.o_idx = d.o_idx AND d.p_num = p.p_num AND o.m_idx= #{m_idx} AND o.o_idx = #{o_idx};
 		</select>
+		
+		<!-- MEN 카운트 -->
+		<select id="getProductGentlemanCount" resultType="java.lang.Integer">
+			select count(*) from product where p_category = 'MEN' and p_small_category = '구두' 
+		</select>
+		
+		<select id="getProductOutdoorCount" resultType="java.lang.Integer">
+			select count(*) from product where p_category = 'MEN' and p_small_category = '아웃도어'
+		</select>
+		
+		<select id="getProductRunningCount" resultType="java.lang.Integer">
+			select count(*) from product where p_category = 'MEN' and p_small_category = '러닝화'
+		</select>
+		
+		<select id="getProducSneakersCount" resultType="java.lang.Integer">
+			select count(*) from product where p_category = 'MEN' and p_small_category = '스니커즈'
+		</select>
+		
+		<select id="getProducMenCount" resultType="java.lang.Integer">
+			select count(*) from product where p_category = 'MEN'
+		</select>
+		
+		<!-- WOMEN 카운트 -->
+		
+		<select id="getProductWomenCount" resultType="java.lang.Integer">
+			select count(*) from product where p_category = 'WOMEN' 
+		</select>
+		
+		<select id="getProductW_OutdoorCount" resultType="java.lang.Integer">
+			select count(*) from product where p_category = 'WOMEN' and p_small_category = '아웃도어'
+		</select>
+		
+		<select id="getProductW_RunningCount" resultType="java.lang.Integer">
+			select count(*) from product where p_category = 'WOMEN' and p_small_category = '러닝화'
+		</select>
+		
+		<select id="getProductW_SneakersCount" resultType="java.lang.Integer">
+			select count(*) from product where p_category = 'WOMEN' and p_small_category = '스니커즈'
+		</select>
+		
+		<select id="getProductLadyCount" resultType="java.lang.Integer">
+			select count(*) from product where p_category = 'WOMEN' and p_small_category = '구두' 
+		</select>
+		
+		<!-- KIDS 카운트 -->
+		
+		<select id="getProductKidsCount" resultType="java.lang.Integer">
+			select count(*) from product where p_category = 'KIDS' 
+		</select>
+		
+		<select id="getProductK_KidCount" resultType="java.lang.Integer">
+			select count(*) from product where p_category = 'KIDS' and p_small_category = '구두'
+		</select>
+		
+		<select id="getProductK_RunningCount" resultType="java.lang.Integer">
+			select count(*) from product where p_category = 'KIDS' and p_small_category = '러닝화'
+		</select>
+		
+		<select id="getProductK_SneakersCount" resultType="java.lang.Integer">
+			select count(*) from product where p_category = 'KIDS' and p_small_category = '스니커즈'
+		</select>
+		
+		
+		
 	
 </mapper>
