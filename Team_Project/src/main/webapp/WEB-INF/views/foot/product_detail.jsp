@@ -65,19 +65,15 @@
 		// class="review"
 		$('#review').click(function(){
 			// 글 가지고 오고 싶을때
-			if($('#p_num').val()==""){
-// 				alert("1"+$('#p_num').val());
-				$('table').append('<tr><td colspan=3>등록된 리뷰가 없습니다.</td></tr>');
-			}else{
 // 				alert("2"+$('#p_num').val());
 				$.ajax({
 					url:'${pageContext.request.contextPath}/foot/reviewList',
 					dataType:"JSON",
 					data: {p_num:$('#p_num').val()},
 					success:function(rdata){
-// 							alert("rdata"+rdata);
 						$.each(rdata,function(index,item){
 // 							if(rdata==""){
+// 							alert("등록된 리뷰가 없습니다.");
 // 								$('table').append('<tr><td colspan=3>등록된 리뷰가 없습니다.</td></tr>');
 // 							}
 // 							else{
@@ -87,7 +83,7 @@
 						});
 					}
 				});
-			}
+			
 			// 이벤트 멈춤
 			$(this).unbind();
 		});
