@@ -102,19 +102,32 @@
                                                     <td>${Order_memberDTO.totalSum}</td>
                                                     <td>3000원</td>
                                                     <td class="center">
-                                                    <select class=”form-control” >
-                                                    	<option value = "1">결제완료</option>
-                                                    	<option value = "2">배송준비중</option>
-														<option value = "3">배송중</option>
-                                                    	<option value = "4">배송완료</option>
+<%--                                                     <input type="hidden" name="o_state" id="o_state" value="${Order_memberDTO.o_state}"> --%>
+                                                    <select name="selectOrderState" id="selectOrderState" onchange="changeOrderState(this.options[this.selectedIndex].value);">
+                                                    	<option value = "0" >결제완료</option>
+                                                    	<option value = "1" >배송준비중</option>
+														<option value = "2" >배송중</option>
+                                                    	<option value = "3" >배송완료</option>
                                                     </select>
-                                                    <button type="submit" class="btn btn-primary btn-xs" href="">주문상태 변경</button>
+                                                    <button type="button" class="btn btn-primary btn-xs" 
+                                                    onclick="${pageContext.request.contextPath}/admin/changeOrderState?o_idx=${Order_memberDTO.o_idx}&m_idx=${Order_memberDTO.m_idx}&o_state=${Order_memberDTO.o_state}">주문상태 변경</button>
+                                                    
                                                     </td>
                                                 </tr>
 											</c:forEach>
                                             </tbody>
                                                 
                                                 </table>
+                                                
+													<!-- o_state 값 넘기는거 잘 모르겠음-->
+                                                <script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
+                                                <script type="text/javascript">
+                                                function changeOrderState(selectedValue) {
+													alert(selectedValue);
+												}
+													
+                                                </script>
+                                                
                                                 </div>
                                                 </div>
                                                 </div>

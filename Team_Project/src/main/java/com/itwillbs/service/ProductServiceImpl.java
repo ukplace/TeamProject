@@ -352,6 +352,12 @@ public class ProductServiceImpl implements ProductService {
 		return productDAO.getOrderDetailList(m_idx, o_idx);
 	}
 
+	@Override
+	public void changeOrderState(Order_memberDTO o_memberDTO) {
+		// 관리자페이지 주문상태 변경
+		System.out.println("ProductServiceImpl - changeOrderState()");
+		productDAO.changeOrderState(o_memberDTO);
+	}
 	
 	
 

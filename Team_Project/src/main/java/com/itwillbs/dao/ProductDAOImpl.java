@@ -307,6 +307,12 @@ public class ProductDAOImpl implements ProductDAO {
 		return sqlSession.selectList(namespace + ".getOrderDetailList", m_idx & o_idx);
 	}
 
+	@Override
+	public void changeOrderState(Order_memberDTO o_memberDTO) {
+		// 관리자페이지 주문상태 변경
+		System.out.println("ProductDAOImpl - changeOrderState()");
+		sqlSession.update(namespace + ".changeOrderState", o_memberDTO);
+	}
 
 	
 	

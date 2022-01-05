@@ -85,6 +85,9 @@ public interface ProductService {
 	
 	// List<OrderListDTO> orderDetailList = productService.getOrderDetailList(m_idx, o_idx);
 	public List<OrderListDTO> getOrderDetailList(int m_idx, int o_idx);
+
+	// 관리자페이지 주문상태 변경
+	public void changeOrderState(Order_memberDTO o_memberDTO);
 	
 
 	//MEN 카운트

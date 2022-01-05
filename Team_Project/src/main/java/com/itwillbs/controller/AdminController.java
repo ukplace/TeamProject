@@ -195,7 +195,6 @@ public class AdminController {
 			
 			List<Order_memberDTO> orderList = productService.AllOrderList(pageDTO);
 			
-			
 			// 페이징처리 - 제품리스트 전체 글 개수
 			pageDTO.setCount(adminService.getProductCount());
 			
@@ -228,7 +227,25 @@ public class AdminController {
         // /WEB-INF/views/admin/order_detail
         return "admin/order_detail";
      }
-	 
+
+	 // 주문상태 변경
+	 @RequestMapping(value = "/admin/changeOrderState", method = RequestMethod.GET)
+     public String changeOrderState(@RequestParam("o_idx") int o_idx, @RequestParam("m_idx") int m_idx, @RequestParam("o_state") String o_state) {
+		 
+		 Order_memberDTO orderMemberDTO = new Order_memberDTO();
+		 orderMemberDTO.setO_state(o_state);
+		 orderMemberDTO.setM_idx(m_idx);
+		 orderMemberDTO.setO_idx(o_idx);
+		 
+		 System.out.println("주문번호 : " + orderMemberDTO.getO_idx());
+		 System.out.println("멤버번호 : " + orderMemberDTO.getM_idx());
+		 System.out.println("주문상태 : " + orderMemberDTO.getO_state());
+		 
+		 productService.changeOrderState(orderMemberDTO);
+			
+        // /WEB-INF/views/admin/order_list
+        return "redirect:/admin/order_list";
+     }
 	 
 	 
 	 //---------------------------회원관리------------------------------
