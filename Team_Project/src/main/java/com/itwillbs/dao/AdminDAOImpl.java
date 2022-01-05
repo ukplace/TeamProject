@@ -145,6 +145,7 @@ public class AdminDAOImpl implements AdminDAO {
 		return sqlSession.selectList(namespace+".getReviewList", pageDTO);
 	}
 
+	
 
 	
 	

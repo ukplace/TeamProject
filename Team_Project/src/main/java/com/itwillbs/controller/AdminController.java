@@ -22,6 +22,9 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.NoticeDTO;
+import com.itwillbs.domain.OrderListDTO;
+import com.itwillbs.domain.Order_detailDTO;
+import com.itwillbs.domain.Order_memberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductQtyDTO;
@@ -39,6 +42,12 @@ public class AdminController {
 	
 	@Inject
 	private AdminService adminService;
+	
+	@Inject
+	private ProductService productService;
+	
+	@Inject
+	private MemberService memberService;
 	
 	@Resource(name="uploadPath")
 	private String uploadPath;
@@ -170,16 +179,52 @@ public class AdminController {
 	
 
 	 
-	
+	// ============================== 주문관리 ==============================
 	// 주문 관리(주문 리스트)
 	 @RequestMapping(value = "/admin/order_list", method = RequestMethod.GET)
-     public String order_list() {
+     public String order_list(HttpServletRequest request, Model model) {
+			// 데이터 가져오기 (페이지 있는지 없는지 비교)
+			PageDTO pageDTO = new PageDTO();
+			pageDTO.setPageSize(3); // *pageSize(한화면에보여줄글갯수)
+			
+			if(request.getParameter("pageNum") == null) { // 없으면 pageNum 1 로 세팅
+				pageDTO.setPageNum("1");
+			} else { // 있으면 pageNum 2 로 세팅
+				pageDTO.setPageNum(request.getParameter("pageNum"));
+			}
+			
+			List<Order_memberDTO> orderList = productService.AllOrderList(pageDTO);
+			
+			
+			// 페이징처리 - 제품리스트 전체 글 개수
+			pageDTO.setCount(adminService.getProductCount());
+			
+			model.addAttribute("orderList", orderList); // model 에 담아서 데이터 들고 감!
+			model.addAttribute("pageDTO", pageDTO); // 페이지관련 계산 -> pageDTO값으로 들고 감!
+		 
         // /WEB-INF/views/admin/order_list
         return "admin/order_list";
      }
-	 
+
+	 // 주문 상세페이지
 	 @RequestMapping(value = "/admin/order_detail", method = RequestMethod.GET)
-     public String order_detail() {
+     public String order_detail(@RequestParam("o_idx") int o_idx, @RequestParam("m_idx") int m_idx, Model model) throws Exception {
+		 logger.info("get memberProductDetail view");
+
+		 	OrderListDTO orderListDTO = new OrderListDTO();
+		 	orderListDTO.setO_idx(o_idx);
+		 	orderListDTO.setM_idx(m_idx);
+			
+			List<OrderListDTO> orderDetailList = productService.getOrderList(orderListDTO);
+			
+			MemberDTO memberDTO = new MemberDTO();
+			memberDTO.setM_idx(m_idx);
+			
+			MemberDTO memberDTO2 = memberService.getMember(memberDTO);
+			
+			model.addAttribute("orderDetailList", orderDetailList);
+			model.addAttribute("memberDTO2", memberDTO2);
+			
         // /WEB-INF/views/admin/order_detail
         return "admin/order_detail";
      }

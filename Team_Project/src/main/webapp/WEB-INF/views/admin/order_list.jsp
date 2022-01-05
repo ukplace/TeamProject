@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -81,7 +82,7 @@
                                                     <th class="text-center">주문상태</th>
                                                 </tr>
                                             </thead>
-                                            <tbody>
+                                            
                                             
                                             <!-- 제품리스트 받아오는 부분 -->
 <%--                                             <c:forEach var="memberDTO" items="${memberList}"> --%>
@@ -91,22 +92,28 @@
 <%-- 											</c:forEach> --%>
 <%-- 											</table> --%>
 <%-- 											<a href="${pageContext.request.contextPath}/member/main">메인으로 이동</a> --%>
+
+											<tbody>
+											<c:forEach var="Order_memberDTO" items="${orderList }">
                                                 <tr class="odd gradeX">
-                                                    <td>20211217-1</td>
-                                                    <td>손성형</td>
-                                                    <td><a href="">Deviate 나이트로 WTR 러닝화/Deviate</a></td>
-                                                    <td>1,000,000 원</td>
+                                                    <td>${Order_memberDTO.o_idx}</td>
+                                                    <td>${Order_memberDTO.o_name}</td>
+                                                    <td><a href="${pageContext.request.contextPath}/admin/order_detail?o_idx=${Order_memberDTO.o_idx}&m_idx=${Order_memberDTO.m_idx}">${Order_memberDTO.p_name }</a></td>
+                                                    <td>${Order_memberDTO.totalSum}</td>
                                                     <td>3000원</td>
                                                     <td class="center">
                                                     <select class=”form-control” >
-                                                    <option value = "1">결제완료</option>
-                                                    <option value = "2">배송준비중</option>
-                                                    <option value = "3">배송중</option>
-                                                    <option value = "4">배송완료</option>
-                                                    </select></td>
-                                                   
+                                                    	<option value = "1">결제완료</option>
+                                                    	<option value = "2">배송준비중</option>
+														<option value = "3">배송중</option>
+                                                    	<option value = "4">배송완료</option>
+                                                    </select>
+                                                    <button type="submit" class="btn btn-primary btn-xs" href="">주문상태 변경</button>
+                                                    </td>
                                                 </tr>
-                                                </tbody>
+											</c:forEach>
+                                            </tbody>
+                                                
                                                 </table>
                                                 </div>
                                                 </div>

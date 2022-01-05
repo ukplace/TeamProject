@@ -218,6 +218,20 @@ public class ProductDAOImpl implements ProductDAO {
 		return sqlSession.selectList(namespace+".getOrderList",orderListDTO);
 	}
 
+	@Override
+	public List<Order_memberDTO> AllOrderList(PageDTO pageDTO) {
+		// 관리자페이지에서 전체회원 주문목록 불러오기
+		System.out.println("ProductDAOImpl - AllOrderList()");
+		return sqlSession.selectList(namespace + ".AllOrderList", pageDTO);
+	}
+
+	@Override
+	public List<OrderListDTO> getOrderDetailList(int m_idx, int o_idx) {
+		// 관리자페이지에서 주문목록 세부정보페이지 불러오기
+		System.out.println("ProductDAOImpl - getOrderDetailList()");
+		return sqlSession.selectList(namespace + ".getOrderDetailList", m_idx & o_idx);
+	}
+
 
 	
 	

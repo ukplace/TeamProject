@@ -10,6 +10,7 @@ import com.itwillbs.domain.ReviewDTO;
 
 public interface AdminDAO {
 	
+	// -------- 제품정보관리 --------
 	// adminDAO.insertProduct(productDTO);
 	public void insertProduct(ProductDTO productDTO);
 	
@@ -27,6 +28,7 @@ public interface AdminDAO {
 	// adminService.deleteMember(memberDTO);
 	public void deleteProduct(int p_num);
 	
+	// -------- 회원정보관리 --------
 	public List<MemberDTO> getMemberList(PageDTO pageDTO);
 	
 	public int getMemberCount();

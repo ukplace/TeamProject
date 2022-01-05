@@ -80,5 +80,11 @@ public interface ProductService {
 	public List<Order_memberDTO> OneOrderList(Order_memberDTO o_memberDTO);
 
 	public List<OrderListDTO> getOrderList(OrderListDTO orderListDTO);
+	
+	public List<Order_memberDTO> AllOrderList(PageDTO pageDTO);
+	
+	// List<OrderListDTO> orderDetailList = productService.getOrderDetailList(m_idx, o_idx);
+	public List<OrderListDTO> getOrderDetailList(int m_idx, int o_idx);
+	
 
 }
