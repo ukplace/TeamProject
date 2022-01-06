@@ -113,10 +113,10 @@
 <%--                                                     <input type="hidden" name="o_state" id="o_state" value="${Order_memberDTO.o_state}"> --%>
                                                     
                                                     <select name="o_state${status.index}" id="o_state" >
-                                                    	<option value = "0" <c:if test="${Order_memberDTO.o_state eq 0}">selected</c:if> >결제완료</option>
-                                                    	<option value = "1" <c:if test="${Order_memberDTO.o_state eq 1}">selected</c:if> >배송준비중</option>
-														<option value = "2" <c:if test="${Order_memberDTO.o_state eq 2}">selected</c:if>>배송중</option>
-                                                    	<option value = "3" <c:if test="${Order_memberDTO.o_state eq 3}">selected</c:if>>배송완료</option>
+                                                    	<option value = "0" <c:if test="${Order_memberDTO.o_state eq '0'}">selected</c:if> >결제완료</option>
+                                                    	<option value = "1" <c:if test="${Order_memberDTO.o_state eq '1'}">selected</c:if> >배송준비중</option>
+														<option value = "2" <c:if test="${Order_memberDTO.o_state eq '2'}">selected</c:if>>배송중</option>
+                                                    	<option value = "3" <c:if test="${Order_memberDTO.o_state eq '3'}">selected</c:if>>배송완료</option>
                                                     </select>
 													<input type="hidden" name=o_idx${status.index} id="o_idx" value="${Order_memberDTO.o_idx}">
 													<input type="hidden" name=m_idx${status.index} id="m_idx" value="${Order_memberDTO.m_idx}">
