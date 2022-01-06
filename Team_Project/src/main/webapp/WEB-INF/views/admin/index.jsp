@@ -175,6 +175,10 @@
                                 <!-- /.panel-heading -->
                                 <div class="panel-body">
                                     <div id="morris-area-chart"></div>
+                                    
+                                    
+                                    
+                                    
                                 </div>
                                 <!-- /.panel-body -->
                             </div>

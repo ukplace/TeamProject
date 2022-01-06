@@ -45,19 +45,23 @@
 	
 	<script type="text/javascript">
     function buy(){ 
-         var uid = '<%=(Integer)session.getAttribute("m_idx")%>';
+        var uid = '<%=(Integer)session.getAttribute("m_idx")%>';
 
-          if(uid=='null'){ 
-             alert("로그인이 필요한 항목입니다."); 
-             location.href='${pageContext.request.contextPath}/foot/login';
-             return false;
-          }
-          else{
-        	  
-             location.href='${pageContext.request.contextPath}/foot/order';
-             
-          }
-    }   
+         if(uid=='null'){ 
+            alert("로그인이 필요한 항목입니다."); 
+            location.href='${pageContext.request.contextPath}/foot/login';
+            return false;
+         }
+         else{
+       	  	var p_size = document.getElementById("p_size").value;
+       	  	if(p_size == ""){
+       	  		alert("사이즈를 선택하세요!");
+       	  		return false;
+       	  	}
+//             location.href='${pageContext.request.contextPath}/foot/order';
+            
+         }
+   }   
 	</script>
 	<script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
 	<script >
@@ -77,7 +81,8 @@
 // 								$('table').append('<tr><td colspan=3>등록된 리뷰가 없습니다.</td></tr>');
 // 							}
 // 							else{
-							$('table').append('<tr><td class="contxt"><a href="#"><td>'+item.m_idx+'</a></td><td>'+item.review_subject+'</td><td>'+item.review_date+'</td></tr>');
+							$('table').append(
+									'<tr><td>'+item.review_writer+'</td><td>'+item.review_content+'</td><td>'+item.review_score+'</td></tr>');
 							// 테이블 가져와서 출력
 // 							}
 						});
@@ -98,6 +103,24 @@
 <!-- 			<tr><td>등록된 리뷰가 없습니다.</td></tr> -->
 <%-- 		</c:otherwise> --%>
 <%-- 	</c:choose> --%>
+<style type="text/css">
+#addCartBtn{
+	border: thin;
+	background-color: orange;
+	color: white;
+	border-radius: 5px;
+	padding: 8px 30px;
+}
+
+#buyBtn{
+	border: thin;
+	background-color: green;
+	color: white;
+	border-radius: 5px;
+	padding: 8px 60px;
+}
+
+</style>
 	
 	</head>
 	<body>
@@ -248,51 +271,67 @@
                   	<br>
                   	
                   	<!-- 쇼핑카트 -->
-				     <div class="input-group mb-4">          
-				     <a href="${pageContext.request.contextPath}/foot/wishlist" class="btn btn-primary btn-addtocart"><i class="icon-heart2"></i>Wish</a>
+				     <div class="input-group mb-4">  
+<%-- 				     <a href="${pageContext.request.contextPath}/foot/wishlist" class="btn btn-primary btn-addtocart"><i class="icon-heart2"></i>Wish</a> --%>
 					 <p class="addToCart">
-						 <button type="button" class="addCart_btn">카트에 담기</button>
+						 <button type="button" class="addCart_btn" id="addCartBtn" value="cartBtn" >카트에 담기</button>
 						 <script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
 						 <script>
 						  $(".addCart_btn").click(function(){
-						   var p_num = $("#p_num").val();
-						   var cart_count = parseInt($("#quantity").val());
-						   var p_size = $('#p_size').val();
-								alert('p_size 값 : ' + p_size);
-						   var data = {
-								   p_num : p_num,
-								   cart_count : cart_count,
-								   p_size : p_size
-						     };
-						   
-						   $.ajax({
-						    url : "${pageContext.request.contextPath}/foot/addCart",
-						    type : "post",
-						    data : data,
-						    success : function(result){
-						    	/* alert("카트담기 성공");
-						    	var quantity = parseInt($('#quantity').val());
-						    	$("#quantity").val(1);
-						    }, */
-						    	if(result==1){
-						     alert("카트 담기 성공");
-						     $("#quantity").val("1");
-						    	}else{
-						    		alert("회원만 사용할 수 있습니다.")
-						    $("#quantity").val("1");		
-						    	}
-						    },
-						    error : function(result){
-						     alert("카트 담기 실패");
-						    }
-						   });
-						  });
+							   var p_num = $("#p_num").val();
+							   var cart_count = parseInt($("#quantity").val());
+							   var p_size = $('#p_size').val();
+// 									alert('p_size 값 : ' + p_size);
+							   var data = {
+									   p_num : p_num,
+									   cart_count : cart_count,
+									   p_size : p_size
+							     };
+							   
+							   $.ajax({
+							    url : "${pageContext.request.contextPath}/foot/addCart",
+							    type : "post",
+							    data : data,
+							    success : function(result){
+							    	/* alert("카트담기 성공");
+							    	var quantity = parseInt($('#quantity').val());
+							    	$("#quantity").val(1);
+							     */
+									if(result==1){
+								    	 alert("카트 담기 성공");
+								    	 if(confirm("장바구니로 이동하시겠습니까?")){
+								    		 location.href='${pageContext.request.contextPath}/foot/cart';
+								    	 }
+								     	$("#quantity").val("1");
+								    } else if(result==0){
+							        	  alert("사이즈를 선택해주세요!");
+							        	  return false;
+							          }
+
+							    },
+							    error : function(result){
+// 							     alert("카트 담기 실패");
+							         var uid = '<%=(Integer)session.getAttribute("m_idx")%>';
+
+							          if(uid=='null'){ 
+							             alert("로그인이 필요한 항목입니다."); 
+							             location.href='${pageContext.request.contextPath}/foot/login';
+							             return false;
+							          }
+							          else{
+							             location.href='${pageContext.request.contextPath}/foot/addCart';
+							          }
+							          
+							          
+							    }
+							   });
+							  });
 						 </script>
 						</p>
 					 
 <%-- 					 ${pageContext.request.contextPath}/foot/Direct_order" class="btn btn-success btn-addtocart" style="height:39px" --%>
-						
-					 <input type="submit" class="btn btn-success btn-addtocart" style="height:39px" value="Buy">
+					&emsp;	
+					 <input type="submit" id="buyBtn" class="buyBtn" style="height:40px" value="Buy">
 <!-- 				     <i class="icon-credit-card "></i>Buy</a> -->
 		</form>
 				     </div>             
@@ -310,11 +349,11 @@
 								  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
 
 								    <li class="nav-item">
-								      <a class="nav-link active" id="pills-description-tab" data-toggle="pill" href="#pills-description" role="tab" aria-controls="pills-description" aria-expanded="true">제품설명</a>
+								      <a class="nav-link active" id="pills-description-tab" data-toggle="pill" href="#pills-description" role="tab" aria-controls="pills-description" aria-expanded="true">제품리뷰</a>
 								    </li>
-								    <li class="nav-item">
-								      <a class="nav-link" id="pills-manufacturer-tab" data-toggle="pill" href="#pills-manufacturer" role="tab" aria-controls="pills-manufacturer" aria-expanded="true">Manufacturer</a>
-								    </li>
+<!-- 								    <li class="nav-item"> -->
+<!-- 								      <a class="nav-link" id="pills-manufacturer-tab" data-toggle="pill" href="#pills-manufacturer" role="tab" aria-controls="pills-manufacturer" aria-expanded="true">Manufacturer</a> -->
+<!-- 								    </li> -->
 <%-- 								    <c:choose> --%>
 <%-- 								    	<c:when test="${reviewDTO.p_num =='' }"> --%>
 <!-- 								    		<li>등록된 리뷰가 없습니다.</li > -->
@@ -326,165 +365,170 @@
 <%-- 								    	</c:otherwise> --%>
 <%-- 								    </c:choose> --%>
 								       <li class="nav-item">
-								      	<a class="nav-link" id="review" data-toggle="pill" href="#" role="tab" aria-controls="pills-review" aria-expanded="true">리뷰</a>
+								      	<a class="nav-link" id="review" data-toggle="pill" href="#" role="tab" aria-controls="pills-review" aria-expanded="true">상세보기</a>
 								    </li>
-								     <div class="table">
-										<table>
-										<tr>
-											<td></td><td></td>
-										</tr>
-										</table>
-								    </div>
+								   
 								    
-								  </ul>
-
+<!-- 								     <div class="table" id="pills-tabContent"> -->
+<!-- 								     	<div class="tab-pane border fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab"> -->
+<!-- 										<table> -->
+<!-- 										<tr style="font-size: 22x; text-align:center;"> -->
+<!-- 											<p >제품 리뷰를 보여드립니다</p> -->
+<!-- 											<td colspan=3>작성자</td><td colspan=8>내용</td><td colspan=3>별점</td> -->
+<!-- 										</tr> -->
+<!-- 										</table> -->
+<!-- 								    </div> -->
+								  <div class="table" margin:0 auto;">
 								  <div class="tab-content" id="pills-tabContent">
 								    <div class="tab-pane border fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
-								      <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-										<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
+										<p style="font-size: 30x; text-align:center; margin:0 auto; padding-bottom: 5px;">제품 리뷰 보기</p>
+										<table width="1000" height="150">
 										<ul>
-											<li>The Big Oxmox advised her not to do so</li>
-											<li>Because there were thousands of bad Commas</li>
-											<li>Wild Question Marks and devious Semikoli</li>
-											<li>She packed her seven versalia</li>
-											<li>tial into the belt and made herself on the way.</li>
+										<tr style="font-size: 22x; text-align:center;">
+											<td>작성자</td><td>내용</td><td>별점</td>
+										</tr>
+										</table>
 										</ul>
 								    </div>
+								</div>
+								</div>    
+								  </ul>
 
-								    <div class="tab-pane border fade" id="pills-manufacturer" role="tabpanel" aria-labelledby="pills-manufacturer-tab">
-								      <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p>
-										<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p>
-								    </div>
 
-								    <div class="tab-pane border fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab">
-								      <div class="row">
-								   		<div class="col-md-8">
-								   			<h3 class="head">23 Reviews</h3>
-								   			<div class="review">
-										   		<div class="user-img" style="background-image: url(${pageContext.request.contextPath}/images/person1.jpg)"></div>
-										   		<div class="desc">
-										   			<h4>
-										   				<span class="text-left">Jacob Webb</span>
-										   				<span class="text-right">14 March 2018</span>
-										   			</h4>
-										   			<p class="star">
-										   				<span>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-half"></i>
-										   					<i class="icon-star-empty"></i>
-									   					</span>
-									   					<span class="text-right"><a href="#" class="reply"><i class="icon-reply"></i></a></span>
-										   			</p>
-										   			<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrov</p>
-										   		</div>
-										   	</div>
-										   	<div class="review">
-										   		<div class="user-img" style="background-image: url(${pageContext.request.contextPath}/images/person2.jpg)"></div>
-										   		<div class="desc">
-										   			<h4>
-										   				<span class="text-left">Jacob Webb</span>
-										   				<span class="text-right">14 March 2018</span>
-										   			</h4>
-										   			<p class="star">
-										   				<span>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-half"></i>
-										   					<i class="icon-star-empty"></i>
-									   					</span>
-									   					<span class="text-right"><a href="#" class="reply"><i class="icon-reply"></i></a></span>
-										   			</p>
-										   			<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrov</p>
-										   		</div>
-										   	</div>
-										   	<div class="review">
-										   		<div class="user-img" style="background-image: url(${pageContext.request.contextPath}/images/person3.jpg)"></div>
-										   		<div class="desc">
-										   			<h4>
-										   				<span class="text-left">Jacob Webb</span>
-										   				<span class="text-right">14 March 2018</span>
-										   			</h4>
-										   			<p class="star">
-										   				<span>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-half"></i>
-										   					<i class="icon-star-empty"></i>
-									   					</span>
-									   					<span class="text-right"><a href="#" class="reply"><i class="icon-reply"></i></a></span>
-										   			</p>
-										   			<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrov</p>
-										   		</div>
-										   	</div>
-								   		</div>
-								   		<div class="col-md-4">
-								   			<div class="rating-wrap">
-									   			<h3 class="head">Give a Review</h3>
-									   			<div class="wrap">
-										   			<p class="star">
-										   				<span>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-full"></i>
-										   					(98%)
-									   					</span>
-									   					<span>20 Reviews</span>
-										   			</p>
-										   			<p class="star">
-										   				<span>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-empty"></i>
-										   					(85%)
-									   					</span>
-									   					<span>10 Reviews</span>
-										   			</p>
-										   			<p class="star">
-										   				<span>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-empty"></i>
-										   					<i class="icon-star-empty"></i>
-										   					(70%)
-									   					</span>
-									   					<span>5 Reviews</span>
-										   			</p>
-										   			<p class="star">
-										   				<span>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-empty"></i>
-										   					<i class="icon-star-empty"></i>
-										   					<i class="icon-star-empty"></i>
-										   					(10%)
-									   					</span>
-									   					<span>0 Reviews</span>
-										   			</p>
-										   			<p class="star">
-										   				<span>
-										   					<i class="icon-star-full"></i>
-										   					<i class="icon-star-empty"></i>
-										   					<i class="icon-star-empty"></i>
-										   					<i class="icon-star-empty"></i>
-										   					<i class="icon-star-empty"></i>
-										   					(0%)
-									   					</span>
-									   					<span>0 Reviews</span>
-										   			</p>
-										   		</div>
-									   		</div>
-								   		</div>
-								   	</div>
-								    </div>
+<!-- 								    <div class="tab-pane border fade" id="pills-manufacturer" role="tabpanel" aria-labelledby="pills-manufacturer-tab"> -->
+<!-- 								      <p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p> -->
+<!-- 										<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek, then she continued her way.</p> -->
+<!-- 								    </div> -->
+
+<!-- 								    <div class="tab-pane border fade" id="pills-review" role="tabpanel" aria-labelledby="pills-review-tab"> -->
+<!-- 								      <div class="row"> -->
+<!-- 								   		<div class="col-md-8"> -->
+<!-- 								   			<h3 class="head">23 Reviews</h3> -->
+<!-- 								   			<div class="review"> -->
+<%-- 										   		<div class="user-img" style="background-image: url(${pageContext.request.contextPath}/images/person1.jpg)"></div> --%>
+<!-- 										   		<div class="desc"> -->
+<!-- 										   			<h4> -->
+<!-- 										   				<span class="text-left">Jacob Webb</span> -->
+<!-- 										   				<span class="text-right">14 March 2018</span> -->
+<!-- 										   			</h4> -->
+<!-- 										   			<p class="star"> -->
+<!-- 										   				<span> -->
+<!-- 										   					<i class="icon-star-full"></i> -->
+<!-- 										   					<i class="icon-star-full"></i> -->
+<!-- 										   					<i class="icon-star-full"></i> -->
+<!-- 										   					<i class="icon-star-half"></i> -->
+<!-- 										   					<i class="icon-star-empty"></i> -->
+<!-- 									   					</span> -->
+<!-- 									   					<span class="text-right"><a href="#" class="reply"><i class="icon-reply"></i></a></span> -->
+<!-- 										   			</p> -->
+<!-- 										   			<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrov</p> -->
+<!-- 										   		</div> -->
+<!-- 										   	</div> -->
+<!-- 										   	<div class="review"> -->
+<%-- 										   		<div class="user-img" style="background-image: url(${pageContext.request.contextPath}/images/person2.jpg)"></div> --%>
+<!-- 										   		<div class="desc"> -->
+<!-- 										   			<h4> -->
+<!-- 										   				<span class="text-left">Jacob Webb</span> -->
+<!-- 										   				<span class="text-right">14 March 2018</span> -->
+<!-- 										   			</h4> -->
+<!-- 										   			<p class="star"> -->
+<!-- 										   				<span> -->
+<!-- 										   					<i class="icon-star-full"></i> -->
+<!-- 										   					<i class="icon-star-full"></i> -->
+<!-- 										   					<i class="icon-star-full"></i> -->
+<!-- 										   					<i class="icon-star-half"></i> -->
+<!-- 										   					<i class="icon-star-empty"></i> -->
+<!-- 									   					</span> -->
+<!-- 									   					<span class="text-right"><a href="#" class="reply"><i class="icon-reply"></i></a></span> -->
+<!-- 										   			</p> -->
+<!-- 										   			<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrov</p> -->
+<!-- 										   		</div> -->
+<!-- 										   	</div> -->
+<!-- 										   	<div class="review"> -->
+<%-- 										   		<div class="user-img" style="background-image: url(${pageContext.request.contextPath}/images/person3.jpg)"></div> --%>
+<!-- 										   		<div class="desc"> -->
+<!-- 										   			<h4> -->
+<!-- 										   				<span class="text-left">Jacob Webb</span> -->
+<!-- 										   				<span class="text-right">14 March 2018</span> -->
+<!-- 										   			</h4> -->
+<!-- 										   			<p class="star"> -->
+<!-- 										   				<span> -->
+<!-- 										   					<i class="icon-star-full"></i> -->
+<!-- 										   					<i class="icon-star-full"></i> -->
+<!-- 										   					<i class="icon-star-full"></i> -->
+<!-- 										   					<i class="icon-star-half"></i> -->
+<!-- 										   					<i class="icon-star-empty"></i> -->
+<!-- 									   					</span> -->
+<!-- 									   					<span class="text-right"><a href="#" class="reply"><i class="icon-reply"></i></a></span> -->
+<!-- 										   			</p> -->
+<!-- 										   			<p>When she reached the first hills of the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrov</p> -->
+<!-- 										   		</div> -->
+<!-- 										   	</div> -->
+<!-- 								   		</div> -->
+<!-- 								   		<div class="col-md-4"> -->
+<!-- 								   			<div class="rating-wrap"> -->
+<!-- 									   			<h3 class="head">Give a Review</h3> -->
+<!-- 									   			<div class="wrap"> -->
+<!-- 										   			<p class="star"> -->
+<!-- 										   				<span> -->
+<!-- 										   					<i class="icon-star-full"></i> -->
+<!-- 										   					<i class="icon-star-full"></i> -->
+<!-- 										   					<i class="icon-star-full"></i> -->
+<!-- 										   					<i class="icon-star-full"></i> -->
+<!-- 										   					<i class="icon-star-full"></i> -->
+<!-- 										   					(98%) -->
+<!-- 									   					</span> -->
+<!-- 									   					<span>20 Reviews</span> -->
+<!-- 										   			</p> -->
+<!-- 										   			<p class="star"> -->
+<!-- 										   				<span> -->
+<!-- 										   					<i class="icon-star-full"></i> -->
+<!-- 										   					<i class="icon-star-full"></i> -->
+<!-- 										   					<i class="icon-star-full"></i> -->
+<!-- 										   					<i class="icon-star-full"></i> -->
+<!-- 										   					<i class="icon-star-empty"></i> -->
+<!-- 										   					(85%) -->
+<!-- 									   					</span> -->
+<!-- 									   					<span>10 Reviews</span> -->
+<!-- 										   			</p> -->
+<!-- 										   			<p class="star"> -->
+<!-- 										   				<span> -->
+<!-- 										   					<i class="icon-star-full"></i> -->
+<!-- 										   					<i class="icon-star-full"></i> -->
+<!-- 										   					<i class="icon-star-full"></i> -->
+<!-- 										   					<i class="icon-star-empty"></i> -->
+<!-- 										   					<i class="icon-star-empty"></i> -->
+<!-- 										   					(70%) -->
+<!-- 									   					</span> -->
+<!-- 									   					<span>5 Reviews</span> -->
+<!-- 										   			</p> -->
+<!-- 										   			<p class="star"> -->
+<!-- 										   				<span> -->
+<!-- 										   					<i class="icon-star-full"></i> -->
+<!-- 										   					<i class="icon-star-full"></i> -->
+<!-- 										   					<i class="icon-star-empty"></i> -->
+<!-- 										   					<i class="icon-star-empty"></i> -->
+<!-- 										   					<i class="icon-star-empty"></i> -->
+<!-- 										   					(10%) -->
+<!-- 									   					</span> -->
+<!-- 									   					<span>0 Reviews</span> -->
+<!-- 										   			</p> -->
+<!-- 										   			<p class="star"> -->
+<!-- 										   				<span> -->
+<!-- 										   					<i class="icon-star-full"></i> -->
+<!-- 										   					<i class="icon-star-empty"></i> -->
+<!-- 										   					<i class="icon-star-empty"></i> -->
+<!-- 										   					<i class="icon-star-empty"></i> -->
+<!-- 										   					<i class="icon-star-empty"></i> -->
+<!-- 										   					(0%) -->
+<!-- 									   					</span> -->
+<!-- 									   					<span>0 Reviews</span> -->
+<!-- 										   			</p> -->
+<!-- 										   		</div> -->
+<!-- 									   		</div> -->
+<!-- 								   		</div> -->
+<!-- 								   	</div> -->
+<!-- 								    </div> -->
 								  </div>
 								</div>
 				         </div>

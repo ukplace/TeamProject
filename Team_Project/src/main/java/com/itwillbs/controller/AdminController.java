@@ -88,7 +88,7 @@ public class AdminController {
 	public String productList(HttpServletRequest request, Model model) {
 		// 데이터 가져오기 (페이지 있는지 없는지 비교)
 		PageDTO pageDTO = new PageDTO();
-		pageDTO.setPageSize(3); // *pageSize(한화면에보여줄글갯수)
+		pageDTO.setPageSize(20); // *pageSize(한화면에보여줄글갯수)
 		
 		if(request.getParameter("pageNum") == null) { // 없으면 pageNum 1 로 세팅
 			pageDTO.setPageNum("1");
@@ -486,7 +486,7 @@ public class AdminController {
 			System.out.println(reviewDTO.getP_num()+"리뷰디티오의 라이트프로의 피넘이다!");
 			adminService.insertReview(reviewDTO);
 			
-			return "redirect:/foot/product_detail?p_num="+p_num;
+			return "redirect:/foot/index";
 		}
 		@RequestMapping(value = "/foot/review_update", method = RequestMethod.GET)
 		public String review_update() {

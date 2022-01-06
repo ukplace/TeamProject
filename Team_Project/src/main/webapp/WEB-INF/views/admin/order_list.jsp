@@ -45,7 +45,18 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
-        
+              <script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
+					 <script type="text/javascript">
+					 	$(document).ready(function () {
+					 		$('input[id^="chagestate"]').click(function () {
+					 			var m_idx = $(this).prev().val();
+					 			var o_idx = $(this).prev().prev().val();
+					 			var o_state = $(this).prev().prev().prev().val();
+								location.href='${pageContext.request.contextPath}/admin/changeOrderState?o_idx='+o_idx+'&m_idx='+m_idx+'&o_state='+o_state;
+							})
+							
+						})
+					</script>
 
         
         
@@ -112,40 +123,17 @@
                                                     <td class="center">
 <%--                                                     <input type="hidden" name="o_state" id="o_state" value="${Order_memberDTO.o_state}"> --%>
                                                     
-                                                    <select name="o_state${status.index}" id="o_state" >
-                                                    	<option value = "0" <c:if test="${Order_memberDTO.o_state eq 0}">selected</c:if> >결제완료</option>
-                                                    	<option value = "1" <c:if test="${Order_memberDTO.o_state eq 1}">selected</c:if> >배송준비중</option>
-														<option value = "2" <c:if test="${Order_memberDTO.o_state eq 2}">selected</c:if>>배송중</option>
-                                                    	<option value = "3" <c:if test="${Order_memberDTO.o_state eq 3}">selected</c:if>>배송완료</option>
+                                                    <select name="o_state${status.index}" id="o_state${status.index}" >
+                                                    	<option value = "0" <c:if test="${Order_memberDTO.o_state eq '0'}">selected</c:if> >결제완료</option>
+                                                    	<option value = "1" <c:if test="${Order_memberDTO.o_state eq '1'}">selected</c:if> >배송준비중</option>
+														<option value = "2" <c:if test="${Order_memberDTO.o_state eq '2'}">selected</c:if>>배송중</option>
+                                                    	<option value = "3" <c:if test="${Order_memberDTO.o_state eq '3'}">selected</c:if>>배송완료</option>
                                                     </select>
-													<input type="hidden" name=o_idx${status.index} id="o_idx" value="${Order_memberDTO.o_idx}">
-													<input type="hidden" name=m_idx${status.index} id="m_idx" value="${Order_memberDTO.m_idx}">
+													<input type="hidden" name=o_idx${status.index} id="o_idx${status.index}" value="${Order_memberDTO.o_idx}">
+													<input type="hidden" name=m_idx${status.index} id="m_idx${status.index}" value="${Order_memberDTO.m_idx}">
                                                     
-                                                    <input type="button" class="btn btn-primary btn-xs"  value="주문상태 변경" onclick="chagestate()">
-                                                    <script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
-											 <script type="text/javascript">
-											 		function chagestate(){
-											// 			var check = $(this).attr("name");
-											// 			alert(check);
-													var o_state = document.getElementById("o_state").value;
-													var o_idx = document.getElementById("o_idx").value;
-													var m_idx = document.getElementById("m_idx").value;
-													if(confirm("수정하시겠습니까?")) {
-														$.ajax({
-															url: '${pageContext.request.contextPath}/admin/changeOrderState?o_state='+o_state+'&o_idx='+o_idx+'&m_idx='+m_idx,
-															
-															success:function(data){
-																if(data == 1) {
-																	location.href="${pageContext.request.contextPath}/admin/order_list";	
-																}else{
-																	alert('다시해!');
-																}
-																
-															}
-														}); // end ajax
-													}
-											 		};
-											</script>
+                                                    <input type="button" class="btn btn-primary btn-xs"  value="주문상태 변경" name="chagestate${status.index}" id="chagestate${status.index}">
+                                              
                                                     </td>
                                              </div>  
                                                 </tr>

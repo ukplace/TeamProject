@@ -250,7 +250,6 @@
 				 
 				 <tr>
 				 	<td colspan="2"> 
-						 <%=request.getRealPath("/") %>	
 					</td>
 				 </tr>
 <!-- 				 <tr> -->
