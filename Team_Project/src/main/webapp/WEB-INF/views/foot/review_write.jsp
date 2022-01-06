@@ -146,11 +146,11 @@
 					                     	<i class="icon icon-arrow-down3"></i>
 					                        <select name="review_score" id="cost_score" class="form-control" required="required">
 					                        	<option value="">선택하세요</option>
-						                      	<option value="1">5점</option>
-						                        <option value="2">4점</option>
+						                      	<option value="5">5점</option>
+						                        <option value="4">4점</option>
 						                        <option value="3">3점</option>
-						                        <option value="4">2점</option>
-						                        <option value="5">1점</option>
+						                        <option value="2">2점</option>
+						                        <option value="1">1점</option>
 					                        </select>
 					                     </div>
 										</div>
