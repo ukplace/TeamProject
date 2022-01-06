@@ -486,7 +486,7 @@ public class AdminController {
 			System.out.println(reviewDTO.getP_num()+"리뷰디티오의 라이트프로의 피넘이다!");
 			adminService.insertReview(reviewDTO);
 			
-			return "redirect:/foot/product_detail?p_num="+p_num;
+			return "redirect:/foot/index";
 		}
 		@RequestMapping(value = "/foot/review_update", method = RequestMethod.GET)
 		public String review_update() {

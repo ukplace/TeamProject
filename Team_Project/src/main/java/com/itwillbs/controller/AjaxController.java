@@ -146,27 +146,7 @@ public class AjaxController {
 	
 
 	 // 주문상태 변경
-	 @RequestMapping(value = "/admin/changeOrderState", method = RequestMethod.GET)
-    public int changeOrderState(HttpServletRequest request) {
-		 int result=0;
-			ResponseEntity<String> entity = null;
-		
-			Order_memberDTO order_memberDTO = new Order_memberDTO();
-			
-			order_memberDTO.setO_idx(Integer.parseInt(request.getParameter("o_idx")));
-			order_memberDTO.setM_idx(Integer.parseInt(request.getParameter("m_idx")));
-			order_memberDTO.setO_state((request.getParameter("o_state")));
-			System.out.println(order_memberDTO.getO_idx()+"o_idx값 orderstate");
-			System.out.println(order_memberDTO.getM_idx()+"m_idx값 orderstate");
-			System.out.println(order_memberDTO.getO_state()+"o_state값 orderstate");
-			if(order_memberDTO!=null) {
-				productService.changeOrderState(order_memberDTO);
-				result=1;
-			}
-					
-       // /WEB-INF/views/admin/order_list
-		return result;
-    }
+
 	
 	
 	
