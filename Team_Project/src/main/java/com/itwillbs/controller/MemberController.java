@@ -211,6 +211,8 @@ public class MemberController {
 			return "foot/member_info";
 		}
 		
+		
+		
 		@RequestMapping(value = "/foot/updatePass", method = RequestMethod.POST)
 		public String passChange(HttpSession session, Model model,MemberDTO memberDTO) {
 			

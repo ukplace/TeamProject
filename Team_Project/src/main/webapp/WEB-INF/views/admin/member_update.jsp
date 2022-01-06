@@ -54,6 +54,7 @@
                     </div>
                     <!-- /.row -->
                     <form action="${pageContext.request.contextPath}/admin/member_update_pro" method="post" name="memberUpdate"> 
+                  <input type="hidden" name="m_idx" value="${memberDTO.m_idx}">
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="panel panel-default">
