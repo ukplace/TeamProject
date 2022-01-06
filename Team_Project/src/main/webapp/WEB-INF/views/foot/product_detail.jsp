@@ -53,8 +53,12 @@
             return false;
          }
          else{
-       	  
-            location.href='${pageContext.request.contextPath}/foot/order';
+       	  	var p_size = document.getElementById("p_size").value;
+       	  	if(p_size == ""){
+       	  		alert("사이즈를 선택하세요!");
+       	  		return false;
+       	  	}
+//             location.href='${pageContext.request.contextPath}/foot/order';
             
          }
    }   
