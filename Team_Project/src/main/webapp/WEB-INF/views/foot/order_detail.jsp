@@ -116,18 +116,18 @@
                                                     </td>
                                                     <td class="text-center" style="line-height:100px;">
                                                     <c:choose>
-														<c:when test="${orderDTO.o_state eq 0 }">
+														<c:when test="${orderDTO.o_state eq '0' }">
 															<a href="#" class="tit">결제 완료</a>
 														</c:when>
-														<c:when test="${orderDTO.o_state eq 1 }">
+														<c:when test="${orderDTO.o_state eq '1' }">
 															<a href="#" class="tit">상품 준비중</a>
 														</c:when>
-														<c:when test="${orderDTO.o_state eq 2 }">
+														<c:when test="${orderDTO.o_state eq '2' }">
 															<a href="#" class="tit">배송중</a>
 														</c:when>
-														<c:when test="${orderDTO.o_state eq 3 }">
+														<c:when test="${orderDTO.o_state eq '3' }">
 															<a href="#" class="tit">수령완료</a>
-															<a href="${pageContext.request.contextPath}/foot/review_write?p_num=${pageDTO.p_num}" class="tit"> | 리뷰작성</a>
+															<a href="${pageContext.request.contextPath}/foot/review_write?p_num=${orderDTO.p_num}" class="tit"> | 리뷰작성</a>
 														</c:when>
 														<c:otherwise>
 															<a href="#" class="tit">없음.</a>

@@ -118,18 +118,17 @@
 								<a href="${pageContext.request.contextPath}/foot/order_detail?o_idx=${orderDTO.o_idx }">
 							 	<span>
 							<c:choose>
-								<c:when test="${orderDTO.o_state eq 0 }">
+								<c:when test="${orderDTO.o_state eq '0' }">
 									<td><a href="#" class="tit">결제 완료</a></td>
 								</c:when>
-								<c:when test="${orderDTO.o_state eq 1 }">
+								<c:when test="${orderDTO.o_state eq '1' }">
 									<td><a href="#" class="tit">상품 준비중</a></td>
 								</c:when>
-								<c:when test="${orderDTO.o_state eq 2 }">
+								<c:when test="${orderDTO.o_state eq '2' }">
 									<td><a href="#" class="tit">배송중</a></td>
 								</c:when>
-								<c:when test="${orderDTO.o_state eq 3 }">
+								<c:when test="${orderDTO.o_state eq '3' }">
 									<td><a href="#" class="tit">수령완료</a></td>
-									<a href="${pageContext.request.contextPath}/foot/review_write?p_num=" class="tit"> | 리뷰작성</a>
 								</c:when>
 								<c:otherwise>
 									<td><a href="#" class="tit">없음.</a></td>

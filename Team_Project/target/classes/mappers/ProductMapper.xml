@@ -4,6 +4,12 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
   
 <mapper namespace="com.itwillbs.mapper.ProductMapper">
+	 <!-- <select id="getOrderList" resultType="com.itwillbs.domain.OrderListDTO">
+         select o.o_idx, o.o_name, o.o_zip, o.o_address, o.o_detail_address, o.o_tel, o_size, o.totalSum, o.o_date, o.o_memo, o.o_state, d.p_num, d.cart_count, p.p_name, p.p_thumImg, p.p_price 
+         from order_member o, order_detail d, product p
+         WHERE o.o_idx = d.o_idx AND d.p_num = p.p_num AND o.m_idx= #{m_idx} AND o.o_idx = #{o_idx}
+      </select> -->
+	
 
 	<!-- searchDTO(검색조건) **** -->
 	<sql id="searchDTO">
@@ -48,6 +54,7 @@
 	<select id="getProductWomenList" resultType="com.itwillbs.domain.ProductDTO">
 		select * from product where p_category='WOMEN' limit #{startRow},#{pageSize}
 	</select>
+	
 		
 		<select id="getProductW_LadyList" resultType="com.itwillbs.domain.ProductDTO">
 		select * from product where p_category = 'WOMEN' and p_small_category = '구두' limit #{startRow},#{pageSize}
@@ -160,6 +167,14 @@
 			select count(*) from product where p_category = 'MEN' and p_small_category = '구두' 
 		</select>
 		
+		
+			<select id="getInformation" resultType="com.itwillbs.domain.StockDTO">
+			select * from product_qty where p_size=#{p_size} and p_num=#{p_num}
+		</select>
+		
+		<update id="changeStock">
+			update product_qty set p_stock =#{p_stock} - #{cart_count} where p_num=#{p_num} and p_size=#{p_size}
+		</update>
 		<select id="getProductOutdoorCount" resultType="java.lang.Integer">
 			select count(*) from product where p_category = 'MEN' and p_small_category = '아웃도어'
 		</select>
@@ -224,21 +239,38 @@
          from order_member WHERE m_idx=${m_idx} order by o_idx desc
       </select>
       
-      <select id="getOrderList" resultType="com.itwillbs.domain.OrderListDTO">
-         select o.o_idx, o.o_name, o.o_zip, o.o_address, o.o_detail_address, o.o_tel, o_size, o.totalSum, o.o_date, o.o_memo, o.o_state, d.p_num, d.cart_count, p.p_name, p.p_thumImg, p.p_price 
-         from order_member o, order_detail d, product p
-         WHERE o.o_idx = d.o_idx AND d.p_num = p.p_num AND o.m_idx= #{m_idx} AND o.o_idx = #{o_idx}
-      </select>
-		
-		
-		<select id="AllOrderList" resultType="com.itwillbs.domain.Order_memberDTO" >
+      	<select id="getOrderList" resultType="com.itwillbs.domain.OrderListDTO">
+			select o.o_idx, o.o_name, o.o_zip, o.o_address, o.o_detail_address, o.o_tel, o_size, o.totalSum, o.o_date, o.o_memo, o.o_state, d.p_num, d.cart_count, p.p_name, p.p_thumImg, p.p_price 
+				from order_member o, order_detail d,product p
+			WHERE o.o_idx = d.o_idx AND d.p_num = p.p_num AND o.m_idx= #{m_idx} AND o.o_idx = #{o_idx};
+		</select> 
+      
+     	<select id="AllOrderList" resultType="com.itwillbs.domain.Order_memberDTO" >
+			select o.m_idx,o.o_idx, o.o_name, o.o_zip, o.o_address, o.o_detail_address, o.o_tel, o_size, o.totalSum, o.o_date, o.o_memo, o.o_state, d.p_num, d.cart_count, p.p_name, p.p_thumImg, p.p_price 
+			from order_member o, order_detail d,product p
+			WHERE o.o_idx = d.o_idx AND d.p_num = p.p_num 
+		</select>
+<!-- 	<select id="AllOrderList" resultType="com.itwillbs.domain.Order_memberDTO" >
 			select o.o_idx, o.m_idx, o.o_name, o.o_zip, o.o_address, o.o_detail_address, o.o_tel, o.totalSum, o.o_state, p.p_name
 			from order_member o 
 			join order_detail d on d.o_idx = o.o_idx
 			join product p on p.p_num = d.p_num
 			group by o.o_idx
 			order by o.o_idx desc
+ 		</select>  -->
+		
+		<!-- 관리자페이지 주문상태(배송준비중/중/완료) 변경 -->
+		<update id="changeOrderState">
+			update order_member set o_state=#{o_state} 
+			where o_idx=#{o_idx} and m_idx=#{m_idx}
+		</update>
+		
+		<select id="getAllProduct" resultType="java.lang.Integer">
+			select count(p_num) from product 
 		</select>
 		
+		<select id="qtyCheck" resultType="com.itwillbs.domain.ProductQtyDTO">
+			select * from product_qty WHERE p_num=#{p_num}
+		</select>
 	
 </mapper>

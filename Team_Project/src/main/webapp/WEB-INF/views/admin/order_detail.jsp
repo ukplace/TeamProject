@@ -97,7 +97,7 @@
                                                 <!-- 배송정보 시작 -->
                                                 <tr>
                                                     <th class="text-center"  style=background-color:#f5f5f5;>배송주소</th>
-                                                    <td colspan="4">${orderDetailList[0].o_zip }${orderDetailList[0].o_address } ${orderDetailList[0].o_detail_address }<br></td>
+                                                    <td colspan="4">[${orderDetailList[0].o_zip }]&ensp;${orderDetailList[0].o_address },&nbsp;${orderDetailList[0].o_detail_address }<br></td>
                                                 </tr>
                                                 <tr>
                                                     <th class="text-center"  style=background-color:#f5f5f5;>받는사람</th>
@@ -144,7 +144,8 @@
                                             </thead>
                                             <c:forEach var="orderDetailList" items="${orderDetailList }">
                                               <tr>
-                                                    <td class="text-center"><img alt="product" src="../resources/images/pdetail_img.jpg" width="200" height="150">${orderDetailList.p_name }</td>
+                                                    <td class="text-center"><img alt="product" src="${pageContext.request.contextPath}${orderDetailList.p_thumImg }" width="200" height="150">
+                                                    &emsp;&emsp;&emsp;&emsp;${orderDetailList.p_name }</td>
                                                     <td class="text-center" style="line-height:1000%;">한진택배</td>
                                                     <td class="text-center" style="line-height:1000%;">${orderDetailList.cart_count }</td>
                                                     <td class="text-center" style="line-height:1000%;">${orderDetailList.p_price }</td>

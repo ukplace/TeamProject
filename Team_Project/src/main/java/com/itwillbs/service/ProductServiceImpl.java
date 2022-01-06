@@ -18,6 +18,7 @@ import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductQtyDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.SearchDTO;
+import com.itwillbs.domain.StockDTO;
 
 @Service
 public class ProductServiceImpl implements ProductService {
@@ -257,8 +258,15 @@ public class ProductServiceImpl implements ProductService {
 		return productDAO.getOrderList(orderListDTO);
 	}
 
-	// MEN 카운트
-	
+	@Override
+	public StockDTO getInformation(StockDTO stockDTO) {
+		return productDAO.getInformation(stockDTO);
+	}
+
+	@Override
+	public void changeStock(StockDTO stockDTO) {
+		productDAO.changeStock(stockDTO);
+	}	
 	@Override
 	public Integer getProductGentlemanCount() {
 		// TODO Auto-generated method stub
@@ -351,6 +359,23 @@ public class ProductServiceImpl implements ProductService {
 		System.out.println("ProductServiceImpl - getOrderDetailList()");
 		return productDAO.getOrderDetailList(m_idx, o_idx);
 	}
+
+	@Override
+	public int getAllProduct() {
+		return productDAO.getAllProduct();
+	}
+
+	@Override
+	public List<ProductQtyDTO> qtyCheck(ProductQtyDTO qty) {
+		return productDAO.qtyCheck(qty);
+	}	
+		
+	public void changeOrderState(Order_memberDTO o_memberDTO) {
+		// 관리자페이지 주문상태 변경
+		System.out.println("ProductServiceImpl - changeOrderState()");
+		productDAO.changeOrderState(o_memberDTO);
+	}
+	
 
 	
 	

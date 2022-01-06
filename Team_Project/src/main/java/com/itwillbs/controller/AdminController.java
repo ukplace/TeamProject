@@ -195,7 +195,6 @@ public class AdminController {
 			
 			List<Order_memberDTO> orderList = productService.AllOrderList(pageDTO);
 			
-			
 			// 페이징처리 - 제품리스트 전체 글 개수
 			pageDTO.setCount(adminService.getProductCount());
 			
@@ -228,7 +227,7 @@ public class AdminController {
         // /WEB-INF/views/admin/order_detail
         return "admin/order_detail";
      }
-	 
+
 	 
 	 
 	 //---------------------------회원관리------------------------------
@@ -462,22 +461,32 @@ public class AdminController {
 		}
 		
 		@RequestMapping(value = "/foot/review_write", method = RequestMethod.GET)
-		public String review_write() {
+		public String review_write(HttpServletRequest request,HttpSession session,Model model ) {
+			int num =Integer.parseInt(request.getParameter("p_num"));
+			ProductDTO productDTO=productService.productDetail(num);
+			MemberDTO memberDTO =new MemberDTO();
+			memberDTO.setM_idx((Integer)(session.getAttribute("m_idx")));
+			memberDTO =memberService.getMember(memberDTO);
+			
+			model.addAttribute("productDTO",productDTO);
+			model.addAttribute("memberDTO", memberDTO);
+			
+			
 			
 			// /WEB-INF/views/foot/review_write.jsp
 			return "foot/review_write";
 		}
 		
 		@RequestMapping(value = "/foot/review_write_pro", method = RequestMethod.POST)
-		public String review_write_pro(HttpServletRequest request,ReviewDTO reviewDTO,Model model) {
+		public String review_write_pro(HttpServletRequest request,ReviewDTO reviewDTO,Model model,HttpSession session) {
 			
 			int p_num = Integer.parseInt(request.getParameter("p_num"));
-			System.out.println(p_num);
-			model.addAttribute("p_num", p_num);
-
+			reviewDTO.setM_idx((Integer)session.getAttribute("m_idx"));
+			reviewDTO.setP_num(p_num);
+			System.out.println(reviewDTO.getP_num()+"리뷰디티오의 라이트프로의 피넘이다!");
 			adminService.insertReview(reviewDTO);
 			
-			return "redirect:/foot/product_detail";
+			return "redirect:/foot/index";
 		}
 		@RequestMapping(value = "/foot/review_update", method = RequestMethod.GET)
 		public String review_update() {
@@ -494,10 +503,29 @@ public class AdminController {
 	 // =============================================================================
 	 
 	 @RequestMapping(value = "/admin/index", method = RequestMethod.GET)
-	   public String index() {
-	      // /WEB-INF/views/admin/index.jsp
+	   public String index(Model model) {
+		 
+		 
+		 int total =  productService.getAllProduct();
+		 int newOrder = adminService.getNewOrder();
+		 int delivery = adminService.getDelivery();
+		 int done = adminService.getDone();
+		 
+		 
+		 model.addAttribute("total",total); 
+		 model.addAttribute("newOrder", newOrder);
+		 model.addAttribute("delivery", delivery);
+		 model.addAttribute("done", done);
+		 
+		 
+		 
+		 
 	      return "admin/index";
 	   }
+	 
+	 
+	 
+	 
 	 
 	 @RequestMapping(value = "/admin/blank", method = RequestMethod.GET)
 	   public String blank() {
@@ -570,5 +598,11 @@ public class AdminController {
 	      // /WEB-INF/views/admin/qna_list.jsp
 	      return "admin/gongji_insert";
 	   }
+	 
+	 
+	 
+	 
+	 
+	 
 	 
 }

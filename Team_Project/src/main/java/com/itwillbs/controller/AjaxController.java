@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.itwillbs.domain.CartDTO;
 import com.itwillbs.domain.CartListDTO;
 import com.itwillbs.domain.MemberDTO;
+import com.itwillbs.domain.Order_memberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ReviewDTO;
@@ -91,7 +92,11 @@ public class AjaxController {
 	@RequestMapping(value = "/foot/reviewList", method = RequestMethod.GET)
 	public ResponseEntity<List<ReviewDTO>> review(HttpServletRequest request) {
 			System.out.println("Review 컨트롤러");
-			
+//			
+//			PageDTO pageDTO =new PageDTO();
+//			pageDTO.setPageSize(5);
+//			pageDTO.setPageNum("1");
+//			List<ReviewDTO> reviewList=adminService.getReviewList(pageDTO);
 			int p_num = Integer.parseInt(request.getParameter("p_num"));
 			
 //			PageDTO pageDTO =new PageDTO();
@@ -136,7 +141,14 @@ public class AjaxController {
 		return entity;
 
 
-}
+	}
+	
+	
+
+	 // 주문상태 변경
+
+	
+	
 	
 }
 	

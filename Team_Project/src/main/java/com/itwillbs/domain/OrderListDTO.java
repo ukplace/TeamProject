@@ -4,6 +4,7 @@ import java.sql.Timestamp;
 
 public class OrderListDTO {
 //	, , o., o./, o. , o./,  , o. , o. , o./, d./, d./, p./, p./, p./
+	
 	private int o_idx;//
 	private int m_idx;
 	private String o_name;//

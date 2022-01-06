@@ -107,6 +107,13 @@ foreign key (m_idx) references member (m_idx)
 	public void setP_name(String p_name) {
 		this.p_name = p_name;
 	}
+	@Override
+	public String toString() {
+		return "Order_memberDTO [o_idx=" + o_idx + ", m_idx=" + m_idx + ", o_name=" + o_name + ", o_tel=" + o_tel
+				+ ", o_zip=" + o_zip + ", o_address=" + o_address + ", o_detail_address=" + o_detail_address
+				+ ", o_memo=" + o_memo + ", o_state=" + o_state + ", totalSum=" + totalSum + ", o_date=" + o_date
+				+ ", p_name=" + p_name + "]";
+	}
 	
 	
 	
