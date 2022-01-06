@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
@@ -71,9 +72,16 @@ public class AjaxController {
 
 	@ResponseBody
 	@RequestMapping(value = "/foot/addCart", method = RequestMethod.POST)
-	public int addCart(CartDTO cart, HttpSession session) throws Exception {
+	public int addCart(CartDTO cart, HttpSession session, HttpServletResponse response) throws Exception {
 	int result = 0;
 	
+	System.out.println("p_size 값 : " + cart.getP_size());
+	
+	if(cart.getP_size()=="") {
+		
+		return result;
+	}
+		
 		MemberDTO member = new MemberDTO();
 		member.setM_idx((Integer)session.getAttribute("m_idx"));
 		
@@ -146,27 +154,7 @@ public class AjaxController {
 	
 
 	 // 주문상태 변경
-	 @RequestMapping(value = "/admin/changeOrderState", method = RequestMethod.GET)
-    public int changeOrderState(HttpServletRequest request) {
-		 int result=0;
-			ResponseEntity<String> entity = null;
-		
-			Order_memberDTO order_memberDTO = new Order_memberDTO();
-			
-			order_memberDTO.setO_idx(Integer.parseInt(request.getParameter("o_idx")));
-			order_memberDTO.setM_idx(Integer.parseInt(request.getParameter("m_idx")));
-			order_memberDTO.setO_state((request.getParameter("o_state")));
-			System.out.println(order_memberDTO.getO_idx()+"o_idx값 orderstate");
-			System.out.println(order_memberDTO.getM_idx()+"m_idx값 orderstate");
-			System.out.println(order_memberDTO.getO_state()+"o_state값 orderstate");
-			if(order_memberDTO!=null) {
-				productService.changeOrderState(order_memberDTO);
-				result=1;
-			}
-					
-       // /WEB-INF/views/admin/order_list
-		return result;
-    }
+
 	
 	
 	

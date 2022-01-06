@@ -247,17 +247,17 @@
       
      	<select id="AllOrderList" resultType="com.itwillbs.domain.Order_memberDTO" >
 			select o.m_idx,o.o_idx, o.o_name, o.o_zip, o.o_address, o.o_detail_address, o.o_tel, o_size, o.totalSum, o.o_date, o.o_memo, o.o_state, d.p_num, d.cart_count, p.p_name, p.p_thumImg, p.p_price 
-				from order_member o, order_detail d,product p
+			from order_member o, order_detail d,product p
 			WHERE o.o_idx = d.o_idx AND d.p_num = p.p_num 
 		</select>
-		<!-- <select id="AllOrderList" resultType="com.itwillbs.domain.Order_memberDTO" >
+<!-- 	<select id="AllOrderList" resultType="com.itwillbs.domain.Order_memberDTO" >
 			select o.o_idx, o.m_idx, o.o_name, o.o_zip, o.o_address, o.o_detail_address, o.o_tel, o.totalSum, o.o_state, p.p_name
 			from order_member o 
 			join order_detail d on d.o_idx = o.o_idx
 			join product p on p.p_num = d.p_num
 			group by o.o_idx
 			order by o.o_idx desc
-		</select> -->
+ 		</select>  -->
 		
 		<!-- 관리자페이지 주문상태(배송준비중/중/완료) 변경 -->
 		<update id="changeOrderState">
