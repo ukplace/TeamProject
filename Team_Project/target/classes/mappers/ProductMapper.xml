@@ -160,11 +160,7 @@
 			select count(*) from product where p_category = 'MEN' and p_small_category = '구두' 
 		</select>
 		
-		<select id="getOrderList" resultType="com.itwillbs.domain.OrderListDTO">
-			select o.o_idx, o.o_name, o.o_zip, o.o_address, o.o_detail_address, o.o_tel, o_size, o.totalSum, o.o_date, o.o_memo, o.o_state, d.p_num, d.cart_count, p.p_name, p.p_thumImg, p.p_price 
-				from order_member o, order_detail d,product p
-			WHERE o.o_idx = d.o_idx AND d.p_num = p.p_num AND o.m_idx= #{m_idx} AND o.o_idx = #{o_idx};
-		</select>
+		
 		
 			<select id="getInformation" resultType="com.itwillbs.domain.StockDTO">
 			select * from product_qty where p_size=#{p_size} and p_num=#{p_num}
