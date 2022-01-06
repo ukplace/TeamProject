@@ -116,31 +116,21 @@ function removeCheck() {
 			<div class="col-lg-8" style= "display: inline-block; margin: 0 auto;">
 				
 					<h2>자주묻는질문</h2>
-						
-						<div class="col-md-6">
-							<div class="form-group">
-								<label for="name">글번호</label><br>
-								 ${faqDTO.faq_idx }
-							</div>
-						</div>
+						<br>
+						<br>
 						
 						<div class="col-md-7">
 							<div class="form-group">
-								<label for="subject">제목</label><br>
-								 ${faqDTO.faq_subject}
+								<label for="subject" style="font-size: 20px;">${faqDTO.faq_question}&nbsp;${faqDTO.faq_subject}</label><br>
+								<hr>
+								
 							</div>
 						</div>
 						
 						<div class="col-sm-12">
 										<div class="form-group">
-											<label for="question">질문</label><br>
-												${faqDTO.faq_question}
-										</div>
-									</div>
-						<div class="col-sm-12">
-										<div class="form-group">
-											<label for="answer">내용</label><br>
-												${faqDTO.faq_answer}
+											<label for="answer"></label><br>
+												<textarea rows="20" cols="100" style="border: none;">${faqDTO.faq_answer}</textarea>
 										</div>
 									</div>
 						

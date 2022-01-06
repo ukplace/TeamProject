@@ -14,7 +14,7 @@ qna_re_lev int,
 qna_re_seq int,
 qna_date timestamp default now() not null,
 foreign key (m_idx) references member (m_idx),
-constraint qna_iname_pk primary key(qna_idx, qna_name)
+constraint qna_name_pk primary key(qna_idx, qna_name)
 );
 
 */

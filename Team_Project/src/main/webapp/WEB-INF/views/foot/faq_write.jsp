@@ -96,7 +96,7 @@
 						<p class="bread">
 							<span><a
 								href="${pageContext.request.contextPath}/foot/index/">Home</a></span> /
-							<span>QNA Write</span>
+							<span>FAQ Write</span>
 						</p>
 					</div>
 				</div>
@@ -117,7 +117,7 @@
 						
 						<div class="col-md-7">
 							<div class="form-group">
-								<label for="subject">질문</label> <input type="text"
+								<label for="subject">문의유형</label> <input type="text"
 									name="faq_question" id="subject" class="form-control">
 							</div>
 						</div>
