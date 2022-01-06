@@ -329,6 +329,7 @@
 								       <li class="nav-item">
 								      	<a class="nav-link" id="review" data-toggle="pill" href="#" role="tab" aria-controls="pills-review" aria-expanded="true">상세보기</a>
 								    </li>
+								   
 								    
 <!-- 								     <div class="table" id="pills-tabContent"> -->
 <!-- 								     	<div class="tab-pane border fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab"> -->
