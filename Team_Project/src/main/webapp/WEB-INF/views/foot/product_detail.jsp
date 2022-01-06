@@ -45,19 +45,19 @@
 	
 	<script type="text/javascript">
     function buy(){ 
-         var uid = '<%=(Integer)session.getAttribute("m_idx")%>';
+        var uid = '<%=(Integer)session.getAttribute("m_idx")%>';
 
-          if(uid=='null'){ 
-             alert("로그인이 필요한 항목입니다."); 
-             location.href='${pageContext.request.contextPath}/foot/login';
-             return false;
-          }
-          else{
-        	  
-             location.href='${pageContext.request.contextPath}/foot/order';
-             
-          }
-    }   
+         if(uid=='null'){ 
+            alert("로그인이 필요한 항목입니다."); 
+            location.href='${pageContext.request.contextPath}/foot/login';
+            return false;
+         }
+         else{
+       	  
+            location.href='${pageContext.request.contextPath}/foot/order';
+            
+         }
+   }   
 	</script>
 	<script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
 	<script >
@@ -98,6 +98,24 @@
 <!-- 			<tr><td>등록된 리뷰가 없습니다.</td></tr> -->
 <%-- 		</c:otherwise> --%>
 <%-- 	</c:choose> --%>
+<style type="text/css">
+#addCartBtn{
+	border: thin;
+	background-color: orange;
+	color: white;
+	border-radius: 5px;
+	padding: 8px 30px;
+}
+
+#buyBtn{
+	border: thin;
+	background-color: green;
+	color: white;
+	border-radius: 5px;
+	padding: 8px 60px;
+}
+
+</style>
 	
 	</head>
 	<body>
@@ -248,51 +266,67 @@
                   	<br>
                   	
                   	<!-- 쇼핑카트 -->
-				     <div class="input-group mb-4">          
-				     <a href="${pageContext.request.contextPath}/foot/wishlist" class="btn btn-primary btn-addtocart"><i class="icon-heart2"></i>Wish</a>
+				     <div class="input-group mb-4">  
+<%-- 				     <a href="${pageContext.request.contextPath}/foot/wishlist" class="btn btn-primary btn-addtocart"><i class="icon-heart2"></i>Wish</a> --%>
 					 <p class="addToCart">
-						 <button type="button" class="addCart_btn">카트에 담기</button>
+						 <button type="button" class="addCart_btn" id="addCartBtn" value="cartBtn" >카트에 담기</button>
 						 <script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
 						 <script>
 						  $(".addCart_btn").click(function(){
-						   var p_num = $("#p_num").val();
-						   var cart_count = parseInt($("#quantity").val());
-						   var p_size = $('#p_size').val();
-								alert('p_size 값 : ' + p_size);
-						   var data = {
-								   p_num : p_num,
-								   cart_count : cart_count,
-								   p_size : p_size
-						     };
-						   
-						   $.ajax({
-						    url : "${pageContext.request.contextPath}/foot/addCart",
-						    type : "post",
-						    data : data,
-						    success : function(result){
-						    	/* alert("카트담기 성공");
-						    	var quantity = parseInt($('#quantity').val());
-						    	$("#quantity").val(1);
-						    }, */
-						    	if(result==1){
-						     alert("카트 담기 성공");
-						     $("#quantity").val("1");
-						    	}else{
-						    		alert("회원만 사용할 수 있습니다.")
-						    $("#quantity").val("1");		
-						    	}
-						    },
-						    error : function(result){
-						     alert("카트 담기 실패");
-						    }
-						   });
-						  });
+							   var p_num = $("#p_num").val();
+							   var cart_count = parseInt($("#quantity").val());
+							   var p_size = $('#p_size').val();
+// 									alert('p_size 값 : ' + p_size);
+							   var data = {
+									   p_num : p_num,
+									   cart_count : cart_count,
+									   p_size : p_size
+							     };
+							   
+							   $.ajax({
+							    url : "${pageContext.request.contextPath}/foot/addCart",
+							    type : "post",
+							    data : data,
+							    success : function(result){
+							    	/* alert("카트담기 성공");
+							    	var quantity = parseInt($('#quantity').val());
+							    	$("#quantity").val(1);
+							     */
+									if(result==1){
+								    	 alert("카트 담기 성공");
+								    	 if(confirm("장바구니로 이동하시겠습니까?")){
+								    		 location.href='${pageContext.request.contextPath}/foot/cart';
+								    	 }
+								     	$("#quantity").val("1");
+								    } else if(result==0){
+							        	  alert("사이즈를 선택해주세요!");
+							        	  return false;
+							          }
+
+							    },
+							    error : function(result){
+// 							     alert("카트 담기 실패");
+							         var uid = '<%=(Integer)session.getAttribute("m_idx")%>';
+
+							          if(uid=='null'){ 
+							             alert("로그인이 필요한 항목입니다."); 
+							             location.href='${pageContext.request.contextPath}/foot/login';
+							             return false;
+							          }
+							          else{
+							             location.href='${pageContext.request.contextPath}/foot/addCart';
+							          }
+							          
+							          
+							    }
+							   });
+							  });
 						 </script>
 						</p>
 					 
 <%-- 					 ${pageContext.request.contextPath}/foot/Direct_order" class="btn btn-success btn-addtocart" style="height:39px" --%>
-						
-					 <input type="submit" class="btn btn-success btn-addtocart" style="height:39px" value="Buy">
+					&emsp;	
+					 <input type="submit" id="buyBtn" class="buyBtn" style="height:40px" value="Buy">
 <!-- 				     <i class="icon-credit-card "></i>Buy</a> -->
 		</form>
 				     </div>             

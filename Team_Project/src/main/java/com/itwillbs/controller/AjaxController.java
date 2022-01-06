@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
+import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
@@ -71,9 +72,16 @@ public class AjaxController {
 
 	@ResponseBody
 	@RequestMapping(value = "/foot/addCart", method = RequestMethod.POST)
-	public int addCart(CartDTO cart, HttpSession session) throws Exception {
+	public int addCart(CartDTO cart, HttpSession session, HttpServletResponse response) throws Exception {
 	int result = 0;
 	
+	System.out.println("p_size 값 : " + cart.getP_size());
+	
+	if(cart.getP_size()=="") {
+		
+		return result;
+	}
+		
 		MemberDTO member = new MemberDTO();
 		member.setM_idx((Integer)session.getAttribute("m_idx"));
 		
