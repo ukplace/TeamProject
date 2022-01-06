@@ -46,7 +46,7 @@
 	</select>
 	
 	<update id="updateMember">
-		update member set m_point=#{m_point}, m_grade=#{m_grade}
+		update member set m_point=#{m_point}, m_grade=#{m_grade} where m_idx=#{m_idx}
 	</update>
 	
 	<delete id="deleteMember" parameterType="int">
