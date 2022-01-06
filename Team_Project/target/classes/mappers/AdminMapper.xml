@@ -76,8 +76,8 @@
 	<!-- product_qty 값 추가/삭제/수정 -->
 	
 	<insert id="insertReview">
-		insert into review(p_num,m_idx,review_content,review_score,review_date)
-		values (#{p_num},#{m_idx},#{review_content},#{review_score},#{review_date})
+		insert into review(p_num,m_idx,review_writer,review_subject,review_content,review_score)
+		values (#{p_num},#{m_idx},#{review_writer},#{review_subject},#{review_content},#{review_score})
 	</insert>
 	
 	<select id="getReviewList" resultType="com.itwillbs.domain.ReviewDTO">

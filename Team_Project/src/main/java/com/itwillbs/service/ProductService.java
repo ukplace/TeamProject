@@ -24,7 +24,7 @@ public interface ProductService {
 	// 상품 총 개수  **파라미터 값 수정
 	public Integer getProductTotal(SearchDTO searchDTO);
 	
-	public int getAllProduct(int p_num);
+	public int getAllProduct();
 	
 	// List<ProductDTO> productKidsList = productService.getProductKidsList(pageDTO);
 	public List<ProductDTO> getProductKidsList(PageDTO pageDTO);
@@ -88,6 +88,9 @@ public interface ProductService {
 	
 	// List<OrderListDTO> orderDetailList = productService.getOrderDetailList(m_idx, o_idx);
 	public List<OrderListDTO> getOrderDetailList(int m_idx, int o_idx);
+
+	// 관리자페이지 주문상태 변경
+	public void changeOrderState(Order_memberDTO o_memberDTO);
 	
 
 	//MEN 카운트
@@ -123,6 +126,8 @@ public interface ProductService {
 	public Integer getProductK_RunningCount();
 	
 	public Integer getProductK_SneakersCount();
+
+	public List<ProductQtyDTO> qtyCheck(ProductQtyDTO qty);
 	
 	
 

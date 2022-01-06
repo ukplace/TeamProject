@@ -159,20 +159,20 @@ public class AdminServiceImpl implements AdminService {
 
 
 	@Override
-	public int getNewOrder(int o_idx) {
-		return adminDAO.getNewOrder(o_idx);
+	public int getNewOrder() {
+		return adminDAO.getNewOrder();
 	}
 
 
 	@Override
-	public int getDelivery(int o_idx) {
-		return adminDAO.getDelivery(o_idx);
+	public int getDelivery() {
+		return adminDAO.getDelivery();
 	}
 
 
 	@Override
-	public int getDone(int o_idx) {
-		return adminDAO.getDone(o_idx);
+	public int getDone() {
+		return adminDAO.getDone();
 	}
 	
 	@Override

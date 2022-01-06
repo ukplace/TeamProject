@@ -7,6 +7,7 @@ create table review (
 review_idx int primary key auto_increment,
 p_num int,
 m_idx int,
+review_writer varchar(45) not null, 
 review_subject varchar(45) not null,
 review_content varchar(500) not null,
 review_img varchar(500),
@@ -23,6 +24,7 @@ public class ReviewDTO {
 	private int review_idx;
 	private int p_num;
 	private int m_idx;
+	private String review_writer;
 	private String review_subject;
 	private String review_content;
 	private String review_img;
@@ -83,6 +85,12 @@ public class ReviewDTO {
 	}
 	public void setReview_date(Timestamp review_date) {
 		this.review_date = review_date;
+	}
+	public String getReview_writer() {
+		return review_writer;
+	}
+	public void setReview_writer(String review_writer) {
+		this.review_writer = review_writer;
 	}
 	
 	

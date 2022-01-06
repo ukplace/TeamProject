@@ -361,9 +361,21 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public int getAllProduct(int p_num) {
-		return productDAO.getAllProduct(p_num);
+	public int getAllProduct() {
+		return productDAO.getAllProduct();
 	}
+
+	@Override
+	public List<ProductQtyDTO> qtyCheck(ProductQtyDTO qty) {
+		return productDAO.qtyCheck(qty);
+	}	
+		
+	public void changeOrderState(Order_memberDTO o_memberDTO) {
+		// 관리자페이지 주문상태 변경
+		System.out.println("ProductServiceImpl - changeOrderState()");
+		productDAO.changeOrderState(o_memberDTO);
+	}
+	
 
 	
 	

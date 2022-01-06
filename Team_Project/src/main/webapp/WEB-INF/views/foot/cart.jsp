@@ -143,7 +143,8 @@
 						<c:forEach var="cartListDTO" items="${cartList }" varStatus="status">
 						<div class="product-cart d-flex">
 							<div class="one-forth">
-								<div class="product-img" style="background-image: url(${pageContext.request.contextPath}${cartListDTO.p_thumImg}">
+								<div class="product-img" >
+								<img src="${pageContext.request.contextPath}${cartListDTO.p_thumImg}" class="img-fluid" alt="product_kids_img">
 								</div>
 								<div class="display-tc">
 									<h3>${cartListDTO.p_name}    (사이즈 : ${cartListDTO.p_size}) </h3>

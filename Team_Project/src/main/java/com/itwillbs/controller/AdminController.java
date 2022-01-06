@@ -88,7 +88,7 @@ public class AdminController {
 	public String productList(HttpServletRequest request, Model model) {
 		// 데이터 가져오기 (페이지 있는지 없는지 비교)
 		PageDTO pageDTO = new PageDTO();
-		pageDTO.setPageSize(3); // *pageSize(한화면에보여줄글갯수)
+		pageDTO.setPageSize(20); // *pageSize(한화면에보여줄글갯수)
 		
 		if(request.getParameter("pageNum") == null) { // 없으면 pageNum 1 로 세팅
 			pageDTO.setPageNum("1");
@@ -195,7 +195,6 @@ public class AdminController {
 			
 			List<Order_memberDTO> orderList = productService.AllOrderList(pageDTO);
 			
-			
 			// 페이징처리 - 제품리스트 전체 글 개수
 			pageDTO.setCount(adminService.getProductCount());
 			
@@ -228,7 +227,7 @@ public class AdminController {
         // /WEB-INF/views/admin/order_detail
         return "admin/order_detail";
      }
-	 
+
 	 
 	 
 	 //---------------------------회원관리------------------------------
@@ -462,22 +461,32 @@ public class AdminController {
 		}
 		
 		@RequestMapping(value = "/foot/review_write", method = RequestMethod.GET)
-		public String review_write() {
+		public String review_write(HttpServletRequest request,HttpSession session,Model model ) {
+			int num =Integer.parseInt(request.getParameter("p_num"));
+			ProductDTO productDTO=productService.productDetail(num);
+			MemberDTO memberDTO =new MemberDTO();
+			memberDTO.setM_idx((Integer)(session.getAttribute("m_idx")));
+			memberDTO =memberService.getMember(memberDTO);
+			
+			model.addAttribute("productDTO",productDTO);
+			model.addAttribute("memberDTO", memberDTO);
+			
+			
 			
 			// /WEB-INF/views/foot/review_write.jsp
 			return "foot/review_write";
 		}
 		
 		@RequestMapping(value = "/foot/review_write_pro", method = RequestMethod.POST)
-		public String review_write_pro(HttpServletRequest request,ReviewDTO reviewDTO,Model model) {
+		public String review_write_pro(HttpServletRequest request,ReviewDTO reviewDTO,Model model,HttpSession session) {
 			
 			int p_num = Integer.parseInt(request.getParameter("p_num"));
-			System.out.println(p_num);
-			model.addAttribute("p_num", p_num);
-
+			reviewDTO.setM_idx((Integer)session.getAttribute("m_idx"));
+			reviewDTO.setP_num(p_num);
+			System.out.println(reviewDTO.getP_num()+"리뷰디티오의 라이트프로의 피넘이다!");
 			adminService.insertReview(reviewDTO);
 			
-			return "redirect:/foot/product_detail";
+			return "redirect:/foot/product_detail?p_num="+p_num;
 		}
 		@RequestMapping(value = "/foot/review_update", method = RequestMethod.GET)
 		public String review_update() {
@@ -494,15 +503,13 @@ public class AdminController {
 	 // =============================================================================
 	 
 	 @RequestMapping(value = "/admin/index", method = RequestMethod.GET)
-	   public String index(ProductDTO productDTO, Order_memberDTO order_memberDTO, Model model) {
+	   public String index(Model model) {
 		 
-		 int p_num = productDTO.getP_num();
-		 int o_idx = order_memberDTO.getO_idx();
 		 
-		 int total =  productService.getAllProduct(p_num);
-		 int newOrder = adminService.getNewOrder(o_idx);
-		 int delivery = adminService.getDelivery(o_idx);
-		 int done = adminService.getDone(o_idx);
+		 int total =  productService.getAllProduct();
+		 int newOrder = adminService.getNewOrder();
+		 int delivery = adminService.getDelivery();
+		 int done = adminService.getDone();
 		 
 		 
 		 model.addAttribute("total",total); 

@@ -29,6 +29,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.itwillbs.domain.CartDTO;
 import com.itwillbs.domain.CartListDTO;
 import com.itwillbs.domain.MemberDTO;
+import com.itwillbs.domain.Order_memberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ReviewDTO;
@@ -91,7 +92,11 @@ public class AjaxController {
 	@RequestMapping(value = "/foot/reviewList", method = RequestMethod.GET)
 	public ResponseEntity<List<ReviewDTO>> review(HttpServletRequest request) {
 			System.out.println("Review 컨트롤러");
-			
+//			
+//			PageDTO pageDTO =new PageDTO();
+//			pageDTO.setPageSize(5);
+//			pageDTO.setPageNum("1");
+//			List<ReviewDTO> reviewList=adminService.getReviewList(pageDTO);
 			int p_num = Integer.parseInt(request.getParameter("p_num"));
 			
 //			PageDTO pageDTO =new PageDTO();
@@ -136,7 +141,34 @@ public class AjaxController {
 		return entity;
 
 
-}
+	}
+	
+	
+
+	 // 주문상태 변경
+	 @RequestMapping(value = "/admin/changeOrderState", method = RequestMethod.GET)
+    public int changeOrderState(HttpServletRequest request) {
+		 int result=0;
+			ResponseEntity<String> entity = null;
+		
+			Order_memberDTO order_memberDTO = new Order_memberDTO();
+			
+			order_memberDTO.setO_idx(Integer.parseInt(request.getParameter("o_idx")));
+			order_memberDTO.setM_idx(Integer.parseInt(request.getParameter("m_idx")));
+			order_memberDTO.setO_state((request.getParameter("o_state")));
+			System.out.println(order_memberDTO.getO_idx()+"o_idx값 orderstate");
+			System.out.println(order_memberDTO.getM_idx()+"m_idx값 orderstate");
+			System.out.println(order_memberDTO.getO_state()+"o_state값 orderstate");
+			if(order_memberDTO!=null) {
+				productService.changeOrderState(order_memberDTO);
+				result=1;
+			}
+					
+       // /WEB-INF/views/admin/order_list
+		return result;
+    }
+	
+	
 	
 }
 	

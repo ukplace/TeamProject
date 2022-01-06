@@ -53,11 +53,12 @@ public interface AdminDAO {
 
 	public List<ReviewDTO> getReviewList(PageDTO pageDTO);
 
-	public int getNewOrder(int o_idx);
+	public int getNewOrder();
 
-	public int getDelivery(int o_idx);
+	public int getDelivery();
 
-	public int getDone(int o_idx);
+	public int getDone();
+	
 	public List<ReviewDTO> getPnum(int p_num);
 
 

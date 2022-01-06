@@ -45,6 +45,13 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
+        
+
+        
+        
+        
+        
+        
     </head>
     <body>
 
@@ -94,27 +101,68 @@
 <%-- 											<a href="${pageContext.request.contextPath}/member/main">메인으로 이동</a> --%>
 
 											<tbody>
-											<c:forEach var="Order_memberDTO" items="${orderList }">
+											<c:forEach var="Order_memberDTO" items="${orderList }" varStatus="status">
                                                 <tr class="odd gradeX">
                                                     <td>${Order_memberDTO.o_idx}</td>
                                                     <td>${Order_memberDTO.o_name}</td>
                                                     <td><a href="${pageContext.request.contextPath}/admin/order_detail?o_idx=${Order_memberDTO.o_idx}&m_idx=${Order_memberDTO.m_idx}">${Order_memberDTO.p_name }</a></td>
                                                     <td>${Order_memberDTO.totalSum}</td>
                                                     <td>3000원</td>
+											<div class="orderMember">
                                                     <td class="center">
-                                                    <select class=”form-control” >
-                                                    	<option value = "1">결제완료</option>
-                                                    	<option value = "2">배송준비중</option>
-														<option value = "3">배송중</option>
-                                                    	<option value = "4">배송완료</option>
+<%--                                                     <input type="hidden" name="o_state" id="o_state" value="${Order_memberDTO.o_state}"> --%>
+                                                    
+                                                    <select name="o_state${status.index}" id="o_state" >
+                                                    	<option value = "0" <c:if test="${Order_memberDTO.o_state eq 0}">selected</c:if> >결제완료</option>
+                                                    	<option value = "1" <c:if test="${Order_memberDTO.o_state eq 1}">selected</c:if> >배송준비중</option>
+														<option value = "2" <c:if test="${Order_memberDTO.o_state eq 2}">selected</c:if>>배송중</option>
+                                                    	<option value = "3" <c:if test="${Order_memberDTO.o_state eq 3}">selected</c:if>>배송완료</option>
                                                     </select>
-                                                    <button type="submit" class="btn btn-primary btn-xs" href="">주문상태 변경</button>
+													<input type="hidden" name=o_idx${status.index} id="o_idx" value="${Order_memberDTO.o_idx}">
+													<input type="hidden" name=m_idx${status.index} id="m_idx" value="${Order_memberDTO.m_idx}">
+                                                    
+                                                    <input type="button" class="btn btn-primary btn-xs"  value="주문상태 변경" onclick="chagestate()">
+                                                    <script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
+											 <script type="text/javascript">
+											 		function chagestate(){
+											// 			var check = $(this).attr("name");
+											// 			alert(check);
+													var o_state = document.getElementById("o_state").value;
+													var o_idx = document.getElementById("o_idx").value;
+													var m_idx = document.getElementById("m_idx").value;
+													if(confirm("수정하시겠습니까?")) {
+														$.ajax({
+															url: '${pageContext.request.contextPath}/admin/changeOrderState?o_state='+o_state+'&o_idx='+o_idx+'&m_idx='+m_idx,
+															
+															success:function(data){
+																if(data == 1) {
+																	location.href="${pageContext.request.contextPath}/admin/order_list";	
+																}else{
+																	alert('다시해!');
+																}
+																
+															}
+														}); // end ajax
+													}
+											 		};
+											</script>
                                                     </td>
+                                             </div>  
                                                 </tr>
 											</c:forEach>
                                             </tbody>
                                                 
                                                 </table>
+                                                
+													<!-- o_state 값 넘기는거 잘 모르겠음-->
+                                                <script src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
+                                                <script type="text/javascript">
+                                                function changeOrderState(selectedValue) {
+													alert(selectedValue);
+												}
+													
+                                                </script>
+                                                
                                                 </div>
                                                 </div>
                                                 </div>
