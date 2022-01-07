@@ -169,6 +169,9 @@
 								<span>Total</span>
 							</div>
 						</div>
+						
+						
+						
 						<c:set var="sum" value="0"/>
 						<c:forEach var="cartListDTO" items="${cartList }">
 						<div class="product-cart d-flex">
@@ -207,6 +210,7 @@
 						<form method="post" class="colorlib-form">
 							<h2>Billing Details</h2>
 							
+							<input type="hidden" name="d_check" id="d_check" value="${cartListDTO.d_check}">  
 							        
 		              	<div class="row">
 			               <div class="col-md-12">
@@ -404,6 +408,7 @@
 									var o_detail_address = $('#o_detail_address').val(); 
 									var o_memo = $('#o_memo').val();
 									var o_size = $('#o_size').val();
+									var d_check = $('#d_check').val();
 									
 
 									var IMP = window.IMP; // 생략 가능
@@ -428,7 +433,7 @@
 									//        
 									             // 결제 성공 시 로직, 주소줄로 데이터 값을 가져감. => 컨트롤러에서 리퀘스트로 가져올 수 있음.
 									         } else {
-									       	  location.href="${pageContext.request.contextPath}/foot/order_Ok?m_idx="+ m_idx +"&o_name="+ o_name +"&o_tel="+ o_tel +"&o_zip="+ o_zip +"&o_address="+ o_address +"&o_detail_address="+ o_detail_address+"&o_memo="+ o_memo+"&totalSum="+${totalSum}+"&o_size="+o_size;
+									       	  location.href="${pageContext.request.contextPath}/foot/order_Ok?m_idx="+ m_idx +"&o_name="+ o_name +"&o_tel="+ o_tel +"&o_zip="+ o_zip +"&o_address="+ o_address +"&o_detail_address="+ o_detail_address+"&o_memo="+ o_memo+"&totalSum="+${totalSum}+"&o_size="+o_size+"&d_check="+d_check;
 											
 									         }
 									     });

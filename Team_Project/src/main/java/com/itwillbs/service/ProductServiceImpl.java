@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.itwillbs.dao.ProductDAO;
 import com.itwillbs.domain.CartDTO;
 import com.itwillbs.domain.CartListDTO;
+import com.itwillbs.domain.DirectDTO;
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.OrderListDTO;
 import com.itwillbs.domain.Order_detailDTO;
@@ -375,6 +376,34 @@ public class ProductServiceImpl implements ProductService {
 		System.out.println("ProductServiceImpl - changeOrderState()");
 		productDAO.changeOrderState(o_memberDTO);
 	}
+
+	@Override
+	public void deleteDirect(int m_idx) {
+		System.out.println("ProductServiceImpl - deleteDirect()");
+		productDAO.deleteDirect(m_idx);
+	}
+
+	@Override
+	public void insertDirect(DirectDTO directDTO) {
+		System.out.println("ProductServiceImpl - deleteDirect()");
+		
+		
+		
+		productDAO.insertDirect(directDTO);
+	}
+
+	@Override
+	public List<CartListDTO> getDirectList(CartListDTO cartListDTO) {
+		System.out.println("ProductServiceImpl - getDirectList()");
+		return productDAO.getDirectList(cartListDTO);
+	}
+
+	@Override
+	public void insertDO_detail(Order_memberDTO o_memberDTO) {
+		System.out.println("ProductServiceImpl - insertDO_detail()");
+		productDAO.insertDO_detail(o_memberDTO);
+	}
+
 	
 
 	

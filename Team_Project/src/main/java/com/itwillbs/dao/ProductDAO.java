@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.itwillbs.domain.CartDTO;
 import com.itwillbs.domain.CartListDTO;
+import com.itwillbs.domain.DirectDTO;
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.OrderListDTO;
 import com.itwillbs.domain.Order_detailDTO;
@@ -65,6 +66,19 @@ public interface ProductDAO {
 	public List<CartDTO> getCart(int m_idx);
 
 	public List<CartListDTO> getCartList(CartListDTO cartListDTO);
+	
+	/* 바로구매 */
+	public void deleteDirect(int m_idx);
+	
+	public void insertDirect(DirectDTO directDTO);
+
+	public List<CartListDTO> getDirectList(CartListDTO cartListDTO);
+
+	// DirectDTO 안의 내용을 order_detail테이블에 추가
+	public void insertDO_detail(Order_memberDTO o_memberDTO);
+	
+	// ------------------------------------------------
+	
 
 	public void withdrawal(MemberDTO memberDTO);
 

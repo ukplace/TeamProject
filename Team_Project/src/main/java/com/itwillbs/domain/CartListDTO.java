@@ -1,17 +1,5 @@
 package com.itwillbs.domain;
 
-/*
-create table cart (
-cart_idx int primary key auto_increment,
-m_idx int,
-p_num int,
-cart_count int,
-p_num varchar(45),
-foreign key (m_idx) references member (m_idx),
-foreign key (p_num) references product (p_num)
-);
- */
-
 public class CartListDTO {
 	
 	private int cart_idx;
@@ -24,6 +12,9 @@ public class CartListDTO {
 	
 	// p_size 변수 추가
 	private String p_size;
+	
+	// direct테이블의 d_check 변수 추가
+	private int d_check;
 	
 	public int getCart_idx() {
 		return cart_idx;
@@ -74,6 +65,14 @@ public class CartListDTO {
 	}
 	public void setP_size(String p_size) {
 		this.p_size = p_size;
+	}
+	
+	// d_check Getter/Setter 추가
+	public int getD_check() {
+		return d_check;
+	}
+	public void setD_check(int d_check) {
+		this.d_check = d_check;
 	}
 	
 	

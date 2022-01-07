@@ -135,6 +135,25 @@
 		</select>
 		<!-- 장바구니 -->
 		
+		<!-- 바로구매 -->
+		<!-- 1) direct테이블 값 삭제 -->
+		<delete id="deleteDirect">
+			delete from direct where m_idx=#{m_idx}
+		</delete>
+		
+		<!-- 2) direact테이블 값 입력 -->
+		<insert id="insertDirect">
+			insert into direct(m_idx,p_num,cart_count,p_size,d_check) values(#{m_idx},#{p_num},#{cart_count},#{p_size},#{d_check})
+		</insert>
+		
+		<!-- 3) order페이지에 값들 불러오는 매퍼 -->
+		<select id="getDirectList" resultType="com.itwillbs.domain.CartListDTO">
+			select d.cart_idx, d.m_idx, d.p_num, d.p_size, d.cart_count, d.d_check, p.p_name, p.p_price, p_thumImg 
+			from direct d join product p on d.p_num = p.p_num 
+			where d.m_idx=#{m_idx}
+		</select>
+		<!-- 바로구매 -->
+		
 		<delete id="withdrawal">
 			delete from cart where m_idx=#{m_idx} 
 		</delete>
@@ -152,7 +171,13 @@
 			insert into order_detail (o_idx,p_num,cart_count,o_size)
 			select #{o_idx},p_num,cart_count,p_size from cart WHERE m_idx=#{m_idx}
 			
-		</insert>		
+		</insert>
+		
+		<insert id="insertDO_detail">
+			insert into order_detail (o_idx,p_num,cart_count,o_size)
+			select #{o_idx},p_num,cart_count,p_size from direct WHERE m_idx=#{m_idx}
+		</insert>
+				
 		<delete id="deleteCart1">
 			delete from cart where m_idx=#{m_idx}
 		</delete>
@@ -168,13 +193,14 @@
 		</select>
 		
 		
-			<select id="getInformation" resultType="com.itwillbs.domain.StockDTO">
+		<select id="getInformation" resultType="com.itwillbs.domain.StockDTO">
 			select * from product_qty where p_size=#{p_size} and p_num=#{p_num}
 		</select>
 		
 		<update id="changeStock">
 			update product_qty set p_stock =#{p_stock} - #{cart_count} where p_num=#{p_num} and p_size=#{p_size}
 		</update>
+		
 		<select id="getProductOutdoorCount" resultType="java.lang.Integer">
 			select count(*) from product where p_category = 'MEN' and p_small_category = '아웃도어'
 		</select>
