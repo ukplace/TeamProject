@@ -101,4 +101,7 @@
 		select * from review where p_num=#{p_num} 
 	</select>
 	
+		<select id="getOrderList" resultType="com.itwillbs.domain.Order_memberDTO">
+		select * from order_member
+	</select>
 </mapper>

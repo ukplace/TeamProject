@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import com.itwillbs.dao.AdminDAO;
 import com.itwillbs.dao.MemberDAO;
 import com.itwillbs.domain.MemberDTO;
+import com.itwillbs.domain.Order_memberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductQtyDTO;
@@ -179,6 +180,12 @@ public class AdminServiceImpl implements AdminService {
 	public List<ReviewDTO> getPnum(int p_num) {
 		
 		return adminDAO.getPnum(p_num);
+	}
+
+
+	@Override
+	public List<Order_memberDTO> getOrderList() {
+		return adminDAO.getOrderList();
 	}
 
 
