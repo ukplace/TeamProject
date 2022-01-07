@@ -123,6 +123,7 @@ function removeCheck() {
 							<span><a
 								href="${pageContext.request.contextPath}/foot/index/">Home</a></span>
 							<span>공지사항</span>
+							
 						</p>
 					</div>
 				</div>
@@ -134,19 +135,23 @@ function removeCheck() {
 				<form method="post" name="deleteForm" enctype="multipart/form-data">                     
 				<input type="hidden" name="idx" value="${NoticeDTO.notice_idx}" />
 					<h2>공지사항</h2>
-						
+						<br>
+						<br>
+							
 						
 						<div class="col-md-7">
 							<div class="form-group">
-								<label for="subject">공지사항 제목</label><br>
-								 ${noticeDTO.notice_subject}
+								<label for="subject" style="font-size: 20px;">${noticeDTO.notice_subject}</label><br>
+								<hr>
+								
 							</div>
 						</div>
 						<br>
 						<div class="col-sm-12">
 										<div class="form-group">
-											<label for="content">공지내용</label><br>
-												${noticeDTO.notice_content}
+											<label for="content"></label><br>
+											<textarea rows="12px" cols="100px" style="border: none;">${noticeDTO.notice_content}</textarea>
+												
 										</div>
 									</div>
 				

@@ -88,7 +88,7 @@ public class AdminController {
 	public String productList(HttpServletRequest request, Model model) {
 		// 데이터 가져오기 (페이지 있는지 없는지 비교)
 		PageDTO pageDTO = new PageDTO();
-		pageDTO.setPageSize(3); // *pageSize(한화면에보여줄글갯수)
+		pageDTO.setPageSize(20); // *pageSize(한화면에보여줄글갯수)
 		
 		if(request.getParameter("pageNum") == null) { // 없으면 pageNum 1 로 세팅
 			pageDTO.setPageNum("1");

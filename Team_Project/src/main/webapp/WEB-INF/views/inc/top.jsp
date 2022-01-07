@@ -97,7 +97,7 @@ text-decoration: underline;
 			        </div>
 			        
 			         			<li class="cart"><a href="${pageContext.request.contextPath}/foot/cart"><i class="icon-shopping-cart"></i> Cart [0]</a></li>
-								<li class="cart"><a href="${pageContext.request.contextPath}/foot/wishlist"><i class="icon-heart2"></i> Wish </a></li>
+<%-- 								<li class="cart"><a href="${pageContext.request.contextPath}/foot/wishlist"><i class="icon-heart2"></i> Wish </a></li> --%>
 								
 					
 								</ul>

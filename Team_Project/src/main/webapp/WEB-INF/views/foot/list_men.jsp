@@ -143,7 +143,7 @@
 					              <li class="active">
 									<c:choose >	
 										<c:when test="${pageDTO.startPage > pageDTO.pageBlock }" >
-											<a href ="${pageContext.request.contextPath}/foot/list_men_gentleman?pageNum=${pageDTO.startPage-pageDTO.pageBlock}"><i class="ion-ios-arrow-back">이전</i></a>
+											<a href ="${pageContext.request.contextPath}/foot/list_men?pageNum=${pageDTO.startPage-pageDTO.pageBlock}"><i class="ion-ios-arrow-back">이전</i></a>
 										</c:when>
 										<c:otherwise>
 											<i class="ion-ios-arrow-back">이전</i>
@@ -152,7 +152,7 @@
 				               
 				                  <li class="active">
 									<c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1">
-										<a href="${pageContext.request.contextPath}/foot/list_men_gentleman?pageNum=${i }"${1 }>${i }</a>
+										<a href="${pageContext.request.contextPath}/foot/list_men?pageNum=${i }"${1 }>${i }</a>
 									</c:forEach>
 								  </li>
 								  
@@ -160,7 +160,7 @@
 				                 <!-- end페이지가 count보다 더 클때 -->
 				                 	<c:choose>
 										<c:when test= "${pageDTO.endPage > pageDTO.pageCount }">
-											<a href = "${pageContext.request.contextPath}/foot/list_men_gentleman?pageNum=${pageDTO.startPage+pageDTO.pageBlock}">다음<i class="ion-ios-arrow-forward"></i></a>
+											<a href = "${pageContext.request.contextPath}/foot/list_men?pageNum=${pageDTO.startPage+pageDTO.pageBlock}">다음<i class="ion-ios-arrow-forward"></i></a>
 										</c:when>
 										<c:otherwise>
 											다음<i class="ion-ios-arrow-forward"></i>

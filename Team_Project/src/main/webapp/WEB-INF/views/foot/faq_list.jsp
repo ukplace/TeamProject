@@ -102,7 +102,7 @@
 		<tr class = "ti">
 			<th style = "width : 70px;">번호</th>
 			<th style="width: 450px;">제목</th>
-			<th style = "width : 100px;">질문</th>
+			<th style = "width : 100px;">문의유형</th>
 			<th style = "width : 100px;">작성일</th>
 		</tr>
 		</thead>
@@ -165,15 +165,15 @@
 				            </div>
 				</div>
 	</div>
+				<c:choose>
+				<c:when test="${'admin@shushu.com' eq sessionScope.id }">
+						<input type="button" value="등록" style="float: right;" onclick="location.href='${pageContext.request.contextPath}/center/faq_write'">
+					</c:when>
+				</c:choose>
 </div>
 </div>
 
 
-<c:choose>
-<c:when test="${'admin@shushu.com' eq sessionScope.id }">
-		<input type="button" value="등록" onclick="location.href='${pageContext.request.contextPath}/center/faq_write'">
-	</c:when>
-</c:choose>
 
 
 
