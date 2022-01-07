@@ -29,6 +29,12 @@ public class QnaDTO {
 	private Timestamp qna_date;
 	
 	
+	@Override
+	public String toString() {
+		return "QnaDTO [qna_idx=" + qna_idx + ", qna_name=" + qna_name + ", qna_subject=" + qna_subject
+				+ ", qna_content=" + qna_content + ", qna_type=" + qna_type + ", qna_re_ref=" + qna_re_ref
+				+ ", qna_re_lev=" + qna_re_lev + ", qna_re_seq=" + qna_re_seq + ", qna_date=" + qna_date + "]";
+	}
 	public int getQna_idx() {
 		return qna_idx;
 	}

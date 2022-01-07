@@ -151,6 +151,20 @@ public class AjaxController {
 
 	}
 	
+	// Chart
+	@RequestMapping(value ="/admin/chart", method = RequestMethod.GET )
+	public ResponseEntity<List<Order_memberDTO>> chart(){
+		System.out.println("AjaxController.chart()");
+		List<Order_memberDTO> orderList = adminService.getOrderList();
+		ResponseEntity<List<Order_memberDTO>> entity = new ResponseEntity<List<Order_memberDTO>>(orderList, HttpStatus.OK);
+		
+	for(int i = 0 ; i < orderList.size(); i++) {
+		System.out.println(orderList.get(i));
+	}
+		
+		return entity;
+	}
+	
 	
 
 	 // 주문상태 변경

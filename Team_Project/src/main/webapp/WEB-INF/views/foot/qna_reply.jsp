@@ -75,17 +75,15 @@
 	transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s
 }
 </style>
-
 <script type="text/javascript">
 function removeCheck() {
 	if(confirm("정말 삭제하시겠습니까?")==true){
-		location.href='${pageContext.request.contextPath}/center/qna_delete?qna_idx='+${qnaDTO.qna_idx}+'&page='+${pageDTO.pageNum };
+		location.href='${pageContext.request.contextPath}/center/qna_delete?qna_idx='+${qnaDTO.qna_idx};
 	}else{
 		return false;
 	}
 }
 </script>
-
 </head>
 <body>
 
@@ -105,7 +103,7 @@ function removeCheck() {
 						<p class="bread">
 							<span><a
 								href="${pageContext.request.contextPath}/foot/index/">Home</a></span>
-							<span>QNA DETAIL</span>
+							<span>QNA REPLY</span>
 						</p>
 					</div>
 				</div>
@@ -114,66 +112,54 @@ function removeCheck() {
 
 		<div class="row" >
 			<div class="col-lg-8" style= "display: inline-block; margin: 0 auto;">
-				<form action="${pageContext.request.contextPath}/center/qna_reply" method="post" class="contact-form">
-<%-- 				<input type="text" name="page" value="${pageDTO.pageNum}" hidden="hidden" /> --%>
-				<input type="hidden" name="qna_idx" value="${qnaDTO.qna_idx}" />
-				<input type="hidden" name="qna_re_ref" value="${qnaDTO.qna_re_ref}" />
-				<input type="hidden" name="qna_re_lev" value="${qnaDTO.qna_re_lev}" />
-				<input type="hidden" name="qna_re_seq" value="${qnaDTO.qna_re_seq}" />
-					<h2>문의내용</h2>
+			<form action="${pageContext.request.contextPath}/center/qna_reply_pro" method="post" class="contact-form">
+<%-- 			<input type="text" name="page" value="${pageDTO.pageDTO}" hidden="hidden" /> --%>
+			<input type="hidden" name="qna_idx" value="${qnaDTO.qna_idx}" /> 
+			<!-- 이쪽에서 이미 값을 넘ㄱ주고 있기때문에 action에서 idx 값을 넘겨 줄 필요 없음.(전달방식 post) -->
+			<input type="hidden" name="qna_re_ref" value="${qnaDTO.qna_re_ref}" />
+			<input type="hidden" name="qna_re_lev" value="${qnaDTO.qna_re_lev}" />
+			<input type="hidden" name="qna_re_seq" value="${qnaDTO.qna_re_seq}" />
+			<input type="hidden" name="qna_type" value="${qnaDTO.qna_type}" />
+				
+					<h2>답변드립니다!</h2>
+					<br>
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">
-								<label for="type">문의유형</label>
-			                     <div class="form-field">
-			                     	
-								<!-- 문의 유형 태그 -->
-								<c:choose>
-									<c:when test="${qnaDTO.qna_type eq 1 }">
-										주문내역/배송현황
-									</c:when>
-									<c:when test="${qnaDTO.qna_type eq 2 }">
-										주문상품 취소하기
-									</c:when>
-									<c:when test="${qnaDTO.qna_type eq 3 }">
-										반품/교환/AS 신청하기
-									</c:when>
-									<c:when test="${qnaDTO.qna_type eq 4 }">
-										아이디/비밀번호찾기
-									</c:when>
-									<c:when test="${qnaDTO.qna_type eq 5 }">
-										포인트 사용방법
-									</c:when>
-									<c:otherwise>
-										없음.
-									</c:otherwise>
-								</c:choose>
-								</div>
+								<label for="type">제목</label>
+								<input type="text" name="qna_subject" id="qna_subject" class="form-control" value="${qnaDTO.qna_subject}" required="required" >
 							</div>
 						</div>
 						
 						<!-- 회원번호 자동으로 받아오게 설정 -->
-						<input type="text" name="m_idx" value="1" hidden="hidden">
+					
 <!-- 						<input type="text" name="m_idx" value="${memberDTO.m_idx}" hidden="hidden"> -->
 
+<!-- 						<div class="col-md-6"> -->
+<!-- 							<div class="form-group"> -->
+<!-- 								<label for="name">작성자</label><br> -->
+<%-- 								 ${qnaDTO.qna_name } --%>
+<!-- 							</div> -->
+<!-- 						</div> -->
+						
+<!-- 						<div class="col-md-7"> -->
+<!-- 							<div class="form-group"> -->
+<!-- 								<label for="subject">제목</label><br> -->
+<%-- 								 ${qnaDTO.qna_subject} --%>
+<!-- 							</div> -->
+<!-- 						</div> -->
+						<br>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="name">작성자</label><br>
-								 ${qnaDTO.qna_name }
-							</div>
-						</div>
-						
-						<div class="col-md-7">
-							<div class="form-group">
-								<label for="subject">제목</label><br>
-								 ${qnaDTO.qna_subject}
+								<label for="name">작성자</label> <input type="text"
+									name="qna_name" id="name" class="form-control" placeholder="Enter Your user-name" required="required" readonly value="관리자">
 							</div>
 						</div>
 						
 						<div class="col-sm-12">
 										<div class="form-group">
-											<label for="content">문의내용</label><br>
-												${qnaDTO.qna_content}
+											<label for="content">답변내용</label><br>
+											<textarea name="qna_content" id="content" cols="50" rows="10" class="form-control-9" required="required"></textarea>
 										</div>
 									</div>
 				
@@ -188,8 +174,8 @@ function removeCheck() {
 <!-- 						</div> -->
 					</div>
 					<div class="col-sm-12">
-										<div class="form-group" style="text-align: center;">  
-											<input type="submit" value="답글" class="btn btn-primary" >
+										<div class="form-group" style="text-align: center;">
+											<input type="submit" value="등록" class="btn btn-primary" id=btn>
 											<input type="button" value="목록" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/center/qna_list'">
 											<input type="button" value="삭제" class="btn btn-primary" onclick="removeCheck()">
 										</div>

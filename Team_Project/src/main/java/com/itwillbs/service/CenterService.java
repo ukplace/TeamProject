@@ -54,5 +54,6 @@ public interface CenterService {
 	public void deleteFaq(FaqDTO faqDTO);
 
 	public void deleteQna(QnaDTO qnaDTO);
+
 	
 }

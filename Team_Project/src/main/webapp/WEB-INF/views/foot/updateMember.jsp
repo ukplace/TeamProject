@@ -152,7 +152,7 @@
 								<div class="col-md-7">
 									<div class="form-group">
 										<label for="email" >이메일</label> <br> 
-										<input type="text" name="id" class="id" value="${memberDTO.m_email }" readonly>
+										<input type="text" name="m_email" class="id" value="${memberDTO.m_email }" readonly>
 									</div>
 								</div>
 
@@ -160,7 +160,7 @@
 								<div class="col-md-7">
 									<div class="form-group">
 										<label for="name" >이름</label><br> 
-										<input type="text" name="name" value="${memberDTO.m_name }" readonly>
+										<input type="text" name="m_name" value="${memberDTO.m_name }" readonly>
 									</div>
 								</div>
 
@@ -185,11 +185,11 @@
 									<div class="form-group">
 										<label><h4>주소</h4></label>
 										<table >
-			                    		<tr><td width="80%"><input type="text" name= "m_zip" id="sample4_postcode" placeholder="우편번호" readonly class="form-control" required="required" ></td>
+			                    		<tr><td width="80%"><input type="text" name= "m_zip" id="sample4_postcode" placeholder="우편번호" readonly class="form-control" required="required" value="${memberDTO.m_zip}" ></td>
 			                    		<td>&nbsp&nbsp</td>
 			                    		<td><input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" class ="btn btn-default btn-lg"></td></tr>
 											<tr height="10px"></tr>
-											<tr><td colspan="3"><input type="text" class="form-control" name="m_address" id="sample4_roadAddress" placeholder="도로명주소" readonly value="<%%>"></td></tr>
+											<tr><td colspan="3"><input type="text" class="form-control" name="m_address" id="sample4_roadAddress" placeholder="도로명주소" readonly value="${memberDTO.m_address}"></td></tr>
 											<tr height="10px"></tr>
 											<tr><td colspan="3"><input type="text" class="form-control" name="m_detail_address" id="sample4_roadAddress" placeholder="상세주소" value="${memberDTO.m_detail_address}" ></td></tr>
 											<tr height="1px"><td><input type="hidden" id="sample4_extraAddress" placeholder="참고항목"></td><td>
@@ -198,7 +198,7 @@
 			                    		</table>
 										</div>
   										
-
+											
 
 
 									<!-- 버튼 -->
