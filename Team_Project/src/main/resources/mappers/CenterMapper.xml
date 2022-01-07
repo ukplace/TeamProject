@@ -50,7 +50,6 @@
 	</insert>
 	
 	
-	
 	<insert id="insertFaq">
 		INSERT into faq(faq_subject,faq_question,faq_answer) values (#{faq_subject},#{faq_question},#{faq_answer}) 
 	</insert>
