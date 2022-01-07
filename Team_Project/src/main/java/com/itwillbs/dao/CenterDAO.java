@@ -20,9 +20,6 @@ public interface CenterDAO {
 	public QnaDTO getQnaDetail(QnaDTO qnaDTO);
 	///qna/////
 	
-	
-	
-	
 	public Integer getIncrementNum();
 	
 	public void insertReplyAricle(QnaDTO qnaDTO);

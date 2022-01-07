@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.websocket.Session;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -286,7 +287,7 @@ public class CenterController {
 	}
 
 	@RequestMapping(value = "/center/qna_detail", method = RequestMethod.GET)
-	public String qna_detail(HttpServletRequest request, Model model) {
+	public String qna_detail(HttpServletRequest request, Model model, QnaDTO qnaDTO) {
 		PageDTO pageDTO = new PageDTO();
 
 		if (request.getParameter("pageNum") == null) { // 없을때
@@ -294,14 +295,14 @@ public class CenterController {
 		} else { // 있을때
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
-		QnaDTO qnaDTO = new QnaDTO();
+		qnaDTO = new QnaDTO();
 		qnaDTO.setQna_idx(Integer.parseInt(request.getParameter("qna_idx")));
 
 		qnaDTO = centerService.getQnaDetail(qnaDTO);
-
+		System.out.println(qnaDTO.toString());
 		model.addAttribute("pageDTO", pageDTO);
 		model.addAttribute("qnaDTO", qnaDTO);
-
+		
 		// /WEB-INF/views/foot/qna_update.jsp
 		return "foot/qna_detail";
 	}
@@ -336,5 +337,24 @@ public class CenterController {
 		// /WEB-INF/views/foot/qna_list.jsp
 		return "redirect:/center/qna_list";
 	}
+	
+
+	@RequestMapping(value = "/center/qna_reply", method = RequestMethod.GET)
+	public String qna_reply(HttpServletRequest request,Model model,QnaDTO qnaDTO) {
+		
+		model.addAttribute("qnaDTO",qnaDTO);
+		System.out.println(qnaDTO.toString());	
+		return "foot/qna_reply";
+	}
+	
+	@RequestMapping(value = "/center/qna_reply_pro", method = RequestMethod.POST)
+	public String qna_reply_pro(QnaDTO qnaDTO) {
+	
+		
+		centerService.insertReplyAricle(qnaDTO);
+		
+		return "redirect:/center/qna_list";
+	}
+	
 
 }

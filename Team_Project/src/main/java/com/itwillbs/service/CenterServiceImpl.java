@@ -74,11 +74,6 @@ public class CenterServiceImpl implements CenterService {
 		
 	}
 	
-	
-	
-	
-	
-
 	public void insertReplyAricle(QnaDTO qnaDTO) {
 		
 		centerDAO.insertReplyAricle(qnaDTO);
@@ -179,6 +174,7 @@ public class CenterServiceImpl implements CenterService {
 		
 	}
 
+	
 	
 
 	
