@@ -106,11 +106,6 @@
 	<table class = "board_list" >
 		<span><h1>공지 사항</h1>
 		
-		<c:choose>
-	<c:when test="${'admin@shushu.com' eq sessionScope.id }">
-		<input type="button" onclick="location.href='${pageContext.request.contextPath}/center/notice_write'" class="notice_write" value="글쓰기" >
-	</c:when>
-	</c:choose>
 		
 		</span><br>
 		
@@ -134,6 +129,12 @@
 		</tbody>
 	</table>
 	<br>
+	
+		<c:choose>
+	<c:when test="${'admin@shushu.com' eq sessionScope.id }">
+		<input type="button" onclick="location.href='${pageContext.request.contextPath}/center/notice_write'" class="notice_write" value="글쓰기" >
+	</c:when>
+	</c:choose>
 	<!-- 페이징 -->
 	<div class="row">
 				<div class="col-md-12 text-center">

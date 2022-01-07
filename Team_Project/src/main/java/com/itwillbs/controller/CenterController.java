@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
+import javax.websocket.Session;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -336,5 +337,25 @@ public class CenterController {
 		// /WEB-INF/views/foot/qna_list.jsp
 		return "redirect:/center/qna_list";
 	}
+	
+
+	@RequestMapping(value = "/center/qna_reply", method = RequestMethod.GET)
+	public String qna_reply(HttpServletRequest request,Model model) {
+		
+//		int qna_idx = Integer.parseInt(request.getParameter("qna_idx"));
+//		model.addAttribute("qnaDTO", centerService.qna_detail(qna_idx));
+//				
+		return "foot/qna_reply";
+	}
+	
+	@RequestMapping(value = "/center/qna_reply_pro", method = RequestMethod.POST)
+	public String qna_reply_pro(QnaDTO qnaDTO) {
+	
+		
+		centerService.insertReplyAricle(qnaDTO);
+		
+		return "redirect:/center/qna_list";
+	}
+	
 
 }

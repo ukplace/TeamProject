@@ -155,10 +155,8 @@
         
         <script type="text/javascript">
         
-      //상품삭제 버튼 클릭 이벤트
         $("#deleteBtn").click(function(){
-        	// 상품 삭제 확인
-        	if(confirm("상품을 삭제하시겠습니까?")){
+        	if(confirm("회원정보를 삭제하시겠습니까?")){
         		document.memberDelete.action="${pageContext.request.contextPath}/admin/member_delete?m_idx=${memberDTO.m_idx}"
         		document.memberDelete.submit();
         	}

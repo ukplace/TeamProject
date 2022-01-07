@@ -117,7 +117,7 @@
 						
 						<div class="col-md-7">
 							<div class="form-group">
-								<label for="subject">질문</label> 
+								<label for="subject">문의유형</label> 
 								<input type="text" name="faq_question" id="question" class="form-control" value="${faqDTO.faq_question }"> 
 							</div>
 						</div>

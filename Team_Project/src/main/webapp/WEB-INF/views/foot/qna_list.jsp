@@ -113,7 +113,7 @@
 	<div class="board_list_wrap">
 	<table class = "board_list">
 		<span><h1>QnA 관리</h1>
-		<input type="button" onclick="location.href='${pageContext.request.contextPath}/center/qna_write'" class="qna_insert" value="글쓰기" ></span>
+		
 		<br>
 		<thead>
 		<tr class = "ti">
@@ -135,19 +135,19 @@
 	
 	<c:choose>
 		<c:when test="${qnaDTO.qna_type eq 1 }">
-			<td><a href="#" class="tit">주문내역/배송현황</a></td>
+			<td><a href="${pageContext.request.contextPath}/center/qna_detail?qna_idx=${qnaDTO.qna_idx}&page=${pageDTO.pageNum }" class="tit">주문내역/배송현황</a></td>
 		</c:when>
 		<c:when test="${qnaDTO.qna_type eq 2 }">
-			<td><a href="#" class="tit">주문상품 취소하기</a></td>
+			<td><a href="${pageContext.request.contextPath}/center/qna_detail?qna_idx=${qnaDTO.qna_idx}&page=${pageDTO.pageNum }" class="tit">주문상품 취소하기</a></td>
 		</c:when>
 		<c:when test="${qnaDTO.qna_type eq 3 }">
-			<td><a href="#" class="tit">반품/교환/AS 신청하기</a></td>
+			<td><a href="${pageContext.request.contextPath}/center/qna_detail?qna_idx=${qnaDTO.qna_idx}&page=${pageDTO.pageNum }" class="tit">반품/교환/AS 신청하기</a></td>
 		</c:when>
 		<c:when test="${qnaDTO.qna_type eq 4 }">
-			<td><a href="#" class="tit">아이디/비밀번호찾기</a></td>
+			<td><a href="${pageContext.request.contextPath}/center/qna_detail?qna_idx=${qnaDTO.qna_idx}&page=${pageDTO.pageNum }" class="tit">아이디/비밀번호찾기</a></td>
 		</c:when>
 		<c:when test="${qnaDTO.qna_type eq 5 }">
-			<td><a href="#" class="tit">포인트 사용방법</a></td>
+			<td><a href="${pageContext.request.contextPath}/center/qna_detail?qna_idx=${qnaDTO.qna_idx}&page=${pageDTO.pageNum }" class="tit">포인트 사용방법</a></td>
 		</c:when>
 		<c:otherwise>
 			<td><a href="#" class="tit">없음.</a></td>
@@ -155,7 +155,7 @@
 	</c:choose>
 								
 				<td><a href="${pageContext.request.contextPath}/center/qna_detail?qna_idx=${qnaDTO.qna_idx}&page=${pageDTO.pageNum } "class="tit">${qnaDTO.qna_subject}</a></td>
-				<td><a href="#" class="tit">${qnaDTO.qna_name}</a></td>
+				<td><a href="${pageContext.request.contextPath}/center/qna_detail?qna_idx=${qnaDTO.qna_idx}&page=${pageDTO.pageNum } "class="tit">${qnaDTO.qna_name}</a></td>
 				<td><fmt:formatDate value="${qnaDTO.qna_date}" pattern="yyyy-MM-dd"/></td>
 			</tr>
 		</c:forEach>
@@ -172,6 +172,7 @@
 <%-- 	<a href="${pageContext.request.contextPath}/center/qna_list?pageNum=${i }"${1 }></a> --%>
 <%-- 	</c:forEach> --%>
 	<br>
+	<input type="button" onclick="location.href='${pageContext.request.contextPath}/center/qna_write'" class="qna_insert" value="글쓰기" ></span>
 	<!-- 페이징 -->
 	<div class="row">
 				<div class="col-md-12 text-center">

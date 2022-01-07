@@ -141,9 +141,6 @@ $(documet).ready(function() {
 							</div>
 						</div>
 						
-						<!-- 회원번호 자동으로 받아오게 설정 -->
-						<input type="text" name="m_idx" value="1" hidden="hidden">
-<!-- 						<input type="text" name="m_idx" value="${memberDTO.m_idx}" hidden="hidden"> -->
 
 						<div class="col-md-6">
 							<div class="form-group">
