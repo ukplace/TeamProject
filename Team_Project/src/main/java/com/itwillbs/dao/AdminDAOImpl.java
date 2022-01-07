@@ -8,6 +8,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.stereotype.Repository;
 
 import com.itwillbs.domain.MemberDTO;
+import com.itwillbs.domain.Order_memberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductQtyDTO;
@@ -164,6 +165,11 @@ public class AdminDAOImpl implements AdminDAO {
 	public List<ReviewDTO> getPnum(int p_num) {
 		
 		return sqlSession.selectList(namespace+".getPnum", p_num);
+	}
+
+	@Override
+	public List<Order_memberDTO> getOrderList() {
+		return sqlSession.selectList(namespace+".getOrderList");
 	}
 
 

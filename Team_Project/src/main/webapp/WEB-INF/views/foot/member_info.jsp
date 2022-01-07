@@ -155,6 +155,7 @@ function actionA(){
 								<div class="col-md-7">
 									<div class="form-group">
 										<label for="email">이메일</label><br> ${memberDTO.m_email}
+										
 
 									</div>
 								</div>
@@ -163,6 +164,7 @@ function actionA(){
 								<div class="col-md-7">
 									<div class="form-group">
 										<label for="name">이름</label><br> ${memberDTO.m_name}
+										
 									</div>
 								</div>
 
@@ -214,6 +216,17 @@ function actionA(){
 									<!-- 버튼 -->
 									<div class="row" style="margin-left: 5px; margin-top: 30px;">
 										<div class="col-md-12 text-center">
+											
+											
+										<input type="hidden" name="m_tel" value="${memberDTO.m_tel }">
+										<input type="hidden" name="m_email" value="${memberDTO.m_email }">
+										<input type="hidden" name="m_name"  value="${memberDTO.m_name }">
+										<input type="hidden" name="m_idx" value="${memberDTO.m_idx }">
+										<input type="hidden" name="m_zip" value="${memberDTO.m_zip }">
+										<input type="hidden" name="m_address" value="${memberDTO.m_address }">
+										<input type="hidden" name="m_detail_address"  value="${memberDTO.m_detail_address }">
+											
+											
 											
 											
 											<input type="button" class="btn btn-primary"  value ="비밀번호변경" onclick="actionB()">
@@ -352,4 +365,3 @@ function actionA(){
 
 </body>
 </html>
-

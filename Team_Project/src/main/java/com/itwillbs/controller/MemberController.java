@@ -185,13 +185,20 @@ public class MemberController {
 		public String updateMember(HttpSession session, Model model,MemberDTO memberDTO) {
 			
 			System.out.println("MemberController.updateMember()");
+			System.out.println(memberDTO.toString());
 			
+			// 세션 객체안에 있는 아이디 정보저장
 			String id = (String)session.getAttribute("id");
 			
+			// 서비스안에 회원정보보기 메서드 호출
 			MemberDTO memberDTO2 = memberService.getMember(id);
+			
+			// 패스워드 해싱처리
 			String encryPassword = UserSha256.encrypt(memberDTO.getM_pass());
 			
 			if(memberDTO2.getM_pass().equals(encryPassword)) {
+				
+				// 정보저장
 				model.addAttribute("memberDTO", memberDTO2);
 				
 				return "foot/updateMember";
@@ -202,15 +209,17 @@ public class MemberController {
 			}
 
 
+
 		
 		@RequestMapping(value = "/foot/updateMemberPro", method = RequestMethod.POST)
 		public String updateMemberPro(MemberDTO memberDTO , Model model, HttpSession session ) {
-				
-				memberService.updateMember(memberDTO);
-			
-			return "foot/member_info";
-		}
+			System.out.println(memberDTO.toString());
+			System.out.println("이거 멤버프론데..");
+			memberDTO.setM_idx((Integer)session.getAttribute("m_idx"));
+			memberService.updateMember(memberDTO);
 		
+		return "redirect:/foot/member_info";
+	}
 		
 		
 		@RequestMapping(value = "/foot/updatePass", method = RequestMethod.POST)

@@ -172,61 +172,6 @@
 			</td>
 		</tr>	
 		
-		<!-- 색상/사이즈 select 등록페이지에서 삭제 할 예정으로 알고있기에 주석처리함 -->
-	
-<!-- 				<tr> -->
-<!-- 					<th>색상</th> -->
-<!-- 					<td> -->
-<!-- 						<input type="text" name="p_color" required="required" size="10"> -->
-<!-- 						<select name="selectColor" onchange="changeColor(this.value)"> -->
-<!-- 						셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입란에 표시 -->
-<!-- 						this 주면 여기 이 태그가 날라간다!  -->
-<!-- 						셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입력란에 표시 -->
-<!-- 							<option value="">직접입력</option>	 -->
-<!-- 							<option value="빨강">빨강</option> -->
-<!-- 							<option value="주황">주황</option> -->
-<!-- 							<option value="노랑">노랑</option> -->
-<!-- 							<option value="초록">초록</option> -->
-<!-- 							<option value="파랑">파랑</option> -->
-<!-- 							<option value="남색">남색</option> -->
-<!-- 							<option value="보라">보라</option> -->
-<!-- 						</select> -->
-<!-- 					</td> -->
-<!-- 				</tr> -->
-
-			<!-- 사이즈 -->
-<!-- 			<tr> -->
-<!-- 				<th>사이즈</th> -->
-<!-- 					<td> -->
-<!-- 						<input type="text" name="p_size" required="required" size="10"> -->
-<!-- 						<select name="selectSize" onchange="changeSize(this.value)"> -->
-<!-- 						셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입란에 표시 -->
-<!-- 						this 주면 여기 이 태그가 날라간다!  -->
-<!-- 						셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입력란에 표시 -->
-<!-- 							<option value="">직접입력</option>	 -->
-<!-- 							<option value="220">220</option> -->
-<!-- 							<option value="235">235</option> -->
-<!-- 							<option value="240">240</option> -->
-<!-- 							<option value="245">245</option> -->
-<!-- 							<option value="250">250</option> -->
-<!-- 							<option value="255">255</option> -->
-<!-- 							<option value="260">260</option> -->
-<!-- 							<option value="265">265</option> -->
-<!-- 							<option value="270">270</option> -->
-<!-- 							<option value="275">275</option> -->
-<!-- 							<option value="280">280</option> -->
-							
-<!-- 						</select> -->
-<!-- 					</td> -->
-<!-- 				</tr>	 -->
-				
-		      <!-- 재고 -->
-<!-- 		      <tr> -->
-<!-- 		      <th>재고</th> -->
-<!-- 		      	<td> -->
-<!-- 		      	  <input type="text" name="p_stock" width = 40px padding= 6px  margin= 100px  placeholder="재고수량입력"> -->
-<!-- 		      	</td> -->
-<!-- 		      </tr>	 -->
 				
 				
 				<tr>
@@ -252,29 +197,6 @@
 				 	<td colspan="2"> 
 					</td>
 				 </tr>
-<!-- 				 <tr> -->
-<!-- 				 	<td> -->
-<!-- 				 <div class="select_img"><img src="" width="310" height="310" /></div> -->
-<!-- 				 <div class="select_img"> -->
-<!-- 				 	<div class="product-img-div"> -->
-<%-- 				 		<img alt="product_img" src="${pageContext.request.contextPath}/images/pdetail_img.jpg" class="product-img" /> --%>
-<!-- 				 	</div> -->
-<!-- 				 </div> -->
-<!-- 					</td> -->
-<!-- 				 </tr> -->
-				 <%//=request.getRealPath("/") %>
-				
-<!-- 				 <td align="center"> -->
-<!-- 				 <div class="inputArea"> -->
-<!--  						<label for="p_img">이미지</label> -->
-<!--  						<input type="file" id="p_img" name="file" /> -->
-
- 
-					 
-						 
-<!-- 					</div> -->
-<!-- 					</td> -->
-<!-- 					</tr> -->
 										
 				<tr>
 				<th>제품 설명</th>
