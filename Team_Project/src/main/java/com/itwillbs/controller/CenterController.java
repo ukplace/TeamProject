@@ -339,10 +339,10 @@ public class CenterController {
 	}
 	
 
-	@RequestMapping(value = "/center/qna_reply", method = RequestMethod.GET)
-	public String qna_reply(HttpServletRequest request,Model model,QnaDTO qnaDTO) {
+	@RequestMapping(value = "/center/qna_reply", method = RequestMethod.POST)
+	public String qna_reply(Model model,QnaDTO qnaDTO) {
 		
-		model.addAttribute("qnaDTO",qnaDTO);
+		model.addAttribute("qnaDTO",qnaDTO); // detail.jsp 에서 qnaDTO를 받아서 model 객체에 저장한 값을 넣어줌
 		System.out.println(qnaDTO.toString());	
 		return "foot/qna_reply";
 	}

@@ -151,7 +151,7 @@
 			<td><a href="${pageContext.request.contextPath}/center/qna_detail?qna_idx=${qnaDTO.qna_idx}&page=${pageDTO.pageNum }" class="tit">포인트 사용방법</a></td>
 		</c:when>
 		<c:otherwise>
-			<td style="text-decoration: underline; font-weight: bold;"><a href="${pageContext.request.contextPath}/center/qna_detail?qna_idx=${qnaDTO.qna_idx}&page=${pageDTO.pageNum }" class="tit"> shushu에서 답변드립니다.</a></td>
+			<td style="text-decoration: underline; font-weight: bold;"><a href="${pageContext.request.contextPath}/center/qna_detail?qna_idx=${qnaDTO.qna_idx}&page=${pageDTO.pageNum }" class="tit"> SHUSHU에서 답변드립니다.</a></td>
 		</c:otherwise>
 	</c:choose>
 								
