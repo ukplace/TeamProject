@@ -3,8 +3,7 @@ package com.itwillbs.domain;
 import java.sql.Timestamp;
 /*
 create table qna (
-qna_idx int auto_increment,
-m_idx int, 
+qna_idx int primary key auto_increment,
 qna_name varchar(45) not null,  
 qna_subject varchar(45) not null,
 qna_content varchar(500) not null,
@@ -12,9 +11,7 @@ qna_type varchar(45) not null,
 qna_re_ref int,
 qna_re_lev int,
 qna_re_seq int,
-qna_date timestamp default now() not null,
-foreign key (m_idx) references member (m_idx),
-constraint qna_iname_pk primary key(qna_idx, qna_name)
+qna_date timestamp default now() not null
 );
 
 */
@@ -22,7 +19,6 @@ constraint qna_iname_pk primary key(qna_idx, qna_name)
 public class QnaDTO {
 	
 	private int qna_idx;
-	private int m_idx;
 	private String qna_name;
 	private String qna_subject;
 	private String qna_content;
@@ -38,12 +34,6 @@ public class QnaDTO {
 	}
 	public void setQna_idx(int qna_idx) {
 		this.qna_idx = qna_idx;
-	}
-	public int getM_idx() {
-		return m_idx;
-	}
-	public void setM_idx(int m_idx) {
-		this.m_idx = m_idx;
 	}
 	public String getQna_name() {
 		return qna_name;

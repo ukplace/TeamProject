@@ -113,7 +113,7 @@
 	<div class="board_list_wrap">
 	<table class = "board_list">
 		<span><h1>QnA 관리</h1>
-		<input type="button" onclick="location.href='${pageContext.request.contextPath}/center/qna_write'" class="qna_insert" value="글쓰기" ></span>
+		
 		<br>
 		<thead>
 		<tr class = "ti">
@@ -172,6 +172,7 @@
 <%-- 	<a href="${pageContext.request.contextPath}/center/qna_list?pageNum=${i }"${1 }></a> --%>
 <%-- 	</c:forEach> --%>
 	<br>
+	<input type="button" onclick="location.href='${pageContext.request.contextPath}/center/qna_write'" class="qna_insert" value="글쓰기" ></span>
 	<!-- 페이징 -->
 	<div class="row">
 				<div class="col-md-12 text-center">
