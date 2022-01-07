@@ -79,7 +79,7 @@
 <script type="text/javascript">
 function removeCheck() {
 	if(confirm("정말 삭제하시겠습니까?")==true){
-		location.href='${pageContext.request.contextPath}/center/qna_delete?qna_idx=${qnaDTO.qna_idx}&page=${pageDTO.pageNum }';
+		location.href='${pageContext.request.contextPath}/center/qna_delete?qna_idx='+${qnaDTO.qna_idx}+'&page='+${pageDTO.pageNum };
 	}else{
 		return false;
 	}
@@ -114,7 +114,12 @@ function removeCheck() {
 
 		<div class="row" >
 			<div class="col-lg-8" style= "display: inline-block; margin: 0 auto;">
-				
+				<form action="${pageContext.request.contextPath}/center/qna_reply?qna_idx="+${qnaDTO.qna_idx} method="get" class="contact-form">
+<%-- 				<input type="text" name="page" value="${pageDTO.pageNum}" hidden="hidden" /> --%>
+				<input type="text" name="qna_idx" value="${qnaDTO.qna_idx}" hidden="hidden" />
+				<input type="text" name="qna_re_ref" value="${qnaDTO.qna_re_ref}" hidden="hidden" />
+				<input type="text" name="qna_re_lev" value="${qnaDTO.qna_re_lev}" hidden="hidden" />
+				<input type="text" name="qna_re_seq" value="${qnaDTO.qna_re_seq}" hidden="hidden" />
 					<h2>문의내용</h2>
 					<div class="row">
 						<div class="col-md-12">
@@ -183,8 +188,8 @@ function removeCheck() {
 <!-- 						</div> -->
 					</div>
 					<div class="col-sm-12">
-										<div class="form-group" style="text-align: center;">
-											<input type="button" value="답글" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/center/qna_reply'">
+										<div class="form-group" style="text-align: center;">  
+											<input type="submit" value="답글" class="btn btn-primary" >
 											<input type="button" value="목록" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/center/qna_list'">
 											<input type="button" value="삭제" class="btn btn-primary" onclick="removeCheck()">
 										</div>
