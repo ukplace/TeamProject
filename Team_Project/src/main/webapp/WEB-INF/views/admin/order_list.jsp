@@ -89,7 +89,7 @@
                                 <!-- /.panel-heading -->
                                 <div class="panel-body">
                                     <div class="table-responsive">
-                                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                        <table class="table table-striped table-bordered table-hover">
                                             <thead>
                                                 <tr>
                                                     <th class="text-center col-md-2">주문번호</th>
@@ -151,8 +151,31 @@
 													
                                                 </script>
                                                 
-                                                </div>
-                                                </div>
+                                              </div>
+                                           </div>
+                                           
+                                           
+										<div class="panel-body" align="center">
+											<c:if test="${pageDTO.startPage > pageDTO.pageBlock }">
+												<button type="button" class="btn btn-default" onclick="location.href='${pageContext.request.contextPath}/admin/order_list?pageNum=${pageDTO.startPage - pageDTO.pageBlock}'">
+												Prev
+												</button>
+											</c:if>
+											
+											<c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1">
+												<button type="button" class="btn btn-default" onclick="location.href='${pageContext.request.contextPath}/admin/order_list?pageNum=${i}'">
+												${i}
+												</button>
+											</c:forEach>
+											
+											<c:if test="${pageDTO.endPage < pageDTO.pageCount }">
+												<button type="button" class="btn btn-default" onclick="location.href='${pageContext.request.contextPath}/admin/order_list?pageNum=${pageDTO.startPage + pageDTO.pageBlock}'">
+												Next
+												</button>
+											</c:if>
+										</div>
+                                                
+                                                
                                                 </div>
                                                 </div>
                                                 </div>

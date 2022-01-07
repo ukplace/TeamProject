@@ -64,7 +64,7 @@
 	                                
 	                                <div class="panel-body">
 	                                    <div class="table-responsive">
-	                                        <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+	                                        <table class="table table-striped table-bordered table-hover">
 	                                            <thead>
 	                                                <tr>
 	                                                    <th style="text-align: center; width:50px;">번호</th>
@@ -95,6 +95,27 @@
 										<!-- /.table-responsive -->
                                 </div>
                                 <!-- /.panel-body -->
+                                
+                                   
+										<div class="panel-body" align="center">
+											<c:if test="${pageDTO.startPage > pageDTO.pageBlock }">
+												<button type="button" class="btn btn-default" onclick="location.href='${pageContext.request.contextPath}/admin/review_list?pageNum=${pageDTO.startPage - pageDTO.pageBlock}'">
+												Prev
+												</button>
+											</c:if>
+											
+											<c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1">
+												<button type="button" class="btn btn-default" onclick="location.href='${pageContext.request.contextPath}/admin/review_list?pageNum=${i}'">
+												${i}
+												</button>
+											</c:forEach>
+											
+											<c:if test="${pageDTO.endPage < pageDTO.pageCount }">
+												<button type="button" class="btn btn-default" onclick="location.href='${pageContext.request.contextPath}/admin/review_list?pageNum=${pageDTO.startPage + pageDTO.pageBlock}'">
+												Next
+												</button>
+											</c:if>
+										</div>
                             </div>
                             <!-- /.panel -->
                         </div>
