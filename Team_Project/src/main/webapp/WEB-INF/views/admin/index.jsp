@@ -172,10 +172,10 @@
                                         </div>
                                     </div>
                                 </div>
-                                    
-                                                                    <div style="width: 700px; height: 500px;" class="chart">   
-<!-- 								차트가 그려질 부분 -->
-								<canvas style="width: 700px; height: 500px;" id="myChart"></canvas>
+                                 
+                                 <div  class="chart">   
+<!-- 							우리조가 할 차트가 그려질 부분 -->
+								<canvas  id="myChart"></canvas>
 								</div> 
 								
                                 <div class="panel-body">
