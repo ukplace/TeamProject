@@ -172,22 +172,18 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- /.panel-heading -->
-                                <div style="width: 700px; height: 800px;" class="chart">
-<!-- 								차트가 그려질 부분 -->
-								<canvas id="myChart"></canvas>
-								</div>
-                                
-                                
-<!--                                 <div class="panel-body"> -->
-<!--                                     <div id="morris-area-chart"></div> -->
+                                 
+                                 <div  class="chart">   
+<!-- 							우리조가 할 차트가 그려질 부분 -->
+								<canvas  id="myChart"></canvas>
+								</div> 
+								
+                                <div class="panel-body">
+                                    <div id="morris-area-chart"></div>
                                     
-                                    
-                                    
-                                    
-<!--                                 </div> -->
-<!--                                 /.panel-body -->
-<!--                             </div> -->
+                                </div>
+                                <!-- /.panel-body -->
+                            </div>
                             <!-- /.panel -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
@@ -663,7 +659,7 @@
         </div>
         <!-- /#wrapper -->
 
-        <!-- jQuery -->
+      <!-- jQuery -->
         <script src="${pageContext.request.contextPath}/js/jquery.min.js"></script>
 
         <!-- Bootstrap Core JavaScript -->
@@ -760,3 +756,5 @@
 		</script>
     </body>
 </html>
+
+

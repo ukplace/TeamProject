@@ -120,7 +120,7 @@
 				<div class="row">
 					<div class="col-sm-6 text-center">
 						<div class="featured">
-							<a href="${pageContext.request.contextPath}/foot/list_men" class="featured-img" style="background-image: url(${pageContext.request.contextPath}/images/men1.1.jpg);"></a>
+							<a href="${pageContext.request.contextPath}/foot/list_men" class="featured-img" style="background-image: url(${pageContext.request.contextPath}/images/men1.jpg);"></a>
 							<div class="desc">
 								<h2><a href="${pageContext.request.contextPath}/foot/list_men">Shop Men's Collection</a></h2>
 							</div>
