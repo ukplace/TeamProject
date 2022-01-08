@@ -132,7 +132,8 @@
 	
 		<c:choose>
 	<c:when test="${'admin@shushu.com' eq sessionScope.id }">
-		<input type="button" onclick="location.href='${pageContext.request.contextPath}/center/notice_write'" class="notice_write" value="글쓰기" >
+		<input type="button" onclick="location.href='${pageContext.request.contextPath}/center/notice_write'"
+		 class="notice_write" value="글쓰기" >
 	</c:when>
 	</c:choose>
 	<!-- 페이징 -->
