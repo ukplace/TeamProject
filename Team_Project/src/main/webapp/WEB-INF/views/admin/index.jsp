@@ -173,15 +173,21 @@
                                     </div>
                                 </div>
                                 <!-- /.panel-heading -->
-                                <div class="panel-body">
-                                    <div id="morris-area-chart"></div>
+                                <div style="width: 700px; height: 800px;" class="chart">
+<!-- 								차트가 그려질 부분 -->
+								<canvas id="myChart"></canvas>
+								</div>
+                                
+                                
+<!--                                 <div class="panel-body"> -->
+<!--                                     <div id="morris-area-chart"></div> -->
                                     
                                     
                                     
                                     
-                                </div>
-                                <!-- /.panel-body -->
-                            </div>
+<!--                                 </div> -->
+<!--                                 /.panel-body -->
+<!--                             </div> -->
                             <!-- /.panel -->
                             <div class="panel panel-default">
                                 <div class="panel-heading">
@@ -670,9 +676,87 @@
         <script src="${pageContext.request.contextPath}/js/raphael.min.js"></script>
         <script src="${pageContext.request.contextPath}/js/morris.min.js"></script>
         <script src="${pageContext.request.contextPath}/js/morris-data.js"></script>
-
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
         <!-- Custom Theme JavaScript -->
         <script src="${pageContext.request.contextPath}/js/startmin.js"></script>
-
+		<script type="text/javascript">
+		   var a = []; 
+		     $.ajax({
+		         url: '${pageContext.request.contextPath}/admin/chart',
+		         dataType:'json',
+		         async: false, 
+		         success:function(rdata){
+		                 $.each(rdata,function(index, item){
+		                  a.push(item.totalSum);
+		               
+		                 });
+		                  console.log(item.totalSum);
+		             }
+		      });
+		                 var context = document.getElementById('myChart').getContext('2d');
+		                 var myChart = new Chart(context, {
+		                     type: 'line', // 차트의 형태
+		                     data: { // 차트에 들어갈 데이터
+		                         
+		                        //x 축
+		                         labels: [ '1','2','3','4','5','6','7','8','9','10','11','12'],
+		                         datasets: [
+		                            //데이터
+		                             { 
+		                                 label: 'test1', //차트 제목
+		                                 fill: false, // line 형태일 때, 선 안쪽을 채우는지 안채우는지
+		                                 
+//		                                  x축 label에 대응되는 데이터 값(달 별 매출액)
+		                                 
+		                                 data: a,
+		                             
+		                                 backgroundColor: [
+		                                     //색상
+		                                     'rgba(153, 113, 59, 0.2)',
+		                                     'rgba(255, 99, 132, 0.2)',
+		                                     'rgba(255, 99, 132, 0.2)',
+		                                     'rgba(255, 99, 132, 0.2)',
+		                                     'rgba(255, 99, 132, 0.2)',
+		                                     'rgba(54, 162, 235, 0.2)',
+		                                     'rgba(255, 206, 86, 0.2)',
+		                                     'rgba(75, 192, 192, 0.2)',
+		                                     'rgba(153, 102, 255, 0.2)',
+		                                     'rgba(255, 159, 64, 0.2)',
+		                                     'rgba(255, 159, 64, 0.2)',
+		                                     'rgba(255, 159, 64, 0.2)'
+		                                 ],
+		                                 borderColor: [
+		                                     //경계선 색상
+		                                     'rgba(153, 113, 59, 1)',
+		                                     'rgba(54, 162, 235, 1)',
+		                                     'rgba(255, 206, 86, 1)',
+		                                     'rgba(75, 192, 192, 1)',
+		                                     'rgba(153, 102, 255, 1)',
+		                                     'rgba(153, 102, 255, 1)',
+		                                     'rgba(153, 102, 255, 1)',
+		                                     'rgba(153, 102, 255, 1)',
+		                                     'rgba(153, 102, 255, 1)',
+		                                     'rgba(153, 102, 255, 1)',
+		                                     'rgba(153, 102, 255, 1)',
+		                                     'rgba(255, 159, 64, 1)'
+		                                 ],
+		                                 borderWidth: 1 //경계선 굵기
+		                             }
+		                             
+		                         ]
+		                     },
+		                     options: {
+		                         scales: {
+		                             yAxes: [
+		                                 {
+		                                     ticks: {
+		                                         beginAtZero: true
+		                                     }
+		                                 }
+		                             ]
+		                         }
+		                     }
+		                 });
+		</script>
     </body>
 </html>

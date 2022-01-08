@@ -287,7 +287,7 @@ public class CenterController {
 	}
 
 	@RequestMapping(value = "/center/qna_detail", method = RequestMethod.GET)
-	public String qna_detail(HttpServletRequest request, Model model) {
+	public String qna_detail(HttpServletRequest request, Model model, QnaDTO qnaDTO) {
 		PageDTO pageDTO = new PageDTO();
 
 		if (request.getParameter("pageNum") == null) { // 없을때
@@ -295,14 +295,14 @@ public class CenterController {
 		} else { // 있을때
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
-		QnaDTO qnaDTO = new QnaDTO();
+		qnaDTO = new QnaDTO();
 		qnaDTO.setQna_idx(Integer.parseInt(request.getParameter("qna_idx")));
 
 		qnaDTO = centerService.getQnaDetail(qnaDTO);
-
+		System.out.println(qnaDTO.toString());
 		model.addAttribute("pageDTO", pageDTO);
 		model.addAttribute("qnaDTO", qnaDTO);
-
+		
 		// /WEB-INF/views/foot/qna_update.jsp
 		return "foot/qna_detail";
 	}
@@ -339,12 +339,11 @@ public class CenterController {
 	}
 	
 
-	@RequestMapping(value = "/center/qna_reply", method = RequestMethod.GET)
-	public String qna_reply(HttpServletRequest request,Model model) {
+	@RequestMapping(value = "/center/qna_reply", method = RequestMethod.POST)
+	public String qna_reply(Model model,QnaDTO qnaDTO) {
 		
-//		int qna_idx = Integer.parseInt(request.getParameter("qna_idx"));
-//		model.addAttribute("qnaDTO", centerService.qna_detail(qna_idx));
-//				
+		model.addAttribute("qnaDTO",qnaDTO); // detail.jsp 에서 qnaDTO를 받아서 model 객체에 저장한 값을 넣어줌
+		System.out.println(qnaDTO.toString());	
 		return "foot/qna_reply";
 	}
 	

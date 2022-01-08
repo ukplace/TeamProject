@@ -78,7 +78,7 @@
 <script type="text/javascript">
 function removeCheck() {
 	if(confirm("정말 삭제하시겠습니까?")==true){
-		location.href='${pageContext.request.contextPath}/center/qna_delete?qna_idx=${qnaDTO.qna_idx}&page=${pageDTO.pageNum }';
+		location.href='${pageContext.request.contextPath}/center/qna_delete?qna_idx='+${qnaDTO.qna_idx};
 	}else{
 		return false;
 	}
@@ -112,13 +112,14 @@ function removeCheck() {
 
 		<div class="row" >
 			<div class="col-lg-8" style= "display: inline-block; margin: 0 auto;">
-			
-			<form action="${pageContext.request.contextPath}/foot/qna_reply" method="post" class="contact-form">
-			<input type="text" name="page" value="${pageDTO.pageDTO}" hidden="hidden" />
-			<input type="text" name="Qna_idx" value="${qnaDTO.qna_idx}" hidden="hidden" />
-			<input type="text" name="qna_re_ref" value="${qnaDTO.qna_re_ref}" hidden="hidden" />
-			<input type="text" name="qna_re_lev" value="${qnaDTO.qna_re_lev}" hidden="hidden" />
-			<input type="text" name="qna_re_seq" value="${qnaDTO.qna_re_seq}" hidden="hidden" />
+			<form action="${pageContext.request.contextPath}/center/qna_reply_pro" method="post" class="contact-form">
+<%-- 			<input type="text" name="page" value="${pageDTO.pageDTO}" hidden="hidden" /> --%>
+			<input type="hidden" name="qna_idx" value="${qnaDTO.qna_idx}" /> 
+			<!-- 이쪽에서 이미 값을 넘ㄱ주고 있기때문에 action에서 idx 값을 넘겨 줄 필요 없음.(전달방식 post) -->
+			<input type="hidden" name="qna_re_ref" value="${qnaDTO.qna_re_ref}" />
+			<input type="hidden" name="qna_re_lev" value="${qnaDTO.qna_re_lev}" />
+			<input type="hidden" name="qna_re_seq" value="${qnaDTO.qna_re_seq}" />
+			<input type="hidden" name="qna_type" value="${qnaDTO.qna_type}" />
 				
 					<h2>답변드립니다!</h2>
 					<br>
@@ -126,12 +127,12 @@ function removeCheck() {
 						<div class="col-md-12">
 							<div class="form-group">
 								<label for="type">제목</label>
-								<input type="text" name="qna_subject" id="qna_subject" class="form-control" value="${qnaDTO.qna_subject}" placeholder="질문에 답변드립니다." required="required" >
+								<input type="text" name="qna_subject" id="qna_subject" class="form-control" value="${qnaDTO.qna_subject}" required="required" >
 							</div>
 						</div>
 						
 						<!-- 회원번호 자동으로 받아오게 설정 -->
-						<input type="text" name="m_idx" value="1" hidden="hidden">
+					
 <!-- 						<input type="text" name="m_idx" value="${memberDTO.m_idx}" hidden="hidden"> -->
 
 <!-- 						<div class="col-md-6"> -->
@@ -151,7 +152,7 @@ function removeCheck() {
 						<div class="col-md-6">
 							<div class="form-group">
 								<label for="name">작성자</label> <input type="text"
-									name="qna_name" id="name" class="form-control" placeholder="Enter Your user-name" required="required">
+									name="qna_name" id="name" class="form-control" placeholder="Enter Your user-name" required="required" readonly value="관리자">
 							</div>
 						</div>
 						

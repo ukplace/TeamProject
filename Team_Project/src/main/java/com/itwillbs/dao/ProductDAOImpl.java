@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import com.itwillbs.domain.CartDTO;
 import com.itwillbs.domain.CartListDTO;
+import com.itwillbs.domain.DirectDTO;
 import com.itwillbs.domain.MemberDTO;
 import com.itwillbs.domain.OrderListDTO;
 import com.itwillbs.domain.Order_detailDTO;
@@ -331,6 +332,31 @@ public class ProductDAOImpl implements ProductDAO {
 	@Override
 	public List<ProductQtyDTO> qtyCheck(ProductQtyDTO qty) {
 		return sqlSession.selectList(namespace+".qtyCheck", qty);
+	}
+
+	@Override
+	public void deleteDirect(int m_idx) {
+		System.out.println("ProductDAOImpl - deleteDirect()");
+		sqlSession.delete(namespace + ".deleteDirect", m_idx);
+	}
+
+	@Override
+	public void insertDirect(DirectDTO directDTO) {
+		System.out.println("ProductDAOImpl - insertDirect()");
+		
+		sqlSession.insert(namespace + ".insertDirect", directDTO);
+	}
+
+	@Override
+	public List<CartListDTO> getDirectList(CartListDTO cartListDTO) {
+		System.out.println("ProductDAOImpl - getDirectList()");
+		return sqlSession.selectList(namespace + ".getDirectList", cartListDTO);
+	}
+
+	@Override
+	public void insertDO_detail(Order_memberDTO o_memberDTO) {
+		System.out.println("ProductDAOImpl - insertDO_detail()");
+		sqlSession.insert(namespace + ".insertDO_detail", o_memberDTO);
 	}
 
 

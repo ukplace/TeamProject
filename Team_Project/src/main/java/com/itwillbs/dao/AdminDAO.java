@@ -3,6 +3,7 @@ package com.itwillbs.dao;
 import java.util.List;
 
 import com.itwillbs.domain.MemberDTO;
+import com.itwillbs.domain.Order_memberDTO;
 import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.ProductDTO;
 import com.itwillbs.domain.ProductQtyDTO;
@@ -60,6 +61,8 @@ public interface AdminDAO {
 	public int getDone();
 	
 	public List<ReviewDTO> getPnum(int p_num);
+
+	public List<Order_memberDTO> getOrderList();
 
 
 }

@@ -378,7 +378,7 @@
 <!-- 										</tr> -->
 <!-- 										</table> -->
 <!-- 								    </div> -->
-								  <div class="table" margin:0 auto;">
+								  <div class="table" style="text-align:center;">
 								  <div class="tab-content" id="pills-tabContent">
 								    <div class="tab-pane border fade show active" id="pills-description" role="tabpanel" aria-labelledby="pills-description-tab">
 										<p style="font-size: 30x; text-align:center; margin:0 auto; padding-bottom: 5px;">제품 리뷰 보기</p>

@@ -45,8 +45,8 @@
 	</update>
 	
 	<insert id="insertReplyAricle">
-		INSERT into qna(qna_name,qna_subject,qna_content,qna_type,qna_re_ref,_qna_re_lev,qna_re_seq) 
-		values(#{qna_name},#{qna_subject},#{qna_content},#{qna_type},#{qna_re_ref},#{re_lev},#{re_seq})
+		INSERT into qna(qna_idx,qna_name,qna_subject,qna_content,qna_type,qna_re_ref,qna_re_lev,qna_re_seq) 
+		values(null,#{qna_name},#{qna_subject},#{qna_content},#{qna_type},#{qna_re_ref},#{qna_re_lev},#{qna_re_seq})
 	</insert>
 	
 	

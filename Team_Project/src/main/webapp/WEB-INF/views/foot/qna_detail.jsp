@@ -79,7 +79,7 @@
 <script type="text/javascript">
 function removeCheck() {
 	if(confirm("정말 삭제하시겠습니까?")==true){
-		location.href='${pageContext.request.contextPath}/center/qna_delete?qna_idx=${qnaDTO.qna_idx}&page=${pageDTO.pageNum }';
+		location.href='${pageContext.request.contextPath}/center/qna_delete?qna_idx='+${qnaDTO.qna_idx}+'&page='+${pageDTO.pageNum };
 	}else{
 		return false;
 	}
@@ -114,12 +114,19 @@ function removeCheck() {
 
 		<div class="row" >
 			<div class="col-lg-8" style= "display: inline-block; margin: 0 auto;">
-				
+				<form action="${pageContext.request.contextPath}/center/qna_reply" method="post" class="contact-form">
+<%-- 				<input type="text" name="page" value="${pageDTO.pageNum}" hidden="hidden" /> --%>
+				<input type="hidden" name="qna_idx" value="${qnaDTO.qna_idx}" />
+				<input type="hidden" name="qna_re_ref" value="${qnaDTO.qna_re_ref}" />
+				<input type="hidden" name="qna_re_lev" value="${qnaDTO.qna_re_lev}" />
+				<input type="hidden" name="qna_re_seq" value="${qnaDTO.qna_re_seq}" />
 					<h2>문의내용</h2>
+					<br>
+					<br>
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">
-								<label for="type">문의유형</label>
+								<label for="type"><b>문의유형</b></label>
 			                     <div class="form-field">
 			                     	
 								<!-- 문의 유형 태그 -->
@@ -153,22 +160,22 @@ function removeCheck() {
 
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="name">작성자</label><br>
+								<label for="name"><b>작성자</b></label><br>
 								 ${qnaDTO.qna_name }
 							</div>
 						</div>
 						
 						<div class="col-md-7">
 							<div class="form-group">
-								<label for="subject">제목</label><br>
+								<label for="subject"><b>제목</b></label><br>
 								 ${qnaDTO.qna_subject}
 							</div>
 						</div>
 						
 						<div class="col-sm-12">
 										<div class="form-group">
-											<label for="content">문의내용</label><br>
-												${qnaDTO.qna_content}
+											<label for="content" ><b>문의내용</b> </label><br>
+												<textarea rows="20px" cols="70px" >${qnaDTO.qna_content}</textarea>
 										</div>
 									</div>
 				
@@ -183,8 +190,8 @@ function removeCheck() {
 <!-- 						</div> -->
 					</div>
 					<div class="col-sm-12">
-										<div class="form-group" style="text-align: center;">
-											<input type="button" value="답글" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/center/qna_reply'">
+										<div class="form-group" style="text-align: center;">  
+											<input type="submit" value="답글" class="btn btn-primary" >
 											<input type="button" value="목록" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/center/qna_list'">
 											<input type="button" value="삭제" class="btn btn-primary" onclick="removeCheck()">
 										</div>

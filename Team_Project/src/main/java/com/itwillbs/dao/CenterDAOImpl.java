@@ -69,6 +69,9 @@ public class CenterDAOImpl implements CenterDAO {
 		
 		sqlSession.update(namespace+".setQna_re_seq",qnaDTO);
 		
+		qnaDTO.setQna_re_seq(qnaDTO.getQna_re_seq()+1);
+		qnaDTO.setQna_re_lev(qnaDTO.getQna_re_lev()+1);
+		
 		sqlSession.insert(namespace+".insertReplyAricle",qnaDTO);
 		
 		
