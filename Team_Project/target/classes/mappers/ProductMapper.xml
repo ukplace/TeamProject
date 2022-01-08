@@ -27,13 +27,16 @@
 
 	<!-- 상품 총 개수 -->
 	<select id="getProductTotal" resultType="java.lang.Integer">
-		select count(*) from product
+		select count(*) from product 
 		<include refid="searchDTO"></include>
 	</select>
 	
+	<select id="getAllProductList" resultType="com.itwillbs.domain.ProductDTO">
+		select * from product limit #{startRow},#{pageSize}
+	</select>
 	
 	<select id="getProductKidsList" resultType="com.itwillbs.domain.ProductDTO">
-		select * from product where p_category='KIDS' limit #{startRow},#{pageSize}
+		select * from product where p_category='KIDS' 
 	</select>
 
 		<select id="getProductK_SneakersList" resultType="com.itwillbs.domain.ProductDTO">
@@ -186,6 +189,10 @@
 			select * from order_member where m_idx=#{m_idx} order by o_idx desc 
 		</select>
 		
+		<!-- 전체상품 카운트 -->
+		<select id="getProductCount" resultType="java.lang.Integer">
+			select count(*) from product
+		</select>
 		
 		<!-- MEN 카운트 -->
 		<select id="getProductGentlemanCount" resultType="java.lang.Integer">

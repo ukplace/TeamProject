@@ -25,6 +25,8 @@ public interface ProductDAO {
 	// 상품 총 개수  **파라미터 값 수정
 	public Integer getProductTotal(SearchDTO searchDTO);
 	
+	public List<ProductDTO> getAllProductList(PageDTO pageDTO);
+	
 	// List<ProductDTO> productKidsList = productService.getProductKidsList(pageDTO);
 	public List<ProductDTO> getProductKidsList(PageDTO pageDTO);
 	
@@ -95,6 +97,9 @@ public interface ProductDAO {
 
 	public List<OrderListDTO> getOrderList(OrderListDTO orderListDTO);
 	
+	//전체제품 카운트
+	public Integer getProductCount();
+	
 	//MEN 카운트
 	public Integer getProductGentlemanCount();
 	
@@ -143,5 +148,7 @@ public interface ProductDAO {
 	public StockDTO getInformation(StockDTO stockDTO);
 
 	public void changeStock(StockDTO stockDTO);
+
+	
 
 }
