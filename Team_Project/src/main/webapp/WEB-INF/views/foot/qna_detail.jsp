@@ -191,7 +191,11 @@ function removeCheck() {
 					</div>
 					<div class="col-sm-12">
 										<div class="form-group" style="text-align: center;">  
+											<c:choose>
+												<c:when test="${'admin@shushu.com' eq sessionScope.id }">
 											<input type="submit" value="답글" class="btn btn-primary" >
+												</c:when>
+											</c:choose>
 											<input type="button" value="목록" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/center/qna_list'">
 											<input type="button" value="삭제" class="btn btn-primary" onclick="removeCheck()">
 										</div>
