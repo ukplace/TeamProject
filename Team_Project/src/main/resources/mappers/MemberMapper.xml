@@ -31,7 +31,7 @@
 	<update id="updateMember">
 		update member 
 		set m_tel=#{m_tel},m_zip=#{m_zip},m_address=#{m_address},m_detail_address=#{m_detail_address} 
-		where m_pass=#{m_pass}
+		where m_idx = #{m_idx}
 	</update>
 	
 	<update id="updatePass">

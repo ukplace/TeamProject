@@ -64,18 +64,23 @@ public class AdminController {
 	@RequestMapping(value = "/admin/product_regist_pro", method = RequestMethod.POST)
 	   public String product_registPro(ProductDTO productDTO, MultipartFile file) throws Exception {
 		
-		String imgUploadPath = uploadPath + File.separator + "imgUpload";
+		String imgUploadPath = uploadPath + File.separator + "imgUpload"; 
+		// 이미지를 업로드할 폴더를 설정 = /uploadPath/imgUload
 		String ymdPath = UploadFileUtils.calcPath(imgUploadPath);
+		// 위의 폴더를 기준으로 연월일 폴더를 생성
 		String fileName = null;
+		// 기본 경로와 별개로 작성되는 경로+파일이름
 
-		if(file != null) {
+		if(file != null) { // 첨부된 파일이 있다면 
 		 fileName = UploadFileUtils.fileUpload(imgUploadPath, file.getOriginalFilename(), file.getBytes(), ymdPath); 
-		} else {
+		} else { // 첨부된 파일이 없다면 uploadPath/images/none.png로 저장을한다.
 		 fileName = uploadPath + File.separator + "images" + File.separator + "none.png";
 		}
 
 		productDTO.setP_img(File.separator + "imgUpload" + ymdPath + File.separator + fileName);
+		//P_img에 원본 파일 경로 + 파일명 저장
 		productDTO.setP_thumImg(File.separator + "imgUpload" + ymdPath + File.separator + "s" + File.separator + "s_" + fileName);
+		//P_thumImg에 썸네일 파일경로 + 썸네일 파일명 저장
 		
 		adminService.insertProduct(productDTO);
 

@@ -92,7 +92,7 @@
 												 </p>
 												</c:if>		
 		                                   		 </div>
-                                         <input type="submit" class="btn btn-primary" value="회원탈퇴">
+                                       <input type="submit" class="btn btn-primary" value="회원탈퇴" onclick="if(!confirm('회원 탈퇴 하시겠습니까 ?')){return false;}">
                                    		 </div>
   											</div>
 										
