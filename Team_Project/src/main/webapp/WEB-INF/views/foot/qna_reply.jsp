@@ -115,7 +115,6 @@ function removeCheck() {
 			<form action="${pageContext.request.contextPath}/center/qna_reply_pro" method="post" class="contact-form">
 <%-- 			<input type="text" name="page" value="${pageDTO.pageDTO}" hidden="hidden" /> --%>
 			<input type="hidden" name="qna_idx" value="${qnaDTO.qna_idx}" /> 
-			<!-- 이쪽에서 이미 값을 넘ㄱ주고 있기때문에 action에서 idx 값을 넘겨 줄 필요 없음.(전달방식 post) -->
 			<input type="hidden" name="qna_re_ref" value="${qnaDTO.qna_re_ref}" />
 			<input type="hidden" name="qna_re_lev" value="${qnaDTO.qna_re_lev}" />
 			<input type="hidden" name="qna_re_seq" value="${qnaDTO.qna_re_seq}" />
