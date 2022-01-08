@@ -89,6 +89,7 @@ $(documet).ready(function() {
 		}
 
 })
+
 </script>
 
 
@@ -176,7 +177,7 @@ $(documet).ready(function() {
 					</div>
 					<div class="col-sm-12">
 										<div class="form-group" style="text-align: center;">
-											<input type="submit" value="등록" class="btn btn-primary" id=btn>
+											<input type="submit" value="등록" class="btn btn-primary" onclick="alert('주의! 등록 시 수정/삭제가 불가능합니다.')">
 											<input type="button" value="목록" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/center/qna_list'">
 										</div>
 									</div>
