@@ -107,16 +107,32 @@ public class ProductController {
 		}else {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
-		List<ProductDTO> productOutdoorList = productService.getProductOutdoorList(pageDTO);
-		
 		// 페이징처리 - 제품리스트 전체 글 개수
 		pageDTO.setCount(productService.getProductOutdoorCount());
 		
-		model.addAttribute("productOutdoorList", productOutdoorList);
+		List<ProductDTO> productOutdoorList = productService.getProductOutdoorList(pageDTO);
+		
+		List<ProductDTO> OkQtyOutdoorList = new ArrayList<ProductDTO>();
+		
+		for(int i=0; i<productOutdoorList.size(); i++) {
+			ProductQtyDTO qty = new ProductQtyDTO();
+			
+			qty.setP_num(productOutdoorList.get(i).getP_num());
+
+			List<ProductQtyDTO> checkqty = productService.qtyCheck(qty);
+			
+			if(checkqty.size()!=0) {
+				OkQtyOutdoorList.add(productOutdoorList.get(i));
+			}
+			
+		}
+		
+		model.addAttribute("productOutdoorList", OkQtyOutdoorList);
 		model.addAttribute("pageDTO", pageDTO);
 		
 		return "foot/list_men_outdoor";
 	}
+	
 	@RequestMapping(value = "/foot/list_men_running", method = RequestMethod.GET)
 	public String list_men_running(HttpServletRequest request, Model model) {
 		PageDTO pageDTO = new PageDTO();
@@ -127,16 +143,32 @@ public class ProductController {
 		}else {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
-		List<ProductDTO> productRunningList = productService.getProductRunningList(pageDTO);
-		
-		// 페이징처리 - 제품리스트 전체 글 개수
 		pageDTO.setCount(productService.getProductRunningCount());
 		
-		model.addAttribute("productRunningList", productRunningList);
+		List<ProductDTO> productRunningList = productService.getProductRunningList(pageDTO);
+		List<ProductDTO> OkQtyRunningList = new ArrayList<ProductDTO>();
+		
+		for(int i =0; i<productRunningList.size(); i++){
+			ProductQtyDTO qty = new ProductQtyDTO();
+			
+			qty.setP_num(productRunningList.get(i).getP_num());
+			
+			List<ProductQtyDTO> checkqty = productService.qtyCheck(qty);
+			
+			if(checkqty.size()!=0) {
+				OkQtyRunningList.add(productRunningList.get(i));
+			}
+			
+		}
+		
+		// 페이징처리 - 제품리스트 전체 글 개수
+		
+		model.addAttribute("productRunningList", OkQtyRunningList);
 		model.addAttribute("pageDTO", pageDTO);
 		// /WEB-INF/views/foot/list_men
 		return "foot/list_men_running";
 	}
+	
 	@RequestMapping(value = "/foot/list_men_sneakers", method = RequestMethod.GET)
 	public String list_men_sneakers(HttpServletRequest request, Model model) {
 		PageDTO pageDTO = new PageDTO();
@@ -147,12 +179,27 @@ public class ProductController {
 		}else {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
-		List<ProductDTO> productSneakersList = productService.getProducSneakersList(pageDTO);
-		
 		// 페이징처리 - 제품리스트 전체 글 개수
 		pageDTO.setCount(productService.getProducSneakersCount());
+
+		List<ProductDTO> productSneakersList = productService.getProducSneakersList(pageDTO);
 		
-		model.addAttribute("productSneakersList", productSneakersList);
+		List<ProductDTO> OkQtyRunningList = new ArrayList<ProductDTO>();
+		
+		for(int i =0; i<productSneakersList.size(); i++){
+			ProductQtyDTO qty = new ProductQtyDTO();
+			
+			qty.setP_num(productSneakersList.get(i).getP_num());
+			
+			List<ProductQtyDTO> checkqty = productService.qtyCheck(qty);
+			
+			if(checkqty.size()!=0) {
+				OkQtyRunningList.add(productSneakersList.get(i));
+			}
+			
+		}
+		
+		model.addAttribute("productSneakersList", OkQtyRunningList);
 		model.addAttribute("pageDTO", pageDTO);
 		// /WEB-INF/views/foot/list_men
 		return "foot/list_men_sneakers";
@@ -168,12 +215,25 @@ public class ProductController {
 		}else {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
-		List<ProductDTO> productGentlemanList = productService.getProductGentlemanList(pageDTO);
-		
 		// 페이징처리 - 제품리스트 전체 글 개수
 		pageDTO.setCount(productService.getProductGentlemanCount());
+
+		List<ProductDTO> productGentlemanList = productService.getProductGentlemanList(pageDTO);
+		List<ProductDTO> OkGentlemanList = new ArrayList<ProductDTO>(); 
 		
-		model.addAttribute("productGentlemanList", productGentlemanList);
+		for(int i =0; i<productGentlemanList.size(); i++) {
+			ProductQtyDTO qty = new ProductQtyDTO();
+			
+			qty.setP_num(productGentlemanList.get(i).getP_num());
+			
+			List<ProductQtyDTO> checkqty = productService.qtyCheck(qty);
+		
+			if(checkqty.size()!=0) {
+				OkGentlemanList.add(productGentlemanList.get(i));
+			}
+		}
+		
+		model.addAttribute("productGentlemanList", OkGentlemanList);
 		model.addAttribute("pageDTO", pageDTO);
 		
 		// /WEB-INF/views/foot/list_men
