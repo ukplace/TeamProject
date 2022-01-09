@@ -123,7 +123,7 @@
 			<td>
 			<a href = "${pageContext.request.contextPath}/center/notice_detail?notice_idx=${noticeDTO.notice_idx}&page=${pageDTO.pageNum } " class = "tit">${noticeDTO.notice_subject}</a>
 			</td>
-			<td>${noticeDTO.notice_date}</td>
+			<td><fmt:formatDate value="${noticeDTO.notice_date}" pattern="yyyy-MM-dd"/></td>
 		</tr>
 		</c:forEach>
 		</tbody>

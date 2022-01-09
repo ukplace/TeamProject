@@ -94,7 +94,10 @@ $(documet).ready(function() {
 
 <script type="text/javascript">
 function insertCheck() {
-	 if (confirm("정말 등록하시겠습니까??") == true){    //확인
+
+ 	 alert("QNA 등록 후 수정/삭제가 불가능합니다.");
+
+ 	 if (confirm("정말 등록하시겠습니까?") == true){    //확인
 	
 	    location.href='${pageContext.request.contextPath}/center/qna_list?qna_idx=${qnaDTO.qna_idx}&page=${pageDTO.pageNum }';
 
