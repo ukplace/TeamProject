@@ -104,4 +104,10 @@
 		<select id="getOrderList" resultType="com.itwillbs.domain.Order_memberDTO">
 		select * from order_member
 	</select>
+	
+	<select id="getWeekOrderList" resultType="java.lang.Integer">
+		select ifnull (Sum(totalSum),0) totalSum from order_member WHERE DATE(o_date)=DATE(now())-6+#{p_num};
+	</select>
+	
+	
 </mapper>

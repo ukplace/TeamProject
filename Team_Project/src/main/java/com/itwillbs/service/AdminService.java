@@ -66,6 +66,8 @@ public interface AdminService {
 
 	List<Order_memberDTO> getOrderList();
 
+	List<Integer> getWeekOrderList();
+
 	
 	
 }

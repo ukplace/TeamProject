@@ -676,6 +676,25 @@
         <!-- Custom Theme JavaScript -->
         <script src="${pageContext.request.contextPath}/js/startmin.js"></script>
 		<script type="text/javascript">
+		var today = new Date();
+		   var year = today.getFullYear();
+		   var month = today.getMonth() + 1;
+		   var day7 = today.getDate();
+		   var day6 = today.getDate()-1;
+		   var day5= today.getDate()-2;
+		   var day4 = today.getDate()-3;
+		   var day3 = today.getDate()-4;
+		   var day2 = today.getDate()-5;
+		   var day1 = today.getDate()-6;
+		   
+		   var date7 = year +"/"+month+"/"+day7;
+		   var date6 = year +"/"+month+"/"+day6;
+		   var date5 = year +"/"+month+"/"+day5;
+		   var date4 = year +"/"+month+"/"+day4;
+		   var date3 = year +"/"+month+"/"+day3;
+		   var date2 = year +"/"+month+"/"+day2;
+		   var date1 = year +"/"+month+"/"+day1;
+		   
 		   var a = []; 
 		     $.ajax({
 		         url: '${pageContext.request.contextPath}/admin/chart',
@@ -683,10 +702,10 @@
 		         async: false, 
 		         success:function(rdata){
 		                 $.each(rdata,function(index, item){
-		                  a.push(item.totalSum);
+		                  a.push(item);
 		               
 		                 });
-		                  console.log(item.totalSum);
+		                  console.log(item);
 		             }
 		      });
 		                 var context = document.getElementById('myChart').getContext('2d');
@@ -695,13 +714,13 @@
 		                     data: { // 차트에 들어갈 데이터
 		                         
 		                        //x 축
-		                         labels: [ '1','2','3','4','5','6','7','8','9','10','11','12'],
+		                         labels: [date1,date2,date3,date4,date5,date6,date7],
 		                         datasets: [
 		                            //데이터
 		                             { 
-		                                 label: 'test1', //차트 제목
+		                                 label: 'shushu 일주일 매출!', //차트 제목
 		                                 fill: false, // line 형태일 때, 선 안쪽을 채우는지 안채우는지
-		                                 
+		                                  
 //		                                  x축 label에 대응되는 데이터 값(달 별 매출액)
 		                                 
 		                                 data: a,

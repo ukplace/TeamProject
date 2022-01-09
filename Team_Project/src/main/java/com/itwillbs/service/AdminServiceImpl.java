@@ -189,6 +189,12 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 
+	@Override
+	public List<Integer> getWeekOrderList() {
+		return adminDAO.getWeekOrderList();
+	}
+
+
 
 
 

@@ -64,5 +64,7 @@ public interface AdminDAO {
 
 	public List<Order_memberDTO> getOrderList();
 
+	public List<Integer> getWeekOrderList();
+
 
 }
