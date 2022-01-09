@@ -56,7 +56,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col">
-						<p class="bread"><span><a href="/foot/index/">Home</a></span> / <span>Men</span> / <span> gentleman</span></p>
+						<p class="bread"><span><a href="/foot/index/">Home</a></span> / <span>Men</span> / <span> Outdoor</span></p>
 					</div>
 				</div>
 			</div>
@@ -66,7 +66,7 @@
 			<div class="container">
 				<div class="row">
 					<div class="col">
-						<div class="breadcrumbs-img" style="background-image: url(${pageContext.request.contextPath}/images/men14.jpg);">
+						<div class="breadcrumbs-img" style="background-image: url(${pageContext.request.contextPath}/images/men7.jpg);">
 							<h2>Men's</h2>
 						</div>
 						<div class="menu text-center">
@@ -109,8 +109,9 @@
 <!-- 					</div> -->
 <!-- 				</div> -->
 <!-- 			</div> -->
+<!-- 		</div> -->
 
-			<div class="colorlib-product">
+				<div class="colorlib-product">
 			<div class="container">
 				<div class="row">
 					<div class="col-sm-8 offset-sm-2 text-center colorlib-heading colorlib-heading-sm">
@@ -131,14 +132,11 @@
 						</div>
 					</div>
 					</c:forEach>
-					<!-- Men 제품리스트 받아오는 부분 -->
-					
-					
-					
-					
 				</div>
-				               
-				          <!-- 페이징 -->
+				
+					<!-- Men 제품리스트 받아오는 부분 끝-->
+				
+							          <!-- 페이징 -->
 	<div class="row">
 				<div class="col-md-12 text-center">
 						<div class="block-27">
@@ -176,13 +174,15 @@
 	</div>
 
 		      <!-- 페이징 끝-->             
+						
+						
+		               
 		               
 		            </div>
 					</div>
 				</div>
 			</div>
 		</div>
-</div>
 		<div class="colorlib-partner">
 			<div class="container">
 				<div class="row">

@@ -5,7 +5,6 @@ public class SearchDTO extends PageDTO {
 	private String searchType;
 	private String keyword;
 	
-	
 	public String getSearchType() {
 		return searchType;
 	}
@@ -19,6 +18,9 @@ public class SearchDTO extends PageDTO {
 		this.keyword = keyword;
 	}
 	
+	
+	
+
 	@Override
 	public String toString() {
 		return "SearchDTO [searchType=" + searchType + ", keyword=" + keyword + "]";

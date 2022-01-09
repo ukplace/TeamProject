@@ -52,26 +52,26 @@ public class ProductController {
 			, @RequestParam(required = false) String keyword) throws Exception {
 		
 		SearchDTO searchDTO = new SearchDTO();
+	
 		searchDTO.setSearchType(searchType);
 		searchDTO.setKeyword(keyword);
+		searchDTO.setPageSize(8); 
 		
-		// 전체 상품 개수
-		int pageCount = productService.getProductTotal(searchDTO);
-		
-		// 페이지 정보 세팅
-		// 1) 현재 페이지
+	
 		if(request.getParameter("pageNum") == null) {
 			searchDTO.setPageNum("1");
 		}else {
 			searchDTO.setPageNum(request.getParameter("pageNum"));
 		}
-		searchDTO.setPageSize(8); // 2) 현재 페이지 범위
-		searchDTO.setPageCount(4); // 3) 전체 게시물 개수
 		
+		int pageCount = productService.getProductTotal(searchDTO);
+		searchDTO.setCount(pageCount); 
+		searchDTO.init();
 		
 		
 		List<ProductDTO> productList = productService.getProductList(searchDTO);
-		
+		System.out.println("startpage" +searchDTO.getStartPage());
+		System.out.println("endpage" + searchDTO.getEndPage());
 		
 		model.addAttribute("searchDTO", searchDTO);
 		model.addAttribute("productList", productList);
@@ -126,6 +126,9 @@ public class ProductController {
 			}
 			
 		}
+		
+		System.out.println("startpage" +pageDTO.getStartPage());
+		System.out.println("endpage" + pageDTO.getEndPage());
 		
 		model.addAttribute("productOutdoorList", OkQtyOutdoorList);
 		model.addAttribute("pageDTO", pageDTO);

@@ -32,6 +32,10 @@ public class ProductServiceImpl implements ProductService {
 	@Override
 	public List<ProductDTO> getProductList(SearchDTO searchDTO) {
 		System.out.println("ProductServiceImpl - getProductList()");
+		searchDTO.setCurrentPage(Integer.parseInt(searchDTO.getPageNum()));
+		searchDTO.setStartRow((searchDTO.getCurrentPage()-1) * searchDTO.getPageSize() + 1);
+		searchDTO.setEndRow(searchDTO.getStartRow() + searchDTO.getPageSize() - 1);
+		searchDTO.setStartRow(searchDTO.getStartRow() - 1);
 		return productDAO.getProductList(searchDTO);
 	}
 	
@@ -418,6 +422,7 @@ public class ProductServiceImpl implements ProductService {
 		System.out.println("ProductServiceImpl - insertDO_detail()");
 		productDAO.insertDO_detail(o_memberDTO);
 	}
+
 
 	
 
