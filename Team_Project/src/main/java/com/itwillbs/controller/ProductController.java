@@ -568,6 +568,7 @@ public class ProductController {
 		// /WEB-INF/views/foot/list_men
 		return "foot/list_kids_running";
 	}
+	
 	@RequestMapping(value = "/foot/list_kids_sneakers", method = RequestMethod.GET)
 	public String list_kids_sneakers(HttpServletRequest request, Model model) {
 		PageDTO pageDTO = new PageDTO();
@@ -579,6 +580,7 @@ public class ProductController {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
 		pageDTO.setCount(productService.getProductK_SneakersCount());
+		
 		List<ProductDTO> productK_SneakersList = productService.getProductK_SneakersList(pageDTO);
 		
 		List<ProductDTO> OkQtyK_SneakersList = new ArrayList<ProductDTO>();

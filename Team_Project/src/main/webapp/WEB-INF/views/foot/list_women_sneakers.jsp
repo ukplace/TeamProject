@@ -124,7 +124,7 @@
 					<div class="col-md-3 col-lg-3 mb-4 text-center" >
 						<div class="product-entry border" >
 							<a href="${pageContext.request.contextPath}/foot/product_detail?num=${productDTO.p_num}" class="prod-img">
-								<img src="${pageContext.request.contextPath}${productDTO.p_img}" class="img-fluid" alt="product_kids_img">
+								<img src="${pageContext.request.contextPath}${productDTO.p_thumImg}" class="img-fluid" alt="product_kids_img">
 							</a>
 							<div class="desc">
 								<h2><a href="${pageContext.request.contextPath}/foot/product_detail?num=${productDTO.p_num}">${productDTO.p_name }</a></h2>
