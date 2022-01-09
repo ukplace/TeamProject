@@ -197,7 +197,11 @@ function removeCheck() {
 												</c:when>
 											</c:choose>
 											<input type="button" value="목록" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/center/qna_list'">
+											<c:choose>
+												<c:when test="${'admin@shushu.com' eq sessionScope.id }">
 											<input type="button" value="삭제" class="btn btn-primary" onclick="removeCheck()">
+											</c:when>
+											</c:choose>
 										</div>
 									</div>
 				</form>

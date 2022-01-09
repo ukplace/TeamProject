@@ -129,36 +129,46 @@
 					</div>
 					</c:forEach>
 					<!-- 전체 제품리스트 받아오는 부분 -->
-					
-					
-					
-					
 				</div>
-				<div class="row">
-					<div class="col-md-12 text-center">
+				
+					          <!-- 페이징 -->
+	<div class="row">
+				<div class="col-md-12 text-center">
 						<div class="block-27">
-						
 				               <ul>
-<%-- 								<c:if test="${pageDTO.startPage > pageDTO.pageBlock }"> --%>
-					               <li><a href="${pageContext.request.contextPath}/admin/product_list?pageNum=${pageDTO.startPage - pageDTO.pageBlock}"><i class="ion-ios-arrow-back"></i></a></li>
-<%-- 					            </c:if> --%>
-					               
-								<c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1">
-				                  <li class="active" onclick="location.href='${pageContext.request.contextPath}/admin/product_list?pageNum=${i}"><span>${i}</span></li>
-				                </c:forEach>
-								
-<%-- 								<c:if test="${pageDTO.endPage < pageDTO.pageCount }">    --%>
-				                  <li><a href="${pageContext.request.contextPath}/admin/product_list?pageNum=${pageDTO.startPage + pageDTO.pageBlock}"><i class="ion-ios-arrow-forward"></i></a></li>
-<%-- 				                </c:if> --%>
-				                  
+					              <li class="active">
+									<c:choose >	
+										<c:when test="${searchDTO.startPage > searchDTO.pageBlock }" >
+											<a href ="${pageContext.request.contextPath}/foot/product_list?pageNum=${searchDTO.startPage-searchDTO.pageBlock}"><i class="ion-ios-arrow-back">이전</i></a>
+										</c:when>
+										<c:otherwise>
+											<i class="ion-ios-arrow-back">이전</i>
+										</c:otherwise>
+									</c:choose></li>
+				               
+				                  <li class="active">
+									<c:forEach var="i" begin="${searchDTO.startPage }" end="${searchDTO.endPage }" step="1">
+										<a href="${pageContext.request.contextPath}/foot/search?keyword=${searchDTO.keyword}&pageNum=${i }"${1 }>${i }</a>
+									</c:forEach>
+								  </li>
+								  
+				                  <li class="active">
+				                 <!-- end페이지가 count보다 더 클때 -->
+				                 	<c:choose>
+										<c:when test= "${searchDTO.endPage > searchDTO.pageCount }">
+											<a href = "${pageContext.request.contextPath}/foot/product_list?pageNum=${searchDTO.startPage+searchDTO.pageBlock}">다음<i class="ion-ios-arrow-forward"></i></a>
+										</c:when>
+										<c:otherwise>
+											다음<i class="ion-ios-arrow-forward"></i>
+										</c:otherwise>
+									</c:choose>
+								</li>
 				               </ul>
-						
-						
-		               
-		               
-		            </div>
-					</div>
+				            </div>
 				</div>
+	</div>
+
+		      <!-- 페이징 끝-->             
 			</div>
 		</div>
 		<div class="colorlib-partner">
