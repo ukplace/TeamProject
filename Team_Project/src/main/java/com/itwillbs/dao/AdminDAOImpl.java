@@ -1,5 +1,6 @@
 package com.itwillbs.dao;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -170,6 +171,19 @@ public class AdminDAOImpl implements AdminDAO {
 	@Override
 	public List<Order_memberDTO> getOrderList() {
 		return sqlSession.selectList(namespace+".getOrderList");
+	}
+
+	@Override
+	public List<Integer> getWeekOrderList() {
+		List<Integer> totalSum = new ArrayList<Integer>();
+		
+		for(int p_num=0; p_num<7; p_num++ ) {
+			int total = sqlSession.selectOne(namespace+".getWeekOrderList", p_num);
+			totalSum.add(p_num, total); 
+		}
+		System.out.println(totalSum);
+		
+		return totalSum;
 	}
 
 
