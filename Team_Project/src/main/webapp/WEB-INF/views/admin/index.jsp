@@ -720,7 +720,7 @@
 		                             { 
 		                                 label: 'shushu 일주일 매출!', //차트 제목
 		                                 fill: false, // line 형태일 때, 선 안쪽을 채우는지 안채우는지
-		                                 
+		                                  
 //		                                  x축 label에 대응되는 데이터 값(달 별 매출액)
 		                                 
 		                                 data: a,
