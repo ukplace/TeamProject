@@ -1,6 +1,10 @@
 package com.itwillbs.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.inject.Inject;
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -13,6 +17,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.itwillbs.domain.MemberDTO;
+import com.itwillbs.domain.PageDTO;
+import com.itwillbs.domain.ProductDTO;
+import com.itwillbs.domain.ProductQtyDTO;
 import com.itwillbs.domain.UserSha256;
 import com.itwillbs.service.MemberService;
 import com.itwillbs.service.ProductService;
@@ -30,10 +37,39 @@ public class MemberController {
 	
 	
 	@RequestMapping(value = "/foot/index", method = RequestMethod.GET)
-		public String index() {
-			// /WEB-INF/views/board/writeForm.jsp
+		public String index(HttpServletRequest request, Model model) {
+		PageDTO pageDTO = new PageDTO();
+		pageDTO.setPageSize(16);
+		
+		if(request.getParameter("pageNum") == null) {
+			pageDTO.setPageNum("1");
+		}else {
+			pageDTO.setPageNum(request.getParameter("pageNum"));
+		}
+		pageDTO.setCount(productService.getProductCount());
+		
+		List<ProductDTO> productList = productService.getAllProductList(pageDTO);
+		List<ProductDTO> OkQtyList = new ArrayList<ProductDTO>();
+		
+		for(int i =0; i<productList.size(); i++){
+			ProductQtyDTO qty = new ProductQtyDTO();
+			
+			qty.setP_num(productList.get(i).getP_num());
+			
+			List<ProductQtyDTO> checkqty = productService.qtyCheck(qty);
+			
+			if(checkqty.size()!=0) {
+				OkQtyList.add(productList.get(i));
+			}
+		}
+		
+		model.addAttribute("productList", OkQtyList);
+		model.addAttribute("pageDTO", pageDTO);
+		// /WEB-INF/views/foot/list_men
+		
 			return "foot/index";
 		}
+	
 	@RequestMapping(value = "/foot/about", method = RequestMethod.GET)
 	public String about() {
 		// /WEB-INF/views/board/writeForm.jsp

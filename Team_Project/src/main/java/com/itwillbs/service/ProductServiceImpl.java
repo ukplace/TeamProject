@@ -42,7 +42,15 @@ public class ProductServiceImpl implements ProductService {
 		return productDAO.getProductTotal(searchDTO);
 	}
 	
-	
+	@Override
+	public List<ProductDTO> getAllProductList(PageDTO pageDTO) {
+		System.out.println("ProductServiceImpl - getAllProductList()");
+		pageDTO.setCurrentPage(Integer.parseInt(pageDTO.getPageNum()));
+		pageDTO.setStartRow((pageDTO.getCurrentPage()-1) * pageDTO.getPageSize() + 1);
+		pageDTO.setEndRow(pageDTO.getStartRow() + pageDTO.getPageSize() - 1);
+		pageDTO.setStartRow(pageDTO.getStartRow() - 1);
+		return productDAO.getAllProductList(pageDTO);
+	}
 
 	@Override
 	public List<ProductDTO> getProductKidsList(PageDTO pageDTO) {
@@ -268,6 +276,13 @@ public class ProductServiceImpl implements ProductService {
 	public void changeStock(StockDTO stockDTO) {
 		productDAO.changeStock(stockDTO);
 	}	
+	
+	@Override
+	public Integer getProductCount() {
+		return productDAO.getProductCount();
+	}
+
+	
 	@Override
 	public Integer getProductGentlemanCount() {
 		// TODO Auto-generated method stub
@@ -403,6 +418,11 @@ public class ProductServiceImpl implements ProductService {
 		System.out.println("ProductServiceImpl - insertDO_detail()");
 		productDAO.insertDO_detail(o_memberDTO);
 	}
+
+	
+
+
+
 
 	
 

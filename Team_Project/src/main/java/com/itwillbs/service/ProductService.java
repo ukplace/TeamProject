@@ -27,6 +27,9 @@ public interface ProductService {
 	
 	public int getAllProduct();
 	
+	
+	public List<ProductDTO> getAllProductList(PageDTO pageDTO);
+	
 	// List<ProductDTO> productKidsList = productService.getProductKidsList(pageDTO);
 	public List<ProductDTO> getProductKidsList(PageDTO pageDTO);
 
@@ -105,6 +108,8 @@ public interface ProductService {
 	// 관리자페이지 주문상태 변경
 	public void changeOrderState(Order_memberDTO o_memberDTO);
 	
+	// 전체상품 카운트
+	public Integer getProductCount();
 
 	//MEN 카운트
 	
@@ -147,5 +152,11 @@ public interface ProductService {
 	public StockDTO getInformation(StockDTO stockDTO);
 
 	public void changeStock(StockDTO stockDTO);
+
+	
+
+	
+
+	
 
 }

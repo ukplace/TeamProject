@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -120,7 +122,7 @@
 				<div class="row">
 					<div class="col-sm-6 text-center">
 						<div class="featured">
-							<a href="${pageContext.request.contextPath}/foot/list_men" class="featured-img" style="background-image: url(${pageContext.request.contextPath}/images/men1.jpg);"></a>
+							<a href="${pageContext.request.contextPath}/foot/list_men" class="featured-img" style="background-image: url(${pageContext.request.contextPath}/images/men11.jpg);"></a>
 							<div class="desc">
 								<h2><a href="${pageContext.request.contextPath}/foot/list_men">Shop Men's Collection</a></h2>
 							</div>
@@ -146,193 +148,25 @@
 					</div>
 				</div>
 				<div class="row row-pb-md">
+				<c:forEach var="productDTO" items="${productList}">
 					<div class="col-lg-3 mb-4 text-center">
 						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="${pageContext.request.contextPath}/images/item-1.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
+							<a href="${pageContext.request.contextPath}/foot/product_detail?num=${productDTO.p_num}" class="prod-img">
+								<img src="${pageContext.request.contextPath}${productDTO.p_img}" class="img-fluid" alt="Free html5 bootstrap 4 template">
 							</a>
 							<div class="desc">
-								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
-								<span class="price">$139.00</span>
+								<h2><a href="${pageContext.request.contextPath}/foot/product_detail?num=${productDTO.p_num}">${productDTO.p_name}</a></h2>
+								<span class="price"><span><fmt:formatNumber pattern="###,###,###" value="${productDTO.p_price }" /></span></span>
 							</div>
 						</div>
 					</div>
-					<div class="col-lg-3 mb-4 text-center">
-						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="${pageContext.request.contextPath}/images/item-2.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-							</a>
-							<div class="desc">
-								<h2><a href="#">Women's Minam Meaghan</a></h2>
-								<span class="price">$139.00</span>
-							</div>
-						</div>
+					</c:forEach>
 					</div>
-					<div class="col-lg-3 mb-4 text-center">
-						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="${pageContext.request.contextPath}/images/item-3.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-							</a>
-							<div class="desc">
-								<h2><a href="#">Men's Taja Commissioner</a></h2>
-								<span class="price">$139.00</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 mb-4 text-center">
-						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="${pageContext.request.contextPath}/images/item-4.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-							</a>
-							<div class="desc">
-								<h2><a href="#">Russ Men's Sneakers</a></h2>
-								<span class="price">$139.00</span>
-							</div>
-						</div>
-					</div>
-					<div class="w-100"></div>
-					<div class="col-lg-3 mb-4 text-center">
-						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="${pageContext.request.contextPath}/images/item-5.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-							</a>
-							<div class="desc">
-								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
-								<span class="price">$139.00</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 mb-4 text-center">
-						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="${pageContext.request.contextPath}/images/item-6.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-							</a>
-							<div class="desc">
-								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
-								<span class="price">$139.00</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 mb-4 text-center">
-						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="${pageContext.request.contextPath}/images/item-7.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-							</a>
-							<div class="desc">
-								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
-								<span class="price">$139.00</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 mb-4 text-center">
-						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="${pageContext.request.contextPath}/images/item-8.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-							</a>
-							<div class="desc">
-								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
-								<span class="price">$139.00</span>
-							</div>
-						</div>
-					</div>
-					<div class="w-100"></div>
-					<div class="col-lg-3 mb-4 text-center">
-						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="${pageContext.request.contextPath}/images/item-9.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-							</a>
-							<div class="desc">
-								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
-								<span class="price">$139.00</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 mb-4 text-center">
-						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="${pageContext.request.contextPath}/images/item-10.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-							</a>
-							<div class="desc">
-								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
-								<span class="price">$139.00</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 mb-4 text-center">
-						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="${pageContext.request.contextPath}/images/item-11.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-							</a>
-							<div class="desc">
-								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
-								<span class="price">$139.00</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 mb-4 text-center">
-						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="${pageContext.request.contextPath}/images/item-12.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-							</a>
-							<div class="desc">
-								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
-								<span class="price">$139.00</span>
-							</div>
-						</div>
-					</div>
-					<div class="w-100"></div>
-					<div class="col-lg-3 mb-4 text-center">
-						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="${pageContext.request.contextPath}/images/item-13.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-							</a>
-							<div class="desc">
-								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
-								<span class="price">$139.00</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 mb-4 text-center">
-						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="${pageContext.request.contextPath}/images/item-14.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-							</a>
-							<div class="desc">
-								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
-								<span class="price">$139.00</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 mb-4 text-center">
-						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="${pageContext.request.contextPath}/images/item-15.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-							</a>
-							<div class="desc">
-								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
-								<span class="price">$139.00</span>
-							</div>
-						</div>
-					</div>
-					<div class="col-lg-3 mb-4 text-center">
-						<div class="product-entry border">
-							<a href="#" class="prod-img">
-								<img src="${pageContext.request.contextPath}/images/item-16.jpg" class="img-fluid" alt="Free html5 bootstrap 4 template">
-							</a>
-							<div class="desc">
-								<h2><a href="#">Women's Boots Shoes Maca</a></h2>
-								<span class="price">$139.00</span>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<p><a href="#" class="btn btn-primary btn-lg">Shop All Products</a></p>
-					</div>
-				</div>
-			</div>
-		</div>
+						
+						
+				
+
+		      <!-- 페이징 끝-->             
 
 		<div class="colorlib-partner">
 			<div class="container">

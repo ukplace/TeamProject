@@ -44,7 +44,11 @@ public class ProductDAOImpl implements ProductDAO {
 		return sqlSession.selectOne(namespace + ".getProductTotal", searchDTO);
 	}
 	
-	
+	@Override
+	public List<ProductDTO> getAllProductList(PageDTO pageDTO) {
+		System.out.println("ProductDAOImpl - getAllProductList()");
+		return sqlSession.selectList(namespace + ".getAllProductList", pageDTO);
+	}
 	
 	@Override
 	public List<ProductDTO> getProductKidsList(PageDTO pageDTO) {
@@ -229,6 +233,12 @@ public class ProductDAOImpl implements ProductDAO {
 	public void changeStock(StockDTO stockDTO) {
 		sqlSession.update(namespace+".changeStock", stockDTO);
 	}
+	
+	@Override
+	public Integer getProductCount() {
+		return sqlSession.selectOne(namespace+".getProductCount");
+	}
+	
 	@Override
 	public Integer getProductGentlemanCount() {
 		return sqlSession.selectOne(namespace+".getProductGentlemanCount");
@@ -358,6 +368,10 @@ public class ProductDAOImpl implements ProductDAO {
 		System.out.println("ProductDAOImpl - insertDO_detail()");
 		sqlSession.insert(namespace + ".insertDO_detail", o_memberDTO);
 	}
+
+
+
+
 
 
 	
