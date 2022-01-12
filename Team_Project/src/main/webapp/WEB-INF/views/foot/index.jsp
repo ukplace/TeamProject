@@ -152,7 +152,7 @@
 					<div class="col-lg-3 mb-4 text-center">
 						<div class="product-entry border">
 							<a href="${pageContext.request.contextPath}/foot/product_detail?num=${productDTO.p_num}" class="prod-img">
-								<img src="${pageContext.request.contextPath}${productDTO.p_img}" class="img-fluid" alt="Free html5 bootstrap 4 template">
+								<img src="${pageContext.request.contextPath}${productDTO.p_thumImg}" class="img-fluid" alt="Free html5 bootstrap 4 template">
 							</a>
 							<div class="desc">
 								<h2><a href="${pageContext.request.contextPath}/foot/product_detail?num=${productDTO.p_num}">${productDTO.p_name}</a></h2>
