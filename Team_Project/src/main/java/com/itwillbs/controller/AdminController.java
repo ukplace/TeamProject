@@ -112,15 +112,7 @@ public class AdminController {
 		// /WEB-INF/views/admin/product_list.jsp
 		return "admin/product_list";
 	}
-	
-//	// 상품관리 - 상품 상세페이지
-//	@RequestMapping(value = "/admin/product_detail", method = RequestMethod.GET)
-//	   public String productDetail() {
-//	      // /WEB-INF/views/admin/product_detail.jsp
-//	      return "admin/product_detail";
-//	   }
 
-	// 상품관리 - 상품 수정
 	@RequestMapping(value = "/admin/product_update", method = RequestMethod.GET)
 	   public String productUpdate(@RequestParam("num") int p_num, Model model) throws Exception {
 			logger.info("get goods view");
@@ -333,59 +325,23 @@ public class AdminController {
 			return "redirect:/admin/member_list";
 		}
 
-	 // ============================================================================
-
-		// 상품관리 - 상품 수정
-//		@RequestMapping(value = "/admin/product_qty_delete", method = RequestMethod.GET)
-//		   public String product_qty_update(HttpServletRequest request, Model model) {
-//			ProductDTO productDTO = new ProductDTO();
-//			productDTO.setP_num(Integer.parseInt(request.getParameter("num")));
-//			int p_num = Integer.parseInt(request.getParameter("num"));
-//			model.addAttribute("productDTO", productDTO);
-//			adminService.deleteQty(p_num);
-//		      return "admin/product_qty_update";
-//		   }
-		
-//		@RequestMapping(value = "/admin/product_qty_insert", method = RequestMethod.GET)
-//		   public String product_qty_insert(HttpServletRequest request, Model model) {
-//			ProductDTO productDTO = new ProductDTO();
-//			productDTO.setP_num(Integer.parseInt(request.getParameter("num")));
-//			int p_num = Integer.parseInt(request.getParameter("num"));
-//			model.addAttribute("productDTO", productDTO);
-//		      return "admin/product_qty_update";
-//		   }
-
 		@RequestMapping(value = "/admin/product_qty_insert", method = RequestMethod.GET)
 		   public String product_qty_insert(HttpServletRequest request, Model model) {
 				ProductDTO productDTO = new ProductDTO();
 				productDTO.setP_num(Integer.parseInt(request.getParameter("num")));
 				
-//				int p_num = Integer.parseInt(request.getParameter("num"));
 				model.addAttribute("productDTO", productDTO);
 				return "admin/product_qty_update";
 		   }
 
 		@RequestMapping(value = "/admin/product_qty_updatePro", method = RequestMethod.POST)
 		   public String product_qty_updatePro(HttpServletRequest request, ProductQtyDTO dto) {
-			System.out.println(dto.getList().get(0).getP_size());
-			System.out.println(dto.getList().get(0).getP_stock());
-			System.out.println(dto.getList().get(1).getP_size());
-			System.out.println(dto.getList().get(1).getP_stock());
-			System.out.println(dto.getList().get(2).getP_size());
-			System.out.println(dto.getP_num());
 			adminService.updateQty(dto);
 			 return "redirect:/admin/product_list";
 		   }
 			
 		@RequestMapping(value = "/admin/product_qty_insertPro", method = RequestMethod.POST)
 		   public String product_qty_insertPro(HttpServletRequest request, ProductQtyDTO dto) {
-			System.out.println("0번 size : " + dto.getList().get(0).getP_size());
-			System.out.println("0번 stock : " + dto.getList().get(0).getP_stock());
-			System.out.println("1번 size : " + dto.getList().get(1).getP_size());
-			System.out.println("1번 stock : " + dto.getList().get(1).getP_stock());
-			System.out.println("2번 size : " + dto.getList().get(2).getP_size());
-			System.out.println("2번 stock : " + dto.getList().get(2).getP_stock());
-			System.out.println("p_num = " + dto.getP_num());
 			
 			adminService.updateQty(dto);
 			
