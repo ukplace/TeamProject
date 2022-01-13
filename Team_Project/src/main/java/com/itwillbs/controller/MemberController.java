@@ -143,14 +143,17 @@ public class MemberController {
 	public String joinPro(MemberDTO memberDTO) {
 		return "foot/join";
 	}
-
+	
+	// 회원가입Pro
 	@RequestMapping(value = "/foot/joinPro", method = RequestMethod.POST)
 	public String join(HttpServletRequest request, MemberDTO memberDTO ,HttpServletResponse response) throws Exception {
 		System.out.println("/foot/joinPro");
-
+		//입력받은 pass 를 해싱처리 
 		String encryPassword = UserSha256.encrypt(memberDTO.getM_pass());
+		
 		memberDTO.setM_pass(encryPassword);
-
+		
+		// 입력받은 데이터들과, 해싱처리한 pass 를 가지고 멤버입력을 한다.
 		memberService.insertMember(memberDTO);
 		
 		response.setContentType("text/html; charset=UTF-8");
@@ -178,12 +181,12 @@ public class MemberController {
 	@RequestMapping(value = "/foot/withdrawalPro", method = RequestMethod.POST)
 	public String postWithdrawal(HttpSession session, MemberDTO memberDTO, RedirectAttributes rttr,HttpServletResponse response) throws Exception {
 		logger.info("post withdrawal");
-
+		// 입력받은 memberDTO 이전에 가지고있던것 oldPassDTO
 		MemberDTO oldPassDTO = new MemberDTO();
-
+		
 		oldPassDTO.setM_email((String) session.getAttribute("id"));
 		System.out.println("oldPassDTO.getM_email()" + oldPassDTO.getM_email());
-
+		
 		String m_email = oldPassDTO.getM_email();
 		System.out.println(m_email);
 		oldPassDTO = memberService.getMember(m_email);
@@ -195,7 +198,7 @@ public class MemberController {
 		memberDTO.setM_pass(encryPassword);
 
 		String newPass = memberDTO.getM_pass();
-
+		
 		if (!(oldPass.equals(newPass))) {
 			rttr.addFlashAttribute("msg", false);
 			return "redirect:/foot/withdrawal";
@@ -256,7 +259,7 @@ public class MemberController {
 
 			// 정보저장
 			model.addAttribute("memberDTO", memberDTO2);
-
+			
 			return "foot/updateMember";
 		} else {
 			return "foot/msg";
@@ -265,12 +268,21 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/foot/updateMemberPro", method = RequestMethod.POST)
-	public String updateMemberPro(MemberDTO memberDTO, Model model, HttpSession session) {
+	public String updateMemberPro(MemberDTO memberDTO, Model model, HttpSession session, HttpServletResponse response) throws Exception {
 		System.out.println(memberDTO.toString());
 		System.out.println("이거 멤버프론데..");
 		memberDTO.setM_idx((Integer) session.getAttribute("m_idx"));
 		memberService.updateMember(memberDTO);
+		
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		// 3. PrintWriter 객체의 println() 메서드를 호출하여 HTML 태그(자바스크립트) 문자열 생성
 
+		out.println("<script>");
+		out.println("alert('회원정보가 변경되었습니다.')");
+		out.println("location.href='./index'");
+		out.println("</script>");
+		
 		return "redirect:/foot/member_info";
 	}
 
@@ -283,7 +295,7 @@ public class MemberController {
 		String encryPassword = UserSha256.encrypt(memberDTO.getM_pass());
 		if (memberDTO2.getM_pass().equals(encryPassword)) {
 			model.addAttribute("memberDTO", memberService.getMember((String) session.getAttribute("id")));
-
+			
 			return "/foot/updatePass";
 		} else {
 			return "foot/msg";
@@ -292,10 +304,19 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/foot/updatePassPro", method = RequestMethod.POST)
-	public String passChangPro(HttpSession session, MemberDTO memberDTO, Model model) {
+	public String passChangPro(HttpSession session, MemberDTO memberDTO, Model model, HttpServletResponse response) throws Exception {
 		String encryPassword = UserSha256.encrypt(memberDTO.getM_pass());
 		memberDTO.setM_pass(encryPassword);
 		memberService.updatePass(memberDTO);
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		// 3. PrintWriter 객체의 println() 메서드를 호출하여 HTML 태그(자바스크립트) 문자열 생성
+
+		out.println("<script>");
+		out.println("alert('회원 비밀번호가 변경되었습니다. 다시 로그인해 주세요.')");
+		session.invalidate();
+		out.println("location.href='./index'");
+		out.println("</script>");
 		return "/foot/index";
 	}
 

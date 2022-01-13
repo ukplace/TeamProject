@@ -152,8 +152,7 @@ td {
 								<tr>
 									<th>사이즈</th>
 									<td><input type="text" name="list[0].p_size" id="size_1"
-										required="required" size="10"> <select
-										name="selectSize" onchange="changeSize1(this.value)">
+										required="required" size="10"> <select name="selectSize" onchange="changeSize1(this.value)">
 											<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입란에 표시 -->
 											<!-- this 주면 여기 이 태그가 날라간다!  -->
 											<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입력란에 표시 -->

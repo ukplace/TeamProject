@@ -128,6 +128,13 @@ public class MemberDTO {
 	public void setM_auth_status(String m_auth_status) {
 		this.m_auth_status = m_auth_status;
 	}
+	@Override
+	public String toString() {
+		return "MemberDTO [m_idx=" + m_idx + ", m_email=" + m_email + ", m_pass=" + m_pass + ", m_name=" + m_name
+				+ ", m_tel=" + m_tel + ", m_birth=" + m_birth + ", m_zip=" + m_zip + ", m_address=" + m_address
+				+ ", m_detail_address=" + m_detail_address + ", m_point=" + m_point + ", m_grade=" + m_grade
+				+ ", m_date=" + m_date + ", m_auth_code=" + m_auth_code + ", m_auth_status=" + m_auth_status + "]";
+	}
 	
 	
 }

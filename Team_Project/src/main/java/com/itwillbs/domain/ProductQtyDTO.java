@@ -44,6 +44,10 @@ public class ProductQtyDTO {
 	public void setList(List<ProductQtyDTO> list) {
 		this.list = list;
 	}
+	@Override
+	public String toString() {
+		return "ProductQtyDTO [p_num=" + p_num + ", p_size=" + p_size + ", p_stock=" + p_stock + ", list=" + list + "]";
+	}
 	
 
 }

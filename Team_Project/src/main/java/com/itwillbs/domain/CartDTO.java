@@ -63,4 +63,10 @@ public class CartDTO {
 		this.p_size = p_size;
 	}
 
+	@Override
+	public String toString() {
+		return "CartDTO [cart_idx=" + cart_idx + ", m_idx=" + m_idx + ", p_num=" + p_num + ", cart_count=" + cart_count
+				+ ", p_size=" + p_size + "]";
+	}
+
 }

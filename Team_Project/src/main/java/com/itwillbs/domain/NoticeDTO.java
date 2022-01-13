@@ -42,6 +42,11 @@ public class NoticeDTO {
 	public void setNotice_date(Timestamp notice_date) {
 		this.notice_date = notice_date;
 	}
+	@Override
+	public String toString() {
+		return "NoticeDTO [notice_idx=" + notice_idx + ", notice_subject=" + notice_subject + ", notice_content="
+				+ notice_content + ", notice_date=" + notice_date + "]";
+	}
 	
 	
 

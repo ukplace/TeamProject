@@ -100,6 +100,13 @@ public class ProductDTO {
 	public void setP_date(Timestamp p_date) {
 		this.p_date = p_date;
 	}
+	@Override
+	public String toString() {
+		return "ProductDTO [p_num=" + p_num + ", p_name=" + p_name + ", p_explain=" + p_explain + ", p_category="
+				+ p_category + ", p_small_category=" + p_small_category + ", p_img=" + p_img + ", p_thumImg="
+				+ p_thumImg + ", p_color=" + p_color + ", p_price=" + p_price + ", p_discount=" + p_discount
+				+ ", p_date=" + p_date + "]";
+	}
 	
 	
 	

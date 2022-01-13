@@ -51,6 +51,11 @@ public class FaqDTO {
 	public void setFaq_date(Timestamp faq_date) {
 		this.faq_date = faq_date;
 	}
+	@Override
+	public String toString() {
+		return "FaqDTO [faq_idx=" + faq_idx + ", faq_subject=" + faq_subject + ", faq_question=" + faq_question
+				+ ", faq_answer=" + faq_answer + ", faq_date=" + faq_date + "]";
+	}
 	
 	
 	

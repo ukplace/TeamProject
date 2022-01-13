@@ -43,6 +43,41 @@ public class OrderController {
 	@Inject
 	private MemberService memberService;
 
+	
+	/*우리 웹페이지는 order 방식이 2가지(cart_order,direct_order)가 있다.
+	 * 이전에 우리는 order에 대해서 조금 이해하고 넘어가야함.
+	 * 
+	 * order같은경우에는 1명의주문자가 1개의 제품을 구매할수도있지만
+	 * 					 			   여러개의 제품을 구매할 수도 있다.
+	 *  그래서 모든 order 정보를 담아서 한 덩어리로 저장을 해줄수 있지만, 
+	 *  데이터가 쌓이다보면 불필요한 반복되는 데이터가 너무 많아지기 때문에 우리 웹사이트는
+	 *  1: N 의 방식을 이용한다.
+	 *  그러므로 먼저 Order_member 라는 주문번호 및 주문정보를 생성해준뒤 
+	 *  Order_member의 생성된 주문번호를 이용해 주문받은 제품의 데이터를 order_detail에 담아준다.
+	 *  이 두방식은 direct, cart 둘다 동일하다.
+	 * 
+	* 1. cart_order 방식.
+	* 	 cart에 담겨져 있는 차트의 데이터를 가져와서 화면에 뿌려준 후, 그데이터를 그대로 들고가서
+	*    orderOK에서 
+	*    1)d_check(cart_order와 direact_order를 구분하는 기분) 를 확인한후
+	*    2) 먼저 order 정보를 가지고 order_member를 생성해준다.
+	*    3) 생성된 order_member의 o_idx 번호에 연결된 order_detail에 cart에 있는 데이터를 보두다 넣어준다.
+	*    4) 넣어준만큼 stock에서 제고를 차감해준다.
+	*    5) 제고 차감이후 카트를 비워준다.
+	*    
+	* 2. direact_order 방식
+	*   1) 우리가 바로구매 (product_detail 에 BUY버튼)를 누르면 그 즉시 direactDTO에 제품의 정보가 담긴다.
+	*    [사전에 담겨있는 정보가 있을수 있으므로 direactDTO 내부의 데이터를 비워주는작업을 항상 선행]
+	*   2) d_check에 1이 담겨진체로 order페이지로 넘어가서 order_Ok로 간다.
+	*   3) order_Ok가 1일때 direact 방식으로 진행되는데 
+	*   4) 위 cart_order 방식과 방식은 동일하나, cart 대신 direactDTO 를 사용하여
+	*   5) 하나의 제품정보만 있기때문에 단한번만 과정을 진행한다.
+	*  
+	* 
+	*/
+	
+	
+	
 	@RequestMapping(value = "/foot/Cart_order", method = RequestMethod.POST)
 	public String order(HttpServletRequest request, Model model, HttpSession session) {
 

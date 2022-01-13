@@ -92,6 +92,13 @@ public class ReviewDTO {
 	public void setReview_writer(String review_writer) {
 		this.review_writer = review_writer;
 	}
+	@Override
+	public String toString() {
+		return "ReviewDTO [review_idx=" + review_idx + ", p_num=" + p_num + ", m_idx=" + m_idx + ", review_writer="
+				+ review_writer + ", review_subject=" + review_subject + ", review_content=" + review_content
+				+ ", review_img=" + review_img + ", review_score=" + review_score + ", review_like=" + review_like
+				+ ", review_date=" + review_date + "]";
+	}
 	
 	
 	

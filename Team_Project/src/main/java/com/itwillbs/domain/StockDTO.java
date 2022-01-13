@@ -47,6 +47,11 @@ public class StockDTO {
 	public void setM_idx(int m_idx) {
 		this.m_idx = m_idx;
 	}
+	@Override
+	public String toString() {
+		return "StockDTO [p_num=" + p_num + ", p_size=" + p_size + ", cart_count=" + cart_count + ", m_idx=" + m_idx
+				+ ", p_stock=" + p_stock + ", stock=" + stock + "]";
+	}
 	
 	
 }

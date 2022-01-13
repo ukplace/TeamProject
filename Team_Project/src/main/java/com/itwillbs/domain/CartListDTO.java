@@ -74,6 +74,12 @@ public class CartListDTO {
 	public void setD_check(int d_check) {
 		this.d_check = d_check;
 	}
+	@Override
+	public String toString() {
+		return "CartListDTO [cart_idx=" + cart_idx + ", m_idx=" + m_idx + ", p_num=" + p_num + ", cart_count="
+				+ cart_count + ", p_name=" + p_name + ", p_price=" + p_price + ", p_thumImg=" + p_thumImg + ", p_size="
+				+ p_size + ", d_check=" + d_check + "]";
+	}
 	
 	
 	

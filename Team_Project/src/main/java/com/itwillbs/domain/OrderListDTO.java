@@ -128,6 +128,14 @@ public class OrderListDTO {
 	public void setO_state(String o_state) {
 		this.o_state = o_state;
 	}
+	@Override
+	public String toString() {
+		return "OrderListDTO [o_idx=" + o_idx + ", m_idx=" + m_idx + ", o_name=" + o_name + ", o_tel=" + o_tel
+				+ ", o_zip=" + o_zip + ", o_address=" + o_address + ", o_detail_address=" + o_detail_address
+				+ ", totalSum=" + totalSum + ", o_date=" + o_date + ", o_size=" + o_size + ", o_memo=" + o_memo
+				+ ", o_state=" + o_state + ", p_num=" + p_num + ", cart_count=" + cart_count + ", p_name=" + p_name
+				+ ", p_thumImg=" + p_thumImg + ", p_price=" + p_price + "]";
+	}
 	
 	
 }

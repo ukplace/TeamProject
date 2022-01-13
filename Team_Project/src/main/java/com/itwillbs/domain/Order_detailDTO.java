@@ -56,6 +56,11 @@ foreign key (p_num) references product (p_num)
 	public void setO_size(String o_size) {
 		this.o_size = o_size;
 	}
+	@Override
+	public String toString() {
+		return "Order_detailDTO [od_idx=" + od_idx + ", o_idx=" + o_idx + ", m_idx=" + m_idx + ", p_num=" + p_num
+				+ ", cart_count=" + cart_count + ", o_size=" + o_size + "]";
+	}
 	
 	
 }

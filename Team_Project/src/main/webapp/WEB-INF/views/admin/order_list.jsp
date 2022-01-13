@@ -52,25 +52,19 @@ th {
 <script
 	src="${pageContext.request.contextPath}/resources/script/jquery-3.6.0.js"></script>
 <script type="text/javascript">
-	$(document)
-			.ready(
-					function() {
-						$('input[id^="chagestate"]')
-								.click(
-										function() {
-											var m_idx = $(this).prev().val();
-											var o_idx = $(this).prev().prev()
-													.val();
-											var o_state = $(this).prev().prev()
-													.prev().val();
-											location.href = '${pageContext.request.contextPath}/admin/changeOrderState?o_idx='
-													+ o_idx
-													+ '&m_idx='
-													+ m_idx
-													+ '&o_state=' + o_state;
-										})
+	$(document).ready(
+		function() {
+			$('input[id^="chagestate"]')
+					.click(
+							function() {
+								var m_idx = $(this).prev().val();
+								var o_idx = $(this).prev().prev().val();
+								var o_state = $(this).prev().prev().prev().val();
+								alert("주문상태변경!");
+								location.href = '${pageContext.request.contextPath}/admin/changeOrderState?o_idx='+ o_idx+ '&m_idx='+ m_idx + '&o_state=' + o_state;
+							})
 
-					})
+	})
 </script>
 
 

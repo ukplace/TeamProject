@@ -45,6 +45,8 @@ public class ProductController {
 	private AdminService adminService;
 
 	/* 전체 상품 검색 */
+	// 상품 페이지 검색은 Mapper 가 조금 특이함으로 가서 가서 확인해볼 필요가 있음.
+	//우리 페이지의 search 폼에 데이터를 입력하면 keyword를 받아온다. ( 우리 페이지는 일단 title로 밖에 검사안되므로 title부분도 고
 	@RequestMapping(value = "/foot/search", method = RequestMethod.GET)
 	public String productSearch(HttpServletRequest request, Model model,
 			@RequestParam(required = false, defaultValue = "1") int pageNum,
@@ -52,8 +54,11 @@ public class ProductController {
 			@RequestParam(required = false, defaultValue = "title") String searchType,
 			@RequestParam(required = false) String keyword) throws Exception {
 
+		//객체를 담아줄 searchDTO생성 
 		SearchDTO searchDTO = new SearchDTO();
-
+		
+		// searchDTO에는 searchType 과 , keyword 밖에 없지만 pageDTO를 상속받아 pagesize를 사용할수 있다.
+		// 이하 pageDTO 의 모든 역활을 searchDTO 가 수행한다.
 		searchDTO.setSearchType(searchType);
 		searchDTO.setKeyword(keyword);
 		searchDTO.setPageSize(8);
@@ -69,8 +74,6 @@ public class ProductController {
 		searchDTO.init();
 
 		List<ProductDTO> productList = productService.getProductList(searchDTO);
-		System.out.println("startpage" + searchDTO.getStartPage());
-		System.out.println("endpage" + searchDTO.getEndPage());
 
 		model.addAttribute("searchDTO", searchDTO);
 		model.addAttribute("productList", productList);
@@ -105,29 +108,32 @@ public class ProductController {
 		pageDTO.setCount(productService.getProductOutdoorCount());
 
 		List<ProductDTO> productOutdoorList = productService.getProductOutdoorList(pageDTO);
-
+		
+		// 제고 및 신발사이즈 (qty)를 설저하지 않으면 나오지 않게 하기위한 작업 
+		// 확인해서 담아줄 OkQtyOutdoorList 객체 생성 
+		
 		List<ProductDTO> OkQtyOutdoorList = new ArrayList<ProductDTO>();
-
+		// 일단 검색해서 나온 제품을 갯수만큼 for문을 반복해준다.
 		for (int i = 0; i < productOutdoorList.size(); i++) {
 			ProductQtyDTO qty = new ProductQtyDTO();
-
+			// qty확인할 qty 객체에 반복될 제품의 p_num값을 가지
 			qty.setP_num(productOutdoorList.get(i).getP_num());
-
+			// qty 가 있으면 설정이 된값, 없으면 안된값으로 확인을 한다.
 			List<ProductQtyDTO> checkqty = productService.qtyCheck(qty);
-
+			// 만약 checkqty에서 리턴값이 있으면 OkQtyOutdoorList에 넣어줘서
 			if (checkqty.size() != 0) {
 				OkQtyOutdoorList.add(productOutdoorList.get(i));
 			}
 
 		}
-
-		System.out.println("startpage" + pageDTO.getStartPage());
-		System.out.println("endpage" + pageDTO.getEndPage());
-
+						// 화면에 qty가 있는지 확인된 OkQtyOutdoorList가 출력된다. 
 		model.addAttribute("productOutdoorList", OkQtyOutdoorList);
 		model.addAttribute("pageDTO", pageDTO);
 
 		return "foot/list_men_outdoor";
+		
+		
+		// 이하 모든 list에 동일한 작업을 수행함. 
 	}
 
 	@RequestMapping(value = "/foot/list_men_running", method = RequestMethod.GET)
@@ -610,6 +616,8 @@ public class ProductController {
 		return "foot/wishlist";
 	}
 
+	
+	
 	// 장바구니
 	@RequestMapping(value = "/foot/cart", method = RequestMethod.GET)
 	public String cart(HttpSession session, Model model, HttpServletResponse response) throws IOException {
@@ -627,13 +635,7 @@ public class ProductController {
 		}
 
 		// 내 session객체를 이용해서 (m_idx) cartDTO검색 -> cartDTO의 p_num 이용해서 제품정보 가져오기!
-		// 이렇게 하면하나만있을때 나오는건데..
-		// 만약에 cartDTO에서 getCart 에서 1개값이나닌 여러개 값이나오면 어떡해야하지?
-//		CartDTO cartDTO = new CartDTO();
-//		cartDTO.setM_idx((Integer)session.getAttribute("m_idx"));
-//		int m_idx = cartDTO.getM_idx();
-//		List<CartDTO> cart = productService.getCart(m_idx);
-
+		
 		CartListDTO cartListDTO = new CartListDTO();
 		cartListDTO.setM_idx((Integer) session.getAttribute("m_idx"));
 		List<CartListDTO> cartList = productService.getCartList(cartListDTO);
@@ -644,19 +646,16 @@ public class ProductController {
 	}
 
 	@RequestMapping(value = "/admin/changeOrderState", method = RequestMethod.GET)
-	public String changeOrderState(HttpServletRequest request) {
+	public String changeOrderState(HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-		ResponseEntity<String> entity = null;
 
 		Order_memberDTO order_memberDTO = new Order_memberDTO();
 
 		order_memberDTO.setO_idx(Integer.parseInt(request.getParameter("o_idx")));
 		order_memberDTO.setM_idx(Integer.parseInt(request.getParameter("m_idx")));
 		order_memberDTO.setO_state((request.getParameter("o_state")));
-		System.out.println(order_memberDTO.getO_idx() + "o_idx값 orderstate");
-		System.out.println(order_memberDTO.getM_idx() + "m_idx값 orderstate");
-		System.out.println(order_memberDTO.getO_state() + "o_state값 orderstate");
 		if (order_memberDTO != null) {
+
 			productService.changeOrderState(order_memberDTO);
 
 		}
