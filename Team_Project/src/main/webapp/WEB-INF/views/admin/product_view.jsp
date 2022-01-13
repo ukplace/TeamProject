@@ -320,7 +320,7 @@
 $("#deleteBtn").click(function(){
 	// 상품 삭제 확인
 	if(confirm("상품을 삭제하시겠습니까?")){
-		document.registForm.action="${pageContext.request.contextPath}/admin/delete?num=${ProductDTO.p_num}"
+		document.registForm.action="${pageContext.request.contextPath}/admin/delete?p_num=${ProductDTO.p_num}"
 		document.registForm.submit();
 	}
 });

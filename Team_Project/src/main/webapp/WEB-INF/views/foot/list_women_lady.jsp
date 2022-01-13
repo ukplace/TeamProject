@@ -152,8 +152,10 @@
 				               
 				                  <li class="active">
 									<c:forEach var="i" begin="${pageDTO.startPage }" end="${pageDTO.endPage }" step="1">
-										<a href="${pageContext.request.contextPath}/foot/list_women_lady?pageNum=${i }"${1 }>${i }</a>
-									</c:forEach>
+									<a
+										href="${pageContext.request.contextPath}/foot/list_women_lady?pageNum=${i }"
+										${1 }>${i }</a>
+								</c:forEach>
 								  </li>
 								  
 				                  <li class="active">

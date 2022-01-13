@@ -22,15 +22,17 @@ public interface ProductDAO {
 	// List<ProductDTO> productList = productService.getProductList(pageDTO);
 	public List<ProductDTO> getProductList(SearchDTO searchDTO);
 
-	// 상품 총 개수  **파라미터 값 수정
+	// 상품 총 개수 **파라미터 값 수정
 	public Integer getProductTotal(SearchDTO searchDTO);
-	
+
 	public List<ProductDTO> getAllProductList(PageDTO pageDTO);
-	
-	// List<ProductDTO> productKidsList = productService.getProductKidsList(pageDTO);
+
+	// List<ProductDTO> productKidsList =
+	// productService.getProductKidsList(pageDTO);
 	public List<ProductDTO> getProductKidsList(PageDTO pageDTO);
-	
-	// List<ProductDTO> productWomenList = productService.getProductWomenList(pageDTO);
+
+	// List<ProductDTO> productWomenList =
+	// productService.getProductWomenList(pageDTO);
 	public List<ProductDTO> getProductWomenList(PageDTO pageDTO);
 
 	public List<ProductDTO> getProductMenList(PageDTO pageDTO);
@@ -56,9 +58,9 @@ public interface ProductDAO {
 	public List<ProductDTO> getProductK_RunningList(PageDTO pageDTO);
 
 	public List<ProductDTO> getProductK_SneakersList(PageDTO pageDTO);
-	
+
 	public ProductDTO productDetail(int p_num);
-	
+
 	public List<ProductQtyDTO> productQtyDetail(int p_num);
 
 	/* 장바구니 */
@@ -68,19 +70,18 @@ public interface ProductDAO {
 	public List<CartDTO> getCart(int m_idx);
 
 	public List<CartListDTO> getCartList(CartListDTO cartListDTO);
-	
+
 	/* 바로구매 */
 	public void deleteDirect(int m_idx);
-	
+
 	public void insertDirect(DirectDTO directDTO);
 
 	public List<CartListDTO> getDirectList(CartListDTO cartListDTO);
 
 	// DirectDTO 안의 내용을 order_detail테이블에 추가
 	public void insertDO_detail(Order_memberDTO o_memberDTO);
-	
+
 	// ------------------------------------------------
-	
 
 	public void withdrawal(MemberDTO memberDTO);
 
@@ -91,64 +92,64 @@ public interface ProductDAO {
 	public List<Order_memberDTO> getO_idx(Order_memberDTO o_memberDTO);
 
 	public void insertO_detail(Order_memberDTO Order_memberDTO);
+
 	public void deleteCart(int m_idx);
 
 	public List<Order_memberDTO> OneOrderList(Order_memberDTO o_memberDTO);
 
 	public List<OrderListDTO> getOrderList(OrderListDTO orderListDTO);
-	
-	//전체제품 카운트
+
+	// 전체제품 카운트
 	public Integer getProductCount();
-	
-	//MEN 카운트
+
+	// MEN 카운트
 	public Integer getProductGentlemanCount();
-	
+
 	public Integer getProductOutdoorCount();
-	
+
 	public Integer getProductRunningCount();
-	
+
 	public Integer getProducSneakersCount();
-	
+
 	public Integer getProducMenCount();
 
-	//WOMEN 카운트
-	
+	// WOMEN 카운트
+
 	public Integer getProductWomenCount();
-	
+
 	public Integer getProductW_OutdoorCount();
-	
+
 	public Integer getProductW_RunningCount();
-		
+
 	public Integer getProductW_SneakersCount();
-		
+
 	public Integer getProductLadyCount();
-	
-	//KIDS 카운트
-	
+
+	// KIDS 카운트
+
 	public Integer getProductKidsCount();
-		
+
 	public Integer getProductK_KidCount();
-		
+
 	public Integer getProductK_RunningCount();
-		
+
 	public Integer getProductK_SneakersCount();
-	
+
 	public List<Order_memberDTO> AllOrderList(PageDTO pageDTO);
 
-	// List<OrderListDTO> orderDetailList = productService.getOrderDetailList(m_idx, o_idx);
+	// List<OrderListDTO> orderDetailList = productService.getOrderDetailList(m_idx,
+	// o_idx);
 	public List<OrderListDTO> getOrderDetailList(int m_idx, int o_idx);
 
 	public int getAllProduct();
 
 	public List<ProductQtyDTO> qtyCheck(ProductQtyDTO qty);
+
 	// 관리자페이지 주문상태 변경
 	public void changeOrderState(Order_memberDTO o_memberDTO);
-	
-	
+
 	public StockDTO getInformation(StockDTO stockDTO);
 
 	public void changeStock(StockDTO stockDTO);
-
-	
 
 }

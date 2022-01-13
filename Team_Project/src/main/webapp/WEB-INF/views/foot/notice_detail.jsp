@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -87,19 +87,18 @@
 <!-- </script> -->
 
 <script type="text/javascript">
-function removeCheck() {
-	 if (confirm("정말 삭제하시겠습니까??") == true){    //확인
-	
-	    location.href='${pageContext.request.contextPath}/center/notice_delete_pro?notice_idx=${noticeDTO.notice_idx}&page=${pageDTO.pageNum }';
+	function removeCheck() {
+		if (confirm("정말 삭제하시겠습니까??") == true) { //확인
 
-	 }else{   //취소
+			location.href = '${pageContext.request.contextPath}/center/notice_delete_pro?notice_idx=${noticeDTO.notice_idx}&page=${pageDTO.pageNum }';
 
-	     return false;
+		} else { //취소
 
-	 }
-	
-}
+			return false;
 
+		}
+
+	}
 </script>
 
 
@@ -116,72 +115,73 @@ function removeCheck() {
 		</nav>
 
 		<div class="breadcrumbs">
-			<div class="container" >
+			<div class="container">
 				<div class="row">
 					<div class="col">
 						<p class="bread">
 							<span><a
-								href="${pageContext.request.contextPath}/foot/index/">Home</a></span>
-							<span>공지사항</span>
-							
+								href="${pageContext.request.contextPath}/foot/index/">Home</a></span> <span>공지사항</span>
+
 						</p>
 					</div>
 				</div>
 			</div>
 		</div>
 		<br>
-		<div class="row" >
-			<div class="col-lg-8" style= "display: inline-block; margin: 0 auto;">
-				<form method="post" name="deleteForm" enctype="multipart/form-data">                     
-				<input type="hidden" name="idx" value="${NoticeDTO.notice_idx}" />
+		<div class="row">
+			<div class="col-lg-8" style="display: inline-block; margin: 0 auto;">
+				<form method="post" name="deleteForm" enctype="multipart/form-data">
+					<input type="hidden" name="idx" value="${NoticeDTO.notice_idx}" />
 					<h2>공지사항</h2>
-						<br>
-						<br>
-							
-						
-						<div class="col-md-7">
-							<div class="form-group">
-								<label for="subject" style="font-size: 20px;">${noticeDTO.notice_subject}</label><br>
-								<hr>
-								
-							</div>
+					<br> <br>
+
+
+					<div class="col-md-7">
+						<div class="form-group">
+							<label for="subject" style="font-size: 20px;">${noticeDTO.notice_subject}</label><br>
+							<hr>
+
 						</div>
-						<br>
-						<div class="col-sm-12">
-										<div class="form-group">
-											<label for="content"></label><br>
-											<textarea rows="12px" cols="100px" style="border: none;">${noticeDTO.notice_content}</textarea>
-												
-										</div>
-									</div>
-				
-						
-<!-- 						<div class="col-md-12"> -->
-<!-- 							<div  class="form-group"> -->
-<!-- 								<div class="radio"> -->
-<!-- 									<label><input type="radio" 	name="radio" value="normal"> 일반글</label> -->
-<!-- 									<label><input type="radio" name="radio" value="secret"> 비밀글 </label>  -->
-<!-- 								</div> -->
-<!-- 							</div> -->
-<!-- 						</div> -->
 					</div>
+					<br>
 					<div class="col-sm-12">
-										<div class="form-group" style="text-align: center;">
-										<c:choose>
-										<c:when test="${'admin@shushu.com' eq sessionScope.id }">
-											<input type="button" value="수정" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/center/notice_update?notice_idx=${noticeDTO.notice_idx}&page=${pageDTO.pageNum }'">
-										</c:when>
-										</c:choose>
-											<input type="button" value="목록" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/center/notice_list'">
-										<c:choose>
-										<c:when test="${'admin@shushu.com' eq sessionScope.id }">
-											<input type="button" value="삭제" class="btn btn-primary" onclick="removeCheck()">
-										</c:when>
-										</c:choose>	
-										</div>
-									</div>
-				</form>
+						<div class="form-group">
+							<label for="content"></label><br>
+							<textarea rows="12px" cols="100px" style="border: none;">${noticeDTO.notice_content}</textarea>
+
+						</div>
+					</div>
+
+
+					<!-- 						<div class="col-md-12"> -->
+					<!-- 							<div  class="form-group"> -->
+					<!-- 								<div class="radio"> -->
+					<!-- 									<label><input type="radio" 	name="radio" value="normal"> 일반글</label> -->
+					<!-- 									<label><input type="radio" name="radio" value="secret"> 비밀글 </label>  -->
+					<!-- 								</div> -->
+					<!-- 							</div> -->
+					<!-- 						</div> -->
 			</div>
+			<div class="col-sm-12">
+				<div class="form-group" style="text-align: center;">
+					<c:choose>
+						<c:when test="${'admin@shushu.com' eq sessionScope.id }">
+							<input type="button" value="수정" class="btn btn-primary"
+								onclick="location.href='${pageContext.request.contextPath}/center/notice_update?notice_idx=${noticeDTO.notice_idx}&page=${pageDTO.pageNum }'">
+						</c:when>
+					</c:choose>
+					<input type="button" value="목록" class="btn btn-primary"
+						onclick="location.href='${pageContext.request.contextPath}/center/notice_list'">
+					<c:choose>
+						<c:when test="${'admin@shushu.com' eq sessionScope.id }">
+							<input type="button" value="삭제" class="btn btn-primary"
+								onclick="removeCheck()">
+						</c:when>
+					</c:choose>
+				</div>
+			</div>
+			</form>
+		</div>
 
 	</div>
 

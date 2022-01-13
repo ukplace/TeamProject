@@ -11,7 +11,7 @@ import com.itwillbs.domain.MemberDTO;
 
 @Service
 public class MemberServiceImpl implements MemberService {
-	
+
 	@Inject
 	private MemberDAO memberDAO;
 
@@ -22,7 +22,7 @@ public class MemberServiceImpl implements MemberService {
 
 	@Override
 	public MemberDTO userCheck(MemberDTO memberDTO) {
-		
+
 		return memberDAO.userCheck(memberDTO);
 	}
 
@@ -38,21 +38,22 @@ public class MemberServiceImpl implements MemberService {
 
 	public MemberDTO getMember(String m_email) {
 		System.out.println("MemberServiceImpl.getMember()");
-		 return memberDAO.getMember(m_email);
+		return memberDAO.getMember(m_email);
 	}
-	
-	public void updateMember(MemberDTO memberDTO){
+
+	public void updateMember(MemberDTO memberDTO) {
 		System.out.println("MemberServiceImpl.updateMember()");
 		memberDAO.updateMember(memberDTO);
 	}
-	
+
 	public void updatePass(MemberDTO memberDTO) {
 		memberDAO.updatePass(memberDTO);
-		
+
 	}
+
 	@Override
 	public void withdrawal(MemberDTO member) {
-		 memberDAO.withdrawal(member);
+		memberDAO.withdrawal(member);
 	}
 
 }

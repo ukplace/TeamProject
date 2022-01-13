@@ -68,6 +68,8 @@ public interface AdminService {
 
 	List<Integer> getWeekOrderList();
 
+	int getOrder_memberCount();
+
 	
 	
 }

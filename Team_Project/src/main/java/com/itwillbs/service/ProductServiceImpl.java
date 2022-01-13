@@ -370,6 +370,14 @@ public class ProductServiceImpl implements ProductService {
 	public List<Order_memberDTO> AllOrderList(PageDTO pageDTO) {
 		// 관리자페이지에서 전체회원 주문목록 불러오기
 		System.out.println("ProductServiceImpl - AllOrderList()");
+		
+		// 계산된  것 => pageSize, pageNum
+		// 구해야할 것 => currentPage, startRow, endRow 계산!
+		pageDTO.setCurrentPage(Integer.parseInt(pageDTO.getPageNum()));
+		pageDTO.setStartRow((pageDTO.getCurrentPage()-1) * pageDTO.getPageSize() + 1);
+		pageDTO.setEndRow(pageDTO.getStartRow() + pageDTO.getPageSize() - 1);
+		// DB에서 startRow-1 작업을 해줘야함!
+		pageDTO.setStartRow(pageDTO.getStartRow() - 1);		
 		return productDAO.AllOrderList(pageDTO);
 	}
 

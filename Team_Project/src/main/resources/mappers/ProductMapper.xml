@@ -282,7 +282,7 @@
 			select o.m_idx,o.o_idx, o.o_name, o.o_zip, o.o_address, o.o_detail_address, o.o_tel, o_size, o.totalSum, o.o_date, o.o_memo, o.o_state, d.p_num, d.cart_count, p.p_name, p.p_thumImg, p.p_price 
 			from order_member o, order_detail d,product p
 			WHERE o.o_idx = d.o_idx AND d.p_num = p.p_num
-			order by o.o_idx desc
+			order by o.o_idx desc limit #{startRow},#{pageSize}
 		</select>
 <!-- 	<select id="AllOrderList" resultType="com.itwillbs.domain.Order_memberDTO" >
 			select o.o_idx, o.m_idx, o.o_name, o.o_zip, o.o_address, o.o_detail_address, o.o_tel, o.totalSum, o.o_state, p.p_name

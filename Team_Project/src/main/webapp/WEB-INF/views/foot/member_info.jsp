@@ -136,7 +136,7 @@ function actionA(){
 
 		<!-- form태그 시작 -->
 		<form method="post" class="colorlib-form" name="info"
-			action="${pageContext.request.contextPath}/foot/updateMember" 
+			action="${pageContext.request.contextPath}/foot/updateMember"
 			style="width: 850px; height: 1050px; margin-left: 380px; margin-top: 100px;">
 			<div class="container">
 
@@ -144,119 +144,119 @@ function actionA(){
 
 				<div class="row">
 					<div class="col-lg-7">
-						
-							
-							<h2>마이페이지</h2>
-							<div class="row">
-								<div class="col-md-12">
-									<div class="form-group"></div>
-								</div>
-
-								<div class="col-md-7">
-									<div class="form-group">
-										<label for="email">이메일</label><br> ${memberDTO.m_email}
-										
-
-									</div>
-								</div>
 
 
-								<div class="col-md-7">
-									<div class="form-group">
-										<label for="name">이름</label><br> ${memberDTO.m_name}
-										
-									</div>
-								</div>
+						<h2>마이페이지</h2>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group"></div>
+							</div>
 
-								<div class="col-md-7">
-									<div class="form-group">
-										<label for="password">비밀번호</label> <input type="password"
-											id="m_pass" name="m_pass"  class="form-control"
-											placeholder="비밀번호를 입력해주세요" required="required" >
-									</div>
-								</div>
+							<div class="col-md-7">
+								<div class="form-group">
+									<label for="email">이메일</label><br> ${memberDTO.m_email}
 
-							
-
-								<div class="col-md-7">
-									<div class="form-group">
-										<label for="tel">전화번호</label> ${memberDTO.m_tel}
-									</div>
-								</div>
-
-
-								<div class="col-md-12">
-									<div class="form-group">
-										<label><h4>주소</h4></label>
-										<table>
-											<tr>
-												<td width="80%">${memberDTO.m_zip}</td>
-												<td>&nbsp&nbsp</td>
-												<td></td>
-											</tr>
-											<tr height="10px"></tr>
-											<tr>
-												<td colspan="3">${memberDTO.m_address}</td>
-											</tr>
-											<tr height="10px"></tr>
-											<tr>
-												<td colspan="3">${memberDTO.m_detail_address}</td>
-											</tr>
-											<tr height="1px">
-												<td><input type="hidden" id="sample4_extraAddress"
-													placeholder="참고항목"></td>
-												<td><span id="guide" style="color: #999; display: none"></span>
-												</td>
-											</tr>
-										</table>
-									</div>
-
-
-
-									<!-- 버튼 -->
-									<div class="row" style="margin-left: 5px; margin-top: 30px;">
-										<div class="col-md-12 text-center">
-											
-											
-										<input type="hidden" name="m_tel" value="${memberDTO.m_tel }">
-										<input type="hidden" name="m_email" value="${memberDTO.m_email }">
-										<input type="hidden" name="m_name"  value="${memberDTO.m_name }">
-										<input type="hidden" name="m_idx" value="${memberDTO.m_idx }">
-										<input type="hidden" name="m_zip" value="${memberDTO.m_zip }">
-										<input type="hidden" name="m_address" value="${memberDTO.m_address }">
-										<input type="hidden" name="m_detail_address"  value="${memberDTO.m_detail_address }">
-											
-											
-											
-											
-											<input type="button" class="btn btn-primary"  value ="비밀번호변경" onclick="actionB()">
-											<input type="button" class="btn btn-primary" value="정보수정" onclick="actionA()"> 
-											
-											
-											
-										</div>
-									</div>
-									<!-- 버튼 -->
 
 								</div>
 							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-	
+
+
+							<div class="col-md-7">
+								<div class="form-group">
+									<label for="name">이름</label><br> ${memberDTO.m_name}
+
+								</div>
+							</div>
+
+							<div class="col-md-7">
+								<div class="form-group">
+									<label for="password">비밀번호</label> <input type="password"
+										id="m_pass" name="m_pass" class="form-control"
+										placeholder="비밀번호를 입력해주세요" required="required">
+								</div>
+							</div>
 
 
 
-		<!-- form태그 끝 -->
+							<div class="col-md-7">
+								<div class="form-group">
+									<label for="tel">전화번호</label> ${memberDTO.m_tel}
+								</div>
+							</div>
+
+
+							<div class="col-md-12">
+								<div class="form-group">
+									<label><h4>주소</h4></label>
+									<table>
+										<tr>
+											<td width="80%">${memberDTO.m_zip}</td>
+											<td>&nbsp&nbsp</td>
+											<td></td>
+										</tr>
+										<tr height="10px"></tr>
+										<tr>
+											<td colspan="3">${memberDTO.m_address}</td>
+										</tr>
+										<tr height="10px"></tr>
+										<tr>
+											<td colspan="3">${memberDTO.m_detail_address}</td>
+										</tr>
+										<tr height="1px">
+											<td><input type="hidden" id="sample4_extraAddress"
+												placeholder="참고항목"></td>
+											<td><span id="guide" style="color: #999; display: none"></span>
+											</td>
+										</tr>
+									</table>
+								</div>
 
 
 
-		<footer id="colorlib-footer" role="contentinfo">
-			<!-- 푸터들어가는곳 -->
-			<jsp:include page="../inc/bottom.jsp"></jsp:include>
-			<!-- 푸터들어가는곳 -->
-		</footer>
+								<!-- 버튼 -->
+								<div class="row" style="margin-left: 5px; margin-top: 30px;">
+									<div class="col-md-12 text-center">
+
+
+										<input type="hidden" name="m_tel" value="${memberDTO.m_tel }">
+										<input type="hidden" name="m_email"
+											value="${memberDTO.m_email }"> <input type="hidden"
+											name="m_name" value="${memberDTO.m_name }"> <input
+											type="hidden" name="m_idx" value="${memberDTO.m_idx }">
+										<input type="hidden" name="m_zip" value="${memberDTO.m_zip }">
+										<input type="hidden" name="m_address"
+											value="${memberDTO.m_address }"> <input type="hidden"
+											name="m_detail_address"
+											value="${memberDTO.m_detail_address }"> <input
+											type="button" class="btn btn-primary" value="비밀번호변경"
+											onclick="actionB()"> <input type="button"
+											class="btn btn-primary" value="정보수정" onclick="actionA()">
+
+
+
+									</div>
+								</div>
+								<!-- 버튼 -->
+
+							</div>
+						</div>
+		</form>
+	</div>
+	</div>
+	</div>
+
+
+
+
+	<!-- form태그 끝 -->
+
+
+
+	<footer id="colorlib-footer" role="contentinfo">
+		<!-- 푸터들어가는곳 -->
+		<jsp:include page="../inc/bottom.jsp"></jsp:include>
+		<!-- 푸터들어가는곳 -->
+	</footer>
 	</div>
 
 	<div class="gototop js-top">

@@ -8,22 +8,23 @@ import com.itwillbs.domain.PageDTO;
 import com.itwillbs.domain.QnaDTO;
 
 public interface CenterDAO {
-	
-	///qna/////
+
+	/// qna/////
 	public void insertQna(QnaDTO qnaDTO);
 
 	public List<QnaDTO> getQnaList(PageDTO pageDTO);
 
 	public Integer getMaxQna();
+
 	public Integer getQnaCount();
 
 	public QnaDTO getQnaDetail(QnaDTO qnaDTO);
-	///qna/////
-	
+	/// qna/////
+
 	public Integer getIncrementNum();
-	
+
 	public void insertReplyAricle(QnaDTO qnaDTO);
-	
+
 	// faq
 	public void insertFaq(FaqDTO FaqDTO);
 
@@ -36,8 +37,8 @@ public interface CenterDAO {
 	public void faq_update(FaqDTO faqDTO);
 
 	public void deleteFaq(FaqDTO faqDTO);
-	
-	//notice
+
+	// notice
 	public List<NoticeDTO> getNoticeList(PageDTO pageDTO);
 
 	public void insertNotice(NoticeDTO noticeDTO);
@@ -52,7 +53,5 @@ public interface CenterDAO {
 
 	public void deleteQna(QnaDTO qnaDTO);
 
-	
-	
-	//notice
+	// notice
 }

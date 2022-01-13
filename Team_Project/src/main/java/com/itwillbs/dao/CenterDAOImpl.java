@@ -18,145 +18,138 @@ public class CenterDAOImpl implements CenterDAO {
 
 	@Inject
 	private SqlSession sqlSession;
-	
-	private static final String namespace="com.itwillbs.mapper.CenterMapper";
+
+	private static final String namespace = "com.itwillbs.mapper.CenterMapper";
 
 	@Override
 	public void insertQna(QnaDTO qnaDTO) {
 		System.out.println("CenterDAOImpl insertQna()");
-		
-				sqlSession.insert(namespace+".insertQna", qnaDTO);
+
+		sqlSession.insert(namespace + ".insertQna", qnaDTO);
 	}
 
 	@Override
 	public Integer getMaxQna() {
-		
-		return sqlSession.selectOne(namespace+".getMaxQna");
+
+		return sqlSession.selectOne(namespace + ".getMaxQna");
 	}
 
 	@Override
 	public List<QnaDTO> getQnaList(PageDTO pageDTO) {
-		
-		return sqlSession.selectList(namespace+".getQnaList", pageDTO);
+
+		return sqlSession.selectList(namespace + ".getQnaList", pageDTO);
 	}
 
 	@Override
 	public Integer getQnaCount() {
-		
-		return sqlSession.selectOne(namespace+".getQnaCount");
-		
+
+		return sqlSession.selectOne(namespace + ".getQnaCount");
+
 	}
+
 	@Override
 	public QnaDTO getQnaDetail(QnaDTO qnaDTO) {
 		System.out.println("centerDAO getQnaDetail");
-		return sqlSession.selectOne(namespace+".getQnaDetail", qnaDTO);
+		return sqlSession.selectOne(namespace + ".getQnaDetail", qnaDTO);
 	}
 
 	public Integer getIncrementNum() {
 
-		return sqlSession.selectOne(namespace+".getIncrementNum");
+		return sqlSession.selectOne(namespace + ".getIncrementNum");
 	}
-	
+
 	@Override
 	public void deleteQna(QnaDTO qnaDTO) {
-		
-		sqlSession.delete(namespace+".deleteQna", qnaDTO);
-		
+
+		sqlSession.delete(namespace + ".deleteQna", qnaDTO);
+
 	}
-	
+
 	@Override
 	public void insertReplyAricle(QnaDTO qnaDTO) {
-		
-		sqlSession.update(namespace+".setQna_re_seq",qnaDTO);
-		
-		qnaDTO.setQna_re_seq(qnaDTO.getQna_re_seq()+1);
-		qnaDTO.setQna_re_lev(qnaDTO.getQna_re_lev()+1);
-		
-		sqlSession.insert(namespace+".insertReplyAricle",qnaDTO);
-		
-		
+
+		sqlSession.update(namespace + ".setQna_re_seq", qnaDTO);
+
+		qnaDTO.setQna_re_seq(qnaDTO.getQna_re_seq() + 1);
+		qnaDTO.setQna_re_lev(qnaDTO.getQna_re_lev() + 1);
+
+		sqlSession.insert(namespace + ".insertReplyAricle", qnaDTO);
+
 	}
 
 	@Override
 	public void insertFaq(FaqDTO FaqDTO) {
-		
-		sqlSession.insert(namespace+".insertFaq", FaqDTO);
-		
+
+		sqlSession.insert(namespace + ".insertFaq", FaqDTO);
+
 	}
 
 	@Override
 	public List<FaqDTO> getFaqList(PageDTO pageDTO) {
-		
-		return sqlSession.selectList(namespace+".getFaqList", pageDTO);
+
+		return sqlSession.selectList(namespace + ".getFaqList", pageDTO);
 	}
 
 	@Override
 	public int getFaqCount() {
-		
-		return sqlSession.selectOne(namespace+".getFaqCount");
+
+		return sqlSession.selectOne(namespace + ".getFaqCount");
 	}
 
 	@Override
 	public FaqDTO getFaqDetail(FaqDTO faqDTO) {
-		
-		return sqlSession.selectOne(namespace+".getFaqDetail", faqDTO);
+
+		return sqlSession.selectOne(namespace + ".getFaqDetail", faqDTO);
 	}
 
 	@Override
 	public void faq_update(FaqDTO faqDTO) {
-		sqlSession.update(namespace+".updateFaq", faqDTO);
-		
-	}
+		sqlSession.update(namespace + ".updateFaq", faqDTO);
 
+	}
 
 	@Override
 	public void deleteFaq(FaqDTO faqDTO) {
-		sqlSession.delete(namespace+".deleteFaq",faqDTO);
-		
+		sqlSession.delete(namespace + ".deleteFaq", faqDTO);
+
 	}
-	
-	//-------------------------------------notice-------------------------------
-	 
-	
+
+	// -------------------------------------notice-------------------------------
+
 	@Override
 	public void insertNotice(NoticeDTO noticeDTO) {
 		System.out.println(noticeDTO.getNotice_subject());
-		sqlSession.insert(namespace+".insertNotice", noticeDTO);
+		sqlSession.insert(namespace + ".insertNotice", noticeDTO);
 	}
 
 	@Override
 	public List<NoticeDTO> getNoticeList(PageDTO pageDTO) {
-		
-		
-		return sqlSession.selectList(namespace+".getNoticeList", pageDTO);
+
+		return sqlSession.selectList(namespace + ".getNoticeList", pageDTO);
 	}
 
 	@Override
 	public int getNoticeCount() {
 
-		return sqlSession.selectOne(namespace+".getNoticeCount");
+		return sqlSession.selectOne(namespace + ".getNoticeCount");
 	}
 
 	@Override
 	public NoticeDTO getNoticeDetail(NoticeDTO noticeDTO) {
 
-		return sqlSession.selectOne(namespace+".getNoticeDetail",noticeDTO);
+		return sqlSession.selectOne(namespace + ".getNoticeDetail", noticeDTO);
 	}
 
 	@Override
 	public void updateNotice(NoticeDTO noticeDTO) {
-		
-		sqlSession.update(namespace+".updateNotice", noticeDTO);
+
+		sqlSession.update(namespace + ".updateNotice", noticeDTO);
 	}
 
 	@Override
 	public void deleteNotice(NoticeDTO noticeDTO) {
 
-		sqlSession.delete(namespace+".deleteNotice", noticeDTO);
+		sqlSession.delete(namespace + ".deleteNotice", noticeDTO);
 	}
 
-	
-
-
-	
 }

@@ -28,26 +28,26 @@ public class CenterController {
 	// 공지사항(notice) 매핑
 	@RequestMapping(value = "/center/notice_list", method = RequestMethod.GET)
 	public String notice_list(HttpServletRequest request, Model model) {
-			PageDTO pageDTO = new PageDTO();
-			// 한 페이지에 보여 줄 갯수
-			pageDTO.setPageSize(10);
+		PageDTO pageDTO = new PageDTO();
+		// 한 페이지에 보여 줄 갯수
+		pageDTO.setPageSize(10);
 
-			if (request.getParameter("pageNum") == null) { // 없을때
-				pageDTO.setPageNum("1");
-			} else { // 있을때
-				pageDTO.setPageNum(request.getParameter("pageNum"));
-			}
+		if (request.getParameter("pageNum") == null) { // 없을때
+			pageDTO.setPageNum("1");
+		} else { // 있을때
+			pageDTO.setPageNum(request.getParameter("pageNum"));
+		}
 
-			// 리스트 받아오기
-			List<NoticeDTO> noticeList = centerService.getNoticeList(pageDTO);
+		// 리스트 받아오기
+		List<NoticeDTO> noticeList = centerService.getNoticeList(pageDTO);
 
-			// 카운트
-			pageDTO.setCount(centerService.getNoticeCount());
+		// 카운트
+		pageDTO.setCount(centerService.getNoticeCount());
 
-			// 데이터 담아서 list.jsp에 리스트 전달
-			model.addAttribute("noticeList", noticeList);
-			// 페이지dto에 담아서 전달
-			model.addAttribute("pageDTO", pageDTO);
+		// 데이터 담아서 list.jsp에 리스트 전달
+		model.addAttribute("noticeList", noticeList);
+		// 페이지dto에 담아서 전달
+		model.addAttribute("pageDTO", pageDTO);
 
 		// /WEB-INF/views/foot/notice_list.jsp
 		return "foot/notice_list";
@@ -90,7 +90,7 @@ public class CenterController {
 		// /WEB-INF/views/foot/notice_list.jsp
 		return "redirect:/center/notice_list";
 	}
-	
+
 	@RequestMapping(value = "/center/notice_update", method = RequestMethod.GET)
 	public String notice_update(HttpServletRequest request, Model model) {
 		PageDTO pageDTO = new PageDTO();
@@ -116,7 +116,7 @@ public class CenterController {
 	public String notice_update_pro(HttpServletRequest request, NoticeDTO noticeDTO) {
 		noticeDTO.setNotice_idx(Integer.parseInt(request.getParameter("notice_idx")));
 		centerService.updateNotice(noticeDTO);
-		
+
 		return "redirect:/center/notice_list";
 	}
 
@@ -126,10 +126,9 @@ public class CenterController {
 	public String notice_delete_pro(HttpServletRequest request) {
 		NoticeDTO noticeDTO = new NoticeDTO();
 		noticeDTO.setNotice_idx(Integer.parseInt(request.getParameter("notice_idx")));
-		
+
 		centerService.deleteNotice(noticeDTO);
-		
-		
+
 		return "redirect:/center/notice_list";
 	}
 
@@ -137,48 +136,48 @@ public class CenterController {
 
 	// 자주묻는질문(faq) 매핑
 	@RequestMapping(value = "/center/faq_list", method = RequestMethod.GET)
-	public String faq_list(HttpServletRequest request,Model model) {
+	public String faq_list(HttpServletRequest request, Model model) {
 		PageDTO pageDTO = new PageDTO();
 		pageDTO.setPageSize(10); // 페이지 글 갯수
-		
-		if(request.getParameter("pageNum")==null) {
+
+		if (request.getParameter("pageNum") == null) {
 			pageDTO.setPageNum("1");
-		}else {
+		} else {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
-		
+
 		// 리스트
 		List<FaqDTO> faqList = centerService.getFaqList(pageDTO);
-		
+
 		// 카운트
 		pageDTO.setCount(centerService.getFaqCount());
-		
+
 		// 모델에 담아서 list에 전달
 		model.addAttribute("faqList", faqList);
 		// 페이지 DTO에 담아서 전달
 		model.addAttribute("pageDTO", pageDTO);
-		
+
 		return "foot/faq_list";
 	}
 
 	@RequestMapping(value = "/center/faq_detail", method = RequestMethod.GET)
 	public String faq_detail(HttpServletRequest request, Model model) {
 		PageDTO pageDTO = new PageDTO();
-		
-		if(request.getParameter("pageNum")==null){
+
+		if (request.getParameter("pageNum") == null) {
 			pageDTO.setPageNum("1");
-		}else {
+		} else {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
-		
+
 		FaqDTO faqDTO = new FaqDTO();
 		faqDTO.setFaq_idx(Integer.parseInt(request.getParameter("faq_idx")));
-		
+
 		faqDTO = centerService.getFaqDetail(faqDTO);
-		
+
 		model.addAttribute("pageDTO", pageDTO);
 		model.addAttribute("faqDTO", faqDTO);
-		
+
 		return "foot/faq_detail";
 	}
 
@@ -190,7 +189,7 @@ public class CenterController {
 
 	@RequestMapping(value = "/center/faq_write_pro", method = RequestMethod.POST)
 	public String faq_write_pro(FaqDTO faqDTO) {
-		
+
 		centerService.insertFaq(faqDTO);
 
 		return "redirect:/center/faq_list";
@@ -199,31 +198,31 @@ public class CenterController {
 	@RequestMapping(value = "/center/faq_update", method = RequestMethod.GET)
 	public String faq_update(HttpServletRequest request, Model model) {
 		PageDTO pageDTO = new PageDTO();
-		
-		if(request.getParameter("pageNum")==null){
+
+		if (request.getParameter("pageNum") == null) {
 			pageDTO.setPageNum("1");
-		}else {
+		} else {
 			pageDTO.setPageNum(request.getParameter("pageNum"));
 		}
-		
+
 		FaqDTO faqDTO = new FaqDTO();
 		faqDTO.setFaq_idx(Integer.parseInt(request.getParameter("faq_idx")));
-		
+
 		faqDTO = centerService.getFaqDetail(faqDTO);
-		
+
 		model.addAttribute("pageDTO", pageDTO);
 		model.addAttribute("faqDTO", faqDTO);
-		
+
 		// /WEB-INF/views/foot/faq_update.jsp
 		return "foot/faq_update";
 	}
 
 	@RequestMapping(value = "/center/faq_update_pro", method = RequestMethod.POST)
-	public String faq_update_pro(HttpServletRequest request,FaqDTO faqDTO) {
+	public String faq_update_pro(HttpServletRequest request, FaqDTO faqDTO) {
 		faqDTO.setFaq_idx(Integer.parseInt(request.getParameter("faq_idx")));
-		
+
 		centerService.faq_update(faqDTO);
-		
+
 		// /WEB-INF/views/foot/faq_list.jsp
 		return "redirect:/center/faq_list";
 	}
@@ -234,9 +233,9 @@ public class CenterController {
 	public String faq_delete_pro(HttpServletRequest request) {
 		FaqDTO faqDTO = new FaqDTO();
 		faqDTO.setFaq_idx(Integer.parseInt(request.getParameter("faq_idx")));
-		
+
 		centerService.deleteFaq(faqDTO);
-		
+
 		// /WEB-INF/views/foot/faq_list.jsp
 		return "redirect:/center/faq_list";
 	}
@@ -302,14 +301,14 @@ public class CenterController {
 		System.out.println(qnaDTO.toString());
 		model.addAttribute("pageDTO", pageDTO);
 		model.addAttribute("qnaDTO", qnaDTO);
-		
+
 		// /WEB-INF/views/foot/qna_update.jsp
 		return "foot/qna_detail";
 	}
 
 	@RequestMapping(value = "/center/qna_update", method = RequestMethod.GET)
 	public String qna_update() {
-		
+
 		// /WEB-INF/views/foot/qna_update.jsp
 		return "foot/qna_update";
 	}
@@ -325,7 +324,7 @@ public class CenterController {
 	public String qna_delete(HttpServletRequest request) {
 		QnaDTO qnaDTO = new QnaDTO();
 		qnaDTO.setQna_idx(Integer.parseInt(request.getParameter("qna_idx")));
-		
+
 		centerService.deleteQna(qnaDTO);
 		// /WEB-INF/views/foot/qna_delete.jsp
 		return "foot/qna_delete";
@@ -337,24 +336,21 @@ public class CenterController {
 		// /WEB-INF/views/foot/qna_list.jsp
 		return "redirect:/center/qna_list";
 	}
-	
 
 	@RequestMapping(value = "/center/qna_reply", method = RequestMethod.POST)
-	public String qna_reply(Model model,QnaDTO qnaDTO) {
-		
-		model.addAttribute("qnaDTO",qnaDTO); // detail.jsp 에서 qnaDTO를 받아서 model 객체에 저장한 값을 넣어줌
-		System.out.println(qnaDTO.toString());	
+	public String qna_reply(Model model, QnaDTO qnaDTO) {
+
+		model.addAttribute("qnaDTO", qnaDTO); // detail.jsp 에서 qnaDTO를 받아서 model 객체에 저장한 값을 넣어줌
+		System.out.println(qnaDTO.toString());
 		return "foot/qna_reply";
 	}
-	
+
 	@RequestMapping(value = "/center/qna_reply_pro", method = RequestMethod.POST)
 	public String qna_reply_pro(QnaDTO qnaDTO) {
-	
-		
+
 		centerService.insertReplyAricle(qnaDTO);
-		
+
 		return "redirect:/center/qna_list";
 	}
-	
 
 }

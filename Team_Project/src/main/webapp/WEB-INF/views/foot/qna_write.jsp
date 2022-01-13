@@ -124,7 +124,7 @@ function insertCheck() {
 		</nav>
 
 		<div class="breadcrumbs">
-			<div class="container" >
+			<div class="container">
 				<div class="row">
 					<div class="col">
 						<p class="bread">
@@ -137,78 +137,86 @@ function insertCheck() {
 			</div>
 		</div>
 
-		<div class="row" >
-			<div class="col-lg-8" style= "display: inline-block; margin: 0 auto;">
-				<form action="${pageContext.request.contextPath}/center/qna_write_pro" method="post" class="colorlib-form" id="qna_write">
+		<div class="row">
+			<div class="col-lg-8" style="display: inline-block; margin: 0 auto;">
+				<form
+					action="${pageContext.request.contextPath}/center/qna_write_pro"
+					method="post" class="colorlib-form" id="qna_write">
 					<h2>문의를 남겨주세요!</h2>
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">
 								<label for="type">문의유형</label>
-			                     <div class="form-field">
-			                     	<i class="icon icon-arrow-down3"></i>
-								<!-- 문의 유형 태그 -->
-								 <select name="qna_type" required="required" id=qna_type>
+								<div class="form-field">
+									<i class="icon icon-arrow-down3"></i>
+									<!-- 문의 유형 태그 -->
+									<select name="qna_type" required="required" id=qna_type>
 										<option value="">카테고리 선택</option>
 										<option value="1">주문내역/배송현황</option>
 										<option value="2">주문상품 취소하기</option>
 										<option value="3">반품/교환/AS 신청하기</option>
 										<option value="4">아이디/비밀번호찾기</option>
 										<option value="5">포인트 사용방법</option>
-								</select>
+									</select>
 								</div>
 							</div>
 						</div>
-						
+
 
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="name">작성자</label> <input type="text"
-									name="qna_name" id="name" class="form-control" placeholder="Enter Your user-name" required="required">
+								<label for="name">작성자</label> <input type="text" name="qna_name"
+									id="name" class="form-control"
+									placeholder="Enter Your user-name" required="required">
 							</div>
 						</div>
-						
+
 						<div class="col-md-7">
 							<div class="form-group">
 								<label for="subject">제목</label> <input type="text"
-									name="qna_subject" id="subject" class="form-control" required="required">
+									name="qna_subject" id="subject" class="form-control"
+									required="required">
 							</div>
 						</div>
-						
+
 						<div class="col-sm-12">
-										<div class="form-group">
-											<label for="content">문의내용</label>
-											<textarea name="qna_content" id="content" cols="50" rows="10" class="form-control-9" placeholder="문의 내용을 적어주세요" required="required"></textarea>
-											
-										</div>
-									</div>
-				
-						
-<!-- 						<div class="col-md-12"> -->
-<!-- 							<div  class="form-group"> -->
-<!-- 								<div class="radio"> -->
-<!-- 									<label><input type="radio" 	name="radio" value="normal"> 일반글</label> -->
-<!-- 									<label><input type="radio" name="radio" value="secret"> 비밀글 </label>  -->
-<!-- 								</div> -->
-<!-- 							</div> -->
-<!-- 						</div> -->
+							<div class="form-group">
+								<label for="content">문의내용</label>
+								<textarea name="qna_content" id="content" cols="50" rows="10"
+									class="form-control-9" placeholder="문의 내용을 적어주세요"
+									required="required"></textarea>
+
+							</div>
+						</div>
+
+
+						<!-- 						<div class="col-md-12"> -->
+						<!-- 							<div  class="form-group"> -->
+						<!-- 								<div class="radio"> -->
+						<!-- 									<label><input type="radio" 	name="radio" value="normal"> 일반글</label> -->
+						<!-- 									<label><input type="radio" name="radio" value="secret"> 비밀글 </label>  -->
+						<!-- 								</div> -->
+						<!-- 							</div> -->
+						<!-- 						</div> -->
 					</div>
 					<div class="col-sm-12">
-										<div class="form-group" style="text-align: center;">
-											<input type="submit" value="등록" class="btn btn-primary" onclick="insertCheck() ">
-											<input type="button" value="목록" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/center/qna_list'">
-										</div>
-									</div>
+						<div class="form-group" style="text-align: center;">
+							<input type="submit" value="등록" class="btn btn-primary"
+								onclick="insertCheck() "> <input type="button"
+								value="목록" class="btn btn-primary"
+								onclick="location.href='${pageContext.request.contextPath}/center/qna_list'">
+						</div>
+					</div>
 				</form>
 			</div>
 
-	</div>
+		</div>
 
-	<footer id="colorlib-footer" role="contentinfo">
-		<!-- 푸터들어가는곳 -->
-		<jsp:include page="../inc/bottom.jsp"></jsp:include>
-		<!-- 푸터들어가는곳 -->
-	</footer>
+		<footer id="colorlib-footer" role="contentinfo">
+			<!-- 푸터들어가는곳 -->
+			<jsp:include page="../inc/bottom.jsp"></jsp:include>
+			<!-- 푸터들어가는곳 -->
+		</footer>
 	</div>
 
 	<div class="gototop js-top">

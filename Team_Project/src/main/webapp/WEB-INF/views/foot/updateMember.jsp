@@ -120,7 +120,8 @@
 
 
 		<!-- form태그 시작 -->
-		<form action="${pageContext.request.contextPath}/foot/updateMemberPro" method="post" class="colorlib-form"
+		<form action="${pageContext.request.contextPath}/foot/updateMemberPro"
+			method="post" class="colorlib-form"
 			style="width: 850px; height: 1050px; margin-left: 380px; margin-top: 100px;">
 			<div class="container">
 
@@ -141,95 +142,115 @@
 
 				<div class="row">
 					<div class="col-lg-8">
-						
-							
-							<h2>마이페이지 수정</h2>
-							<div class="row">
-								<div class="col-md-12">
-									<div class="form-group"></div>
-								</div>
-
-								<div class="col-md-7">
-									<div class="form-group">
-										<label for="email" >이메일</label> <br> 
-										<input type="text" name="m_email" class="id" value="${memberDTO.m_email }" readonly>
-									</div>
-								</div>
 
 
-								<div class="col-md-7">
-									<div class="form-group">
-										<label for="name" >이름</label><br> 
-										<input type="text" name="m_name" value="${memberDTO.m_name }" readonly>
-									</div>
-								</div>
+						<h2>마이페이지 수정</h2>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group"></div>
+							</div>
 
-								<div class="col-md-7">
-									<div class="form-group">
-										<label for="password">비밀번호</label> <input type="password"
-											id="passwoard"name="m_pass" class="form-control"
-											placeholder="비밀번호를 입력해주세요" required="required">
-									</div>
-								</div>
-
-					
-
-								<div class="col-md-7">
-									<div class="form-group">
-										<label for="tel">전화번호</label> 
-										<input type="text" id="tel" name="m_tel"placeholder="전화번호를 입력해주세요" class="form-control" required="required" value="${memberDTO.m_tel}"/>
-									</div>
-								</div>
-
-								<div class="col-md-12">
-									<div class="form-group">
-										<label><h4>주소</h4></label>
-										<table >
-			                    		<tr><td width="80%"><input type="text" name= "m_zip" id="sample4_postcode" placeholder="우편번호" readonly class="form-control" required="required" value="${memberDTO.m_zip}" ></td>
-			                    		<td>&nbsp&nbsp</td>
-			                    		<td><input type="button" onclick="sample4_execDaumPostcode()" value="우편번호 찾기" class ="btn btn-default btn-lg"></td></tr>
-											<tr height="10px"></tr>
-											<tr><td colspan="3"><input type="text" class="form-control" name="m_address" id="sample4_roadAddress" placeholder="도로명주소" readonly value="${memberDTO.m_address}"></td></tr>
-											<tr height="10px"></tr>
-											<tr><td colspan="3"><input type="text" class="form-control" name="m_detail_address" id="sample4_roadAddress" placeholder="상세주소" value="${memberDTO.m_detail_address}" ></td></tr>
-											<tr height="1px"><td><input type="hidden" id="sample4_extraAddress" placeholder="참고항목"></td><td>
-												<span id="guide" style="color:#999;display:none"></span>
-											</td></tr>
-			                    		</table>
-										</div>
-  										
-											
-
-
-									<!-- 버튼 -->
-									<div class="row" style="margin-left: 5px; margin-top: 30px;">
-										<div class="col-md-12 text-center">
-<!-- 										<input type="button" class="btn btn-primary" value="취소" onclick="history.back()"> -->
-											<input type="submit" class="btn btn-primary" value="수정하기">
-											
-									</div>
-									</div>
-									<!-- 버튼 -->
-
+							<div class="col-md-7">
+								<div class="form-group">
+									<label for="email">이메일</label> <br> <input type="text"
+										name="m_email" class="id" value="${memberDTO.m_email }"
+										readonly>
 								</div>
 							</div>
-						</form>
-					</div>
-				</div>
-			</div>
-	
+
+
+							<div class="col-md-7">
+								<div class="form-group">
+									<label for="name">이름</label><br> <input type="text"
+										name="m_name" value="${memberDTO.m_name }" readonly>
+								</div>
+							</div>
+
+							<div class="col-md-7">
+								<div class="form-group">
+									<label for="password">비밀번호</label> <input type="password"
+										id="passwoard" name="m_pass" class="form-control"
+										placeholder="비밀번호를 입력해주세요" required="required">
+								</div>
+							</div>
 
 
 
-		<!-- form태그 끝 -->
+							<div class="col-md-7">
+								<div class="form-group">
+									<label for="tel">전화번호</label> <input type="text" id="tel"
+										name="m_tel" placeholder="전화번호를 입력해주세요" class="form-control"
+										required="required" value="${memberDTO.m_tel}" />
+								</div>
+							</div>
+
+							<div class="col-md-12">
+								<div class="form-group">
+									<label><h4>주소</h4></label>
+									<table>
+										<tr>
+											<td width="80%"><input type="text" name="m_zip"
+												id="sample4_postcode" placeholder="우편번호" readonly
+												class="form-control" required="required"
+												value="${memberDTO.m_zip}"></td>
+											<td>&nbsp&nbsp</td>
+											<td><input type="button"
+												onclick="sample4_execDaumPostcode()" value="우편번호 찾기"
+												class="btn btn-default btn-lg"></td>
+										</tr>
+										<tr height="10px"></tr>
+										<tr>
+											<td colspan="3"><input type="text" class="form-control"
+												name="m_address" id="sample4_roadAddress"
+												placeholder="도로명주소" readonly value="${memberDTO.m_address}"></td>
+										</tr>
+										<tr height="10px"></tr>
+										<tr>
+											<td colspan="3"><input type="text" class="form-control"
+												name="m_detail_address" id="sample4_roadAddress"
+												placeholder="상세주소" value="${memberDTO.m_detail_address}"></td>
+										</tr>
+										<tr height="1px">
+											<td><input type="hidden" id="sample4_extraAddress"
+												placeholder="참고항목"></td>
+											<td><span id="guide" style="color: #999; display: none"></span>
+											</td>
+										</tr>
+									</table>
+								</div>
 
 
 
-		<footer id="colorlib-footer" role="contentinfo">
-			<!-- 푸터들어가는곳 -->
-			<jsp:include page="../inc/bottom.jsp"></jsp:include>
-			<!-- 푸터들어가는곳 -->
-		</footer>
+
+								<!-- 버튼 -->
+								<div class="row" style="margin-left: 5px; margin-top: 30px;">
+									<div class="col-md-12 text-center">
+										<!-- 										<input type="button" class="btn btn-primary" value="취소" onclick="history.back()"> -->
+										<input type="submit" class="btn btn-primary" value="수정하기">
+
+									</div>
+								</div>
+								<!-- 버튼 -->
+
+							</div>
+						</div>
+		</form>
+	</div>
+	</div>
+	</div>
+
+
+
+
+	<!-- form태그 끝 -->
+
+
+
+	<footer id="colorlib-footer" role="contentinfo">
+		<!-- 푸터들어가는곳 -->
+		<jsp:include page="../inc/bottom.jsp"></jsp:include>
+		<!-- 푸터들어가는곳 -->
+	</footer>
 	</div>
 
 	<div class="gototop js-top">
@@ -268,69 +289,73 @@
 	<script src="${pageContext.request.contextPath}/js/main.js"></script>
 
 
-<!--주소 찾기  -->
-<script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<script>
-    //본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
-    function sample4_execDaumPostcode() {
-        new daum.Postcode({
-            oncomplete: function(data) {
-                // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+	<!--주소 찾기  -->
+	<script
+		src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+	<script>
+		//본 예제에서는 도로명 주소 표기 방식에 대한 법령에 따라, 내려오는 데이터를 조합하여 올바른 주소를 구성하는 방법을 설명합니다.
+		function sample4_execDaumPostcode() {
+			new daum.Postcode(
+					{
+						oncomplete : function(data) {
+							// 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
 
-                // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
-                // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
-                var roadAddr = data.roadAddress; // 도로명 주소 변수
-                var extraRoadAddr = ''; // 참고 항목 변수
+							// 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+							// 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+							var roadAddr = data.roadAddress; // 도로명 주소 변수
+							var extraRoadAddr = ''; // 참고 항목 변수
 
-                // 법정동명이 있을 경우 추가한다. (법정리는 제외)
-                // 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
-                if(data.bname !== '' && /[동|로|가]$/g.test(data.bname)){
-                    extraRoadAddr += data.bname;
-                }
-                // 건물명이 있고, 공동주택일 경우 추가한다.
-                if(data.buildingName !== '' && data.apartment === 'Y'){
-                   extraRoadAddr += (extraRoadAddr !== '' ? ', ' + data.buildingName : data.buildingName);
-                }
-                // 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
-                if(extraRoadAddr !== ''){
-                    extraRoadAddr = ' (' + extraRoadAddr + ')';
-                }
+							// 법정동명이 있을 경우 추가한다. (법정리는 제외)
+							// 법정동의 경우 마지막 문자가 "동/로/가"로 끝난다.
+							if (data.bname !== ''
+									&& /[동|로|가]$/g.test(data.bname)) {
+								extraRoadAddr += data.bname;
+							}
+							// 건물명이 있고, 공동주택일 경우 추가한다.
+							if (data.buildingName !== ''
+									&& data.apartment === 'Y') {
+								extraRoadAddr += (extraRoadAddr !== '' ? ', '
+										+ data.buildingName : data.buildingName);
+							}
+							// 표시할 참고항목이 있을 경우, 괄호까지 추가한 최종 문자열을 만든다.
+							if (extraRoadAddr !== '') {
+								extraRoadAddr = ' (' + extraRoadAddr + ')';
+							}
 
-                // 우편번호와 주소 정보를 해당 필드에 넣는다.
-                document.getElementById('sample4_postcode').value = data.zonecode;
-                document.getElementById("sample4_roadAddress").value = roadAddr;
-                document.getElementById("sample4_roadAddress").value = data.jibunAddress;
-                
-                // 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
-                if(roadAddr !== ''){
-                    document.getElementById("sample4_extraAddress").value = extraRoadAddr;
-                } else {
-                    document.getElementById("sample4_extraAddress").value = '';
-                }
+							// 우편번호와 주소 정보를 해당 필드에 넣는다.
+							document.getElementById('sample4_postcode').value = data.zonecode;
+							document.getElementById("sample4_roadAddress").value = roadAddr;
+							document.getElementById("sample4_roadAddress").value = data.jibunAddress;
 
-                
-                var guideTextBox = document.getElementById("guide");
-                // 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
-                if(data.autoRoadAddress) {
-                    var expRoadAddr = data.autoRoadAddress + extraRoadAddr;
-                    guideTextBox.innerHTML = '(예상 도로명 주소 : ' + expRoadAddr + ')';
-                    guideTextBox.style.display = 'block';
+							// 참고항목 문자열이 있을 경우 해당 필드에 넣는다.
+							if (roadAddr !== '') {
+								document.getElementById("sample4_extraAddress").value = extraRoadAddr;
+							} else {
+								document.getElementById("sample4_extraAddress").value = '';
+							}
 
-                } else if(data.autoJibunAddress) {
-                    var expJibunAddr = data.autoJibunAddress;
-                    guideTextBox.innerHTML = '(예상 지번 주소 : ' + expJibunAddr + ')';
-                    guideTextBox.style.display = 'block';
-                } else {
-                    guideTextBox.innerHTML = '';
-                    guideTextBox.style.display = 'none';
-                }
-            }
-        }).open();
-    }
-    
-	
-	
-</script>
+							var guideTextBox = document.getElementById("guide");
+							// 사용자가 '선택 안함'을 클릭한 경우, 예상 주소라는 표시를 해준다.
+							if (data.autoRoadAddress) {
+								var expRoadAddr = data.autoRoadAddress
+										+ extraRoadAddr;
+								guideTextBox.innerHTML = '(예상 도로명 주소 : '
+										+ expRoadAddr + ')';
+								guideTextBox.style.display = 'block';
 
-	</body>
+							} else if (data.autoJibunAddress) {
+								var expJibunAddr = data.autoJibunAddress;
+								guideTextBox.innerHTML = '(예상 지번 주소 : '
+										+ expJibunAddr + ')';
+								guideTextBox.style.display = 'block';
+							} else {
+								guideTextBox.innerHTML = '';
+								guideTextBox.style.display = 'none';
+							}
+						}
+					}).open();
+		}
+	</script>
+
+</body>
 </html>

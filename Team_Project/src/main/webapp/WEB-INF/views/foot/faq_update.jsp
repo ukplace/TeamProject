@@ -90,7 +90,7 @@
 		</nav>
 
 		<div class="breadcrumbs">
-			<div class="container" >
+			<div class="container">
 				<div class="row">
 					<div class="col">
 						<p class="bread">
@@ -103,50 +103,56 @@
 			</div>
 		</div>
 
-		<div class="row" >
-			<div class="col-lg-8" style= "display: inline-block; margin: 0 auto;">
-				<form action="${pageContext.request.contextPath}/center/faq_update_pro?faq_idx=${faqDTO.faq_idx}" method="post" class="colorlib-form">
+		<div class="row">
+			<div class="col-lg-8" style="display: inline-block; margin: 0 auto;">
+				<form
+					action="${pageContext.request.contextPath}/center/faq_update_pro?faq_idx=${faqDTO.faq_idx}"
+					method="post" class="colorlib-form">
 					<h2>FAQ</h2>
-					
-						<div class="col-md-6">
-							<div class="form-group">
-								<label for="subject">제목</label> 
-								<input type="text" name="faq_subject" id="subject" class="form-control" value="${faqDTO.faq_subject }">
-							</div>
-						</div>
-						
-						<div class="col-md-7">
-							<div class="form-group">
-								<label for="subject">문의유형</label> 
-								<input type="text" name="faq_question" id="question" class="form-control" value="${faqDTO.faq_question }"> 
-							</div>
-						</div>
 
-						<div class="col-sm-12">
-										<div class="form-group">
-											<label for="content">답변</label>
-											<textarea name="faq_answer" id="answer" cols="50" rows="10" class="form-control-9" placeholder="내용을 적어주세요">${faqDTO.faq_answer }</textarea>
-											
-										</div>
-									</div>
-				
-						
+					<div class="col-md-6">
+						<div class="form-group">
+							<label for="subject">제목</label> <input type="text"
+								name="faq_subject" id="subject" class="form-control"
+								value="${faqDTO.faq_subject }">
+						</div>
+					</div>
+
+					<div class="col-md-7">
+						<div class="form-group">
+							<label for="subject">문의유형</label> <input type="text"
+								name="faq_question" id="question" class="form-control"
+								value="${faqDTO.faq_question }">
+						</div>
+					</div>
+
 					<div class="col-sm-12">
-										<div class="form-group" style="text-align: center;">
-											<input type="submit" value="등록" class="btn btn-primary">
-											<input type="button" value="목록" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/center/faq_list'">
-										</div>
-									</div>
+						<div class="form-group">
+							<label for="content">답변</label>
+							<textarea name="faq_answer" id="answer" cols="50" rows="10"
+								class="form-control-9" placeholder="내용을 적어주세요">${faqDTO.faq_answer }</textarea>
+
+						</div>
+					</div>
+
+
+					<div class="col-sm-12">
+						<div class="form-group" style="text-align: center;">
+							<input type="submit" value="등록" class="btn btn-primary">
+							<input type="button" value="목록" class="btn btn-primary"
+								onclick="location.href='${pageContext.request.contextPath}/center/faq_list'">
+						</div>
+					</div>
 				</form>
 			</div>
 
-	</div>
+		</div>
 
-	<footer id="colorlib-footer" role="contentinfo">
-		<!-- 푸터들어가는곳 -->
-		<jsp:include page="../inc/bottom.jsp"></jsp:include>
-		<!-- 푸터들어가는곳 -->
-	</footer>
+		<footer id="colorlib-footer" role="contentinfo">
+			<!-- 푸터들어가는곳 -->
+			<jsp:include page="../inc/bottom.jsp"></jsp:include>
+			<!-- 푸터들어가는곳 -->
+		</footer>
 	</div>
 
 	<div class="gototop js-top">

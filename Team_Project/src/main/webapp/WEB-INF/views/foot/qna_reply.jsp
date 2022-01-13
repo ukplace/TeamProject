@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -76,13 +76,18 @@
 }
 </style>
 <script type="text/javascript">
-function removeCheck() {
-	if(confirm("정말 삭제하시겠습니까?")==true){
-		location.href='${pageContext.request.contextPath}/center/qna_delete?qna_idx='+${qnaDTO.qna_idx};
-	}else{
-		return false;
+	function removeCheck() {
+		if (confirm("정말 삭제하시겠습니까?") == true) {
+			location.href = '${pageContext.request.contextPath}/center/qna_delete?qna_idx='
+					+ $
+			{
+				qnaDTO.qna_idx
+			}
+			;
+		} else {
+			return false;
+		}
 	}
-}
 </script>
 </head>
 <body>
@@ -97,98 +102,106 @@ function removeCheck() {
 		</nav>
 
 		<div class="breadcrumbs">
-			<div class="container" >
+			<div class="container">
 				<div class="row">
 					<div class="col">
 						<p class="bread">
 							<span><a
-								href="${pageContext.request.contextPath}/foot/index/">Home</a></span>
-							<span>QNA REPLY</span>
+								href="${pageContext.request.contextPath}/foot/index/">Home</a></span> <span>QNA
+								REPLY</span>
 						</p>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<div class="row" >
-			<div class="col-lg-8" style= "display: inline-block; margin: 0 auto;">
-			<form action="${pageContext.request.contextPath}/center/qna_reply_pro" method="post" class="contact-form">
-<%-- 			<input type="text" name="page" value="${pageDTO.pageDTO}" hidden="hidden" /> --%>
-			<input type="hidden" name="qna_idx" value="${qnaDTO.qna_idx}" /> 
-			<input type="hidden" name="qna_re_ref" value="${qnaDTO.qna_re_ref}" />
-			<input type="hidden" name="qna_re_lev" value="${qnaDTO.qna_re_lev}" />
-			<input type="hidden" name="qna_re_seq" value="${qnaDTO.qna_re_seq}" />
-			<input type="hidden" name="qna_type" value="${qnaDTO.qna_type}" />
-				
+		<div class="row">
+			<div class="col-lg-8" style="display: inline-block; margin: 0 auto;">
+				<form
+					action="${pageContext.request.contextPath}/center/qna_reply_pro"
+					method="post" class="contact-form">
+					<%-- 			<input type="text" name="page" value="${pageDTO.pageDTO}" hidden="hidden" /> --%>
+					<input type="hidden" name="qna_idx" value="${qnaDTO.qna_idx}" /> <input
+						type="hidden" name="qna_re_ref" value="${qnaDTO.qna_re_ref}" /> <input
+						type="hidden" name="qna_re_lev" value="${qnaDTO.qna_re_lev}" /> <input
+						type="hidden" name="qna_re_seq" value="${qnaDTO.qna_re_seq}" /> <input
+						type="hidden" name="qna_type" value="${qnaDTO.qna_type}" />
+
 					<h2>답변드립니다!</h2>
 					<br>
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">
-								<label for="type">제목</label>
-								<input type="text" name="qna_subject" id="qna_subject" class="form-control" value="${qnaDTO.qna_subject}" required="required" >
+								<label for="type">제목</label> <input type="text"
+									name="qna_subject" id="qna_subject" class="form-control"
+									value="${qnaDTO.qna_subject}" required="required">
 							</div>
 						</div>
-						
-						<!-- 회원번호 자동으로 받아오게 설정 -->
-					
-<!-- 						<input type="text" name="m_idx" value="${memberDTO.m_idx}" hidden="hidden"> -->
 
-<!-- 						<div class="col-md-6"> -->
-<!-- 							<div class="form-group"> -->
-<!-- 								<label for="name">작성자</label><br> -->
-<%-- 								 ${qnaDTO.qna_name } --%>
-<!-- 							</div> -->
-<!-- 						</div> -->
-						
-<!-- 						<div class="col-md-7"> -->
-<!-- 							<div class="form-group"> -->
-<!-- 								<label for="subject">제목</label><br> -->
-<%-- 								 ${qnaDTO.qna_subject} --%>
-<!-- 							</div> -->
-<!-- 						</div> -->
+						<!-- 회원번호 자동으로 받아오게 설정 -->
+
+						<!-- 						<input type="text" name="m_idx" value="${memberDTO.m_idx}" hidden="hidden"> -->
+
+						<!-- 						<div class="col-md-6"> -->
+						<!-- 							<div class="form-group"> -->
+						<!-- 								<label for="name">작성자</label><br> -->
+						<%-- 								 ${qnaDTO.qna_name } --%>
+						<!-- 							</div> -->
+						<!-- 						</div> -->
+
+						<!-- 						<div class="col-md-7"> -->
+						<!-- 							<div class="form-group"> -->
+						<!-- 								<label for="subject">제목</label><br> -->
+						<%-- 								 ${qnaDTO.qna_subject} --%>
+						<!-- 							</div> -->
+						<!-- 						</div> -->
 						<br>
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="name">작성자</label> <input type="text"
-									name="qna_name" id="name" class="form-control" placeholder="Enter Your user-name" required="required" readonly value="관리자">
+								<label for="name">작성자</label> <input type="text" name="qna_name"
+									id="name" class="form-control"
+									placeholder="Enter Your user-name" required="required" readonly
+									value="관리자">
 							</div>
 						</div>
-						
+
 						<div class="col-sm-12">
-										<div class="form-group">
-											<label for="content">답변내용</label><br>
-											<textarea name="qna_content" id="content" cols="50" rows="10" class="form-control-9" required="required"></textarea>
-										</div>
-									</div>
-				
-						
-<!-- 						<div class="col-md-12"> -->
-<!-- 							<div  class="form-group"> -->
-<!-- 								<div class="radio"> -->
-<!-- 									<label><input type="radio" 	name="radio" value="normal"> 일반글</label> -->
-<!-- 									<label><input type="radio" name="radio" value="secret"> 비밀글 </label>  -->
-<!-- 								</div> -->
-<!-- 							</div> -->
-<!-- 						</div> -->
+							<div class="form-group">
+								<label for="content">답변내용</label><br>
+								<textarea name="qna_content" id="content" cols="50" rows="10"
+									class="form-control-9" required="required"></textarea>
+							</div>
+						</div>
+
+
+						<!-- 						<div class="col-md-12"> -->
+						<!-- 							<div  class="form-group"> -->
+						<!-- 								<div class="radio"> -->
+						<!-- 									<label><input type="radio" 	name="radio" value="normal"> 일반글</label> -->
+						<!-- 									<label><input type="radio" name="radio" value="secret"> 비밀글 </label>  -->
+						<!-- 								</div> -->
+						<!-- 							</div> -->
+						<!-- 						</div> -->
 					</div>
 					<div class="col-sm-12">
-										<div class="form-group" style="text-align: center;">
-											<input type="submit" value="등록" class="btn btn-primary" id=btn>
-											<input type="button" value="목록" class="btn btn-primary" onclick="location.href='${pageContext.request.contextPath}/center/qna_list'">
-											<input type="button" value="삭제" class="btn btn-primary" onclick="removeCheck()">
-										</div>
-									</div>
+						<div class="form-group" style="text-align: center;">
+							<input type="submit" value="등록" class="btn btn-primary" id=btn>
+							<input type="button" value="목록" class="btn btn-primary"
+								onclick="location.href='${pageContext.request.contextPath}/center/qna_list'">
+							<input type="button" value="삭제" class="btn btn-primary"
+								onclick="removeCheck()">
+						</div>
+					</div>
 				</form>
 			</div>
 
-	</div>
+		</div>
 
-	<footer id="colorlib-footer" role="contentinfo">
-		<!-- 푸터들어가는곳 -->
-		<jsp:include page="../inc/bottom.jsp"></jsp:include>
-		<!-- 푸터들어가는곳 -->
-	</footer>
+		<footer id="colorlib-footer" role="contentinfo">
+			<!-- 푸터들어가는곳 -->
+			<jsp:include page="../inc/bottom.jsp"></jsp:include>
+			<!-- 푸터들어가는곳 -->
+		</footer>
 	</div>
 
 	<div class="gototop js-top">

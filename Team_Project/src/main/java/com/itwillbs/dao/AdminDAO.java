@@ -66,5 +66,7 @@ public interface AdminDAO {
 
 	public List<Integer> getWeekOrderList();
 
+	public int getOrder_memberCount();
+
 
 }

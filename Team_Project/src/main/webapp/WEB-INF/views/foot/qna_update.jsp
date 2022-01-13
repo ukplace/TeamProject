@@ -67,7 +67,7 @@
 		</nav>
 
 		<div class="breadcrumbs">
-			<div class="container" >
+			<div class="container">
 				<div class="row">
 					<div class="col">
 						<p class="bread">
@@ -80,83 +80,85 @@
 			</div>
 		</div>
 
-		<div class="row" >
-			<div class="col-lg-8" style="width: 1200px; display: inline-block; margin: 0 auto;">
-				<form action="${pageContext.request.contextPath}/foot/qnaWritePro" method="post" class="colorlib-form">
+		<div class="row">
+			<div class="col-lg-8"
+				style="width: 1200px; display: inline-block; margin: 0 auto;">
+				<form action="${pageContext.request.contextPath}/foot/qnaWritePro"
+					method="post" class="colorlib-form">
 					<h2>문의를 수정하세요!</h2>
 					<div class="row">
 						<div class="col-md-12">
 							<div class="form-group">
 								<label for="type">문의유형</label>
-			                     <div class="form-field">
-			                     	<i class="icon icon-arrow-down3"></i>
-								<!-- 문의 유형 태그 -->
-								 <select >
+								<div class="form-field">
+									<i class="icon icon-arrow-down3"></i>
+									<!-- 문의 유형 태그 -->
+									<select>
 										<option value="#">카테고리 선택</option>
 										<option value="#">주문내역/배송현황</option>
 										<option value="#">주문상품 취소하기</option>
 										<option value="#">반품/교환/AS 신청하기</option>
 										<option value="#">아이디/비밀번호찾기</option>
 										<option value="#">포인트 사용방법</option>
-								</select>
+									</select>
 								</div>
 							</div>
 						</div>
-					
+
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="name">작성자</label> <input type="text"
-									id="name" class="form-control" placeholder="Enter Your user-name">
+								<label for="name">작성자</label> <input type="text" id="name"
+									class="form-control" placeholder="Enter Your user-name">
 							</div>
 						</div>
 
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="number">연락처</label> <input type="text"
-									id="number" class="form-control"
-									placeholder="Enter Your number">
+								<label for="number">연락처</label> <input type="text" id="number"
+									class="form-control" placeholder="Enter Your number">
 							</div>
 						</div>
 
 						<div class="col-md-6">
 							<div class="form-group">
-								<label for="email">이메일</label> <input type="text"
-									id="email" class="form-control" placeholder="Enter Your email">
+								<label for="email">이메일</label> <input type="text" id="email"
+									class="form-control" placeholder="Enter Your email">
 							</div>
 						</div>
 
 						<div class="col-md-7">
 							<div class="form-group">
-								<label for="subject">제목</label> <input type="text"
-									id="subject" class="form-control">
+								<label for="subject">제목</label> <input type="text" id="subject"
+									class="form-control">
 							</div>
 						</div>
 						<div class="w-100"></div>
 						<div class="col-sm-12">
-										<div class="form-group">
-											<label for="content">문의내용</label>
-											<textarea name="content" id="content" cols="30" rows="10" class="form-control" placeholder="문의 내용을 적어주세요"></textarea>
-										</div>
-									</div>
+							<div class="form-group">
+								<label for="content">문의내용</label>
+								<textarea name="content" id="content" cols="30" rows="10"
+									class="form-control" placeholder="문의 내용을 적어주세요"></textarea>
+							</div>
+						</div>
 
-						
-						
+
+
 						<div class="col-md-12">
 							<div class="form-group">
 								<div class="radio">
-									<label><input type="radio" name="secret"> 비밀글 </label> 
-									<label><input type="radio" 	name="normal"> 일반글</label>
+									<label><input type="radio" name="secret"> 비밀글 </label>
+									<label><input type="radio" name="normal"> 일반글</label>
 								</div>
 							</div>
 						</div>
 					</div>
 				</form>
-					<div class="col-sm-12">
-										<div class="form-group" style="text-align: center;">
-											<input type="submit" value="등록" class="btn btn-primary">
-											<input type="submit" value="취소" class="btn btn-primary">
-										</div>
-									</div>
+				<div class="col-sm-12">
+					<div class="form-group" style="text-align: center;">
+						<input type="submit" value="등록" class="btn btn-primary"> <input
+							type="submit" value="취소" class="btn btn-primary">
+					</div>
+				</div>
 			</div>
 
 		</div>

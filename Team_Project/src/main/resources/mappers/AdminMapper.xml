@@ -109,5 +109,10 @@
 		select ifnull (Sum(totalSum),0) totalSum from order_member WHERE DATE(o_date)=DATE(now())-6+#{p_num};
 	</select>
 	
+	<select id="getOrder_memberCount" resultType="java.lang.Integer">
+		select count(*) from order_member
+	</select>
+	
+	
 	
 </mapper>

@@ -50,6 +50,7 @@ public class AjaxController {
 	@Inject
 	private AdminService adminService;
 	
+	// join 에서 email체크 하는 ajax	
 	@RequestMapping(value = "/member/emailCheck", method = RequestMethod.GET)
 	public ResponseEntity<String> emailCheck(HttpServletRequest request) {
 		String result="";
@@ -69,23 +70,18 @@ public class AjaxController {
 	
 
 	
-
+	// foot/product_detail add cart 한 부분 
 	@ResponseBody
 	@RequestMapping(value = "/foot/addCart", method = RequestMethod.POST)
 	public int addCart(CartDTO cart, HttpSession session, HttpServletResponse response) throws Exception {
 	int result = 0;
 	
-	System.out.println("p_size 값 : " + cart.getP_size());
 	
 	if(cart.getP_size()=="") {
-		
 		return result;
 	}
-		
 		MemberDTO member = new MemberDTO();
 		member.setM_idx((Integer)session.getAttribute("m_idx"));
-		
-		System.out.println("p_size값 넘어오나? : " + cart.getP_size());
 			 
 	if(member !=null) {
 		cart.setM_idx(member.getM_idx());
@@ -100,17 +96,9 @@ public class AjaxController {
 	@RequestMapping(value = "/foot/reviewList", method = RequestMethod.GET)
 	public ResponseEntity<List<ReviewDTO>> review(HttpServletRequest request) {
 			System.out.println("Review 컨트롤러");
-//			
-//			PageDTO pageDTO =new PageDTO();
-//			pageDTO.setPageSize(5);
-//			pageDTO.setPageNum("1");
-//			List<ReviewDTO> reviewList=adminService.getReviewList(pageDTO);
+
 			int p_num = Integer.parseInt(request.getParameter("p_num"));
 			
-//			PageDTO pageDTO =new PageDTO();
-//			pageDTO.setPageSize(5);
-//			pageDTO.setPageNum("1");
-//			List<ReviewDTO> reviewList=adminService.getReviewList(pageDTO);
 			List<ReviewDTO> reviewList = adminService.getPnum(p_num);
 			
 	ResponseEntity<List<ReviewDTO>> entity=new ResponseEntity<List<ReviewDTO>>(reviewList,HttpStatus.OK);
@@ -144,14 +132,10 @@ public class AjaxController {
 			System.out.println("오류 발생 -" + e.getMessage());
 			entity = new ResponseEntity<String>(HttpStatus.BAD_REQUEST);
 		}
-		
-		
 		return entity;
-
-
 	}
 	
-	// Chart
+	// Chart admin
 	@RequestMapping(value ="/admin/chart", method = RequestMethod.GET )
 	public ResponseEntity<List<Integer>> chart(){
 		System.out.println("AjaxController.chart()");
@@ -159,15 +143,11 @@ public class AjaxController {
 		List<Integer> totalSum = adminService.getWeekOrderList();
 		System.out.println(totalSum.get(4));
 		ResponseEntity<List<Integer>> entity = new ResponseEntity<List<Integer>>(totalSum, HttpStatus.OK);
-		
-
-		
+				
 		return entity;
 	}
 	
 	
-
-	 // 주문상태 변경
 
 	
 	
