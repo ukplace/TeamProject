@@ -1,11 +1,13 @@
 package com.itwillbs.controller;
 
+import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -93,10 +95,12 @@ public class MemberController {
 		// /WEB-INF/views/board/writeForm.jsp
 		return "foot/login";
 	}
-
+	
 	@RequestMapping(value = "/foot/loginPro", method = RequestMethod.POST)
 	public String loginPro(MemberDTO memberDTO, HttpSession session) {
-
+		// 패스워드를 가져와서 해싱처리를 해준다
+		// 해싱처리 하는 이유 : 관리자도 비밀번호를 확인하지 못하게 하기위해서.
+		// 미리 설정한 UserSha256(sha256방식 헤싱처리) encrypt 메서드를 호출(파라미터로 입력한 패스워드 전달)
 		String encryPassword = UserSha256.encrypt(memberDTO.getM_pass());
 		memberDTO.setM_pass(encryPassword);
 
@@ -105,6 +109,10 @@ public class MemberController {
 		if (userCheck != null) {
 			System.out.println(memberDTO.getM_email());
 
+			// 화면에 나타내줘야할 m_eamil 값
+			// member 정보를 가져올 수 있는 m_idx값을 session에 담아준다.
+			
+			// admin 계정으로 로그인하면 관리자 페이지로 넘겨줌 .
 			if (userCheck.getM_email().equals("admin@shushu.com")) {
 				session.setAttribute("id", memberDTO.getM_email());
 				session.setAttribute("m_idx", userCheck.getM_idx());
@@ -137,13 +145,25 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/foot/joinPro", method = RequestMethod.POST)
-	public String join(HttpServletRequest request, MemberDTO memberDTO) {
+	public String join(HttpServletRequest request, MemberDTO memberDTO ,HttpServletResponse response) throws Exception {
 		System.out.println("/foot/joinPro");
 
 		String encryPassword = UserSha256.encrypt(memberDTO.getM_pass());
 		memberDTO.setM_pass(encryPassword);
 
 		memberService.insertMember(memberDTO);
+		
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		// 3. PrintWriter 객체의 println() 메서드를 호출하여 HTML 태그(자바스크립트) 문자열 생성
+
+		out.println("<script>");
+		out.println("alert('회원가입이 되었습니다.')");
+		out.println("location.href='./login'");
+		out.println("</script>");
+	
+		
+		
 		return "redirect:/foot/index";
 	}
 
@@ -156,7 +176,7 @@ public class MemberController {
 
 	// 회원 탈퇴 post
 	@RequestMapping(value = "/foot/withdrawalPro", method = RequestMethod.POST)
-	public String postWithdrawal(HttpSession session, MemberDTO memberDTO, RedirectAttributes rttr) throws Exception {
+	public String postWithdrawal(HttpSession session, MemberDTO memberDTO, RedirectAttributes rttr,HttpServletResponse response) throws Exception {
 		logger.info("post withdrawal");
 
 		MemberDTO oldPassDTO = new MemberDTO();
@@ -186,7 +206,17 @@ public class MemberController {
 		memberService.withdrawal(memberDTO);
 
 		session.invalidate();
+		
+		response.setContentType("text/html; charset=UTF-8");
+		PrintWriter out = response.getWriter();
+		// 3. PrintWriter 객체의 println() 메서드를 호출하여 HTML 태그(자바스크립트) 문자열 생성
 
+		out.println("<script>");
+		out.println("alert('회원탈퇴 되었습니다.')");
+		out.println("location.href='./index'");
+		out.println("</script>");
+	
+		
 		return "redirect:/foot/index";
 
 	}
