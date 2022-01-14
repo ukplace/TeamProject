@@ -153,21 +153,31 @@ public class MemberController {
 		
 		memberDTO.setM_pass(encryPassword);
 		
+		//이메일 중복 시 회원가입방지
+		String email = request.getParameter("m_email");
+		MemberDTO email2 = memberService.getMemberEmail(email);
+		if(email2 != null) {
+			
+			response.setContentType("text/html; charset=UTF-8");
+			// 2. response 객체의 getWriter()메서드를 호출하여 출력스트림 객체(PrintWriter) 가져오기
+			PrintWriter out = response.getWriter();
+			// 3. PrintWriter 객체의 println() 메서드를 호출하여 HTML 태그(자바스크립트) 문자열 생성
+
+			out.println("<script>");
+			out.println("alert('회원가입실패! 이메일중복을 확인해주세요')");
+			out.println("location.href='./join'");
+			out.println("</script>");
+			
+		}
 		// 입력받은 데이터들과, 해싱처리한 pass 를 가지고 멤버입력을 한다.
 		memberService.insertMember(memberDTO);
 		
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		// 3. PrintWriter 객체의 println() 메서드를 호출하여 HTML 태그(자바스크립트) 문자열 생성
-
-		out.println("<script>");
-		out.println("alert('회원가입이 되었습니다.')");
-		out.println("location.href='./login'");
-		out.println("</script>");
+		return "redirect:/foot/join_complete";
+	}
 	
-		
-		
-		return "redirect:/foot/index";
+	@RequestMapping(value = "/foot/join_complete", method = RequestMethod.GET)
+	public String join_complete() {
+		return "foot/join_complete";
 	}
 
 	// 회원탈퇴
