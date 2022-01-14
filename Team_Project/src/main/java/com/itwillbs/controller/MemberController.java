@@ -230,8 +230,14 @@ public class MemberController {
 		out.println("</script>");
 	
 		
-		return "redirect:/foot/index";
+		return "redirect:/foot/withdrawal_complete";
 
+	}
+	
+	@RequestMapping(value = "/foot/withdrawal_complete", method = RequestMethod.GET)
+	public String withdrawal_complete() {
+
+		return "foot/withdrawal_complete";
 	}
 
 	// 회원정보

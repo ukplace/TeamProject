@@ -97,14 +97,13 @@
 							<span><i class="icon-check"></i></span>
 						</p>
 
-						<h1 class="mb-4" style="font-size:50px;"><b style="color: #C97171;">회원가입</b>이 완료되었습니다
+						<h1 class="mb-4" style="font-size:40px;"><b style="color: #C97171;">회원탈퇴</b>가 완료되었습니다 <br>
+						<h2 class="mb-4" style="font-size:30px;">그 동안 SHUSHU를 이용해주셔서 감사합니다.</h2> 
 							</h1>
 						<p>
 						<br>
 							<a href="${pageContext.request.contextPath}/foot/index"
 								class="btn btn-primary btn-outline-primary">Home</a> 
-								<a href="${pageContext.request.contextPath}/foot/login" class="btn btn-primary btn-outline-primary">
-								<i class=""></i> login</a>
 								
 						</p>
 					</div>
