@@ -156,16 +156,6 @@ public class MemberController {
 		// 입력받은 데이터들과, 해싱처리한 pass 를 가지고 멤버입력을 한다.
 		memberService.insertMember(memberDTO);
 		
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		// 3. PrintWriter 객체의 println() 메서드를 호출하여 HTML 태그(자바스크립트) 문자열 생성
-
-		out.println("<script>");
-		out.println("alert('회원가입이 되었습니다.')");
-		out.println("location.href='./login'");
-		out.println("</script>");
-	
-		
 		
 		return "redirect:/foot/index";
 	}
@@ -203,22 +193,25 @@ public class MemberController {
 			rttr.addFlashAttribute("msg", false);
 			return "redirect:/foot/withdrawal";
 		}
-
-		productService.withdrawal(oldPassDTO);
-
-		memberService.withdrawal(memberDTO);
-
+		if(oldPass.equals(newPass)){
+			
+			response.setContentType("text/html; charset=UTF-8");
+			// 2. response 객체의 getWriter()메서드를 호출하여 출력스트림 객체(PrintWriter) 가져오기
+			PrintWriter out = response.getWriter();
+			// 3. PrintWriter 객체의 println() 메서드를 호출하여 HTML 태그(자바스크립트) 문자열 생성
+			
+			out.println("<script>");
+			out.println("alert('회원 탈퇴되었습니다. 다음에 또 이용해주세요');"); // 메세지 출력
+			out.println("location.href='./index';"); // 이전페이지로 이동
+			out.println("</script>");
+			
+			productService.withdrawal(oldPassDTO);
+			
+			memberService.withdrawal(memberDTO);
+		}
+		
 		session.invalidate();
 		
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		// 3. PrintWriter 객체의 println() 메서드를 호출하여 HTML 태그(자바스크립트) 문자열 생성
-
-		out.println("<script>");
-		out.println("alert('회원탈퇴 되었습니다.')");
-		out.println("location.href='./index'");
-		out.println("</script>");
-	
 		
 		return "redirect:/foot/index";
 
@@ -268,20 +261,11 @@ public class MemberController {
 	}
 
 	@RequestMapping(value = "/foot/updateMemberPro", method = RequestMethod.POST)
-	public String updateMemberPro(MemberDTO memberDTO, Model model, HttpSession session, HttpServletResponse response) throws Exception {
+	public String updateMemberPro(MemberDTO memberDTO, Model model, HttpSession session) throws Exception {
 		System.out.println(memberDTO.toString());
 		System.out.println("이거 멤버프론데..");
 		memberDTO.setM_idx((Integer) session.getAttribute("m_idx"));
 		memberService.updateMember(memberDTO);
-		
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		// 3. PrintWriter 객체의 println() 메서드를 호출하여 HTML 태그(자바스크립트) 문자열 생성
-
-		out.println("<script>");
-		out.println("alert('회원정보가 변경되었습니다.')");
-		out.println("location.href='./index'");
-		out.println("</script>");
 		
 		return "redirect:/foot/member_info";
 	}
@@ -308,15 +292,9 @@ public class MemberController {
 		String encryPassword = UserSha256.encrypt(memberDTO.getM_pass());
 		memberDTO.setM_pass(encryPassword);
 		memberService.updatePass(memberDTO);
-		response.setContentType("text/html; charset=UTF-8");
-		PrintWriter out = response.getWriter();
-		// 3. PrintWriter 객체의 println() 메서드를 호출하여 HTML 태그(자바스크립트) 문자열 생성
 
-		out.println("<script>");
-		out.println("alert('회원 비밀번호가 변경되었습니다. 다시 로그인해 주세요.')");
+
 		session.invalidate();
-		out.println("location.href='./index'");
-		out.println("</script>");
 		return "/foot/index";
 	}
 
