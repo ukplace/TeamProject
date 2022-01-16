@@ -107,20 +107,7 @@ td {
 	margin: 20px 0;
 }
 </style>
-<script type="text/javascript">
-	function changeSize1(size) {
-		//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
-		document.getElementById("size1").value = size;
-	}
-	function changeSize2(size) {
-		//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
-		document.getElementById("size2").value = size;
-	}
-	function changeSize3(size) {
-		//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
-		document.getElementById("size3").value = size;
-	}
-</script>
+
 
 
 </head>
@@ -151,12 +138,12 @@ td {
 
 								<tr>
 									<th>사이즈</th>
-									<td><input type="text" name="list[0].p_size" id="size_1"
-										required="required" size="10"> <select name="selectSize" onchange="changeSize1(this.value)">
+									<td><input type="text" name="list[0].p_size" id="size_1" required="required" size="15" readonly placeholder="사이즈를 선택하세요">
+									<select name="selectSize" id="select_size1" onchange="changeSize1()">
 											<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입란에 표시 -->
 											<!-- this 주면 여기 이 태그가 날라간다!  -->
 											<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입력란에 표시 -->
-											<option value="">직접입력</option>
+											<option value="">사이즈선택</option>
 											<option value="220">220</option>
 											<option value="235">235</option>
 											<option value="240">240</option>
@@ -181,13 +168,12 @@ td {
 
 								<tr>
 									<th>사이즈</th>
-									<td><input type="text" name="list[1].p_size" id="size_2"
-										required="required" size="10"> <select
-										name="selectSize" onchange="changeSize2(this.value)">
+									<td><input type="text" name="list[1].p_size" id="size_2" required="required" size="15" readonly placeholder="사이즈를 선택하세요"> 
+										<select name="selectSize" onchange="changeSize2(this.value)" >
 											<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입란에 표시 -->
 											<!-- this 주면 여기 이 태그가 날라간다!  -->
 											<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입력란에 표시 -->
-											<option value="">직접입력</option>
+											<option value="">사이즈선택</option>
 											<option value="220">220</option>
 											<option value="235">235</option>
 											<option value="240">240</option>
@@ -210,13 +196,12 @@ td {
 								</tr>
 								<tr>
 									<th>사이즈</th>
-									<td><input type="text" name="list[2].p_size" id="size_3"
-										required="required" size="10" value=""> <select
-										name="selectSize" onchange="changeSize3(this.value)">
+									<td><input type="text" name="list[2].p_size" id="size_3" required="required" size="15" value="" readonly placeholder="사이즈를 선택하세요"> 
+										<select	name="selectSize" onchange="changeSize3(this.value)" >
 											<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입란에 표시 -->
 											<!-- this 주면 여기 이 태그가 날라간다!  -->
 											<!-- 셀렉트박스 도메인 선택 시 해당 값을 이메일의 도메인 입력란에 표시 -->
-											<option value="">직접입력</option>
+											<option value="">사이즈선택</option>
 											<option value="220">220</option>
 											<option value="235">235</option>
 											<option value="240">240</option>
@@ -301,6 +286,23 @@ td {
 
 		// ============================================================================================================================
 	</script>
+	
+	<script type="text/javascript">
+	function changeSize1() {
+		//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
+		var size = document.getElementById("select_size1").value
+		alert(size);
+		document.getElementById("size_1").value = size;
+	}
+	function changeSize2(size) {
+		//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
+		document.getElementById("size_2").value = size;
+	}
+	function changeSize3(size) {
+		//SELECTBOX 선택항목(도메인)을 입력상자(email2)에 표시
+		document.getElementById("size_3").value = size;
+	}
+</script>
 
 </body>
 </html>
